@@ -1,4 +1,4 @@
-source ../common.sh
+source $HOME/.dotfiles/shell/common.sh
 
 export ZSH=/Users/tpb487/.oh-my-zsh
 ZSH_THEME="kolo"

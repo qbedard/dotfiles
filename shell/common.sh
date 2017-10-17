@@ -11,8 +11,8 @@ alias vzs="vim ~/.zshrc"
 alias rzs="source ~/.zshrc"
 alias vbs="vim ~/.bashrc"
 alias rbs="source ~/.bashrc"
-alias vr="vim ~/.vim/vimrc"
-alias vb="vim ~/.vim/vimrc.bundles"
+alias vr="vim ~/.vimrc"
+alias vb="vim ~/.vimrc.bundles"
 
 # --- Git ---
 alias gs="git status"

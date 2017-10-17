@@ -84,7 +84,7 @@ cnoreabbrev vrr :source $MYVIMRC
 cnoreabbrev vr :e $MYVIMRC
 
 " shortcut to edit vimrc.bundles
-cnoreabbrev vb :e $MYVIMRC.bundles
+cnoreabbrev vb :e $HOME/.dotfiles/vim/vimrc.bundles
 
 
 " ----- Navigation -----
@@ -155,11 +155,15 @@ cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Ba
 
 " ----- Misc -----
 
+" keep swap files out of our hair (not working right)
+" set directory=$HOME/.vim/swapfiles//
+" set backupdir=$HOME/.vim/backups//
+
 " syntax hightling for .nat files
 autocmd BufNewFile,BufRead *.nat  set syntax=natural
 
 
 " ----- Plugins -----
-if filereadable(expand("$HOME/.vim/vimrc.bundles"))
-  source $HOME/.vim/vimrc.bundles
+if filereadable(expand("$HOME/.dotfiles/vim/vimrc.bundles"))
+  source $HOME/.dotfiles/vim/vimrc.bundles
 endif
