@@ -27,6 +27,15 @@ alias gm="git merge"
 alias gp="git push"
 alias gl="git pull"
 
+# ----- PyPE  ----- #
+alias dj="python manage.py"
+alias djrs="python manage.py runserver"
+alias djrss="python manage.py runsslserver"
+alias djsh="python manage.py shell"
+alias djsu="python manage.py createsuperuser"
+alias djm="python manage.py migrate"
+alias djmm="python manage.py makemigrations"
+
 # ----- Misc ----- #
 # 10ms for key sequences
 KEYTIMEOUT=1
