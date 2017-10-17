@@ -1,0 +1,3 @@
+source ../common.sh
+
+eval "$(direnv hook bash)"
