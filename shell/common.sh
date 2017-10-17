@@ -7,8 +7,10 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/.composer/vendor/bin:$PAT
 alias l="ls -1"
 alias q="exit"
 alias quit="exit"
-alias vz="vim ~/.zshrc"
-alias zr="source ~/.zshrc"
+alias vzs="vim ~/.zshrc"
+alias rzs="source ~/.zshrc"
+alias vbs="vim ~/.bashrc"
+alias rbs="source ~/.bashrc"
 alias vr="vim ~/.vim/vimrc"
 alias vb="vim ~/.vim/vimrc.bundles"
 
