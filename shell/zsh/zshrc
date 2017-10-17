@@ -1,5 +1,3 @@
-source $HOME/.dotfiles/shell/common.sh
-
 export ZSH=/Users/tpb487/.oh-my-zsh
 ZSH_THEME="kolo"
 
@@ -11,4 +9,5 @@ source $ZSH/oh-my-zsh.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+source $HOME/.dotfiles/shell/common.sh
 eval "$(direnv hook zsh)"
