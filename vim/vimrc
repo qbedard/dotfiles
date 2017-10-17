@@ -1,0 +1,165 @@
+" --------------------
+"  Tim Bedard's vimrc
+" --------------------
+
+" ----- General -----
+set nocompatible
+let mapleader=" "
+set showcmd
+set laststatus=2
+set autoread
+set history=1000
+
+if has('autocmd')
+  filetype plugin indent on
+endif
+
+" prevent delay when changing modes
+if !has('nvim') && &ttimeoutlen == -1
+  set ttimeout
+  set ttimeoutlen=50
+endif
+
+
+" --- Tabs & Indentation ---
+set smarttab
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+set autoindent
+set backspace=indent,eol,start
+
+" --- Line Numbers ---
+set ruler
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+
+" --- Searching ---
+set incsearch
+
+set wildmenu
+set wildmode=longest:full,full
+set wildignore+=*/tmp/*,/var/*,*.so,*.swp,*.zip,*.tar  " macOS/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+" add current file location to path
+set path+=**
+
+" use ag instead of grep if available
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+" ----- Appearance -----
+if has('syntax')
+  syntax enable
+endif
+
+set t_Co=256
+set background=dark
+set guioptions=
+autocmd VimResized * wincmd =
+
+set textwidth=120
+
+" start scrolling when near the last line/col
+set scrolloff=1
+set sidescrolloff=5
+set display+=lastline
+
+
+" ----- vimrc -----
+
+" reload vimrc
+cnoreabbrev vrr :source $MYVIMRC
+
+" shortcut to edit vimrc
+cnoreabbrev vr :e $MYVIMRC
+
+" shortcut to edit vimrc.bundles
+cnoreabbrev vb :e $MYVIMRC.bundles
+
+
+" ----- Navigation -----
+
+" nav to begin and end of line (rather than buffer) with H/L
+nnoremap H ^
+nnoremap L $
+
+" faster exiting from insert mode
+inoremap jj <Esc>
+" inoremap jk <Esc>
+" inoremap kj <Esc>
+
+" easier nav in insert mode (Ctrl)
+inoremap <C-k> <C-o>gk
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <C-o>gj
+
+" faster command entry
+nnoremap ; :
+
+" window switching (Ctrl)
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+set splitbelow
+set splitright
+
+" buffer switching (Alt)
+" nnoremap ¬ :bnext<CR>
+" nnoremap ˙ :bprev<CR>
+" nnoremap ∆ :bnext<CR>
+" nnoremap ˚ :bprev<CR>
+
+" buffer switching (Tab)
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
+
+" tab switching (Ctrl+Tab)
+map    <C-Tab>  :tabnext<CR>
+imap   <C-Tab>  <C-O>:tabnext<CR>
+map    <M-Tab>  :tabprev<CR>
+imap   <M-Tab>  <C-O>:tabprev<CR>
+
+" I'm bad at typing.
+:command! Q q
+:command! W w
+:command! WQ wq
+:command! Wq wq
+
+
+" ----- Editing -----
+set nrformats-=octal
+
+" redo
+nnoremap U <C-R>
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
+
+" insert a single character
+nnoremap  <leader>i i<Space><Esc>r
+
+" trim white space
+cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+
+" ----- Misc -----
+
+" syntax hightling for .nat files
+autocmd BufNewFile,BufRead *.nat  set syntax=natural
+
+
+" ----- Plugins -----
+if filereadable(expand("$HOME/.vim/vimrc.bundles"))
+  source $HOME/.vim/vimrc.bundles
+endif
