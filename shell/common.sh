@@ -31,7 +31,7 @@ alias gl="git pull"
 
 # ----- PyPE  ----- #
 alias pw="pype_workon"
-alais pw2.8="pype_workon 27.8.0"
+alias pw2.8="pype_workon 27.8.0"
 alias pw2.11="pype_workon 27.11.0"
 alias pw3.11="pype_workon 35.11.0"
 alias dj="python manage.py"
