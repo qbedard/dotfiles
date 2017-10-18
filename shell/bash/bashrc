@@ -1,4 +1,4 @@
-source ../common.sh
+. $HOME/.dotfiles/shell/common.sh
 
 if type "$direnv" > /dev/null; then
     eval "$(direnv hook bash)"
