@@ -157,7 +157,7 @@ cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Ba
 
 " keep swap files out of our hair (not working right)
 set directory=$HOME/.vim/swap//
-set backupdir=$HOME/.vim/backups//
+set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
 
 " syntax hightling for .nat files
