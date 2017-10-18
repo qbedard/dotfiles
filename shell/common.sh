@@ -43,3 +43,4 @@ alias djmm="python manage.py makemigrations"
 KEYTIMEOUT=1
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
