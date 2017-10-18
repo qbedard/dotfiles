@@ -30,6 +30,10 @@ alias gp="git push"
 alias gl="git pull"
 
 # ----- PyPE  ----- #
+alias pw="pype_workon"
+alais pw2.8="pype_workon 27.8.0"
+alias pw2.11="pype_workon 27.11.0"
+alias pw3.11="pype_workon 35.11.0"
 alias dj="python manage.py"
 alias djrs="python manage.py runserver"
 alias djrss="python manage.py runsslserver"
@@ -39,8 +43,12 @@ alias djm="python manage.py migrate"
 alias djmm="python manage.py makemigrations"
 
 # ----- Misc ----- #
+
 # 10ms for key sequences
 KEYTIMEOUT=1
 
+# AutoJump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
