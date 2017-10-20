@@ -41,6 +41,8 @@ alias djsh="python manage.py shell"
 alias djsu="python manage.py createsuperuser"
 alias djm="python manage.py migrate"
 alias djmm="python manage.py makemigrations"
+alias vs="vim settings.py"
+alias vl="vim local_settings.py"
 
 # ----- Misc ----- #
 
