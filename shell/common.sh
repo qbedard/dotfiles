@@ -30,6 +30,9 @@ alias gp="git push"
 alias gl="git pull"
 
 # ----- PyPE  ----- #
+alias vu="vagrant up"
+alias vh="vagrant halt"
+alias vss="vagrant ssh"
 alias pw="pype_workon"
 alias pw2.8="pype_workon 27.8.0"
 alias pw2.11="pype_workon 27.11.0"
