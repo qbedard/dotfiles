@@ -43,6 +43,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" - Syntax -
+Plug 'tpope/vim-liquid'
+
 " - Completion & linting -
 Plug 'ajh17/VimCompletesMe'
 " Plug 'scrooloose/syntastic'
