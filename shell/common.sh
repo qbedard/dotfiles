@@ -12,7 +12,7 @@ alias rzs="source ~/.zshrc"
 alias vbs="vim ~/.bashrc"
 alias rbs="source ~/.bashrc"
 alias vr="vim ~/.vimrc"
-alias vb="vim ~/.vimrc.bundles"
+alias vb="vim ~/.dotfiles/vim/vimrc.bundles"
 
 # --- Git ---
 alias gs="git status"

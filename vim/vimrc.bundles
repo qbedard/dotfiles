@@ -44,6 +44,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " - Syntax -
+Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'
 
 " - Completion & linting -
@@ -52,7 +53,6 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'neomake/neomake'
 " Plug 'klen/python-mode'
 Plug 'mattn/emmet-vim'
-Plug 'hail2u/vim-css3-syntax'
 
 " \---- End Plugins ----/
 
