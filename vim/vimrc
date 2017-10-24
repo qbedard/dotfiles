@@ -139,7 +139,12 @@ imap   <M-Tab>  <C-O>:tabprev<CR>
 
 
 " ----- Editing -----
+
+" prevent some unfortunate number incrementing behavior
 set nrformats-=octal
+
+" yank to system clipboard
+set clipboard=unnamed
 
 " redo
 nnoremap U <C-R>
