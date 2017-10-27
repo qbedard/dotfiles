@@ -54,6 +54,10 @@ Plug 'neomake/neomake'
 " Plug 'klen/python-mode'
 Plug 'mattn/emmet-vim'
 
+" - Snippets -
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+
 " \---- End Plugins ----/
 
 call plug#end()
