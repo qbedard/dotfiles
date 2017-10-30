@@ -105,7 +105,9 @@ inoremap <C-l> <Right>
 inoremap <C-j> <C-o>gj
 
 " faster command entry
-nnoremap ; :
+map ; :
+" but still keep the ; functionality
+nnoremap ;; ;
 
 " window switching (Ctrl)
 nnoremap <C-j> <C-w>j
