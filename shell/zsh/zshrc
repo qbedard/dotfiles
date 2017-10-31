@@ -11,6 +11,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 source $HOME/.dotfiles/shell/common.sh
 
-if type "$direnv" > /dev/null; then
+if hash direnv 2>/dev/null; then
     eval "$(direnv hook zsh)"
 fi
