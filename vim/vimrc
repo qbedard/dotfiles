@@ -31,6 +31,12 @@ set shiftwidth=4
 set autoindent
 set backspace=indent,eol,start
 
+" Wrap a line around visually if it's too long.
+set wrap
+set textwidth=0
+set wrapmargin=0
+
+
 " --- Line Numbers ---
 set ruler
 set number relativenumber

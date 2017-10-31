@@ -161,3 +161,9 @@ map ˜ :NERDTreeFind<CR>
 if &runtimepath =~ 'vim-gutentags'
   nmap <leader>t :TagbarToggle<CR>
 endif
+
+
+" --- YouCompleteMe ---
+if &runtimepath =~ 'youcompleteme'
+  let g:ycm_autoclose_preview_window_after_completion=1
+endif
