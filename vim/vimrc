@@ -95,6 +95,9 @@ cnoreabbrev vb :e $HOME/.dotfiles/vim/vimrc.bundles
 
 " ----- Navigation -----
 
+" let the mouse wheel scroll page, etc
+set mouse=a
+
 " nav to begin and end of line (rather than buffer) with H/L
 nnoremap H ^
 nnoremap L $
