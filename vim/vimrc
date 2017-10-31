@@ -160,15 +160,29 @@ nnoremap  <leader>i i<Space><Esc>r
 cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 
+" ----- Languages -----
+
+" Python Virtualenv
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  sys.path.insert(0, project_base_dir)
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" syntax hightling for .nat files
+autocmd BufNewFile,BufRead *.nat  set syntax=natural
+
+
 " ----- Misc -----
 
 " keep swap files out of our hair (not working right)
 set directory=$HOME/.vim/swap//
 set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
-
-" syntax hightling for .nat files
-autocmd BufNewFile,BufRead *.nat  set syntax=natural
 
 
 " ----- Plugins -----

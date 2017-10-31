@@ -48,7 +48,8 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'
 
 " - Completion & linting -
-Plug 'ajh17/VimCompletesMe'
+" Plug 'ajh17/VimCompletesMe'
+Plug 'valloric/youcompleteme'
 " Plug 'scrooloose/syntastic'
 Plug 'neomake/neomake'
 " Plug 'klen/python-mode'
