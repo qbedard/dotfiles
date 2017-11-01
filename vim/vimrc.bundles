@@ -47,7 +47,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'
 
-" - Completion & linting -
+" - Completion & Linting -
 " Plug 'ajh17/VimCompletesMe'
 Plug 'valloric/youcompleteme'
 " Plug 'scrooloose/syntastic'
@@ -56,6 +56,7 @@ Plug 'neomake/neomake'
 Plug 'mattn/emmet-vim'
 
 " - Snippets -
+Plug 'ervandew/supertab'
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -156,6 +157,9 @@ map ˜ :NERDTreeFind<CR>
 " Shortcut fallback to shortcut menu on partial entry
 "       \ noremap <silent> <Leader> :Shortcuts<Return>
 
+" --- SuperTab ---
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
 
 " --- Tagbar ---
 if &runtimepath =~ 'vim-gutentags'
@@ -163,7 +167,15 @@ if &runtimepath =~ 'vim-gutentags'
 endif
 
 
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<cr>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+
 " --- YouCompleteMe ---
 if &runtimepath =~ 'youcompleteme'
   let g:ycm_autoclose_preview_window_after_completion=1
+  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 endif
