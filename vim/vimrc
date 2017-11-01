@@ -191,7 +191,12 @@ autocmd BufNewFile,BufRead *.nat  set syntax=natural
 " keep swap files out of our hair (not working right)
 set directory=$HOME/.vim/swap//
 set backupdir=$HOME/.vim/backup//
-set undodir=$HOME/.vim/undo//
+
+" persistent undo
+if has('persistent_undo')
+  set undofile
+  set undodir=$HOME/.vim/undo//
+endif
 
 
 " ----- Plugins -----
