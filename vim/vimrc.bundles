@@ -168,14 +168,14 @@ endif
 
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<cr>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsExpandTrigger="<cr>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 
 " --- YouCompleteMe ---
-if &runtimepath =~ 'youcompleteme'
-  let g:ycm_autoclose_preview_window_after_completion=1
-  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-endif
+" if &runtimepath =~ 'youcompleteme'
+"   let g:ycm_autoclose_preview_window_after_completion=1
+"   let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"   let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" endif
