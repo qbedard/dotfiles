@@ -8,6 +8,7 @@ let mapleader=" "
 set showcmd
 set laststatus=2
 set autoread
+set hidden
 set history=1000
 
 if has('autocmd')
@@ -172,6 +173,7 @@ cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Ba
 " auto view saving (to keep folds)
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
+set viewoptions-=options
 
 
 " ----- Languages -----
