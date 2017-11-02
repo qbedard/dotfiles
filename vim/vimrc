@@ -21,7 +21,7 @@ if !has('nvim') && &ttimeoutlen == -1
 endif
 
 
-" --- Tabs & Indentation ---
+" ----- Tabs & Indentation -----
 set smarttab
 set expandtab
 set tabstop=4
@@ -37,7 +37,7 @@ set textwidth=0
 set wrapmargin=0
 
 
-" --- Line Numbers ---
+" ----- Line Numbers -----
 set ruler
 set number relativenumber
 augroup numbertoggle
@@ -47,7 +47,7 @@ augroup numbertoggle
 augroup END
 
 
-" --- Searching ---
+" ----- Searching -----
 set incsearch
 
 set wildmenu
@@ -62,6 +62,7 @@ set path+=**
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
+
 
 " ----- Appearance -----
 if has('syntax')
@@ -167,6 +168,10 @@ nnoremap  <leader>i i<Space><Esc>r
 
 " trim white space
 cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+" auto view saving (to keep folds)
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
 
 " ----- Languages -----
