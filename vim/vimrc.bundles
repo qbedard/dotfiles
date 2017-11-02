@@ -71,11 +71,11 @@ endif
 
 " ----- Plugin Config -----
 
-" -- Theme --
+" --- Theme ---
 colorscheme gruvbox
 
 
-" -- airline --
+" --- airline ---
 let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 
@@ -107,13 +107,14 @@ map \ <Plug>(easymotion-prefix)
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 
+
 " --- Emmet ---
 let g:user_emmet_leader_key=','
 
 
 " --- Fugitive ---
 " :command Gadd Git add %
-"
+
 
 " --- GitGutter ---
 if exists('&signcolumn')  " Vim 7.4.2201
@@ -123,10 +124,12 @@ else
 endif
 highlight clear SignColumn
 
+
 " --- Gutentags ---
 if &runtimepath =~ 'vim-gutentags'
   let g:gutentags_cache_dir = '~/.vim/tags'
 endif
+
 
 " --- NeoMake ---
 " lint when writing a buffer.
@@ -157,6 +160,7 @@ map ˜ :NERDTreeFind<CR>
 " Shortcut fallback to shortcut menu on partial entry
 "       \ noremap <silent> <Leader> :Shortcuts<Return>
 
+
 " --- SuperTab ---
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
@@ -167,15 +171,15 @@ if &runtimepath =~ 'vim-gutentags'
 endif
 
 
-" UltiSnips
+" --- UltiSnips ---
 " let g:UltiSnipsExpandTrigger="<cr>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 
 " --- YouCompleteMe ---
-" if &runtimepath =~ 'youcompleteme'
-"   let g:ycm_autoclose_preview_window_after_completion=1
-"   let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-"   let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" endif
+if &runtimepath =~ 'youcompleteme'
+  let g:ycm_autoclose_preview_window_after_completion=1
+  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+endif
