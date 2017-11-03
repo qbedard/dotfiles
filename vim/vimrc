@@ -176,6 +176,8 @@ nnoremap  <leader>i i<Space><Esc>r
 " trim white space
 cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
+set foldmethod=manual
+
 " auto view saving (to keep folds)
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview

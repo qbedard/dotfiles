@@ -9,6 +9,7 @@ if empty(glob('$HOME/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
 " ----- Install Plugins -----
 filetype off
 call plug#begin('$HOME/.vim/plugged') "
@@ -45,9 +46,10 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" - Syntax -
+" - Language -
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'
+Plug 'tmhedberg/simpylfold'
 
 " - Completion & Linting -
 " Plug 'ajh17/VimCompletesMe'
@@ -167,6 +169,10 @@ map ˜ :NERDTreeFind<CR>
 "       \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
 " Shortcut fallback to shortcut menu on partial entry
 "       \ noremap <silent> <Leader> :Shortcuts<Return>
+
+
+" --- SimplyFold ---
+let g:SimpylFold_docstring_preview = 1
 
 
 " --- Startify ---
