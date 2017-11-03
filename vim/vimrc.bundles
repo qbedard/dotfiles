@@ -146,7 +146,12 @@ map g/ <Plug>(incsearch-stay)
 
 " --- NeoMake ---
 " lint when writing a buffer.
-call neomake#configure#automake('rw')
+
+if has('nvim') || v:version >= 800
+  call neomake#configure#automake('nrw', 500)
+else
+  call neomake#configure#automake('rw')
+endif
 
 " pylint is super noisy, so let's stick to flake8.
 let g:neomake_python_flake8_maker = {
