@@ -50,6 +50,7 @@ augroup END
 
 " ----- Searching -----
 set incsearch
+set ignorecase smartcase
 
 set wildmenu
 set wildmode=longest:full,full
