@@ -193,6 +193,15 @@ EOF
 autocmd BufNewFile,BufRead *.nat  set syntax=natural
 
 
+" ----- Autocmds -----
+
+" jump to last cursor position (Thanks, Gary Bernhardt
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g'\"" |
+  \ endif
+
+
 " ----- Misc -----
 
 " keep swap files out of our hair (not working right)
