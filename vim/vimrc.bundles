@@ -52,8 +52,11 @@ Plug 'tpope/vim-liquid'
 Plug 'tmhedberg/simpylfold'
 
 " - Completion & Linting -
-" Plug 'ajh17/VimCompletesMe'
-Plug 'valloric/youcompleteme'
+if v:version >= 705
+  Plug 'valloric/youcompleteme'
+else
+  Plug 'ajh17/VimCompletesMe'
+endif
 " Plug 'scrooloose/syntastic'
 Plug 'neomake/neomake'
 " Plug 'klen/python-mode'
