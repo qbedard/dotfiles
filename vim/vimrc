@@ -73,6 +73,8 @@ if has('syntax')
   syntax enable
 endif
 
+set cursorline
+
 set t_Co=256
 set background=dark
 set guioptions=
