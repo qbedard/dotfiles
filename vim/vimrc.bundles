@@ -25,6 +25,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-startify'
 
 " - Fuzzy Search & Tags -
+Plug 'haya14busa/incsearch.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 if executable('ctags')
   Plug 'ludovicchabant/vim-gutentags'
@@ -132,6 +133,12 @@ if &runtimepath =~ 'vim-gutentags'
 endif
 
 
+" --- incsearch ---
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+
 " --- NeoMake ---
 " lint when writing a buffer.
 call neomake#configure#automake('rw')
@@ -164,7 +171,7 @@ map ˜ :NERDTreeFind<CR>
 
 " --- Startify ---
 let g:startify_change_to_vcs_root = 1
-let g:startify_session_autoload = 0
+let g:startify_session_autoload = 1
 let g:startify_custom_header = startify#fortune#boxed()
 
 

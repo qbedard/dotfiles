@@ -56,6 +56,8 @@ set wildmode=longest:full,full
 set wildignore+=*/tmp/*,/var/*,*.so,*.swp,*.zip,*.tar  " macOS/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
+" nnoremap <CR> :nohlsearch<CR>
+
 " add current file location to path
 set path+=**
 
@@ -191,15 +193,6 @@ EOF
 
 " syntax hightling for .nat files
 autocmd BufNewFile,BufRead *.nat  set syntax=natural
-
-
-" ----- Autocmds -----
-
-" jump to last cursor position (Thanks, Gary Bernhardt
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g'\"" |
-  \ endif
 
 
 " ----- Misc -----
