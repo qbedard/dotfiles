@@ -81,8 +81,6 @@ set background=dark
 set guioptions=
 autocmd VimResized * wincmd =
 
-set textwidth=120
-
 " start scrolling when near the last line/col
 set scrolloff=1
 set sidescrolloff=5
