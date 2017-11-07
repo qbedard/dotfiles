@@ -45,6 +45,7 @@ Plug 'editorconfig/editorconfig-vim'
 " - Git -
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/gv.vim'
 
 " - Language -
 Plug 'hail2u/vim-css3-syntax'
