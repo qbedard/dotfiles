@@ -68,6 +68,13 @@ Plug 'ervandew/supertab'
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
+" - Notes -
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+
+" - Preview -
+" Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'suan/vim-instant-markdown'
+
 " \---- End Plugins ----/
 
 call plug#end()
@@ -145,6 +152,17 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 
+" --- Instant Markdown ---
+
+
+" --- Markdown Preview ---
+" let vim_markdown_preview_toggle=2
+" let vim_markdown_preview_hotkey='<leader>m'
+" let vim_markdown_preview_github=1
+" let vim_markdown_preview_browser='Google Chrome'
+" let vim_markdown_preview_temp_file=1
+
+
 " --- NeoMake ---
 " lint when writing a buffer.
 
@@ -204,6 +222,11 @@ endif
 " let g:UltiSnipsExpandTrigger="<cr>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+
+" --- Vimwiki ---
+" let g:vimwiki_list = [{'path': '~/vimwiki',
+"                      \ 'syntax': 'markdown', 'ext': '.wiki'}]
 
 
 " --- YouCompleteMe ---
