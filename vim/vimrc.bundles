@@ -42,6 +42,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Valloric/MatchTagAlways'
+Plug 'junegunn/vim-easy-align'
 
 " - Git -
 Plug 'tpope/vim-fugitive'
@@ -251,6 +252,13 @@ endif
 " --- Vimwiki ---
 let g:vimwiki_list = [{'path': '~/vimwiki',
                      \ 'syntax': 'markdown', 'ext': '.wiki'}]
+
+" --- vim-easy-align ---
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
 " --- YouCompleteMe ---
