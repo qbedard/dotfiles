@@ -129,7 +129,8 @@ nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 
 " --- Emmet ---
-let g:user_emmet_leader_key=','
+"  default is <C-Y>
+" let g:user_emmet_leader_key=','
 
 
 " --- Fugitive ---
