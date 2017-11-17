@@ -73,7 +73,7 @@ if has('syntax')
   syntax enable
 endif
 
-set guifont=Monaco:h12
+set guifont=Menlo:h12
 set cursorline
 
 set t_Co=256
