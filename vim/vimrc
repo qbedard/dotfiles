@@ -171,6 +171,7 @@ inoremap <c-w> <c-g>u<c-w>
 
 " insert a single character
 nnoremap  <leader>i i<Space><Esc>r
+nnoremap  <leader>a a<Space><Esc>r
 
 " trim white space
 cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
