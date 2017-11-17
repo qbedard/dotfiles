@@ -75,6 +75,10 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 " Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'suan/vim-instant-markdown'
 
+" - Writing -
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
 " \---- End Plugins ----/
 
 call plug#end()
@@ -153,6 +157,14 @@ map g/ <Plug>(incsearch-stay)
 
 
 " --- Instant Markdown ---
+
+" --- LimeLight ---
+nmap <Leader>l <Plug>(Limelight)
+xmap <Leader>l <Plug>(Limelight)
+" let g:limelight_conceal_ctermfg = 245
+let g:limelight_conceal_ctermfg = 'gray'
+" let g:limelight_conceal_guifg = '#928374'
+let g:limelight_conceal_guifg = 'DarkGray'
 
 
 " --- Markdown Preview ---
