@@ -41,6 +41,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Valloric/MatchTagAlways'
 
 " - Git -
 Plug 'tpope/vim-fugitive'
@@ -173,6 +174,16 @@ let g:limelight_conceal_guifg = 'DarkGray'
 " let vim_markdown_preview_github=1
 " let vim_markdown_preview_browser='Google Chrome'
 " let vim_markdown_preview_temp_file=1
+
+
+" --- MatchTagAlways ---
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'htmldjango' : 1,
+    \}
 
 
 " --- NeoMake ---
