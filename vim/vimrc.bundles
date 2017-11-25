@@ -160,6 +160,7 @@ map g/ <Plug>(incsearch-stay)
 
 
 " --- Instant Markdown ---
+let g:instant_markdown_autostart = 0
 
 " --- LimeLight ---
 nmap <Leader>l <Plug>(Limelight)
