@@ -138,15 +138,9 @@ nnoremap <C-h> <C-w>h
 set splitbelow
 set splitright
 
-" buffer switching (Alt)
-" nnoremap ¬ :bnext<CR>
-" nnoremap ˙ :bprev<CR>
-" nnoremap ∆ :bnext<CR>
-" nnoremap ˚ :bprev<CR>
-
-" buffer switching (Tab)
-nnoremap <Tab> :bn<CR>
-nnoremap <S-Tab> :bp<CR>
+" buffer switching (Shift + j/k)
+nnoremap K :bn<CR>
+nnoremap J :bp<CR>
 
 " tab switching (Ctrl+Tab)
 map    <C-Tab>  :tabnext<CR>
