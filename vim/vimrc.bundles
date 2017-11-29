@@ -52,6 +52,7 @@ Plug 'junegunn/gv.vim'
 " - Language -
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'
+Plug 'raimon49/requirements.txt.vim'
 Plug 'tmhedberg/simpylfold'
 
 " - Completion & Linting -
