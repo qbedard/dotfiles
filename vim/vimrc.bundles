@@ -192,8 +192,8 @@ let g:mta_filetypes = {
 
 
 " --- NeoMake ---
-" lint when writing a buffer.
 
+" lint when writing a buffer.
 if has('nvim') || v:version >= 800
   call neomake#configure#automake('nrw', 500)
 else
@@ -211,7 +211,6 @@ let g:neomake_python_flake8_maker = {
         \ 'postprocess': function('neomake#makers#ft#python#Flake8EntryProcess')
     \ }
 let g:neomake_python_enabled_makers = ['flake8']
-
 let g:neomake_python_flake8_args = ['--max-line-length=160', '--format=default']
 
 
@@ -219,7 +218,8 @@ let g:neomake_python_flake8_args = ['--max-line-length=160', '--format=default']
 map <C-n> :NERDTreeToggle<CR>
 map ˜ :NERDTreeFind<CR>
 
-" shortcut
+
+" --- shortcut ---
 " Shortcut show shortcut menu and run chosen shortcut
 "       \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
 " Shortcut fallback to shortcut menu on partial entry
