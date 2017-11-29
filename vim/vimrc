@@ -99,7 +99,7 @@ endif
 cnoreabbrev vrr :source $MYVIMRC
 
 " shortcut to edit vimrc
-cnoreabbrev vr :e $MYVIMRC
+cnoreabbrev vr :e $HOME/.dotfiles/vim/vimrc
 
 " shortcut to edit vimrc.bundles
 cnoreabbrev vb :e $HOME/.dotfiles/vim/vimrc.bundles
@@ -141,6 +141,8 @@ set splitright
 " buffer switching (Shift + j/k)
 nnoremap K :bn<CR>
 nnoremap J :bp<CR>
+vnoremap K :bn<CR>
+vnoremap J :bp<CR>
 
 " tab switching (Ctrl+Tab)
 map    <C-Tab>  :tabnext<CR>
@@ -180,6 +182,7 @@ nnoremap  <leader>a a<Space><Esc>r
 
 " trim white space
 cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
 
 
 " ----- Languages -----
