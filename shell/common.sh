@@ -15,11 +15,13 @@ alias vr="vim ~/.vimrc"
 alias vb="vim ~/.dotfiles/vim/vimrc.bundles"
 
 # --- Git ---
-alias gs="git status"
+alias gs="git status -sb"
 alias ga="git add"
 alias gaa="git add ."
 alias gc="git commit"
 alias gcm="git commit -m"
+alias gca="git commit -a"
+alias gcam="git commit -am"
 alias gr="git reset"
 alias gb="git branch"
 alias gbc="git checkout -b"
@@ -28,6 +30,7 @@ alias gd="git diff"
 alias gm="git merge"
 alias gp="git push"
 alias gl="git pull"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 # ----- PyPE  ----- #
 alias vu="vagrant up"
