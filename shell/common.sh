@@ -60,3 +60,6 @@ KEYTIMEOUT=1
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# rtv
+export RTV_EDITOR=vim
