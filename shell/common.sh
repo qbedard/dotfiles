@@ -55,11 +55,21 @@ alias vl="vim local_settings.py"
 # 10ms for key sequences
 KEYTIMEOUT=1
 
-# AutoJump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # rtv
 export RTV_EDITOR=vim
+
+# fasd
+fasd_cache="$HOME/.fasd-init-sh"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init auto >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
+# fasd aliases
+alias j='fasd_cd -d'
+alias v='f -e vim'
+alias o='a -e open'
