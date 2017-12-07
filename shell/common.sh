@@ -58,7 +58,10 @@ KEYTIMEOUT=1
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# rtv
+# vimpager
+# export PAGER=vimpager
+
+ #rtv
 export RTV_EDITOR=vim
 
 # fasd
