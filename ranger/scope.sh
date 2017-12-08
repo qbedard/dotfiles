@@ -95,7 +95,7 @@ case "$extension" in
         ;; # fall back to highlight/cat if the text browsers fail
 esac
 
-vimcat=$( which vimcat )
+# vimcat=$( which vimcat )
 # $vimcat "$path"
 
 case "$mimetype" in
@@ -110,7 +110,8 @@ case "$mimetype" in
         fi
         # try safepipe highlight --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
         try safepipe pygmentize -f ${pygmentize_format} -O style=gruvbox "$path" && { dump | trim; exit 5; }
-        # try safepipe vimcat "$path" # && { dump | trim; exit 5; }
+        # try safepipe vimcat "$path" && { dump | trim; exit 5; }
+        # safepipe vimcat "$path"
         exit 2;;
     # Ascii-previews of images:
     image/*)
