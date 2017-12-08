@@ -20,10 +20,14 @@ call plug#begin('$HOME/.vim/plugged') "
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-startify'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+if !has('nvim')
+Plug 'rbgrouleff/bclose.vim'  " required for ranger.vim in neovim
+endif
+Plug 'francoiscabrol/ranger.vim', { 'on': 'Ranger' }
 
 " - Fuzzy Search & Tags -
 Plug 'haya14busa/incsearch.vim'
@@ -217,6 +221,11 @@ let g:neomake_python_flake8_args = ['--max-line-length=160', '--format=default']
 " --- NERDTree ---
 map <C-n> :NERDTreeToggle<CR>
 map ˜ :NERDTreeFind<CR>
+
+
+" --- Ranger.vim ---
+let g:ranger_map_keys = 0
+map <leader>r :Ranger<CR>
 
 
 " --- shortcut ---
