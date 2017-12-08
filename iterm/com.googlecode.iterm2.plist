@@ -911,6 +911,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>41BDF4BF-D1B4-4B7B-BD1B-2BADE1290E1B</string>
+	<key>EnableDivisionView</key>
+	<false/>
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTab</key>
@@ -985,9 +987,9 @@
 		</array>
 	</dict>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>667 431 918 381 0 0 1920 1058 </string>
+	<string>666 477 770 429 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>960 0 955 1058 0 0 1920 1058 </string>
+	<string>960 24 955 1034 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>176 71 570 452 0 0 1440 878 </string>
 	<key>NeverWarnAboutShortLivedSessions_41BDF4BF-D1B4-4B7B-BD1B-2BADE1290E1B</key>
@@ -1716,6 +1718,19 @@
 			<string>xterm-256color</string>
 			<key>Transparency</key>
 			<real>0.0061924968274111678</real>
+			<key>Underline Color</key>
+			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
+				<key>Blue Component</key>
+				<real>0.15686274509803921</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
+				<key>Green Component</key>
+				<real>0.15686274509803921</real>
+				<key>Red Component</key>
+				<real>0.15686274509803921</real>
+			</dict>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -1728,6 +1743,8 @@
 			<false/>
 			<key>Use Tab Color</key>
 			<true/>
+			<key>Use Underline Color</key>
+			<false/>
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
