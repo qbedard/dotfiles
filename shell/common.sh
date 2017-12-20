@@ -2,6 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/.composer/vendor/bin:$PATH
 
 # ----- Aliases ----- #
+alias vim="nvim"
 
 # --- General ---
 alias l="ls -1"
