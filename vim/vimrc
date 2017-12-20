@@ -58,7 +58,7 @@ set wildmode=longest:full,full
 set wildignore+=*/tmp/*,/var/*,*.so,*.swp,*.zip,*.tar  " macOS/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
-" nnoremap <CR> :nohlsearch<CR>
+nnoremap <CR> :nohlsearch<CR>
 
 " add current file location to path
 set path+=**
