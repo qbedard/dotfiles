@@ -264,7 +264,7 @@ endif
 
 " --- Vimwiki ---
 let g:vimwiki_list = [{'path': '~/vimwiki',
-                     \ 'syntax': 'markdown', 'ext': '.wiki'}]
+                     \ 'syntax': 'default', 'ext': '.wiki'}]
 
 " --- vim-easy-align ---
 " Start interactive EasyAlign in visual mode (e.g. vipga)
