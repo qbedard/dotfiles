@@ -61,7 +61,7 @@ Plug 'tmhedberg/simpylfold'
 Plug 'chrisbra/csv.vim'
 
 " - Completion & Linting -
-if v:version >= 705
+if has('nvim') || v:version >= 705
   Plug 'valloric/youcompleteme'
 else
   Plug 'ajh17/VimCompletesMe'
