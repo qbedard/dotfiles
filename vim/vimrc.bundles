@@ -24,7 +24,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-if !has('nvim')
+if has('nvim')
 Plug 'rbgrouleff/bclose.vim'  " required for ranger.vim in neovim
 endif
 Plug 'francoiscabrol/ranger.vim', { 'on': 'Ranger' }
