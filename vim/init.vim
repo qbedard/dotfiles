@@ -2,14 +2,48 @@
 "  Tim Bedard's vimrc
 " --------------------
 
+let $DOTFILES_DIR = $HOME . '/.dotfiles/vim'
+let $CONFIG_DIR = $HOME . '/.config/nvim'
+let $DATA_DIR = $HOME . '/.local/share/nvim'
+
+" ----- Neovim Defaults -----
+if !has('nvim')
+  set nocompatible
+  set autoindent
+  set autoread
+  set backspace=indent,eol,start
+  set backupdir=.,$DATA_DIR/backup
+  set belloff=all
+  set complete=.,w,b,u,t  " -=i
+  set directory=$DATA_DIR/swap//
+  set display+=lastline
+  set formatoptions=tcqj
+  set history=10000
+  set hlsearch
+  set incsearch
+  set nolangremap
+  set laststatus=2
+  set listchars=tab:> ,trail:-,nbsp:+
+  set nrformats=bin,hex  " -=octal
+  set ruler
+  set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize  " -=options
+  set showcmd
+  set smarttab
+  set tabpagemax=50
+  set tags=./tags;,tags
+  set ttyfast
+  set undodir=$DATA_DIR/undo
+  set viminfo=!,'100,<50,s10,h  " +=!
+  set wildmenu
+endif
+
+
 " ----- General -----
-set nocompatible
 let mapleader=" "
-set showcmd
-set laststatus=2
-set autoread
-set hidden
-set history=1000
+
+set hidden  " switch buffers without saving
+set splitbelow
+set splitright
 
 if has('autocmd')
   filetype plugin indent on
@@ -21,16 +55,17 @@ if !has('nvim') && &ttimeoutlen == -1
   set ttimeoutlen=50
 endif
 
+" persistent undo
+if has('persistent_undo')
+  set undofile
+endif
+
 
 " ----- Tabs & Indentation -----
-set smarttab
-set expandtab
+set expandtab  " tab inserts spaces
 " set tabstop=4
 " set softtabstop=4
 " set shiftwidth=4
-
-set autoindent
-set backspace=indent,eol,start
 
 " Wrap a line around visually if it's too long.
 set wrap
@@ -40,8 +75,8 @@ set wrapmargin=0
 
 
 " ----- Line Numbers -----
-set ruler
 set number relativenumber
+
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
@@ -50,18 +85,15 @@ augroup END
 
 
 " ----- Searching -----
-set incsearch
 set ignorecase smartcase
 
-set wildmenu
 set wildmode=longest:full,full
 set wildignore+=*/tmp/*,/var/*,*.so,*.swp,*.zip,*.tar  " macOS/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe            " Windows
 
 nnoremap <CR> :nohlsearch<CR>
 
-" add current file location to path
-set path+=**
+set path+=**  " add current file location to path
 
 " use ag instead of grep if available
 if executable('ag')
@@ -80,13 +112,12 @@ set lazyredraw
 
 set t_Co=256
 set background=dark
-set guioptions=
+set guioptions=  " remove scrollbars, etc
 autocmd VimResized * wincmd =
 
 " start scrolling when near the last line/col
 set scrolloff=1
 set sidescrolloff=5
-set display+=lastline
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
@@ -101,16 +132,14 @@ endif
 cnoreabbrev vrr :source $MYVIMRC
 
 " shortcut to edit vimrc
-cnoreabbrev vr :e $HOME/.dotfiles/vim/vimrc
+cnoreabbrev vr :e $DOTFILES_DIR/init.vim
 
-" shortcut to edit vimrc.bundles
-cnoreabbrev vb :e $HOME/.dotfiles/vim/vimrc.bundles
+" shortcut to edit plugins.vim
+cnoreabbrev vp :e $DOTFILES_DIR/plugins.vim
 
 
 " ----- Navigation -----
-
-" let the mouse wheel scroll page, etc
-set mouse=a
+set mouse=a  " let the mouse wheel scroll page, etc
 
 " nav to begin and end of line (rather than buffer) with H/L
 nnoremap H ^
@@ -118,8 +147,6 @@ nnoremap L $
 
 " faster exiting from insert mode
 inoremap jj <Esc>
-" inoremap jk <Esc>
-" inoremap kj <Esc>
 
 " easier nav in insert mode (Ctrl)
 inoremap <C-k> <C-o>gk
@@ -137,8 +164,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
-set splitbelow
-set splitright
 
 " buffer switching (Shift + j/k)
 nnoremap K :bn<CR>
@@ -147,10 +172,10 @@ vnoremap K :bn<CR>
 vnoremap J :bp<CR>
 
 " tab switching (Ctrl+Tab)
-map    <C-Tab>  :tabnext<CR>
-imap   <C-Tab>  <C-O>:tabnext<CR>
-map    <M-Tab>  :tabprev<CR>
-imap   <M-Tab>  <C-O>:tabprev<CR>
+map  <C-Tab>  :tabnext<CR>
+imap <C-Tab>  <C-O>:tabnext<CR>
+map  <M-Tab>  :tabprev<CR>
+imap <M-Tab>  <C-O>:tabprev<CR>
 
 " I'm bad at typing.
 :command! Q q
@@ -165,10 +190,6 @@ set foldmethod=manual
 " auto view saving (to keep folds)
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
-set viewoptions-=options
-
-" prevent some unfortunate number incrementing behavior
-set nrformats-=octal
 
 " yank to system clipboard
 set clipboard=unnamed
@@ -184,7 +205,6 @@ nnoremap  <leader>a a<Space><Esc>r
 
 " trim white space
 cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
-
 
 
 " ----- Languages -----
@@ -207,21 +227,7 @@ EOF
 " syntax hightling for .nat files
 autocmd BufNewFile,BufRead *.nat  set syntax=natural
 
-
-" ----- Misc -----
-
-" keep swap files out of our hair (not working right)
-set directory=$HOME/.vim/swap//
-set backupdir=$HOME/.vim/backup//
-
-" persistent undo
-if has('persistent_undo')
-  set undofile
-  set undodir=$HOME/.vim/undo//
-endif
-
-
 " ----- Plugins -----
-if filereadable(expand("$HOME/.dotfiles/vim/vimrc.bundles"))
-  source $HOME/.dotfiles/vim/vimrc.bundles
+if filereadable(expand('$DOTFILES_DIR/plugins.vim'))
+  source $DOTFILES_DIR/plugins.vim
 endif
