@@ -188,8 +188,8 @@ imap <M-Tab>  <C-O>:tabprev<CR>
 set foldmethod=manual
 
 " auto view saving (to keep folds)
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent! loadview
+autocmd BufWinLeave ?* mkview
+autocmd BufWinEnter ?* silent! loadview
 
 " yank to system clipboard
 set clipboard=unnamed
