@@ -188,6 +188,7 @@ imap <M-Tab>  <C-O>:tabprev<CR>
 set foldmethod=manual
 
 " auto view saving (to keep folds)
+set viewoptions-=options  " keep from saving cur dir
 autocmd BufWinLeave ?* mkview
 autocmd BufWinEnter ?* silent! loadview
 
