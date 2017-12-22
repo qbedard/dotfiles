@@ -2,6 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/.composer/vendor/bin:$PATH
 
 # ----- Aliases ----- #
+alias vim="nvim"
 
 # --- General ---
 alias l="ls -1"
@@ -28,6 +29,7 @@ alias gb="git branch"
 alias gbc="git checkout -b"
 alias gco="git checkout"
 alias gd="git diff"
+alias gdtv="git difftool"
 alias gm="git merge"
 alias gp="git push"
 alias gl="git pull"
