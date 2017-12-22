@@ -189,7 +189,7 @@ set foldmethod=manual
 
 " auto view saving (to keep folds)
 autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+autocmd BufWinEnter *.* silent! loadview
 
 " yank to system clipboard
 set clipboard=unnamed
