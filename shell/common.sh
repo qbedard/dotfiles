@@ -55,6 +55,9 @@ alias vl="vim local_settings.py"
 
 # ----- Misc ----- #
 
+export VISUAL=nvim
+export EDITOR=nvim
+
 # 10ms for key sequences
 KEYTIMEOUT=1
 
