@@ -13,8 +13,8 @@ alias vzs="vim ~/.zshrc"
 alias rzs="source ~/.zshrc"
 alias vbs="vim ~/.bashrc"
 alias rbs="source ~/.bashrc"
-alias vr="vim ~/.vimrc"
-alias vb="vim ~/.dotfiles/vim/vimrc.bundles"
+alias vr="vim ~/.dotfiles/vim/init.vim"
+alias vp="vim ~/.dotfiles/vim/plugins.vim"
 
 # --- Git ---
 alias gs="git status -sb"
