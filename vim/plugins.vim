@@ -27,7 +27,7 @@ Plug 'mhinz/vim-startify'  " fancy start screen
 if has('nvim')
   Plug 'rbgrouleff/bclose.vim'  " required for ranger.vim in neovim
 endif
-Plug 'francoiscabrol/ranger.vim', { 'on': 'Ranger' }
+Plug 'francoiscabrol/ranger.vim'  " , { 'on': 'Ranger' }
 
 " - Fuzzy Search & Tags -
 " Plug 'haya14busa/incsearch.vim'  " incremental highlighting, breaking nvim
