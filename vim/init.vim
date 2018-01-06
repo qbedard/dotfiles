@@ -147,6 +147,8 @@ nnoremap L $
 
 " faster exiting from insert mode
 inoremap jj <Esc>
+tnoremap kk <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
 
 " easier nav in insert mode (Ctrl)
 inoremap <C-k> <C-o>gk
