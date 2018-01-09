@@ -86,8 +86,10 @@ Plug 'zchee/deoplete-jedi'  " python
 Plug 'ervandew/supertab'  " use tab for insert completions
 
 " - Snippets -
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'sirver/ultisnips'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+" Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
 " - Notes -
@@ -259,6 +261,14 @@ if &runtimepath =~ 'neomake'
   let g:neomake_python_flake8_args = ['--max-line-length=160', '--format=default']
 endif
 
+" --- neosnippet.vim ---
+if &runtimepath =~ 'neosnippet.vim'
+  imap <leader>e <Plug>(neosnippet_expand_or_jump)
+  smap <leader>e <Plug>(neosnippet_expand_or_jump)
+  xmap <leader>e <Plug>(neosnippet_expand_target)
+  " let g:neosnippet#enable_snipmate_compatibility = 1  " enable snipMate snippets
+endif
+
 " --- NERDTree ---
 if &runtimepath =~ 'nerdtree'
   map <C-n> :NERDTreeToggle<CR>
@@ -292,10 +302,10 @@ if &runtimepath =~ 'vim-startify'
 endif
 
 " --- SuperTab ---
-" if &runtimepath =~ 'supertab'
+if &runtimepath =~ 'supertab'
   " Tabbing goes bottom-to-top and for some reason this fixes it.
   let g:SuperTabDefaultCompletionType = '<C-n>'
-" endif
+endif
 
 " --- Tagbar ---
 if &runtimepath =~ 'tagbar'
