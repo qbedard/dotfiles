@@ -63,9 +63,9 @@ endif
 
 " ----- Tabs & Indentation -----
 set expandtab  " tab inserts spaces
+set shiftwidth=4
+set softtabstop=4
 " set tabstop=4
-" set softtabstop=4
-" set shiftwidth=4
 
 " Wrap a line around visually if it's too long.
 set wrap
