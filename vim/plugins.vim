@@ -55,10 +55,11 @@ Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
 Plug 'junegunn/gv.vim'  " commit browser
 
 " - Language -
+Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
+Plug 'tmhedberg/simpylfold'  " python folding
+Plug 'tweekmonster/django-plus.vim'  " better django detection/support
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'  " jekyll templates
-Plug 'raimon49/requirements.txt.vim'
-Plug 'tmhedberg/simpylfold'  " python folding
 Plug 'chrisbra/csv.vim'  " strong csv toolset
 
 " - Completion & Linting -
