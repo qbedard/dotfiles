@@ -62,20 +62,30 @@ Plug 'tmhedberg/simpylfold'  " python folding
 Plug 'chrisbra/csv.vim'  " strong csv toolset
 
 " - Completion & Linting -
-if has('nvim') || v:version >= 705
-  Plug 'valloric/youcompleteme'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 else
-  Plug 'ajh17/VimCompletesMe'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'Shougo/neco-vim'  " VimL
+" TODO: figure out how to check if jedi is installed
+Plug 'zchee/deoplete-jedi'  " python
+" if has('nvim') || v:version >= 705
+"   Plug 'valloric/youcompleteme'
+" else
+"   Plug 'ajh17/VimCompletesMe'
+" endif
 "" Plug 'scrooloose/syntastic'
 Plug 'neomake/neomake'  " linting/building
 "" Plug 'klen/python-mode'
 Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
 " - Snippets -
-Plug 'ervandew/supertab'
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'ervandew/supertab'
+" Plug 'sirver/ultisnips'
+" Plug 'honza/vim-snippets'
 
 " - Notes -
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
@@ -128,6 +138,14 @@ if &runtimepath =~ 'ctrlp.vim'
     let g:ctrlp_use_caching = 0
   endif
 endif
+
+" --- deoplete ---
+" if &runtimepath =~ ''
+call deoplete#enable()
+autocmd CompleteDone * pclose  " To close preview window of deoplete automagically
+" tab completion
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" endif
 
 " --- EasyMotion ---
 if &runtimepath =~ 'vim-easymotion'
