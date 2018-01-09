@@ -91,7 +91,7 @@ set wildmode=longest:full,full
 set wildignore+=*/tmp/*,/var/*,*.so,*.swp,*.zip,*.tar  " macOS/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe            " Windows
 
-nnoremap <CR> :nohlsearch<CR>
+nnoremap <cr> :nohlsearch<cr>
 
 set path+=**  " add current file location to path
 
@@ -168,16 +168,16 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
 " buffer switching (Shift + j/k)
-nnoremap K :bn<CR>
-nnoremap J :bp<CR>
-vnoremap K :bn<CR>
-vnoremap J :bp<CR>
+nnoremap K :bn<cr>
+nnoremap J :bp<cr>
+vnoremap K :bn<cr>
+vnoremap J :bp<cr>
 
 " tab switching (Ctrl+Tab)
-map  <C-Tab>  :tabnext<CR>
-imap <C-Tab>  <C-O>:tabnext<CR>
-map  <M-Tab>  :tabprev<CR>
-imap <M-Tab>  <C-O>:tabprev<CR>
+map  <C-Tab>  :tabnext<cr>
+imap <C-Tab>  <C-O>:tabnext<cr>
+map  <M-Tab>  :tabprev<cr>
+imap <M-Tab>  <C-O>:tabprev<cr>
 
 " I'm bad at typing.
 :command! Q q
@@ -207,8 +207,13 @@ nnoremap  <leader>i i<Space><Esc>r
 nnoremap  <leader>a a<Space><Esc>r
 
 " trim white space
-cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <cr>
 
+" ----- Completion -----
+" <cr> to select completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
+
+set completeopt-=preview  " preview in a buffer?! No.
 
 " ----- Languages -----
 if has('nvim')

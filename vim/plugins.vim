@@ -55,6 +55,7 @@ Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
 Plug 'junegunn/gv.vim'  " commit browser
 
 " - Language -
+"" Plug 'klen/python-mode'
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 Plug 'tmhedberg/simpylfold'  " python folding
 Plug 'tweekmonster/django-plus.vim'  " better django detection/support
@@ -62,7 +63,10 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'  " jekyll templates
 Plug 'chrisbra/csv.vim'  " strong csv toolset
 
-" - Completion & Linting -
+" - Linting -
+Plug 'neomake/neomake'  " linting/building
+
+" - Completion -
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 else
@@ -79,14 +83,12 @@ Plug 'zchee/deoplete-jedi'  " python
 "   Plug 'ajh17/VimCompletesMe'
 " endif
 "" Plug 'scrooloose/syntastic'
-Plug 'neomake/neomake'  " linting/building
-"" Plug 'klen/python-mode'
-Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
+Plug 'ervandew/supertab'  " use tab for insert completions
 
 " - Snippets -
-" Plug 'ervandew/supertab'
-" Plug 'sirver/ultisnips'
-" Plug 'honza/vim-snippets'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
 " - Notes -
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
@@ -143,9 +145,9 @@ endif
 " --- deoplete ---
 " if &runtimepath =~ ''
 call deoplete#enable()
-autocmd CompleteDone * pclose  " To close preview window of deoplete automagically
+" autocmd CompleteDone * pclose  " To close preview window of deoplete automagically
 " tab completion
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " endif
 
 " --- EasyMotion ---
@@ -290,9 +292,10 @@ if &runtimepath =~ 'vim-startify'
 endif
 
 " --- SuperTab ---
-if &runtimepath =~ 'supertab'
+" if &runtimepath =~ 'supertab'
+  " Tabbing goes bottom-to-top and for some reason this fixes it.
   let g:SuperTabDefaultCompletionType = '<C-n>'
-endif
+" endif
 
 " --- Tagbar ---
 if &runtimepath =~ 'tagbar'
@@ -301,9 +304,9 @@ endif
 
 " --- UltiSnips ---
 if &runtimepath =~ 'ultisnips'
-  " let g:UltiSnipsExpandTrigger="<cr>"
-  " let g:UltiSnipsJumpForwardTrigger="<c-j>"
-  " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+  let g:UltiSnipsExpandTrigger="<leader>e"
+  " let g:UltiSnipsJumpForwardTrigger="<c-n>"
+  " let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 endif
 
 " --- Vimwiki ---
