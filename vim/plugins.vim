@@ -263,22 +263,27 @@ endif
 
 " --- neosnippet.vim ---
 if &runtimepath =~ 'neosnippet.vim'
-  imap <leader>e <Plug>(neosnippet_expand_or_jump)
-  smap <leader>e <Plug>(neosnippet_expand_or_jump)
-  xmap <leader>e <Plug>(neosnippet_expand_target)
+  " imap <leader>e <Plug>(neosnippet_expand_or_jump)
+  " smap <leader>e <Plug>(neosnippet_expand_or_jump)
+  " xmap <leader>e <Plug>(neosnippet_expand_target)
+  imap <expr><cr> neosnippet#expandable() ?
+    \  "\<Plug>(neosnippet_expand)" : "\<cr>"
+  imap <expr><tab> neosnippet#jumpable() ?
+    \  "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
   " let g:neosnippet#enable_snipmate_compatibility = 1  " enable snipMate snippets
 endif
 
 " --- NERDTree ---
 if &runtimepath =~ 'nerdtree'
-  map <C-n> :NERDTreeToggle<CR>
-  map ˜ :NERDTreeFind<CR>
+  map <C-n> :NERDTreeToggle<cr>
+  map ˜ :NERDTreeFind<cr>
 endif
 
 " --- Ranger.vim ---
 if &runtimepath =~ 'ranger.vim'
   let g:ranger_map_keys = 0
-  map <leader>r :Ranger<CR>
+  nmap <leader>r :Ranger<cr>
 endif
 
 " --- shortcut ---
@@ -309,12 +314,12 @@ endif
 
 " --- Tagbar ---
 if &runtimepath =~ 'tagbar'
-  nmap <leader>t :TagbarToggle<CR>
+  nmap <leader>t :TagbarToggle<cr>
 endif
 
 " --- UltiSnips ---
 if &runtimepath =~ 'ultisnips'
-  let g:UltiSnipsExpandTrigger="<leader>e"
+  " let g:UltiSnipsExpandTrigger="<leader>e"
   " let g:UltiSnipsJumpForwardTrigger="<c-n>"
   " let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 endif
