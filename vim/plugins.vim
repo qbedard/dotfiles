@@ -126,7 +126,7 @@ endif
 " --- CtrlP ---
 if &runtimepath =~ 'ctrlp.vim'
   let g:ctrlp_working_path_mode = 'ra'
-  let g:ctrlp_cmd = 'CtrlPMixed'
+  let g:ctrlp_cmd =  'CtrlP'
 
   " ignore some folders and files for CtrlP indexing
   let g:ctrlp_custom_ignore = {
@@ -136,8 +136,8 @@ if &runtimepath =~ 'ctrlp.vim'
 
   " use ag instead of grep if available
   if executable('ag')
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " Use ag in CtrlP for listing files. Lightning fast and [respects .gitignore]<-disabled with -t
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" -t'
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
