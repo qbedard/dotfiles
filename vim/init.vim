@@ -30,7 +30,7 @@ if !has('nvim')
   set showcmd
   set smarttab
   set tabpagemax=50
-  set tags=./tags;,tags
+  set tags=$CONFIG_DIR/tags  " ./tags;,tags
   set ttyfast
   set undodir=$DATA_DIR/undo
   set viminfo=!,'100,<50,s10,h  " +=!

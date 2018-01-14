@@ -35,7 +35,8 @@ Plug 'francoiscabrol/ranger.vim'  " , { 'on': 'Ranger' }
 Plug 'ctrlpvim/ctrlp.vim'  " FUZZY
 if executable('ctags')
   Plug 'ludovicchabant/vim-gutentags'  " manages tag files
-  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }  " neat tag nav UI
+  Plug 'majutsushi/tagbar'
+  " , { 'on': 'TagbarToggle' }  " neat tag nav UI
 endif
 "" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " alternate terminal fuzzy
 "" Plug 'junegunn/fzf.vim'
@@ -191,7 +192,7 @@ endif
 
 " --- Gutentags ---
 if &runtimepath =~ 'vim-gutentags'
-  let g:gutentags_cache_dir = '~/.vim/tags'
+  let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
 endif
 
 
