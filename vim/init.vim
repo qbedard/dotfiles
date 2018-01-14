@@ -211,7 +211,7 @@ cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Ba
 
 " ----- Completion -----
 " <cr> to select completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
+imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
 
 set completeopt-=preview  " preview in a buffer?! No.
 
