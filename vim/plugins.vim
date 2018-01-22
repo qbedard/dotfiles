@@ -117,6 +117,7 @@ endif
 " --- airline ---
 if &runtimepath =~ 'vim-airline'
   let g:airline#extensions#tabline#enabled = 1
+  let g:airline_powerline_fonts = 1
   set noshowmode
   if &runtimepath =~ 'vim-airline-themes'
     let g:airline_theme='gruvbox'
@@ -184,8 +185,8 @@ endif
 
 " --- gruvbox ---
 if &runtimepath =~ 'gruvbox'
-  colorscheme gruvbox
   let g:gruvbox_italic=1
+  colorscheme gruvbox
 endif
 
 
