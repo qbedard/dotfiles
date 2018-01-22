@@ -30,7 +30,7 @@ if !has('nvim')
   set showcmd
   set smarttab
   set tabpagemax=50
-  set tags=./tags;,tags
+  set tags=$CONFIG_DIR/tags  " ./tags;,tags
   set ttyfast
   set undodir=$DATA_DIR/undo
   set viminfo=!,'100,<50,s10,h  " +=!
@@ -211,7 +211,7 @@ cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Ba
 
 " ----- Completion -----
 " <cr> to select completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
+imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
 
 set completeopt-=preview  " preview in a buffer?! No.
 
