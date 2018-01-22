@@ -106,7 +106,7 @@ if has('syntax')
   syntax enable
 endif
 
-set guifont=Menlo\ for\ Powerline
+" set guifont=Menlo\ for\ Powerline
 set cursorline
 set lazyredraw
 
