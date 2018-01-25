@@ -48,6 +48,7 @@ Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
 Plug 'editorconfig/editorconfig-vim'  " support for .editorconfig files
 Plug 'Valloric/MatchTagAlways'  " show matching tags
+Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 " Plug 'junegunn/vim-easy-align'  " line stuff up
 
 " - Git -
