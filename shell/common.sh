@@ -82,3 +82,9 @@ unset fasd_cache
 alias j='fasd_cd -d'
 alias v='f -e vim'
 alias o='a -e open'
+
+# neomutt
+export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
+
+# cheat
+export CHEATCOLORS=true
