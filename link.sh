@@ -1,5 +1,5 @@
 #!/bin/bash
-SCRIPTPATH="~/.dotfiles"
+SCRIPTPATH="$HOME/.dotfiles"
 
 # zsh
 ln -sfn  $SCRIPTPATH/shell/zsh/zshrc ~/.zshrc
