@@ -34,7 +34,6 @@ PACKAGES=(
     ranger
     the_silver_searcher
     tree
-    virtualenv
     zsh
     zsh-completions
 )
@@ -44,7 +43,7 @@ echo "Cleaning up..."
 brew cleanup
 
 echo "Installing Cask..."
-brew install caskroom/cask
+brew tap caskroom/cask
 
 echo "Installing Cask apps..."
 CASKS=(
