@@ -2,7 +2,7 @@
 "  Tim Bedard's vimrc
 " --------------------
 
-let $DOTFILES_DIR = $HOME . '/.dotfiles/vim'
+let $DOTFILES_DIR = $HOME . '/.dotfiles/nvim'
 let $CONFIG_DIR = $HOME . '/.config/nvim'
 let $DATA_DIR = $HOME . '/.local/share/nvim'
 
