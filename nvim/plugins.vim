@@ -3,7 +3,7 @@
 " --------------------
 
 " ----- Install vim-plug -----
-let $PLUG_LOC = expand('$CONFIG_DIR/autoload/plug.vim')
+let $PLUG_LOC = expand('$DATA_DIR/site/autoload/plug.vim')
 if empty(glob($PLUG_LOC))
   silent !curl -fLo $PLUG_LOC --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -12,7 +12,7 @@ endif
 
 " ----- Install Plugins -----
 filetype off
-call plug#begin('$CONFIG_DIR/plugged')
+call plug#begin('$DATA_DIR/site/plugged')
 
 " /--- Start Plugins ---\
 
