@@ -8,6 +8,7 @@ if empty(glob($PLUG_LOC))
   silent !curl -fLo $PLUG_LOC --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd VimEnter * UpdateRemotePlugins --sync | source $MYVIMRC
 endif
 
 " ----- Install Plugins -----
