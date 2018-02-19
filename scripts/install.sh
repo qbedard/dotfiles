@@ -35,7 +35,6 @@ PACKAGES=(
     python3
     ranger
     ruby
-    sequel-pro
     the_silver_searcher
     tree
     zsh
@@ -98,5 +97,8 @@ pip3 install ${PYTHON3_PACKAGES[@]}
 
 echo "Installing Oh My Zsh..."
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+echo "Installing fzf..."
+/usr/local/opt/fzf/install
 
 echo "Installion complete."
