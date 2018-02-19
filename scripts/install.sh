@@ -29,9 +29,13 @@ PACKAGES=(
     git
     hub
     neovim
+    node
+    npm
     python
     python3
     ranger
+    ruby
+    sequel-pro
     the_silver_searcher
     tree
     zsh
@@ -63,15 +67,19 @@ FONTS=(
 )
 brew cask install ${FONTS[@]}
 
-# echo "Installing Python 2 packages..."
-# PYTHON2_PACKAGES=(
-#     ipython
-# )
-# pip2 install ${PYTHON2_PACKAGES[@]}
+echo "Installing Python 2 packages..."
+PYTHON2_PACKAGES=(
+    ipython
+    jedi
+    neovim
+)
+pip2 install ${PYTHON2_PACKAGES[@]}
 
 echo "Installing Python 3 packages..."
 PYTHON3_PACKAGES=(
     ipython
+    jedi
+    neovim
     virtualenv
     virtualenvwrapper
 )
