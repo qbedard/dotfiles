@@ -54,6 +54,7 @@ CASKS=(
     firefox
     insomnia
     iterm2
+    sequel-pro
     slack
     virtualbox
 )
@@ -84,13 +85,14 @@ PYTHON3_PACKAGES=(
 )
 pip3 install ${PYTHON3_PACKAGES[@]}
 
-# echo "Installing Ruby gems..."
-# RUBY_GEMS=(
-#     bundler
-#     filewatcher
-#     jekyll
-# )
-# sudo gem install ${RUBY_GEMS[@]}
+echo "Installing Ruby gems..."
+RUBY_GEMS=(
+    bundler
+    filewatcher
+    jekyll
+    neovim
+)
+gem install ${RUBY_GEMS[@]}
 
 # echo "Installing global npm packages..."
 # npm install marked -g
