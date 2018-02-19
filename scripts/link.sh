@@ -2,19 +2,22 @@
 DOTPATH="$HOME/.dotfiles"
 
 # zsh
-ln -sfn  $DOTPATH/shell/zsh/zshrc ~/.zshrc
+ln -sfn  $DOTPATH/shell/zsh/zshrc $HOME/.zshrc
 
 # bash
-ln -sfn  $DOTPATH/shell/bash/bashrc ~/.bashrc
+ln -sfn  $DOTPATH/shell/bash/bashrc $HOME/.bashrc
 
 # neovim
-ln -sfn  $DOTPATH/nvim/init.vim ~/.config/nvim/init.vim
-ln -sfn  $DOTPATH/nvim/plugins.vim ~/.config/nvim/plugins.vim
-ln -sfn  $DOTPATH/nvim/after ~/.config/nvim/after
-ln -sfn  $DOTPATH/nvim/ftplugin ~/.config/nvim/ftplugin
+mkdir -p $HOME/.config/nvim
+ln -sfn $DOTPATH/nvim/init.vim $HOME/.config/nvim/init.vim
+ln -sfn $DOTPATH/nvim/init.vim $HOME/.config/nvim/init.vim
+ln -sfn $DOTPATH/nvim/plugins.vim $HOME/.config/nvim/plugins.vim
+ln -sfn $DOTPATH/nvim/after $HOME/.config/nvim/after
+ln -sfn $DOTPATH/nvim/ftplugin $HOME/.config/nvim/ftplugin
 
 # ranger
-ln -sfn  $DOTPATH/ranger/rc.conf ~/.config/ranger/rc.conf
-ln -sfn  $DOTPATH/ranger/rifle.conf ~/.config/ranger/rifle.conf
-ln -sfn  $DOTPATH/ranger/scope.sh ~/.config/ranger/scope.sh
-ln -sfn  $DOTPATH/ranger/commands.py ~/.config/ranger/commands.py
+mkdir -p $HOME/.config/ranger
+ln -sfn $DOTPATH/ranger/rc.conf $HOME/.config/ranger/rc.conf
+ln -sfn $DOTPATH/ranger/rifle.conf $HOME/.config/ranger/rifle.conf
+ln -sfn $DOTPATH/ranger/scope.sh $HOME/.config/ranger/scope.sh
+ln -sfn $DOTPATH/ranger/commands.py $HOME/.config/ranger/commands.py
