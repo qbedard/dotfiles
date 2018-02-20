@@ -65,6 +65,7 @@ Plug 'tmhedberg/simpylfold'  " python folding
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'  " jekyll templates
 Plug 'chrisbra/csv.vim'  " strong csv toolset
+Plug 'hashivim/vim-vagrant'  " Vagrant support
 
 " - Linting -
 Plug 'neomake/neomake'  " linting/building
