@@ -35,10 +35,13 @@ alias gp="git push"
 alias gl="git pull"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
+# ----- Vagrant ----- #
+alias vu="vagrant up"
+alias vd="vagrant destroy"
+alias vh="vagrant halt"
+alias vss="vagrant ssh"
+
 # ----- UT PyPE  ----- #
-# alias vu="vagrant up"
-# alias vh="vagrant halt"
-# alias vss="vagrant ssh"
 # alias pw="pype_workon"
 # alias pw2.8="pype_workon 27.8.0"
 # alias pw2.11="pype_workon 27.11.0"
