@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Upgrading pip..."
+pip install --upgrade pip
+
 echo "Installing Python 2 packages..."
 PYTHON2_PACKAGES=(
     ipython
