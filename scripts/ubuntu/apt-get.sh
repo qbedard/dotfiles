@@ -2,7 +2,7 @@
 
 # Update apt-get
 echo "Updating apt-get..."
-apt-get update
+sudo apt-get update
 
 echo "Installing packages..."
 PACKAGES=(
@@ -26,10 +26,10 @@ PACKAGES=(
     zsh
     zsh-completions
 )
-apt-get install ${PACKAGES[@]}
+sudo apt-get install ${PACKAGES[@]}
 
 echo "Cleaning up..."
-apt-get cleanup
+sudo apt-get cleanup
 
 echo "Installing Oh My Zsh..."
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
