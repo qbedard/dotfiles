@@ -7,6 +7,7 @@ REPOSITORIES=(
     ppa:aacebedo/fasd
 )
 sudo add-apt-repository ${REPOSITORIES}
+sudo echo 'deb http://download.opensuse.org/repositories/shells:/zsh-users:/zsh-completions/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/zsh-completions.list
 
 # Update apt-get
 echo "Updating apt-get..."
@@ -32,7 +33,7 @@ PACKAGES=(
     silversearcher-ag
     tree
     zsh
-    # zsh-completions
+    zsh-completions
 )
 sudo apt-get install ${PACKAGES[@]}
 
