@@ -65,7 +65,9 @@ export EDITOR=nvim
 KEYTIMEOUT=1
 
 # git -> hub
-eval "$(hub alias -s)"
+if which hub > /dev/null; then
+  eval "$(hub alias -s)"
+fi
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
