@@ -27,6 +27,9 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # Show filename extensions by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+# Show hidden files by default
+defaults write com.apple.finder AppleShowAllFiles YES
+
 # I find tap-to-click awful. I will never enable it.
 
 echo "Configuration complete."
