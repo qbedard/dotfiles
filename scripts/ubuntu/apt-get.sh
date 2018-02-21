@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "Adding repositories..."
+sudo apt-get install software-properties-common
 REPOSITORIES=(
+    ppa:neovim-ppa/stable
     ppa:aacebedo/fasd
 )
 sudo add-apt-repository ${REPOSITORIES}
@@ -20,14 +22,14 @@ PACKAGES=(
     # fzf
     git
     # hub
-    # neovim
+    neovim
     node
     npm
     python
     python3
     ranger
     ruby
-    # the_silver_searcher
+    silversearcher-ag
     tree
     zsh
     # zsh-completions
@@ -41,6 +43,6 @@ echo "Installing Oh My Zsh..."
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
 echo "Installing fzf..."
-/usr/local/opt/fzf/install
+/usr/local/opt/fzf/install || echo "Failed."; exit
 
 echo "Installion complete."
