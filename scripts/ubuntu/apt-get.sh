@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "Adding repositories..."
+REPOSITORIES=(
+    ppa:aacebedo/fasd
+)
+sudo add-apt-repository ${REPOSITORIES}
+
 # Update apt-get
 echo "Updating apt-get..."
 sudo apt-get update
@@ -11,20 +17,20 @@ PACKAGES=(
     ctags
     direnv
     fasd
-    fzf
+    # fzf
     git
-    hub
-    neovim
+    # hub
+    # neovim
     node
     npm
     python
     python3
     ranger
     ruby
-    the_silver_searcher
+    # the_silver_searcher
     tree
     zsh
-    zsh-completions
+    # zsh-completions
 )
 sudo apt-get install ${PACKAGES[@]}
 
