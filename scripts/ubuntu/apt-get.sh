@@ -27,7 +27,9 @@ PACKAGES=(
     node
     npm
     python
+    python-pip
     python3
+    python3-pip
     ranger
     ruby
     silversearcher-ag
