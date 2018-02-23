@@ -69,6 +69,7 @@ Plug 'hashivim/vim-vagrant'  " Vagrant support
 
 " - Linting -
 Plug 'neomake/neomake'  " linting/building
+" Plug 'https://github.com/w0rp/ale.git'  " linting/building
 
 " - Completion -
 if has('nvim')
