@@ -32,6 +32,7 @@ PACKAGES=(
     python3-pip
     ranger
     ruby
+    shellcheck
     silversearcher-ag
     tree
     zsh

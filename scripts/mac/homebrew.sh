@@ -35,6 +35,7 @@ PACKAGES=(
     python3
     ranger
     ruby
+    shellcheck
     the_silver_searcher
     tree
     zsh
