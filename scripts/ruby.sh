@@ -7,6 +7,6 @@ RUBY_GEMS=(
     jekyll
     neovim
 )
-gem install ${RUBY_GEMS[@]}
+gem install "${RUBY_GEMS[@]}"
 
 echo "Ruby package installation completed."

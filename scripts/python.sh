@@ -10,7 +10,7 @@ PYTHON2_PACKAGES=(
     jedi
     neovim
 )
-pip2 install ${PYTHON2_PACKAGES[@]}
+pip2 install "${PYTHON2_PACKAGES[@]}"
 
 echo "Installing Python 3 packages..."
 PYTHON3_PACKAGES=(
@@ -18,9 +18,10 @@ PYTHON3_PACKAGES=(
     ipython
     jedi
     neovim
+    vim-vint
     virtualenv
     virtualenvwrapper
 )
-pip3 install ${PYTHON3_PACKAGES[@]}
+pip3 install "${PYTHON3_PACKAGES[@]}"
 
 echo "Python package installation completed."

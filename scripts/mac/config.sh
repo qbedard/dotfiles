@@ -1,10 +1,9 @@
 #!/bin/bash
-DOTPATH=$HOME/.dotfiles
 
 echo "Configuring macOS..."
 
 # enable home and end keys to work as expected
-mkdir -p $HOME/Library/KeyBindings
+mkdir -p "$HOME/Library/KeyBindings"
 echo "{
     "\UF729"  = moveToBeginningOfParagraph:; // home
     "\UF72B"  = moveToEndOfParagraph:; // end

@@ -9,7 +9,7 @@
 # - Magnet
 
 # Homebrew
-if test ! $(which brew); then
+if test ! "$(which brew)"; then
     echo "Installing Homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -41,7 +41,7 @@ PACKAGES=(
     zsh
     zsh-completions
 )
-brew install ${PACKAGES[@]}
+brew install "${PACKAGES[@]}"
 
 echo "Cleaning up..."
 brew cleanup
@@ -59,14 +59,14 @@ CASKS=(
     slack
     virtualbox
 )
-brew cask install ${CASKS[@]}
+brew cask install "${CASKS[@]}"
 
 echo "Installing fonts..."
 brew tap caskroom/fonts
 FONTS=(
     font-source-code-pro-for-powerline
 )
-brew cask install ${FONTS[@]}
+brew cask install "${FONTS[@]}"
 
 echo "Installing Oh My Zsh..."
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
