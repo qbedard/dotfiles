@@ -8,6 +8,7 @@ if empty(glob($PLUG_LOC))
   silent !curl -fLo $PLUG_LOC --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd VimEnter * UpdateRemotePlugins --sync | source $MYVIMRC
 endif
 
 " ----- Install Plugins -----
@@ -64,9 +65,11 @@ Plug 'tmhedberg/simpylfold'  " python folding
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'  " jekyll templates
 Plug 'chrisbra/csv.vim'  " strong csv toolset
+Plug 'hashivim/vim-vagrant'  " Vagrant support
 
 " - Linting -
 Plug 'neomake/neomake'  " linting/building
+" Plug 'https://github.com/w0rp/ale.git'  " linting/building
 
 " - Completion -
 if has('nvim')
@@ -117,17 +120,17 @@ endif
 " ----- Plugin Config -----
 
 " --- airline ---
-if &runtimepath =~ 'vim-airline'
+if &runtimepath =~? 'vim-airline'
   let g:airline#extensions#tabline#enabled = 1
   let g:airline_powerline_fonts = 1
   set noshowmode
-  if &runtimepath =~ 'vim-airline-themes'
+  if &runtimepath =~? 'vim-airline-themes'
     let g:airline_theme='gruvbox'
   endif
 endif
 
 " --- CtrlP ---
-if &runtimepath =~ 'ctrlp.vim'
+if &runtimepath =~? 'ctrlp.vim'
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_cmd =  'CtrlP'
 
@@ -156,7 +159,7 @@ call deoplete#enable()
 " endif
 
 " --- EasyMotion ---
-if &runtimepath =~ 'vim-easymotion'
+if &runtimepath =~? 'vim-easymotion'
   map \ <Plug>(easymotion-prefix)
 
   " <Leader>f{char} to move to {char}
@@ -165,18 +168,18 @@ if &runtimepath =~ 'vim-easymotion'
 endif
 
 " --- Emmet ---
-if &runtimepath =~ 'emmet-vim'
+if &runtimepath =~? 'emmet-vim'
   "  default is <C-Y>
   "" let g:user_emmet_leader_key=','
 endif
 
 " --- Fugitive ---
-if &runtimepath =~ 'vim-fugitive'
+if &runtimepath =~? 'vim-fugitive'
   "" :command Gadd Git add %
 endif
 
 " --- GitGutter ---
-if &runtimepath =~ 'vim-gitgutter'
+if &runtimepath =~? 'vim-gitgutter'
   if exists('&signcolumn')  " Vim 7.4.2201
       set signcolumn=yes
   else
@@ -186,32 +189,32 @@ if &runtimepath =~ 'vim-gitgutter'
 endif
 
 " --- gruvbox ---
-if &runtimepath =~ 'gruvbox'
+if &runtimepath =~? 'gruvbox'
   let g:gruvbox_italic=1
   colorscheme gruvbox
 endif
 
 
 " --- Gutentags ---
-if &runtimepath =~ 'vim-gutentags'
+if &runtimepath =~? 'vim-gutentags'
   let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
 endif
 
 
 " --- incsearch ---
-if &runtimepath =~ 'incsearch.vim'
+if &runtimepath =~? 'incsearch.vim'
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
 endif
 
 " --- Instant Markdown ---
-if &runtimepath =~ 'vim-instant-markdown'
+if &runtimepath =~? 'vim-instant-markdown'
   let g:instant_markdown_autostart = 0
 endif
 
 " --- LimeLight ---
-if &runtimepath =~ 'limelight.vim'
+if &runtimepath =~? 'limelight.vim'
   nmap <Leader>l <Plug>(Limelight)
   xmap <Leader>l <Plug>(Limelight)
   " let g:limelight_conceal_ctermfg = 245
@@ -221,7 +224,7 @@ if &runtimepath =~ 'limelight.vim'
 endif
 
 " --- Markdown Preview ---
-if &runtimepath =~ 'vim-markdown-preview'
+if &runtimepath =~? 'vim-markdown-preview'
   " let vim_markdown_preview_toggle=2
   " let vim_markdown_preview_hotkey='<leader>m'
   " let vim_markdown_preview_github=1
@@ -230,7 +233,7 @@ if &runtimepath =~ 'vim-markdown-preview'
 endif
 
 " --- MatchTagAlways ---
-if &runtimepath =~ 'MatchTagAlways'
+if &runtimepath =~? 'MatchTagAlways'
   let g:mta_filetypes = {
       \ 'html' : 1,
       \ 'xhtml' : 1,
@@ -242,7 +245,7 @@ if &runtimepath =~ 'MatchTagAlways'
 endif
 
 " --- NeoMake ---
-if &runtimepath =~ 'neomake'
+if &runtimepath =~? 'neomake'
   " lint when writing a buffer.
   if has('nvim') || v:version >= 800
     call neomake#configure#automake('nrw', 500)
@@ -264,8 +267,15 @@ if &runtimepath =~ 'neomake'
   let g:neomake_python_flake8_args = ['--max-line-length=160', '--format=default']
 endif
 
+function! neomake#makers#ft#zsh#shellcheck() abort
+    let maker = neomake#makers#ft#sh#shellcheck()
+    let maker.args += ['--shell', 'zsh']
+    let maker.args += ['-x']
+    return maker
+endfunction
+
 " --- neosnippet.vim ---
-if &runtimepath =~ 'neosnippet.vim'
+if &runtimepath =~? 'neosnippet.vim'
   " imap <leader>e <Plug>(neosnippet_expand_or_jump)
   " smap <leader>e <Plug>(neosnippet_expand_or_jump)
   " xmap <leader>e <Plug>(neosnippet_expand_target)
@@ -278,19 +288,19 @@ if &runtimepath =~ 'neosnippet.vim'
 endif
 
 " --- NERDTree ---
-if &runtimepath =~ 'nerdtree'
+if &runtimepath =~? 'nerdtree'
   map <C-n> :NERDTreeToggle<cr>
   map ˜ :NERDTreeFind<cr>
 endif
 
 " --- Ranger.vim ---
-if &runtimepath =~ 'ranger.vim'
+if &runtimepath =~? 'ranger.vim'
   let g:ranger_map_keys = 0
   nmap <leader>r :Ranger<cr>
 endif
 
 " --- shortcut ---
-if &runtimepath =~ 'vim-shortcut'
+if &runtimepath =~? 'vim-shortcut'
   " Shortcut show shortcut menu and run chosen shortcut
   "       \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
   " Shortcut fallback to shortcut menu on partial entry
@@ -298,37 +308,37 @@ if &runtimepath =~ 'vim-shortcut'
 endif
 
 " --- SimplyFold ---
-if &runtimepath =~ 'simplyfold'
+if &runtimepath =~? 'simplyfold'
   let g:SimpylFold_docstring_preview = 1
 endif
 
 " --- Startify ---
-if &runtimepath =~ 'vim-startify'
+if &runtimepath =~? 'vim-startify'
   let g:startify_change_to_vcs_root = 1
   let g:startify_session_autoload = 1
   let g:startify_custom_header = startify#fortune#boxed()
 endif
 
 " --- SuperTab ---
-if &runtimepath =~ 'supertab'
+if &runtimepath =~? 'supertab'
   " Tabbing goes bottom-to-top and for some reason this fixes it.
   let g:SuperTabDefaultCompletionType = '<C-n>'
 endif
 
 " --- Tagbar ---
-if &runtimepath =~ 'tagbar'
+if &runtimepath =~? 'tagbar'
   nmap <leader>t :TagbarToggle<cr>
 endif
 
 " --- UltiSnips ---
-if &runtimepath =~ 'ultisnips'
+if &runtimepath =~? 'ultisnips'
   " let g:UltiSnipsExpandTrigger="<leader>e"
   " let g:UltiSnipsJumpForwardTrigger="<c-n>"
   " let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 endif
 
 " --- Vimwiki ---
-if &runtimepath =~ 'vimwiki'
+if &runtimepath =~? 'vimwiki'
   let g:vimwiki_list = [{'path': '~/vimwiki',
                        \ 'syntax': 'default', 'ext': '.wiki'}]
   " disable the <tab> mapping provided by vimwiki, which interferes with SuperTab
@@ -336,7 +346,7 @@ if &runtimepath =~ 'vimwiki'
 endif
 
 " --- vim-easy-align ---
-if &runtimepath =~ 'vim-easy-align'
+if &runtimepath =~? 'vim-easy-align'
   " Start interactive EasyAlign in visual mode (e.g. vipga)
   xmap ga <Plug>(EasyAlign)
 
@@ -345,7 +355,7 @@ if &runtimepath =~ 'vim-easy-align'
 endif
 
 " --- YouCompleteMe ---
-if &runtimepath =~ 'youcompleteme'
+if &runtimepath =~? 'youcompleteme'
   let g:ycm_autoclose_preview_window_after_completion=1
   let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
   let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']

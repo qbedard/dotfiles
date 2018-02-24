@@ -9,7 +9,7 @@
 # - Magnet
 
 # Homebrew
-if test ! $(which brew); then
+if test ! "$(which brew)"; then
     echo "Installing Homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -29,15 +29,19 @@ PACKAGES=(
     git
     hub
     neovim
+    node
+    npm
     python
     python3
     ranger
+    ruby
+    shellcheck
     the_silver_searcher
     tree
     zsh
     zsh-completions
 )
-brew install ${PACKAGES[@]}
+brew install "${PACKAGES[@]}"
 
 echo "Cleaning up..."
 brew cleanup
@@ -51,44 +55,23 @@ CASKS=(
     firefox
     insomnia
     iterm2
+    sequel-pro
     slack
     virtualbox
 )
-brew cask install ${CASKS[@]}
+brew cask install "${CASKS[@]}"
 
 echo "Installing fonts..."
 brew tap caskroom/fonts
 FONTS=(
     font-source-code-pro-for-powerline
 )
-brew cask install ${FONTS[@]}
-
-# echo "Installing Python 2 packages..."
-# PYTHON2_PACKAGES=(
-#     ipython
-# )
-# pip2 install ${PYTHON2_PACKAGES[@]}
-
-echo "Installing Python 3 packages..."
-PYTHON3_PACKAGES=(
-    ipython
-    virtualenv
-    virtualenvwrapper
-)
-pip3 install ${PYTHON3_PACKAGES[@]}
-
-# echo "Installing Ruby gems..."
-# RUBY_GEMS=(
-#     bundler
-#     filewatcher
-#     jekyll
-# )
-# sudo gem install ${RUBY_GEMS[@]}
-
-# echo "Installing global npm packages..."
-# npm install marked -g
+brew cask install "${FONTS[@]}"
 
 echo "Installing Oh My Zsh..."
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+echo "Installing fzf..."
+/usr/local/opt/fzf/install
 
 echo "Installion complete."
