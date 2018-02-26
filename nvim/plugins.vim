@@ -129,6 +129,11 @@ if &runtimepath =~? 'vim-airline'
   endif
 endif
 
+" --- auto-pairs ---
+if &runtimepath =~? 'auto-pairs'
+  let g:AutoPairsMapSpace = 0
+endif
+
 " --- CtrlP ---
 if &runtimepath =~? 'ctrlp.vim'
   let g:ctrlp_working_path_mode = 'ra'
