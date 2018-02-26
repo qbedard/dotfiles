@@ -48,11 +48,12 @@ brew cleanup
 
 echo "Installing Cask..."
 brew tap caskroom/cask
+brew tap caskroom/versions
 
 echo "Installing Cask apps..."
 CASKS=(
     alfred
-    firefox
+    firefox-developer-edition
     insomnia
     iterm2
     sequel-pro
