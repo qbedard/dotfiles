@@ -11,7 +11,7 @@ PYTHON2_PACKAGES=(
     jedi
     neovim
 )
-sudo pip2 install "${PYTHON2_PACKAGES[@]}"
+sudo -H pip2 install "${PYTHON2_PACKAGES[@]}"
 
 echo "Installing Python 3 packages..."
 PYTHON3_PACKAGES=(
@@ -23,6 +23,6 @@ PYTHON3_PACKAGES=(
     virtualenv
     virtualenvwrapper
 )
-sudo pip3 install "${PYTHON3_PACKAGES[@]}"
+sudo -H pip3 install "${PYTHON3_PACKAGES[@]}"
 
 echo "Python package installation completed."
