@@ -88,7 +88,7 @@ augroup END
 set ignorecase smartcase
 
 set wildmode=longest:full,full
-set wildignore+=*/tmp/*,/var/*,*.so,*.swp,*.zip,*.tar  " macOS/Linux
+set wildignore+=*/tmp/*,/var/*,*.so,*.swp,*.zip,*.tar,*.pyc  " macOS/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe            " Windows
 
 nnoremap <cr> :nohlsearch<cr>
