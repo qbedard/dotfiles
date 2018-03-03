@@ -6,7 +6,10 @@ REPOSITORIES=(
     ppa:neovim-ppa/stable
     ppa:aacebedo/fasd
 )
-sudo add-apt-repository "${REPOSITORIES[@]}"
+for repo in $(REPOSITORIES); do
+    sudo add-apt-repository "$repo"
+    echo "$repo"
+done
 echo 'deb http://download.opensuse.org/repositories/shells:/zsh-users:/zsh-completions/xUbuntu_16.04/ /' | sudo tee -a "/etc/apt/sources.list.d/zsh-completions.list" > /dev/null
 
 # Update apt-get
