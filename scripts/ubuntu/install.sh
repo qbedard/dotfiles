@@ -20,9 +20,7 @@ PACKAGES=(
     ctags
     direnv
     fasd
-    # fzf
     git
-    # hub
     neovim
     node
     npm
@@ -43,10 +41,16 @@ sudo apt-get install "${PACKAGES[@]}"
 echo "Cleaning up..."
 sudo apt-get cleanup
 
+echo "Installing fzf..."
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+$HOME/.fzf/install || echo "Failed."; exit
+
+echo "Installing hub..."
+wget --progress=bar:force https://github.com/github/hub/releases/download/v2.3.0-pre10/hub-linux-amd64-2.3.0-pre10.tgz
+tar -xvzf hub-linux-amd64-2.3.0-pre10.tgz /bin/hub
+rm hub-linux-amd64-2.3.0-pre10.tgz
+
 echo "Installing Oh My Zsh..."
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-
-echo "Installing fzf..."
-/usr/local/opt/fzf/install || echo "Failed."; exit
 
 echo "Installion complete."
