@@ -39,7 +39,7 @@ PACKAGES=(
     zsh
     zsh-completions
 )
-sudo -H apt-get install "${PACKAGES[@]}"
+sudo apt-get install "${PACKAGES[@]}"
 
 echo "Cleaning up..."
 sudo apt-get cleanup
@@ -47,7 +47,7 @@ sudo apt-get cleanup
 echo "Installing fzf..."
 git clone --depth 1 "https://github.com/junegunn/fzf.git $HOME/.fzf"
 pushd "$HOME/.fzf" || exit
-sudo -H install || echo "Failed.";
+sudo install || echo "Failed.";
 popd || exit
 
 echo "Installing hub..."

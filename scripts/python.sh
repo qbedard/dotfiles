@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo "Upgrading pip..."
-sudo pip2 install --upgrade pip
-sudo pip3 install --upgrade pip
+pip2 install --upgrade pip
+pip3 install --upgrade pip
 
 echo "Installing Python 2 packages..."
 PYTHON2_PACKAGES=(
@@ -11,7 +11,7 @@ PYTHON2_PACKAGES=(
     jedi
     neovim
 )
-sudo -H pip2 install "${PYTHON2_PACKAGES[@]}"
+pip2 install "${PYTHON2_PACKAGES[@]}"
 
 echo "Installing Python 3 packages..."
 PYTHON3_PACKAGES=(
@@ -23,6 +23,6 @@ PYTHON3_PACKAGES=(
     virtualenv
     virtualenvwrapper
 )
-sudo -H pip3 install "${PYTHON3_PACKAGES[@]}"
+pip3 install "${PYTHON3_PACKAGES[@]}"
 
 echo "Python package installation completed."
