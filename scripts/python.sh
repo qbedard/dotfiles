@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "Upgrading pip..."
-pip install --upgrade pip
+pip2 install --upgrade pip
+pip3 install --upgrade pip
 
 echo "Installing Python 2 packages..."
 PYTHON2_PACKAGES=(
