@@ -6,7 +6,7 @@ REPOSITORIES=(
     ppa:neovim-ppa/stable
     ppa:aacebedo/fasd
 )
-for repo in $(REPOSITORIES); do
+for repo in "${REPOSITORIES[@]}"; do
     sudo add-apt-repository "$repo"
     echo "$repo"
 done
