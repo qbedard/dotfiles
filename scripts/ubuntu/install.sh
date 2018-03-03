@@ -45,8 +45,9 @@ echo "Cleaning up..."
 sudo apt-get cleanup
 
 echo "Installing fzf..."
-git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-$HOME/.fzf/install || echo "Failed.";
+git clone --depth 1 "https://github.com/junegunn/fzf.git $HOME/.fzf"
+cd "$HOME/.fzf" || exit
+sudo install || echo "Failed.";
 
 echo "Installing hub..."
 wget --progress=bar:force https://github.com/github/hub/releases/download/v2.3.0-pre10/hub-linux-amd64-2.3.0-pre10.tgz
