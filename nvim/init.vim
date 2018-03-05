@@ -217,7 +217,7 @@ set completeopt-=preview  " preview in a buffer?! No.
 
 " ----- Languages -----
 if has('nvim')
-  let g:python_host_prog  = '/usr/local/bin/python2'
+  let g:python_host_prog  = '/usr/local/bin/python'
   let g:python3_host_prog = '/usr/local/bin/python3'
 endif
 
