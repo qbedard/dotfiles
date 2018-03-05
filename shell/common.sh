@@ -62,7 +62,7 @@ export VISUAL=nvim
 export EDITOR=nvim
 
 # 10ms for key sequences
-KEYTIMEOUT=1
+export KEYTIMEOUT=1
 
 # git -> hub
 if which hub > /dev/null; then
@@ -80,7 +80,7 @@ export RTV_EDITOR=vim
 
 # fasd
 fasd_cache="$HOME/.fasd-init-sh"
-if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+if [ "$(command -v fasd)" -nt "$fasd_cache" ] || [ ! -s "$fasd_cache" ]; then
   fasd --init auto >| "$fasd_cache"
 fi
 source "$fasd_cache"
