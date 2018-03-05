@@ -1,5 +1,8 @@
 # ----- PATH ----- #
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/.composer/vendor/bin:$PATH
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+
+# add python 2 to path
+export PATH="/usr/local/opt/python@2/bin:$PATH"
 
 # ----- Aliases ----- #
 alias vim="nvim"
