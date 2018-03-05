@@ -31,7 +31,7 @@ PACKAGES=(
     neovim
     node
     npm
-    python
+    python@2
     python3
     ranger
     ruby
