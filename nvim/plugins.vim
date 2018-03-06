@@ -7,8 +7,11 @@ let $PLUG_LOC = expand('$DATA_DIR/site/autoload/plug.vim')
 if empty(glob($PLUG_LOC))
   silent !curl -fLo $PLUG_LOC --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-  autocmd VimEnter * UpdateRemotePlugins --sync | source $MYVIMRC
+  augroup autopluginstall
+    autocmd!
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    autocmd VimEnter * UpdateRemotePlugins --sync | source $MYVIMRC
+  augroup END
 endif
 
 " ----- Install Plugins -----
@@ -274,10 +277,10 @@ if &runtimepath =~? 'neomake'
 endif
 
 function! neomake#makers#ft#zsh#shellcheck() abort
-    let maker = neomake#makers#ft#sh#shellcheck()
-    let maker.args += ['--shell', 'zsh']
-    let maker.args += ['-x']
-    return maker
+    let l:maker = neomake#makers#ft#sh#shellcheck()
+    let l:maker.args += ['--shell', 'zsh']
+    let l:maker.args += ['-x']
+    return l:maker
 endfunction
 
 " --- neosnippet.vim ---

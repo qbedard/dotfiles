@@ -113,7 +113,10 @@ set lazyredraw
 set t_Co=256
 set background=dark
 set guioptions=  " remove scrollbars, etc
-autocmd VimResized * wincmd =
+augroup winresize
+  autocmd!
+  autocmd VimResized * wincmd =
+augroup END
 
 " start scrolling when near the last line/col
 set scrolloff=1
@@ -121,8 +124,8 @@ set sidescrolloff=5
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~? 'iTerm'
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
 
@@ -191,8 +194,11 @@ set foldmethod=manual
 
 " auto view saving (to keep folds)
 set viewoptions-=options  " keep from saving cur dir
-autocmd BufWinLeave ?* mkview
-autocmd BufWinEnter ?* silent! loadview
+augroup autoviewsave
+  autocmd!
+  autocmd BufWinLeave ?* mkview
+  autocmd BufWinEnter ?* silent! loadview
+augroup END
 
 " yank to system clipboard
 set clipboard=unnamed
@@ -233,7 +239,10 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 
 if executable('yapf')
-  autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+  augroup enableyapf
+    autocmd!
+    autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+  augroup END
 endif
 
 " syntax hightling for .nat files
