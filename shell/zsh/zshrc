@@ -1,9 +1,23 @@
 export ZSH=${HOME}/.oh-my-zsh
 ZSH_THEME="kolo"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+    aws
+    fasd
+    docker
+    # gem
+    git
+    osx
+    pip
+    python
+    redis-cli
+    sudo
+    # tmux
+    vagrant
+    web-search
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    )
 
 source $ZSH/oh-my-zsh.sh
 
