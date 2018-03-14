@@ -2,6 +2,7 @@
 
 echo "Installing Node.js packages..."
 PACKAGES=(
+    csslint
     eslint
     htmlhint
 )
