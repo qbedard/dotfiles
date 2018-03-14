@@ -4,6 +4,10 @@ echo "Upgrading pip..."
 pip2 install --upgrade pip
 pip3 install --upgrade pip
 
+echo "Updating pip..."
+pip2 update
+pip3 update
+
 echo "Installing Python 2 packages..."
 PYTHON2_PACKAGES=(
     flake8
