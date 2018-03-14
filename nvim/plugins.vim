@@ -32,6 +32,7 @@ if has('nvim')
   Plug 'rbgrouleff/bclose.vim'  " required for ranger.vim in neovim
 endif
 Plug 'francoiscabrol/ranger.vim'  " , { 'on': 'Ranger' }
+" Plug 'tpope/vim-vinegar'  " inline buffer file browser (extends netrw)
 
 " - Fuzzy Search & Tags -
 " Plug 'haya14busa/incsearch.vim'  " incremental highlighting, breaking nvim
