@@ -250,6 +250,7 @@ if &runtimepath =~? 'MatchTagAlways'
       \ 'xhtml' : 1,
       \ 'xml' : 1,
       \ 'jinja' : 1,
+      \ 'mako': 1,
       \ 'htmldjango' : 1,
       \ 'liquid': 1,
       \}
