@@ -22,6 +22,7 @@ PYTHON3_PACKAGES=(
     vim-vint
     virtualenv
     virtualenvwrapper
+    yapf
 )
 pip3 install "${PYTHON3_PACKAGES[@]}"
 
