@@ -265,6 +265,9 @@ if &runtimepath =~? 'neomake'
     call neomake#configure#automake('rw')
   endif
 
+  " luacheck (ignore implicit global definitions)
+  let g:neomake_lua_luacheck_args = ['--allow-defined', '--no-color', '--formatter=plain', '--ranges', '--codes', '--filename', '%:p']
+
   " pylint is super noisy, so let's stick to flake8.
   let g:neomake_python_flake8_maker = {
       \ 'args': ['--max-line-length=160', '--format=default'],
