@@ -24,6 +24,7 @@ PACKAGES=(
     direnv
     fasd
     git
+    lua
     neovim
     nodejs
     npm

@@ -28,6 +28,7 @@ PACKAGES=(
     fzf
     git
     hub
+    lua
     neovim
     node
     npm
