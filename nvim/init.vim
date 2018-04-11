@@ -62,6 +62,7 @@ endif
 
 
 " ----- Tabs & Indentation -----
+set smartindent
 set expandtab  " tab inserts spaces
 set shiftwidth=4
 set softtabstop=4
