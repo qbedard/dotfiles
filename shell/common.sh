@@ -38,6 +38,11 @@ alias gp="git push"
 alias gl="git pull"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
+# --- Python ---
+alias pup="pip install --upgrade pip"
+alias pup2="pip2 install --upgrade pip"
+alias pup3="pip3 install --upgrade pip"
+
 # ----- Vagrant ----- #
 alias vu="vagrant up"
 alias vd="vagrant destroy"
