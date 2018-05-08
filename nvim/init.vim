@@ -189,13 +189,9 @@ imap <M-Tab>  <C-O>:tabprev<cr>
 
 " I'm bad at typing.
 :command! Q q
-:command! Q! q!
 :command! W w
-:command! W! w!
 :command! WQ wq
-:command! WQ! wq!
 :command! Wq wq
-:command! Wq! wq!
 
 
 " ----- Editing -----
