@@ -90,7 +90,7 @@ set ignorecase smartcase
 
 set wildmode=longest:full,full
 set wildignore+=*/tmp/*,/var/*,*.so,*.swp,*.zip,*.tar,*.pyc  " macOS/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe            " Windows
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe                  " Windows
 
 nnoremap <cr> :nohlsearch<cr>
 
@@ -108,12 +108,13 @@ if has('syntax')
 endif
 
 " set guifont=Menlo\ for\ Powerline
+set guioptions=  " remove scrollbars, etc
+
 set cursorline
 set lazyredraw
 
-set t_Co=256
+set t_Co=256  " terminal colors
 set background=dark
-set guioptions=  " remove scrollbars, etc
 augroup winresize
   autocmd!
   autocmd VimResized * wincmd =
@@ -125,8 +126,8 @@ set sidescrolloff=5
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~? 'iTerm'
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 endif
 
 
@@ -151,10 +152,13 @@ nnoremap L $
 
 " faster exiting from insert mode
 inoremap jj <Esc>
+
+" faster exiting from terminal mode
 tnoremap kk <C-\><C-n>
 tnoremap <Esc> <C-\><C-n>
 
 " easier nav in insert mode (Ctrl)
+" NOTE: <C-h> doesn't work thanks to <C-h> sending <bs> in most terminals
 inoremap <C-k> <C-o>gk
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
@@ -185,9 +189,13 @@ imap <M-Tab>  <C-O>:tabprev<cr>
 
 " I'm bad at typing.
 :command! Q q
+:command! Q! q!
 :command! W w
+:command! W! w!
 :command! WQ wq
+:command! WQ! wq!
 :command! Wq wq
+:command! Wq! wq!
 
 
 " ----- Editing -----

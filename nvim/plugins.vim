@@ -40,8 +40,7 @@ Plug 'francoiscabrol/ranger.vim'  " , { 'on': 'Ranger' }
 Plug 'ctrlpvim/ctrlp.vim'  " FUZZY
 if executable('ctags')
   Plug 'ludovicchabant/vim-gutentags'  " manages tag files
-  Plug 'majutsushi/tagbar'
-  " , { 'on': 'TagbarToggle' }  " neat tag nav UI
+  Plug 'majutsushi/tagbar'  " neat tag nav UI
 endif
 "" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " alternate terminal fuzzy
 "" Plug 'junegunn/fzf.vim'
@@ -71,29 +70,31 @@ Plug 'tpope/vim-liquid'  " jekyll templates
 Plug 'chrisbra/csv.vim'  " strong csv toolset
 Plug 'hashivim/vim-vagrant'  " Vagrant support
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
-Plug 'sophacles/vim-bundle-mako'  " support for mako templates
+Plug 'sophacles/vim-bundle-mako'  " mako template support
 
 " - Linting -
 Plug 'neomake/neomake'  " linting/building
-" Plug 'https://github.com/w0rp/ale.git'  " linting/building
+" Plug 'w0rp/ale'  " linting/building
 
 " - Completion -
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 else
-  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'Shougo/neco-vim'  " VimL
 " TODO: figure out how to check if jedi is installed
 Plug 'zchee/deoplete-jedi'  " python
+
 " if has('nvim') || v:version >= 705
 "   Plug 'valloric/youcompleteme'
 " else
 "   Plug 'ajh17/VimCompletesMe'
 " endif
 "" Plug 'scrooloose/syntastic'
+
 Plug 'ervandew/supertab'  " use tab for insert completions
 
 " - Snippets -
