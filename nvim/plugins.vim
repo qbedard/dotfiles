@@ -24,6 +24,7 @@ call plug#begin('$DATA_DIR/site/plugged')
 Plug 'morhetz/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'mhinz/vim-startify'  " fancy start screen
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " file browser
@@ -382,6 +383,11 @@ if &runtimepath =~? 'vimwiki'
                        \ 'syntax': 'default', 'ext': '.wiki'}]
   " disable the <tab> mapping provided by vimwiki, which interferes with SuperTab
   let g:vimwiki_table_mappings = 0
+endif
+
+" --- vim-devicons ---
+if &runtimepath =~? 'vim-devicons'
+  let g:webdevicons_enable_ctrlp = 1
 endif
 
 " --- vim-easy-align ---
