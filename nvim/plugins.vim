@@ -61,7 +61,7 @@ Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
 Plug 'junegunn/gv.vim'  " commit browser
 
 " - Language -
-"" Plug 'klen/python-mode'
+Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 " Plug 'tmhedberg/simpylfold'  " python folding
 " Plug 'tweekmonster/django-plus.vim'  " better django detection/support
@@ -170,6 +170,9 @@ if &runtimepath =~? 'deoplete.nvim'
   " autocmd CompleteDone * pclose  " To close preview window of deoplete automagically
   " tab completion
   " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+  " custom marks
+  " call deoplete#custom#source('jedi', 'mark', '')
 endif
 
 " --- EasyMotion ---
@@ -310,6 +313,23 @@ endif
 if &runtimepath =~? 'nerdtree'
   map <C-n> :NERDTreeToggle<cr>
   map ˜ :NERDTreeFind<cr>
+endif
+
+" --- python-mode ---
+if &runtimepath =~? 'python-mode'
+  let g:pymode_syntax_space_errors = 0
+  let g:pymode_rope = 0  " no Rope
+  " - Linting -
+  let g:pymode_lint = 1  " Let's leave this to neomake for now.
+  " let g:pymode_lint_ignore = ["E501"]
+  " let g:pymode_syntax_slow_sync = 1
+  " " symbols
+  " let g:pymode_lint_todo_symbol = 'WW'
+  " let g:pymode_lint_comment_symbol = 'CC'
+  " let g:pymode_lint_visual_symbol = 'RR'
+  " let g:pymode_lint_error_symbol = '✖'
+  " let g:pymode_lint_info_symbol = 'ℹ'
+  " let g:pymode_lint_pyflakes_symbol = 'FF'
 endif
 
 " --- Ranger.vim ---
