@@ -283,14 +283,15 @@ if &runtimepath =~? 'neomake'
       \ }
   let g:neomake_python_enabled_makers = ['flake8']
   let g:neomake_python_flake8_args = ['--max-line-length=160', '--format=default']
-endif
 
-function! neomake#makers#ft#zsh#shellcheck() abort
+  function! neomake#makers#ft#zsh#shellcheck() abort
     let l:maker = neomake#makers#ft#sh#shellcheck()
     let l:maker.args += ['--shell', 'zsh']
     let l:maker.args += ['-x']
     return l:maker
-endfunction
+  endfunction
+endif
+
 
 " --- neosnippet.vim ---
 if &runtimepath =~? 'neosnippet.vim'
