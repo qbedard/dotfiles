@@ -26,8 +26,8 @@ Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'mhinz/vim-startify'  " fancy start screen
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " file browser
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " file browser
+" Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 " if has('nvim')
 "   Plug 'rbgrouleff/bclose.vim'  " required for ranger.vim in neovim
 " endif
