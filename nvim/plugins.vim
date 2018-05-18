@@ -63,7 +63,7 @@ Plug 'junegunn/gv.vim'  " commit browser
 " - Language -
 "" Plug 'klen/python-mode'
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
-Plug 'tmhedberg/simpylfold'  " python folding
+" Plug 'tmhedberg/simpylfold'  " python folding
 " Plug 'tweekmonster/django-plus.vim'  " better django detection/support
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'  " jekyll templates
