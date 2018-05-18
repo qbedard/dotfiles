@@ -165,12 +165,12 @@ if &runtimepath =~? 'ctrlp.vim'
 endif
 
 " --- deoplete ---
-" if &runtimepath =~ ''
-call deoplete#enable()
-" autocmd CompleteDone * pclose  " To close preview window of deoplete automagically
-" tab completion
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" endif
+if &runtimepath =~? 'deoplete.nvim'
+  call deoplete#enable()
+  " autocmd CompleteDone * pclose  " To close preview window of deoplete automagically
+  " tab completion
+  " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+endif
 
 " --- EasyMotion ---
 if &runtimepath =~? 'vim-easymotion'
