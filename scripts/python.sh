@@ -17,6 +17,7 @@ echo "Installing Python 3 packages..."
 PYTHON3_PACKAGES=(
     flake8
     ipython
+    isort
     jedi
     neovim
     vim-vint
