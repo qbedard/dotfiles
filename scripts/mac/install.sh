@@ -66,7 +66,7 @@ brew cask install "${CASKS[@]}"
 echo "Installing fonts..."
 brew tap caskroom/fonts
 FONTS=(
-    font-source-code-pro-for-powerline
+    font-sourcecodepro-nerd-font
 )
 brew cask install "${FONTS[@]}"
 
