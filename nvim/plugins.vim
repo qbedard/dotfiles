@@ -87,6 +87,8 @@ endif
 Plug 'Shougo/neco-vim'  " VimL
 " TODO: figure out how to check if jedi is installed
 Plug 'zchee/deoplete-jedi'  " python
+" This seems cool to get working...
+" Plug 'Shougo/echodoc.vim'  " show function defs
 
 " if has('nvim') || v:version >= 705
 "   Plug 'valloric/youcompleteme'
