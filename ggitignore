@@ -1,4 +1,5 @@
 .direnv/
 .DS_Store
 .idea/
-.ropeproject
+.pyc
+.ropeproject/
