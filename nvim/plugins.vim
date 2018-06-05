@@ -48,6 +48,7 @@ endif
 "" Plug 'sunaku/vim-shortcut'  " discoverable shortcut system
 
 " - Editing -
+Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
 Plug 'tpope/vim-commentary'  " commenting shortcuts
 Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
