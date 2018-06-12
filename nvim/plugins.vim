@@ -65,6 +65,7 @@ Plug 'junegunn/gv.vim'  " commit browser
 
 " - Language -
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
+Plug 'Vimjas/vim-python-pep8-indent'  " fixes python indentation issues
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 " Plug 'tmhedberg/simpylfold'  " python folding
 " Plug 'tweekmonster/django-plus.vim'  " better django detection/support
