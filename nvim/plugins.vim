@@ -27,6 +27,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'mhinz/vim-startify'  " fancy start screen
+Plug 'nathanaelkane/vim-indent-guides'  " nice indentation lines
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " file browser
 " Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 " if has('nvim')
@@ -398,6 +399,12 @@ if &runtimepath =~? 'vim-easy-align'
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
+endif
+
+" --- vim-indent-guides ---
+if &runtimepath =~? 'vim-indent-guides'
+  let g:indent_guides_guide_size = 1
+  " let g:indent_guides_enable_on_vim_startup = 1
 endif
 
 " --- YouCompleteMe ---
