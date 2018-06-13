@@ -67,7 +67,8 @@ Plug 'junegunn/gv.vim'  " commit browser
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'Vimjas/vim-python-pep8-indent'  " fixes python indentation issues
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
-" Plug 'tmhedberg/simpylfold'  " python folding
+Plug 'tmhedberg/simpylfold'  " python folding
+Plug 'Konfekt/FastFold'  " faster folding by ignoring manual folding
 " Plug 'tweekmonster/django-plus.vim'  " better django detection/support
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'  " jekyll templates
@@ -351,7 +352,7 @@ if &runtimepath =~? 'vim-shortcut'
 endif
 
 " --- SimplyFold ---
-if &runtimepath =~? 'simplyfold'
+if &runtimepath =~? 'simpylfold'
   let g:SimpylFold_docstring_preview = 1
 endif
 
