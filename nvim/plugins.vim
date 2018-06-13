@@ -354,6 +354,7 @@ endif
 " --- SimplyFold ---
 if &runtimepath =~? 'simpylfold'
   let g:SimpylFold_docstring_preview = 1
+  set foldlevel=99
 endif
 
 " --- Startify ---
