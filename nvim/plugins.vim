@@ -106,8 +106,9 @@ Plug 'ervandew/supertab'  " use tab for insert completions
 
 " - Snippets -
 " Plug 'sirver/ultisnips'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+" vvv This is breaking right now for some reason.
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
 " Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
