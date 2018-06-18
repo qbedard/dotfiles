@@ -8,6 +8,7 @@ PACKAGES=(
     csslint
     eslint
     htmlhint
+    instant-markdown-d
     jsonlint
     markdownlint-cli
 )
