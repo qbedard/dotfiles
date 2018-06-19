@@ -75,6 +75,7 @@ Plug 'chrisbra/csv.vim'  " strong csv toolset
 Plug 'hashivim/vim-vagrant'  " Vagrant support
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
 Plug 'sophacles/vim-bundle-mako'  " mako template support
+" Plug 'junegunn/vim-emoji'  " support for emoji
 
 " - Linting -
 Plug 'neomake/neomake'  " linting/building
@@ -93,6 +94,7 @@ Plug 'Shougo/neco-vim'  " VimL
 Plug 'zchee/deoplete-jedi'  " python
 " This seems cool to get working...
 " Plug 'Shougo/echodoc.vim'  " show function defs
+Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 
 " if has('nvim') || v:version >= 705
 "   Plug 'valloric/youcompleteme'
@@ -400,6 +402,11 @@ if &runtimepath =~? 'vim-easy-align'
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
+endif
+
+" --- vim-emoji ---
+if &runtimepath =~? 'vim-emoji'
+  set completefunc=emoji#complete
 endif
 
 " --- vim-indent-guides ---
