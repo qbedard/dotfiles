@@ -3,19 +3,23 @@ ZSH_THEME="kolo"
 
 plugins=(
     aws
+    brew
     fasd
+    django
     docker
     docker-compose
+    fasd
     # gem
     git
+    git-extras
     osx
     pip
     python
     redis-cli
-    sudo
+    sudo  # pressing ESC twice puts 'sudo' in front of the current command
     # tmux
     vagrant
-    web-search
+    web-search  # perform popular web searches such as 'google pictures of cats'
     zsh-autosuggestions
     zsh-syntax-highlighting
     )
