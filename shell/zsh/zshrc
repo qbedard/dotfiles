@@ -5,6 +5,7 @@ plugins=(
     aws
     fasd
     docker
+    docker-compose
     # gem
     git
     osx
