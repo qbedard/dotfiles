@@ -49,6 +49,11 @@ alias vd="vagrant destroy"
 alias vh="vagrant halt"
 alias vss="vagrant ssh"
 
+# ----- Docker Compose ----- #
+alias dc="docker-compose"
+alias dcu="docker-compose up"
+alias dcd="docker-compose down"
+
 # ----- UT PyPE  ----- #
 # alias pw="pype_workon"
 # alias pw2.8="pype_workon 27.8.0"
