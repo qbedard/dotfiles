@@ -78,7 +78,7 @@ Plug 'tpope/vim-liquid'  " jekyll templates
 Plug 'chrisbra/csv.vim'  " strong csv toolset
 Plug 'hashivim/vim-vagrant'  " Vagrant support
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
-Plug 'sophacles/vim-bundle-mako'  " mako template support
+" Plug 'sophacles/vim-bundle-mako'  " mako template support
 " Plug 'junegunn/vim-emoji'  " support for emoji
 
 " - Linting -
