@@ -331,6 +331,11 @@ if &runtimepath =~? 'nerdtree'
   map ˜ :NERDTreeFind<cr>
 endif
 
+" --- vim-polyglot ---
+if &runtimepath =~? 'vim-polyglot'
+  let b:python_version_2 = 1
+endif
+
 " --- python-mode ---
 if &runtimepath =~? 'python-mode'
   let g:pymode_syntax_space_errors = 0
