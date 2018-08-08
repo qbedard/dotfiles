@@ -27,7 +27,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'mhinz/vim-startify'  " fancy start screen
-Plug 'nathanaelkane/vim-indent-guides'  " nice indentation lines
+Plug 'Yggdroot/indentLine'  " nice indentation lines (note: mucks with conceal, might affect JSON)
+" Plug 'nathanaelkane/vim-indent-guides'  " nice indentation fill
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " file browser
 " Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 " if has('nvim')
@@ -233,6 +234,11 @@ if &runtimepath =~? 'incsearch.vim'
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
+endif
+"
+" --- Indent Guides ---
+if &runtimepath =~? 'indentLine'
+  let g:indentLine_char = '│'
 endif
 
 " --- Instant Markdown ---
