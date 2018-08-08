@@ -49,6 +49,7 @@ endif
 "" Plug 'sunaku/vim-shortcut'  " discoverable shortcut system
 
 " - Editing -
+Plug 'zhimsel/vim-stay'  " persist editing state when switching buffers, etc
 Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
 Plug 'tpope/vim-commentary'  " commenting shortcuts
 Plug 'tpope/vim-surround'  " quoting, etc

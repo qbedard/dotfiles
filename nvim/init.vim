@@ -195,15 +195,14 @@ imap <M-Tab>  <C-O>:tabprev<cr>
 
 
 " ----- Editing -----
-set foldmethod=manual
-
+" trying out replacing this with vim-stay
 " auto view saving (to keep folds)
-set viewoptions-=options  " keep from saving cur dir
-augroup autoviewsave
-  autocmd!
-  autocmd BufWinLeave ?* mkview
-  autocmd BufWinEnter ?* silent! loadview
-augroup END
+" set viewoptions-=options  " keep from saving cur dir
+" augroup autoviewsave
+"   autocmd!
+"   autocmd BufWinLeave ?* mkview
+"   autocmd BufWinEnter ?* silent! loadview
+" augroup END
 
 " yank to system clipboard
 set clipboard=unnamed
