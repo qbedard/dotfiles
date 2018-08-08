@@ -209,7 +209,7 @@ endif
 " --- GitGutter ---
 if &runtimepath =~? 'vim-gitgutter'
   if exists('&signcolumn')  " Vim 7.4.2201
-      set signcolumn=yes
+    set signcolumn=yes
   else
     let g:gitgutter_sign_column_always = 1
   endif
@@ -268,14 +268,14 @@ endif
 " --- MatchTagAlways ---
 if &runtimepath =~? 'MatchTagAlways'
   let g:mta_filetypes = {
-      \ 'html' : 1,
-      \ 'xhtml' : 1,
-      \ 'xml' : 1,
-      \ 'jinja' : 1,
-      \ 'mako': 1,
-      \ 'htmldjango' : 1,
-      \ 'liquid': 1,
-      \}
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'mako': 1,
+    \ 'htmldjango' : 1,
+    \ 'liquid': 1,
+    \ }
 endif
 
 " --- NeoMake ---
@@ -292,14 +292,14 @@ if &runtimepath =~? 'neomake'
 
   " pylint is super noisy, so let's stick to flake8.
   let g:neomake_python_flake8_maker = {
-      \ 'args': ['--max-line-length=160', '--format=default'],
-      \ 'errorformat':
-          \ '%E%f:%l: could not compile,%-Z%p^,' .
-          \ '%A%f:%l:%c: %t%n %m,' .
-          \ '%A%f:%l: %t%n %m,' .
-          \ '%-G%.%#',
-          \ 'postprocess': function('neomake#makers#ft#python#Flake8EntryProcess')
-      \ }
+    \ 'args': ['--max-line-length=160', '--format=default'],
+    \ 'errorformat':
+      \ '%E%f:%l: could not compile,%-Z%p^,' .
+      \ '%A%f:%l:%c: %t%n %m,' .
+      \ '%A%f:%l: %t%n %m,' .
+      \ '%-G%.%#',
+      \ 'postprocess': function('neomake#makers#ft#python#Flake8EntryProcess')
+    \ }
   let g:neomake_python_enabled_makers = ['flake8']
   let g:neomake_python_flake8_args = ['--max-line-length=160', '--format=default']
 
