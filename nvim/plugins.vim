@@ -68,6 +68,7 @@ Plug 'junegunn/gv.vim'  " commit browser
 
 " - Language -
 Plug 'sheerun/vim-polyglot'  " a ton of language support
+Plug 'gabrielelana/vim-markdown'  " better markdown
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'Vimjas/vim-python-pep8-indent'  " fixes python indentation issues
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
