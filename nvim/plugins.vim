@@ -62,6 +62,7 @@ Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 
 " - Git -
 Plug 'tpope/vim-fugitive'  " the defacto git standard
+Plug 'tpope/vim-rhubarb'  " GitHub support for fugitive
 Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
 Plug 'junegunn/gv.vim'  " commit browser
 
