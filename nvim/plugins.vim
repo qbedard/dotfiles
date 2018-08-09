@@ -334,6 +334,7 @@ endif
 " --- vim-polyglot ---
 if &runtimepath =~? 'vim-polyglot'
   let b:python_version_2 = 1
+  let g:polyglot_disabled = ['markdown']  " polyglot seems to futz up markdown indentation
 endif
 
 " --- python-mode ---
