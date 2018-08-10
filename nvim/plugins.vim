@@ -68,6 +68,7 @@ Plug 'junegunn/gv.vim'  " commit browser
 
 " - Language -
 Plug 'sheerun/vim-polyglot'  " a ton of language support
+Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
 Plug 'gabrielelana/vim-markdown'  " better markdown
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'Vimjas/vim-python-pep8-indent'  " fixes python indentation issues
