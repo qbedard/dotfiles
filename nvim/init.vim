@@ -17,7 +17,7 @@ if !has('nvim')
   set complete=.,w,b,u,t  " -=i
   set directory=$DATA_DIR/swap//
   set display+=lastline
-  set formatoptions=tcqj
+  set formatoptions=tcqj  " +=j
   set history=10000
   set hlsearch
   set incsearch
