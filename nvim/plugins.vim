@@ -59,6 +59,7 @@ Plug 'editorconfig/editorconfig-vim'  " support for .editorconfig files
 Plug 'Valloric/MatchTagAlways'  " show matching tags
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 " Plug 'junegunn/vim-easy-align'  " line stuff up
+Plug 'junegunn/vim-peekaboo'  " show preview of buffers
 
 " - Git -
 Plug 'tpope/vim-fugitive'  " the defacto git standard
@@ -83,6 +84,7 @@ Plug 'hashivim/vim-vagrant'  " Vagrant support
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
 " Plug 'sophacles/vim-bundle-mako'  " mako template support
 " Plug 'junegunn/vim-emoji'  " support for emoji
+Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 
 " - Linting -
 Plug 'neomake/neomake'  " linting/building
