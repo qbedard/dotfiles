@@ -146,16 +146,17 @@ cnoreabbrev vp :e $DOTFILES_DIR/plugins.vim
 " ----- Navigation -----
 set mouse=a  " let the mouse wheel scroll page, etc
 
-" nav to begin and end of line (rather than buffer) with H/L
-nnoremap H ^
-nnoremap L $
-
 " faster exiting from insert mode
 inoremap jj <Esc>
 
 " faster exiting from terminal mode
 tnoremap kk <C-\><C-n>
 tnoremap <Esc> <C-\><C-n>
+
+" faster command entry
+map ; :
+" but still keep the ; functionality
+nnoremap ;; ;
 
 " easier nav in insert mode (Ctrl)
 " NOTE: <C-h> doesn't work thanks to <C-h> sending <bs> in most terminals
@@ -164,22 +165,21 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-j> <C-o>gj
 
-" faster command entry
-map ; :
-" but still keep the ; functionality
-nnoremap ;; ;
-
-" window switching (Ctrl)
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
+" nav to begin and end of line (rather than buffer) with H/L
+nnoremap H ^
+nnoremap L $
 
 " buffer switching (Shift + j/k)
 nnoremap K :bn<cr>
 nnoremap J :bp<cr>
 vnoremap K :bn<cr>
 vnoremap J :bp<cr>
+
+" window switching (Ctrl)
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " tab switching (Ctrl+Tab)
 map  <C-Tab>  :tabnext<cr>
