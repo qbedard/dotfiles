@@ -92,8 +92,6 @@ set wildmode=longest:full,full
 set wildignore+=*/tmp/*,/var/*,*.so,*.swp,*.zip,*.tar,*.pyc  " macOS/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe                  " Windows
 
-nnoremap <cr> :nohlsearch<cr>
-
 set path+=**  " add current file location to path
 
 " use ag instead of grep if available
@@ -131,67 +129,8 @@ if $TERM_PROGRAM =~? 'iTerm'
 endif
 
 
-" ----- vimrc -----
-
-" reload vimrc
-cnoreabbrev vrr :source $MYVIMRC
-
-" shortcut to edit vimrc
-cnoreabbrev vr :e $DOTFILES_DIR/init.vim
-
-" shortcut to edit plugins.vim
-cnoreabbrev vp :e $DOTFILES_DIR/plugins.vim
-
-
 " ----- Navigation -----
 set mouse=a  " let the mouse wheel scroll page, etc
-
-" faster exiting from insert mode
-inoremap jj <Esc>
-
-" faster exiting from terminal mode
-tnoremap kk <C-\><C-n>
-tnoremap <Esc> <C-\><C-n>
-
-" faster command entry
-map ; :
-" but still keep the ; functionality
-nnoremap ;; ;
-
-" easier nav in insert mode (Ctrl)
-" NOTE: <C-h> doesn't work thanks to <C-h> sending <bs> in most terminals
-inoremap <C-k> <C-o>gk
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-inoremap <C-j> <C-o>gj
-
-" nav to begin and end of line (rather than buffer) with H/L
-nnoremap H ^
-nnoremap L $
-
-" buffer switching (Shift + j/k)
-nnoremap K :bn<cr>
-nnoremap J :bp<cr>
-vnoremap K :bn<cr>
-vnoremap J :bp<cr>
-
-" window switching (Ctrl)
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-" tab switching (Ctrl+Tab)
-map  <C-Tab>  :tabnext<cr>
-imap <C-Tab>  <C-O>:tabnext<cr>
-map  <M-Tab>  :tabprev<cr>
-imap <M-Tab>  <C-O>:tabprev<cr>
-
-" I'm bad at typing.
-:command! Q q
-:command! W w
-:command! WQ wq
-:command! Wq wq
 
 
 " ----- Editing -----
@@ -206,22 +145,6 @@ imap <M-Tab>  <C-O>:tabprev<cr>
 
 " yank to system clipboard
 set clipboard=unnamed
-
-" redo
-nnoremap U <C-R>
-inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
-
-" insert a single character
-nnoremap  <leader>i i<Space><Esc>r
-nnoremap  <leader>a a<Space><Esc>r
-
-" trim white space
-cnoreabbrev trim  :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <cr>
-
-" ----- Completion -----
-" <cr> to select completion
-imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
 
 set completeopt-=preview  " preview in a buffer?! No.
 
@@ -251,6 +174,16 @@ endif
 
 " syntax hightling for .nat files
 autocmd BufNewFile,BufRead *.nat  set syntax=natural
+
+" ----- Commands -----
+if filereadable(expand('$DOTFILES_DIR/commands.vim'))
+  source $DOTFILES_DIR/commands.vim
+endif
+
+" ----- Mappings -----
+if filereadable(expand('$DOTFILES_DIR/mappings.vim'))
+  source $DOTFILES_DIR/mappings.vim
+endif
 
 " ----- Plugins -----
 if filereadable(expand('$DOTFILES_DIR/plugins.vim'))
