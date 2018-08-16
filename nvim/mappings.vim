@@ -59,6 +59,7 @@ inoremap <c-w> <c-g>u<c-w>
 nnoremap  <leader>i i<Space><Esc>r
 nnoremap  <leader>a a<Space><Esc>r
 
+
 " ----- Completion -----
 " <cr> to select completion
 imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
