@@ -109,3 +109,6 @@ export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
 # cheat
 export CHEATCOLORS=true
+
+# Docker container trustwortiness sanity check
+export DOCKER_CONTENT_TRUST=1
