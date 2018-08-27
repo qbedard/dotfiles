@@ -59,6 +59,13 @@ inoremap <c-w> <c-g>u<c-w>
 nnoremap  <leader>i i<Space><Esc>r
 nnoremap  <leader>a a<Space><Esc>r
 
+" https://github.com/google/yapf
+if executable('yapf')
+  augroup enableyapf
+    autocmd!
+    autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+  augroup END
+endif
 
 " ----- Completion -----
 " <cr> to select completion

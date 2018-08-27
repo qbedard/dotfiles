@@ -166,13 +166,6 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-if executable('yapf')
-  augroup enableyapf
-    autocmd!
-    autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
-  augroup END
-endif
-
 " syntax hightling for .nat files
 autocmd BufNewFile,BufRead *.nat  set syntax=natural
 
