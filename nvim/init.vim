@@ -7,6 +7,7 @@ let $CONFIG_DIR = $HOME . '/.config/nvim'
 let $DATA_DIR = $HOME . '/.local/share/nvim'
 
 " ----- Neovim Defaults -----
+" If we're not in Neovim, make sure all the defaults are the same.
 if !has('nvim')
   set nocompatible
   set autoindent
