@@ -79,7 +79,7 @@ Plug 'Konfekt/FastFold'  " faster folding by ignoring manual folding
 " Plug 'tweekmonster/django-plus.vim'  " better django detection/support
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-liquid'  " jekyll templates
-Plug 'chrisbra/csv.vim'  " strong csv toolset
+" Plug 'chrisbra/csv.vim'  " strong csv toolset
 Plug 'hashivim/vim-vagrant'  " Vagrant support
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
 " Plug 'sophacles/vim-bundle-mako'  " mako template support
