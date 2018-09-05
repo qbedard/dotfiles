@@ -295,6 +295,11 @@ if &runtimepath =~? 'neomake'
   " luacheck (ignore implicit global definitions)
   let g:neomake_lua_luacheck_args = ['--allow-defined', '--no-color', '--formatter=plain', '--ranges', '--codes', '--filename', '%:p']
 
+  let g:neomake_markdown_markdownlint_maker = {
+    \ 'args': ['-r', '~MD022,~MD032'],
+    \ 'errorformat': '%f: %l: %m'
+    \ }
+
   " pylint is super noisy, so let's stick to flake8.
   let g:neomake_python_flake8_maker = {
     \ 'args': ['--max-line-length=160', '--format=default'],
@@ -407,7 +412,8 @@ endif
 " --- Vimwiki ---
 if &runtimepath =~? 'vimwiki'
   let g:vimwiki_list = [{'path': '~/.vimwiki',
-                       \ 'syntax': 'markdown', 'ext': '.wiki'}]
+                       \ 'syntax': 'markdown', 'ext': '.wiki',
+                       \ 'automatic_nested_syntaxes': 1}]
   " disable the <tab> mapping provided by vimwiki, which interferes with SuperTab
   let g:vimwiki_table_mappings = 0
 endif
