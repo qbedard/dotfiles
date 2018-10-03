@@ -59,7 +59,8 @@ Plug 'editorconfig/editorconfig-vim'  " support for .editorconfig files
 Plug 'Valloric/MatchTagAlways'  " show matching tags
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 " Plug 'junegunn/vim-easy-align'  " line stuff up
-Plug 'junegunn/vim-peekaboo'  " show preview of buffers
+Plug 'junegunn/vim-peekaboo'  " show preview of registers
+Plug 'ap/vim-css-color'  " preview color hex, words, etc (for CSS mostly)
 
 " - Git -
 Plug 'tpope/vim-fugitive'  " the defacto git standard
