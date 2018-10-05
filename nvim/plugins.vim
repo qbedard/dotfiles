@@ -274,6 +274,9 @@ endif
 
 " --- MatchTagAlways ---
 if &runtimepath =~? 'MatchTagAlways'
+  " Jump to matching tags
+  nnoremap <leader>% :MtaJumpToOtherTag<cr>
+
   let g:mta_filetypes = {
     \ 'html' : 1,
     \ 'xhtml' : 1,
