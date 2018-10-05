@@ -164,6 +164,7 @@ endif
 if &runtimepath =~? 'ctrlp.vim'
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_cmd =  'CtrlP'
+  let g:ctrlp_extensions = ['buffertag', 'line']
 
   " ignore some folders and files for CtrlP indexing
   let g:ctrlp_custom_ignore = {
