@@ -15,9 +15,11 @@ tnoremap kk <C-\><C-n>
 tnoremap <Esc> <C-\><C-n>
 
 " faster command entry
-map ; :
+nnoremap ; :
+vnoremap ; :
 " but still keep the ; functionality
-nnoremap ;; ;
+nnoremap : ;
+vnoremap : ;
 
 " easier nav in insert mode (Ctrl)
 " NOTE: <C-h> doesn't work thanks to <C-h> sending <bs> in most terminals
