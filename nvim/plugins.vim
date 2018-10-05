@@ -25,10 +25,8 @@ Plug 'morhetz/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
-Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'mhinz/vim-startify'  " fancy start screen
 Plug 'Yggdroot/indentLine'  " nice indentation lines (note: mucks with conceal, might affect JSON)
-" Plug 'nathanaelkane/vim-indent-guides'  " nice indentation fill
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " file browser
 " Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 " if has('nvim')
@@ -48,6 +46,10 @@ endif
 "" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " alternate terminal fuzzy
 "" Plug 'junegunn/fzf.vim'
 "" Plug 'sunaku/vim-shortcut'  " discoverable shortcut system
+
+" - Motion -
+Plug 'easymotion/vim-easymotion'  " fast finding tool
+Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
 
 " - Editing -
 Plug 'zhimsel/vim-stay'  " persist editing state when switching buffers, etc
