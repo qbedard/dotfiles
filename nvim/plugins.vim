@@ -213,7 +213,7 @@ if &runtimepath =~? 'vim-fugitive'
   "" :command Gadd Git add %
 endif
 
-" --- FZF ---
+" --- fzf ---
 if &runtimepath =~? 'fzf.vim'
   augroup hidefzfstatusline
     autocmd! FileType fzf
@@ -222,10 +222,20 @@ if &runtimepath =~? 'fzf.vim'
   augroup END
 
   " mappings
-  nnoremap <C-p> :GFiles<cr>
   nnoremap <C-f> :BLines<cr>
   nnoremap <C-b> :Buffers<cr>
   nnoremap <C-a> :Ag<cr>
+  " nnoremap <C-p> :GFiles --exclude-standard --other<cr>
+
+  fun! FzfOmniFiles()
+    let is_git = system('git status')
+    if v:shell_error
+      :Files
+    else
+      :GFiles
+    endif
+  endfun
+  nnoremap <C-p> :call FzfOmniFiles()<cr>
 endif
 
 " --- GitGutter ---
