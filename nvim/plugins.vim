@@ -27,25 +27,23 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'mhinz/vim-startify'  " fancy start screen
 Plug 'Yggdroot/indentLine'  " nice indentation lines (note: mucks with conceal, might affect JSON)
-" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " file browser
-" Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-" if has('nvim')
-"   Plug 'rbgrouleff/bclose.vim'  " required for ranger.vim in neovim
-" endif
-" Plug 'francoiscabrol/ranger.vim'  " , { 'on': 'Ranger' }
 " Plug 'tpope/vim-vinegar'  " inline buffer file browser (extends netrw)
 
-" - Fuzzy Search & Tags -
-" Plug 'haya14busa/incsearch.vim'  " incremental highlighting, breaking nvim
-" Plug 'haya14busa/is.vim'  " successor to incsearch, not sure if nvim supported yet
-Plug 'ctrlpvim/ctrlp.vim'  " FUZZY
+" - Tags -
 if executable('ctags')
   Plug 'ludovicchabant/vim-gutentags'  " manages tag files
   Plug 'majutsushi/tagbar'  " neat tag nav UI
 endif
-"" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " alternate terminal fuzzy
-"" Plug 'junegunn/fzf.vim'
-"" Plug 'sunaku/vim-shortcut'  " discoverable shortcut system
+
+" - Fuzzy Search -
+" Plug 'haya14busa/incsearch.vim'  " incremental highlighting, breaking nvim
+" Plug 'haya14busa/is.vim'  " successor to incsearch, not sure if nvim supported yet
+" Plug 'ctrlpvim/ctrlp.vim'  " FUZZY
+if executable('fzf')
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
+endif
+" Plug 'sunaku/vim-shortcut'  " discoverable shortcut system
 
 " - Motion -
 Plug 'easymotion/vim-easymotion'  " fast finding tool
@@ -213,6 +211,21 @@ endif
 " --- Fugitive ---
 if &runtimepath =~? 'vim-fugitive'
   "" :command Gadd Git add %
+endif
+
+" --- FZF ---
+if &runtimepath =~? 'fzf.vim'
+  augroup hidefzfstatusline
+    autocmd! FileType fzf
+    autocmd  FileType fzf set laststatus=0 noshowmode noruler
+      \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+  augroup END
+
+  " mappings
+  nnoremap <C-p> :GFiles<cr>
+  nnoremap <C-f> :BLines<cr>
+  nnoremap <C-b> :Buffers<cr>
+  nnoremap <C-a> :Ag<cr>
 endif
 
 " --- GitGutter ---

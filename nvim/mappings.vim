@@ -12,7 +12,7 @@ inoremap jj <Esc>
 
 " faster exiting from terminal mode
 tnoremap kk <C-\><C-n>
-tnoremap <Esc> <C-\><C-n>
+" tnoremap <Esc> <C-\><C-n>  " breaks fzf.vim
 
 " faster command entry
 nnoremap ; :
