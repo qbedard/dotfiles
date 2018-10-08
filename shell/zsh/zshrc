@@ -16,7 +16,7 @@ plugins=(
     pip
     python
     redis-cli
-    sudo  # pressing ESC twice puts 'sudo' in front of the current command
+    # sudo  # pressing ESC twice puts 'sudo' in front of the current command
     # tmux
     vagrant
     web-search  # perform popular web searches such as 'google pictures of cats'
