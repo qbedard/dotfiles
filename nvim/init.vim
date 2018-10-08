@@ -42,6 +42,8 @@ endif
 " ----- General -----
 let g:mapleader=' '
 
+set shell=zsh
+
 set hidden  " switch buffers without saving
 set splitbelow
 set splitright
