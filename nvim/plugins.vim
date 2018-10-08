@@ -27,6 +27,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'mhinz/vim-startify'  " fancy start screen
 Plug 'Yggdroot/indentLine'  " nice indentation lines (note: mucks with conceal, might affect JSON)
+Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
 " Plug 'tpope/vim-vinegar'  " inline buffer file browser (extends netrw)
 
 " - Tags -
@@ -243,18 +244,21 @@ endif
 
 " --- GitGutter ---
 if &runtimepath =~? 'vim-gitgutter'
+  let g:gitgutter_override_sign_column_highlight = 1
   if exists('&signcolumn')  " Vim 7.4.2201
     set signcolumn=yes
   else
     let g:gitgutter_sign_column_always = 1
   endif
-  highlight clear SignColumn
 endif
 
 " --- gruvbox ---
 if &runtimepath =~? 'gruvbox'
   let g:gruvbox_italic=1
   colorscheme gruvbox
+  highlight clear SignColumn
+  highlight clear FoldColumn
+  hi FoldColumn ctermfg=DarkGrey
 endif
 
 
@@ -449,6 +453,15 @@ if &runtimepath =~? 'vimwiki'
                        \ 'automatic_nested_syntaxes': 1}]
   " disable the <tab> mapping provided by vimwiki, which interferes with SuperTab
   let g:vimwiki_table_mappings = 0
+endif
+"
+" --- vim-auto-origami ---
+if &runtimepath =~? 'vim-auto-origami'
+  let g:auto_origami_foldcolumn = 3
+  augroup autofoldcolumn
+    au!
+    au CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
+  augroup END
 endif
 
 " --- vim-devicons ---

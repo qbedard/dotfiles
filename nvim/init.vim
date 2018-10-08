@@ -40,7 +40,7 @@ endif
 
 
 " ----- General -----
-let g:mapleader=" "
+let g:mapleader=' '
 
 set shell=zsh
 
@@ -78,7 +78,7 @@ set textwidth=0
 set wrapmargin=0
 
 
-" ----- Line Numbers -----
+" ----- Line Numbers, Etc -----
 set number relativenumber
 
 augroup numbertoggle
@@ -87,6 +87,7 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+" set foldcolumn=3
 
 " ----- Searching -----
 set ignorecase smartcase
