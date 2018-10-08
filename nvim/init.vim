@@ -40,7 +40,7 @@ endif
 
 
 " ----- General -----
-let g:mapleader=' '
+let g:mapleader="'"
 
 set shell=zsh
 
