@@ -18,8 +18,8 @@ tnoremap kk <C-\><C-n>
 nnoremap ; :
 vnoremap ; :
 " but still keep the ; functionality
-nnoremap : ;
-vnoremap : ;
+" nnoremap : ;
+" vnoremap : ;
 
 " easier nav in insert mode (Ctrl)
 " NOTE: <C-h> doesn't work thanks to <C-h> sending <bs> in most terminals
