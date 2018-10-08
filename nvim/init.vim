@@ -169,8 +169,10 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-" syntax hightling for .nat files
-autocmd BufNewFile,BufRead *.nat  set syntax=natural
+" syntax highlightling for .nat files
+augroup hlnat
+  autocmd BufNewFile,BufRead *.nat  set syntax=natural
+augroup END
 
 " ----- Commands -----
 if filereadable(expand('$DOTFILES_DIR/commands.vim'))
