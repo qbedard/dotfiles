@@ -217,8 +217,8 @@ endif
 if &runtimepath =~? 'fzf.vim'
   augroup hidefzfstatusline
     autocmd! FileType fzf
-    autocmd  FileType fzf set laststatus=0 noshowmode noruler
-      \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+    autocmd  FileType fzf set laststatus=0 noruler
+      \| autocmd BufLeave <buffer> set laststatus=2 ruler
   augroup END
 
   " mappings
@@ -228,11 +228,14 @@ if &runtimepath =~? 'fzf.vim'
   " nnoremap <C-p> :GFiles --exclude-standard --other<cr>
 
   fun! FzfOmniFiles()
+    :echo ''
     let is_git = system('git status')
     if v:shell_error
       :Files
+      :echo ':Files'
     else
       :GFiles
+      :echo ':GFiles'
     endif
   endfun
   nnoremap <C-p> :call FzfOmniFiles()<cr>
