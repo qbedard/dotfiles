@@ -3,7 +3,7 @@
 " --------------------
 
 " ----- Searching -----
-nnoremap <cr> :nohlsearch<cr>
+nnoremap <cr> :nohlsearch<cr>:echo ''<cr>
 
 " ----- Navigation -----
 " faster exiting from insert mode
