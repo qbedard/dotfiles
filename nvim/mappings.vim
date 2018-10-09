@@ -5,7 +5,6 @@
 " ----- Searching -----
 nnoremap <cr> :nohlsearch<cr>
 
-
 " ----- Navigation -----
 " faster exiting from insert mode
 inoremap jj <Esc>
@@ -49,7 +48,6 @@ map  <C-Tab>  :tabnext<cr>
 imap <C-Tab>  <C-O>:tabnext<cr>
 map  <M-Tab>  :tabprev<cr>
 imap <M-Tab>  <C-O>:tabprev<cr>
-
 
 " ----- Editing -----
 " redo

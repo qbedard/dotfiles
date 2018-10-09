@@ -38,10 +38,10 @@ if !has('nvim')
   set wildmenu
 endif
 
-
 " ----- General -----
 let g:mapleader=' '
 
+set autochdir  " automatically set working directory
 set shell=zsh
 
 set hidden  " switch buffers without saving
@@ -63,7 +63,6 @@ if has('persistent_undo')
   set undofile
 endif
 
-
 " ----- Tabs & Indentation -----
 set smartindent
 set expandtab  " tab inserts spaces
@@ -77,7 +76,6 @@ set linebreak
 set textwidth=0
 set wrapmargin=0
 
-
 " ----- Line Numbers, Etc -----
 set number relativenumber
 
@@ -86,8 +84,6 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
-
-" set foldcolumn=3
 
 " ----- Searching -----
 set ignorecase smartcase
@@ -103,7 +99,6 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-
 " ----- Appearance -----
 if has('syntax')
   syntax enable
@@ -117,6 +112,7 @@ set lazyredraw
 
 set t_Co=256  " terminal colors
 set background=dark
+
 augroup winresize
   autocmd!
   autocmd VimResized * wincmd =
@@ -132,15 +128,13 @@ if $TERM_PROGRAM =~? 'iTerm'
   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 endif
 
-
 " ----- Navigation -----
 set mouse=a  " let the mouse wheel scroll page, etc
 
-
 " ----- Editing -----
+set viewoptions-=options  " keep from saving cur dir in view
 " trying out replacing this with vim-stay
 " auto view saving (to keep folds)
-" set viewoptions-=options  " keep from saving cur dir
 " augroup autoviewsave
 "   autocmd!
 "   autocmd BufWinLeave ?* mkview

@@ -56,10 +56,10 @@ Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
 Plug 'tpope/vim-commentary'  " commenting shortcuts
 Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
-Plug 'editorconfig/editorconfig-vim'  " support for .editorconfig files
+" Plug 'editorconfig/editorconfig-vim'  " support for .editorconfig files
 Plug 'Valloric/MatchTagAlways'  " show matching tags
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
-" Plug 'junegunn/vim-easy-align'  " line stuff up
+Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
 Plug 'ap/vim-css-color'  " preview color hex, words, etc (for CSS mostly)
 
@@ -67,26 +67,35 @@ Plug 'ap/vim-css-color'  " preview color hex, words, etc (for CSS mostly)
 Plug 'tpope/vim-fugitive'  " the defacto git standard
 Plug 'tpope/vim-rhubarb'  " GitHub support for fugitive
 Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
-Plug 'junegunn/gv.vim'  " commit browser
+Plug 'junegunn/gv.vim'  " badass commit browser
 
-" - Language -
+" - Language/Syntax -
+" General "
 Plug 'sheerun/vim-polyglot'  " a ton of language support
 Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
+Plug 'Konfekt/FastFold'  " faster folding by ignoring manual folding
+Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
+
+" CSS "
+Plug 'hail2u/vim-css3-syntax'
+
+" Markdown "
 Plug 'gabrielelana/vim-markdown'  " better markdown
+
+" Python "
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'Vimjas/vim-python-pep8-indent'  " fixes python indentation issues
-Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 Plug 'tmhedberg/simpylfold'  " python folding
-Plug 'Konfekt/FastFold'  " faster folding by ignoring manual folding
+Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 " Plug 'tweekmonster/django-plus.vim'  " better django detection/support
-Plug 'hail2u/vim-css3-syntax'
-Plug 'tpope/vim-liquid'  " jekyll templates
-" Plug 'chrisbra/csv.vim'  " strong csv toolset
-Plug 'hashivim/vim-vagrant'  " Vagrant support
+
+" Misc "
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
+Plug 'hashivim/vim-vagrant'  " Vagrant support
+Plug 'tpope/vim-liquid'  " jekyll templates
 " Plug 'sophacles/vim-bundle-mako'  " mako template support
+" Plug 'chrisbra/csv.vim'  " strong csv toolset
 " Plug 'junegunn/vim-emoji'  " support for emoji
-Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 
 " - Linting -
 Plug 'neomake/neomake'  " linting/building
@@ -107,13 +116,6 @@ Plug 'zchee/deoplete-jedi'  " python
 " Plug 'Shougo/echodoc.vim'  " show function defs
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 
-" if has('nvim') || v:version >= 705
-"   Plug 'valloric/youcompleteme'
-" else
-"   Plug 'ajh17/VimCompletesMe'
-" endif
-"" Plug 'scrooloose/syntastic'
-
 Plug 'ervandew/supertab'  " use tab for insert completions
 
 " - Snippets -
@@ -122,13 +124,14 @@ Plug 'ervandew/supertab'  " use tab for insert completions
 " Plug 'Shougo/neosnippet.vim'
 " Plug 'Shougo/neosnippet-snippets'
 " Plug 'honza/vim-snippets'
+
 Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
 " - Notes -
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 " - Preview -
-"" Plug 'JamshedVesuna/vim-markdown-preview'
+" Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'suan/vim-instant-markdown'
 
 " - Writing -
@@ -206,7 +209,8 @@ endif
 " --- Emmet ---
 if &runtimepath =~? 'emmet-vim'
   "  default is <C-Y>
-  "" let g:user_emmet_leader_key=','
+  " let g:user_emmet_leader_key=','
+  let g:user_emmet_install_global=1
 endif
 
 " --- Fugitive ---
