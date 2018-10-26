@@ -229,7 +229,7 @@ if &runtimepath =~? 'fzf.vim'
   " mappings
   nnoremap <C-f> :BLines<cr>
   nnoremap <C-b> :Buffers<cr>
-  nnoremap <C-a> :Ag<cr>
+  " nnoremap <C-a> :Ag<cr>  " conflicts with increment, temp disabled
   " nnoremap <C-p> :GFiles --exclude-standard --other<cr>
 
   fun! FzfOmniFiles()
@@ -240,7 +240,7 @@ if &runtimepath =~? 'fzf.vim'
       :echo ':Files'
     else
       :GFiles
-      :echo ':GFiles'
+      :echo ':GFiles --others --exclude-standard'
     endif
   endfun
   nnoremap <C-p> :call FzfOmniFiles()<cr>

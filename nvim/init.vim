@@ -41,7 +41,7 @@ endif
 " ----- General -----
 let g:mapleader=' '
 
-set autochdir  " automatically set working directory
+" set autochdir  " automatically set working directory
 set shell=zsh
 
 set hidden  " switch buffers without saving
