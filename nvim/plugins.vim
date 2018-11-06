@@ -56,6 +56,7 @@ Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
 Plug 'tpope/vim-commentary'  " commenting shortcuts
 Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
+Plug 'wellle/targets.vim'  " next/last surround pair text object
 " Plug 'editorconfig/editorconfig-vim'  " support for .editorconfig files
 Plug 'Valloric/MatchTagAlways'  " show matching tags
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
