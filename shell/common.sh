@@ -109,3 +109,6 @@ export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
 # cheat
 export CHEATCOLORS=true
+
+# python
+export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
