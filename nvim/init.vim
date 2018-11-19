@@ -96,7 +96,7 @@ set path+=**  " add current file location to path
 
 " use rg instead of grep if available
 if executable('rg')
-  set grepprg=rg\ --vimgrep
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
 " ----- Appearance -----
