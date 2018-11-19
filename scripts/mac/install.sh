@@ -35,6 +35,7 @@ PACKAGES=(
     python@2
     python3
     ranger
+    ripgrep
     ruby
     shellcheck
     the_silver_searcher
