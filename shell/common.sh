@@ -6,6 +6,7 @@ export PATH="/usr/local/opt/python@2/bin:$PATH"
 
 # ----- Aliases ----- #
 alias vim="nvim"
+alias vi="nvim"
 
 # --- General ---
 alias l="ls -1"
