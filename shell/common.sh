@@ -92,6 +92,9 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 # vimpager
 # export PAGER=vimpager
 
+# ripgrep default settings alias
+alias rg='rg --smart-case'
+
  #rtv
 export RTV_EDITOR=vim
 
