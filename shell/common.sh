@@ -4,6 +4,8 @@ export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 # add python 2 to path
 export PATH="/usr/local/opt/python@2/bin:$PATH"
 
+# add cargo binaries to path
+export PATH="/Users/tim/.cargo/bin:$PATH"
 # ----- Aliases ----- #
 alias vim="nvim"
 
