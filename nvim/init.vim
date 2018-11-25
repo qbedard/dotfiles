@@ -94,9 +94,9 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe                  " Windows
 
 set path+=**  " add current file location to path
 
-" use ag instead of grep if available
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+" use rg instead of grep if available
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
 " ----- Appearance -----

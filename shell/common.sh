@@ -8,6 +8,7 @@ export PATH="/usr/local/opt/python@2/bin:$PATH"
 export PATH="/Users/tim/.cargo/bin:$PATH"
 # ----- Aliases ----- #
 alias vim="nvim"
+alias vi="nvim"
 
 # --- General ---
 alias l="ls -1"
@@ -87,8 +88,14 @@ fi
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# use rg with fzf
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
 # vimpager
 # export PAGER=vimpager
+
+# ripgrep default settings alias
+alias rg='rg --smart-case'
 
  #rtv
 export RTV_EDITOR=vim
@@ -111,3 +118,6 @@ export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
 # cheat
 export CHEATCOLORS=true
+
+# python
+export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
