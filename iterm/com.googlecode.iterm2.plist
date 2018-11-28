@@ -10,6 +10,8 @@
 	<integer>1</integer>
 	<key>AppleWindowTabbingMode</key>
 	<string>manual</string>
+	<key>CGFontRenderingFontSmoothingDisabled</key>
+	<false/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>gruvbox dark</key>
@@ -369,7 +371,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/.dotfiles/iterm</string>
+	<string>~</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -404,13 +406,15 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>791 111 583 350 0 0 1440 878 </string>
+	<string>1845 1011 660 347 0 0 3360 1867 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>610 326 700 622 0 0 1920 1057 </string>
+	<string>1370 1106 620 392 0 0 3360 1867 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>469 271 937 514 0 0 1920 1057 </string>
+	<string>1211 1010 918 423 0 0 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>960 557 650 500 0 0 1920 1057 </string>
+	<string>1680 117 1906 1750 0 0 3360 1867 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>0 0 1674 1867 0 0 3360 1867 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1065,7 +1069,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodeProNerdFontCompleteM-Regular 14</string>
+			<string>SauceCodeProNerdFontCompleteM-Regular 13</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1140,18 +1144,16 @@
 			<string>/Users/tim</string>
 		</dict>
 	</array>
-	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
-	<true/>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>1D74B9E8-4521-49DD-82E2-0B300E330944</string>
+	<string>0274E5ED-683C-4481-AD94-64D2C29515D6</string>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>550559474.29833806</real>
+	<real>562787203.70920801</real>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -1186,7 +1188,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/tim/.dotfiles/iterm</string>
+	<string>/Users/tim/.dotfiles/iterm/</string>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
@@ -1194,11 +1196,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=38</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=69</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-11-25T04:36:56Z</date>
+	<date>2018-11-27T16:37:19Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1212,6 +1214,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.2.5</string>
+	<string>3.2.6</string>
 </dict>
 </plist>
