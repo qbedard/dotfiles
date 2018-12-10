@@ -25,7 +25,7 @@ Plug 'morhetz/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
-Plug 'mhinz/vim-startify'  " fancy start screen
+" Plug 'mhinz/vim-startify'  " fancy start screen
 Plug 'Yggdroot/indentLine'  " nice indentation lines (note: mucks with conceal, might affect JSON)
 Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
 " Plug 'tpope/vim-vinegar'  " inline buffer file browser (extends netrw)
@@ -62,7 +62,7 @@ Plug 'Valloric/MatchTagAlways'  " show matching tags
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
-Plug 'ap/vim-css-color'  " preview color hex, words, etc (for CSS mostly)
+" Plug 'ap/vim-css-color'  " preview color hex, words, etc (for CSS mostly), slow
 
 " - Git -
 Plug 'tpope/vim-fugitive'  " the defacto git standard
