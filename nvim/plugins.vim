@@ -241,7 +241,7 @@ if &runtimepath =~? 'fzf.vim'
       :echo ':Files'
     else
       :GFiles
-      :echo ':GFiles --others --exclude-standard'
+      :echo ':GFiles'
     endif
   endfun
   nnoremap <C-p> :call FzfOmniFiles()<cr>
