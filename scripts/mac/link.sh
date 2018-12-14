@@ -11,7 +11,6 @@ ln -sfn  "$DOTPATH/shell/bash/bashrc" "$HOME/.bashrc"
 # neovim
 mkdir -p "$HOME/.config/nvim"
 ln -sfn "$DOTPATH/nvim/init.vim" "$HOME/.config/nvim/init.vim"
-ln -sfn "$DOTPATH/nvim/init.vim" "$HOME/.config/nvim/init.vim"
 ln -sfn "$DOTPATH/nvim/plugins.vim" "$HOME/.config/nvim/plugins.vim"
 ln -sfn "$DOTPATH/nvim/after" "$HOME/.config/nvim/after"
 ln -sfn "$DOTPATH/nvim/ftplugin" "$HOME/.config/nvim/ftplugin"
