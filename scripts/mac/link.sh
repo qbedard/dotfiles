@@ -2,6 +2,10 @@
 DOTPATH="$HOME/.dotfiles"
 
 echo "Linking config files..."
+
+# make .config dir if it doesn't exist
+mkdir -p "$HOME/.config"
+
 # zsh
 ln -sfn  "$DOTPATH/shell/zsh/zshrc" "$HOME/.zshrc"
 
@@ -9,11 +13,14 @@ ln -sfn  "$DOTPATH/shell/zsh/zshrc" "$HOME/.zshrc"
 ln -sfn  "$DOTPATH/shell/bash/bashrc" "$HOME/.bashrc"
 
 # neovim
-mkdir -p "$HOME/.config/nvim"
-ln -sfn "$DOTPATH/nvim/init.vim" "$HOME/.config/nvim/init.vim"
-ln -sfn "$DOTPATH/nvim/plugins.vim" "$HOME/.config/nvim/plugins.vim"
-ln -sfn "$DOTPATH/nvim/after" "$HOME/.config/nvim/after"
-ln -sfn "$DOTPATH/nvim/ftplugin" "$HOME/.config/nvim/ftplugin"
+ln -sfn "$DOTPATH/nvim" "$HOME/.config/nvim"  # just link the whole dir
+
+# legacy approach with individual files
+# mkdir -p "$HOME/.config/nvim"
+# ln -sfn "$DOTPATH/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+# ln -sfn "$DOTPATH/nvim/plugins.vim" "$HOME/.config/nvim/plugins.vim"
+# ln -sfn "$DOTPATH/nvim/after" "$HOME/.config/nvim/after"
+# ln -sfn "$DOTPATH/nvim/ftplugin" "$HOME/.config/nvim/ftplugin"
 
 # ranger
 mkdir -p "$HOME/.config/ranger"
