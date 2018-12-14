@@ -39,6 +39,7 @@ alias gdtv="git difftool"
 alias gm="git merge"
 alias gp="git push"
 alias gl="git pull"
+alias gt="git tag"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 # --- Python ---
