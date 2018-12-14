@@ -233,18 +233,9 @@ if &runtimepath =~? 'fzf.vim'
   " nnoremap <C-a> :Ag<cr>  " conflicts with increment, temp disabled
   " nnoremap <C-p> :GFiles --exclude-standard --other<cr>
 
-  fun! FzfOmniFiles()
-    :echo ''
-    let is_git = system('git status')
-    if v:shell_error
-      :Files
-      :echo ':Files'
-    else
-      :GFiles
-      :echo ':GFiles'
-    endif
-  endfun
-  nnoremap <C-p> :call FzfOmniFiles()<cr>
+  " show files in a git project root (or current dir if not project)
+  command! ProjectFiles execute 'Files' FindGitRoot()
+  nnoremap <C-p> :ProjectFiles<cr>
 endif
 
 " --- GitGutter ---
