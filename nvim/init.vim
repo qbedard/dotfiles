@@ -58,6 +58,9 @@ if !has('nvim') && &ttimeoutlen == -1
   set ttimeoutlen=50
 endif
 
+" speed up screen updating
+set updatetime=100
+
 " persistent undo
 if has('persistent_undo')
   set undofile
