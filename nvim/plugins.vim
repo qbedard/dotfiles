@@ -74,7 +74,7 @@ Plug 'junegunn/gv.vim'  " badass commit browser
 " General "
 Plug 'sheerun/vim-polyglot'  " a ton of language support
 Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
-Plug 'Konfekt/FastFold'  " faster folding by ignoring manual folding
+" Plug 'Konfekt/FastFold'  " faster folding by ignoring manual folding
 Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 
 " CSS "
@@ -450,7 +450,7 @@ if &runtimepath =~? 'vimwiki'
   " disable the <tab> mapping provided by vimwiki, which interferes with SuperTab
   let g:vimwiki_table_mappings = 0
 endif
-"
+
 " --- vim-auto-origami ---
 if &runtimepath =~? 'vim-auto-origami'
   let g:auto_origami_foldcolumn = 3
