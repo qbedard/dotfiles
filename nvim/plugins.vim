@@ -85,8 +85,8 @@ Plug 'gabrielelana/vim-markdown'  " better markdown
 
 " Python "
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
-Plug 'Vimjas/vim-python-pep8-indent'  " fixes python indentation issues
-Plug 'tmhedberg/simpylfold'  " python folding
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }  " fixes python indentation issues
+Plug 'tmhedberg/simpylfold', { 'for': 'python' }  " python folding
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 " Plug 'tweekmonster/django-plus.vim'  " better django detection/support
 
@@ -112,7 +112,7 @@ else
 endif
 Plug 'Shougo/neco-vim'  " VimL
 " TODO: figure out how to check if jedi is installed
-Plug 'zchee/deoplete-jedi'  " python
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }  " python
 " This seems cool to get working...
 " Plug 'Shougo/echodoc.vim'  " show function defs
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
@@ -133,7 +133,7 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 " - Preview -
 " Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'suan/vim-instant-markdown'
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 
 " - Writing -
 Plug 'junegunn/goyo.vim'  " no-distractions editing
