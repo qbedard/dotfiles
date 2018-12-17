@@ -368,12 +368,6 @@ if &runtimepath =~? 'neosnippet.vim'
   " let g:neosnippet#enable_snipmate_compatibility = 1  " enable snipMate snippets
 endif
 
-" --- NERDTree ---
-if &runtimepath =~? 'nerdtree'
-  map <C-n> :NERDTreeToggle<cr>
-  map ˜ :NERDTreeFind<cr>
-endif
-
 " --- vim-polyglot ---
 if &runtimepath =~? 'vim-polyglot'
   let b:python_version_2 = 1
