@@ -40,7 +40,7 @@ if !has('nvim')
   set incsearch
   set nolangremap
   set laststatus=2
-  set listchars=tab:> ,trail:-,nbsp:+
+  set listchars=tab:>\ ,trail:-,nbsp:+
   set nrformats=bin,hex  " -=octal
   set ruler
   set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize  " -=options
