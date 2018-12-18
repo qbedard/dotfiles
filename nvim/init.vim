@@ -1,7 +1,7 @@
 "-----------------------------------------------------------------------------"
-"    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   "
+"    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    "
 "                           Tim Bedard's Vim Config                           "
-"    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   "
+"    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    "
 "-----------------------------------------------------------------------------"
 
 "     "Make for yourself a definition or description of the thing which is
@@ -22,7 +22,7 @@
 let $RUNTIME_DIR = $HOME . '/.dotfiles/nvim'
 let $DATA_DIR = $HOME . '/.local/share/nvim'
 
-" ----- Neovim Defaults -----
+"------------------------------ Neovim Defaults ------------------------------"
 " If we're not in Neovim, make sure all the defaults are the same.
 if !has('nvim')
   set nocompatible
@@ -54,7 +54,7 @@ if !has('nvim')
   set wildmenu
 endif
 
-" ----- General -----
+"-------------------------------- The Basics ---------------------------------"
 let g:mapleader=' '
 
 " set autochdir  " automatically set working directory
@@ -88,12 +88,11 @@ endif
 " no netrwhist
 let g:netrw_dirhistmax = 0
 
-" ----- Tabs & Indentation -----
+"---------------------------- Tabs & Indentation -----------------------------"
 set smartindent
 set expandtab  " tab inserts spaces
 set shiftwidth=4
 set softtabstop=4
-" set tabstop=4
 
 " Wrap a line around visually if it's too long.
 set wrap
@@ -101,7 +100,7 @@ set linebreak
 set textwidth=0
 set wrapmargin=0
 
-" ----- Line Numbers, Etc -----
+"----------------------------- Line Numbers, Etc -----------------------------"
 set number relativenumber
 
 augroup numbertoggle
@@ -110,7 +109,7 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-" ----- Searching -----
+"--------------------------------- Searching ---------------------------------"
 set ignorecase smartcase
 
 set wildmode=longest:full,full
@@ -124,12 +123,11 @@ if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
-" ----- Appearance -----
+"-------------------------------- Appearance ---------------------------------"
 if has('syntax')
   syntax enable
 endif
 
-" set guifont=Menlo\ for\ Powerline
 set guioptions=  " remove scrollbars, etc
 
 set cursorline
@@ -153,25 +151,18 @@ if $TERM_PROGRAM =~? 'iTerm'
   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 endif
 
-" ----- Navigation -----
+"-------------------------------- Navigation ---------------------------------"
 set mouse=a  " let the mouse wheel scroll page, etc
 
-" ----- Editing -----
+"---------------------------------- Editing ----------------------------------"
 set viewoptions-=options  " keep from saving cur dir in view
-" trying out replacing this with vim-stay
-" auto view saving (to keep folds)
-" augroup autoviewsave
-"   autocmd!
-"   autocmd BufWinLeave ?* mkview
-"   autocmd BufWinEnter ?* silent! loadview
-" augroup END
 
 " yank to system clipboard
 set clipboard=unnamed
 
 set completeopt-=preview  " preview in a buffer?! No.
 
-" ----- Languages -----
+"--------------------------------- Languages ---------------------------------"
 if has('nvim')
   let g:python_host_prog  = 'python2'
   let g:python3_host_prog = 'python3'
@@ -197,31 +188,28 @@ EOF
 :command! WQ wq
 :command! Wq wq
 
-" ----- vimrc -----
-" reload vimrc
-cnoreabbrev vrr :source $MYVIMRC
-
+"------------------------------ vimrc Shortcuts ------------------------------"
 " shortcut to edit vimrc
 cnoreabbrev vr :e $RUNTIME_DIR/init.vim
 
-" shortcut to edit plugins.vim
-cnoreabbrev vp :e $RUNTIME_DIR/plugins.vim
+" reload vimrc
+cnoreabbrev vrr :source $MYVIMRC
 
+"----------------------------------- Misc ------------------------------------"
 cnoreabbrev trim :TrimTrailingWhitespace
 
 "-----------------------------------------------------------------------------"
 "                                  Mappings                                   "
 "-----------------------------------------------------------------------------"
-" ----- Searching -----
+"--------------------------------- Searching ---------------------------------"
 nnoremap <cr> :nohlsearch<cr>:echo ''<cr>
 
-" ----- Navigation -----
+"--------------------------------- Navigation --------------------------------"
 " faster exiting from insert mode
 inoremap jj <Esc>
 
 " faster exiting from terminal mode
 tnoremap kk <C-\><C-n>
-" tnoremap <Esc> <C-\><C-n>  " breaks fzf.vim
 
 " faster command entry
 nnoremap ; :
@@ -259,7 +247,7 @@ imap <C-Tab>  <C-O>:tabnext<cr>
 map  <M-Tab>  :tabprev<cr>
 imap <M-Tab>  <C-O>:tabprev<cr>
 
-" ----- Editing -----
+"---------------------------------- Editing ----------------------------------"
 " redo
 nnoremap U <C-R>
 inoremap <c-u> <c-g>u<c-u>
@@ -277,14 +265,14 @@ if executable('yapf')
   augroup END
 endif
 
-" ----- Completion -----
+"-------------------------------- Completion ---------------------------------"
 " <cr> to select completion
 imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
 
 "-----------------------------------------------------------------------------"
-"                                   Plugins                                    "
+"                                   Plugins                                   "
 "-----------------------------------------------------------------------------"
-" ----- Install vim-plug -----
+"----------------------------- Install vim-plug ------------------------------"
 let $PLUG_LOC = expand('$DATA_DIR/site/autoload/plug.vim')
 if empty(glob($PLUG_LOC))
   silent !curl -fLo $PLUG_LOC --create-dirs
@@ -296,13 +284,13 @@ if empty(glob($PLUG_LOC))
   augroup END
 endif
 
-" ----- Install Plugins -----
+"------------------------------ Install Plugins ------------------------------"
 filetype off
 call plug#begin('$DATA_DIR/site/plugged')
 
-" /--- Start Plugins ---\
+" /----------------------------- Start Plugins ------------------------------\
 
-" - GUI -
+" ----------- GUI -----------
 Plug 'morhetz/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'
@@ -312,13 +300,13 @@ Plug 'Yggdroot/indentLine'  " nice indentation lines (note: mucks with conceal, 
 Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
 " Plug 'tpope/vim-vinegar'  " inline buffer file browser (extends netrw)
 
-" - Tags -
+" ---------- Tags -----------
 if executable('ctags')
   Plug 'ludovicchabant/vim-gutentags'  " manages tag files
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }  " neat tag nav UI
 endif
 
-" - Fuzzy Search -
+" ------ Fuzzy Search -------
 " Plug 'haya14busa/incsearch.vim'  " incremental highlighting, breaking nvim
 " Plug 'haya14busa/is.vim'  " successor to incsearch, not sure if nvim supported yet
 " Plug 'ctrlpvim/ctrlp.vim'  " FUZZY
@@ -328,11 +316,11 @@ if executable('fzf')
 endif
 " Plug 'sunaku/vim-shortcut'  " discoverable shortcut system
 
-" - Motion -
+" --------- Motion ----------
 Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
 
-" - Editing -
+" --------- Editing ---------
 Plug 'zhimsel/vim-stay'  " persist editing state when switching buffers, etc
 Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
 Plug 'tpope/vim-commentary'  " commenting shortcuts
@@ -346,13 +334,13 @@ Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
 " Plug 'ap/vim-css-color'  " preview color hex, words, etc (for CSS mostly), slow
 
-" - Git -
+" ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
 Plug 'tpope/vim-rhubarb'  " GitHub support for fugitive
 Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
 Plug 'junegunn/gv.vim'  " badass commit browser
 
-" - Language/Syntax -
+" ----- Language/Syntax -----
 " General "
 Plug 'sheerun/vim-polyglot'  " a ton of language support
 Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
@@ -380,11 +368,11 @@ Plug 'tpope/vim-liquid'  " jekyll templates
 " Plug 'chrisbra/csv.vim'  " strong csv toolset
 " Plug 'junegunn/vim-emoji'  " support for emoji
 
-" - Linting -
+" --------- Linting ---------
 Plug 'neomake/neomake'  " linting/building
 " Plug 'w0rp/ale'  " linting/building
 
-" - Completion -
+" ------- Completion --------
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 else
@@ -401,7 +389,7 @@ Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 
 Plug 'ervandew/supertab'  " use tab for insert completions
 
-" - Snippets -
+" -------- Snippets ---------
 " Plug 'sirver/ultisnips'
 " vvv This is breaking right now for some reason.
 " Plug 'Shougo/neosnippet.vim'
@@ -410,18 +398,18 @@ Plug 'ervandew/supertab'  " use tab for insert completions
 
 Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
-" - Notes -
+" ---------- Notes ----------
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
-" - Preview -
+" --------- Preview ---------
 " Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 
-" - Writing -
+" --------- Writing ---------
 Plug 'junegunn/goyo.vim'  " no-distractions editing
 Plug 'junegunn/limelight.vim'  " highlight current block
 
-" \---- End Plugins ----/
+" \------------------------------ End Plugins -------------------------------/
 
 call plug#end()
 
@@ -430,7 +418,9 @@ if has('autocmd')
 endif
 
 
-" ----- Plugin Config -----
+"----------------------------- Configure Plugins -----------------------------"
+" TODO: better titles here
+" TODO: cleanup
 
 " --- airline ---
 if &runtimepath =~? 'vim-airline'
