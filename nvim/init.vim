@@ -174,20 +174,13 @@ augroup hlnat
   autocmd BufNewFile,BufRead *.nat  set syntax=natural
 augroup END
 
-" ----- Utils -----
-if filereadable(expand('$DOTFILES_DIR/utils.vim'))
-  source $DOTFILES_DIR/utils.vim
-endif
-
 " ----- Commands -----
 if filereadable(expand('$DOTFILES_DIR/commands.vim'))
   source $DOTFILES_DIR/commands.vim
 endif
 
 " ----- Mappings -----
-if filereadable(expand('$DOTFILES_DIR/mappings.vim'))
-  source $DOTFILES_DIR/mappings.vim
-endif
+runtime! mappings.vim
 
 " ----- Plugins -----
 if filereadable(expand('$DOTFILES_DIR/plugins.vim'))
