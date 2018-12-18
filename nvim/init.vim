@@ -66,6 +66,9 @@ if has('persistent_undo')
   set undofile
 endif
 
+" no netrwhist
+let g:netrw_dirhistmax = 0
+
 " ----- Tabs & Indentation -----
 set smartindent
 set expandtab  " tab inserts spaces
