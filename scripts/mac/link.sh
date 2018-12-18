@@ -16,6 +16,9 @@ ln -sfn  "$DOTPATH/shell/bash/bashrc" "$HOME/.bashrc"
 ln -sfn "$DOTPATH/nvim" "$HOME/.config/nvim"  # just link the whole dir
 ln -sfn "$DOTPATH/nvim" "$HOME/.vim"  # also for other vims
 
+# TODO: This needs some attention to get vim to see neovim's local data.
+# ln -sfn "$HOME/.local/share/nvim/site" "/usr/share/vim/vimfiles"  # share the share files
+
 # mkdir -p "$HOME/.config/nvim"
 # ln -sfn "$DOTPATH/nvim/init.vim" "$HOME/.config/nvim/init.vim"
 # ln -sfn "$DOTPATH/nvim/plugins.vim" "$HOME/.config/nvim/plugins.vim"
