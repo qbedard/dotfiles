@@ -13,12 +13,14 @@ ln -sfn  "$DOTPATH/shell/zsh/zshrc" "$HOME/.zshrc"
 ln -sfn  "$DOTPATH/shell/bash/bashrc" "$HOME/.bashrc"
 
 # neovim
-# ln -sfn "$DOTPATH/nvim" "$HOME/.config/nvim"  # just link the whole dir
-mkdir -p "$HOME/.config/nvim"
-ln -sfn "$DOTPATH/nvim/init.vim" "$HOME/.config/nvim/init.vim"
-ln -sfn "$DOTPATH/nvim/plugins.vim" "$HOME/.config/nvim/plugins.vim"
-ln -sfn "$DOTPATH/nvim/after" "$HOME/.config/nvim/after"
-ln -sfn "$DOTPATH/nvim/ftplugin" "$HOME/.config/nvim/ftplugin"
+ln -sfn "$DOTPATH/nvim" "$HOME/.config/nvim"  # just link the whole dir
+ln -sfn "$DOTPATH/nvim" "$HOME/.vim"  # also for other vims
+
+# mkdir -p "$HOME/.config/nvim"
+# ln -sfn "$DOTPATH/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+# ln -sfn "$DOTPATH/nvim/plugins.vim" "$HOME/.config/nvim/plugins.vim"
+# ln -sfn "$DOTPATH/nvim/after" "$HOME/.config/nvim/after"
+# ln -sfn "$DOTPATH/nvim/ftplugin" "$HOME/.config/nvim/ftplugin"
 
 # ranger
 mkdir -p "$HOME/.config/ranger"
