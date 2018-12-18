@@ -13,10 +13,10 @@
 cnoreabbrev vrr :source $MYVIMRC
 
 " shortcut to edit vimrc
-cnoreabbrev vr :e $DOTFILES_DIR/init.vim
+cnoreabbrev vr :e $RUNTIME_DIR/init.vim
 
 " shortcut to edit plugins.vim
-cnoreabbrev vp :e $DOTFILES_DIR/plugins.vim
+cnoreabbrev vp :e $RUNTIME_DIR/plugins.vim
 
 " ----- Formatting -----
 cnoreabbrev trim :TrimTrailingWhitespace

@@ -1,9 +1,8 @@
-" --------------------
-"  Tim Bedard's vimrc
-" --------------------
+" -------------------------
+"  Tim Bedard's Vim Config
+" -------------------------
 
-let $DOTFILES_DIR = $HOME . '/.dotfiles/nvim'
-let $CONFIG_DIR = $HOME . '/.config/nvim'
+let $RUNTIME_DIR = $HOME . '/.dotfiles/nvim'
 let $DATA_DIR = $HOME . '/.local/share/nvim'
 
 " ----- Neovim Defaults -----
@@ -42,7 +41,10 @@ endif
 let g:mapleader=' '
 
 " set autochdir  " automatically set working directory
-set shell=zsh
+
+if executable('zsh')
+  set shell=zsh
+endif
 
 set hidden  " switch buffers without saving
 set splitbelow
@@ -174,15 +176,7 @@ augroup hlnat
   autocmd BufNewFile,BufRead *.nat  set syntax=natural
 augroup END
 
-" ----- Commands -----
-if filereadable(expand('$DOTFILES_DIR/commands.vim'))
-  source $DOTFILES_DIR/commands.vim
-endif
-
-" ----- Mappings -----
+" ----- Additional Config -----
+runtime! commands.vim
 runtime! mappings.vim
-
-" ----- Plugins -----
-if filereadable(expand('$DOTFILES_DIR/plugins.vim'))
-  source $DOTFILES_DIR/plugins.vim
-endif
+runtime! plugins.vim
