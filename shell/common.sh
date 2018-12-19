@@ -11,6 +11,7 @@ alias vim="nvim"
 alias vi="nvim"
 
 # --- General ---
+alias ls="exa"
 alias l="ls -1"
 alias q="exit"
 alias quit="exit"

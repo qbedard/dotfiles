@@ -24,6 +24,7 @@ PACKAGES=(
     awscli
     ctags
     direnv
+    exa
     fasd
     fzf
     git
