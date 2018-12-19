@@ -1,8 +1,12 @@
-function! s:trim_trailing_whitespace()
+function s:trim_trailing_whitespace()
+  let l = line('.')
+  let c = col('.')
   let _s=@/
-  %s/\s\+$//e
+
+  execute '%s/\s\+$//e'
+
   let @/=_s
-  nohl
-  unlet _s
+  call cursor(l, c)
+  " nohl
 endfunction
-command! TrimTrailingWhitespace :call s:trim_trailing_whitespace()
+command! TrimTrailingWhitespace call s:trim_trailing_whitespace()
