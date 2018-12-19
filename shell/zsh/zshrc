@@ -4,14 +4,16 @@ ZSH_THEME="kolo"
 plugins=(
     aws
     brew
-    fasd
+    cargo
     django
     docker
     docker-compose
+    exa
     fasd
-    # gem
+    gem
     git
     git-extras
+    npm
     osx
     pip
     python
