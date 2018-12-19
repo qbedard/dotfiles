@@ -199,7 +199,17 @@ cnoreabbrev vrr :source $MYVIMRC
 "                                  Mappings                                   "
 "-----------------------------------------------------------------------------"
 "--------------------------------- Searching ---------------------------------"
-nnoremap <cr> :nohlsearch<cr>:echo ''<cr>
+" clear search highlighting with <cr>
+nnoremap <silent> <cr> :nohlsearch<cr>
+
+" keep the above mapping from interfering with special buffers
+augroup vimrc_CRfix
+  autocmd!
+  " quickfix
+  autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+  " command history
+  autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
+augroup END
 
 "--------------------------------- Navigation --------------------------------"
 " faster exiting from insert mode
