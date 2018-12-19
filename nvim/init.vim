@@ -195,9 +195,6 @@ cnoreabbrev vr :e $RUNTIME_DIR/init.vim
 " reload vimrc
 cnoreabbrev vrr :source $MYVIMRC
 
-"----------------------------------- Misc ------------------------------------"
-cnoreabbrev trim :TrimTrailingWhitespace
-
 "-----------------------------------------------------------------------------"
 "                                  Mappings                                   "
 "-----------------------------------------------------------------------------"
@@ -319,6 +316,7 @@ Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
 
 " --------- Editing ---------
+Plug 'ntpeters/vim-better-whitespace'  " better whitespace stripping
 Plug 'zhimsel/vim-stay'  " persist editing state when switching buffers, etc
 Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
 Plug 'tpope/vim-commentary'  " commenting shortcuts
@@ -723,6 +721,11 @@ if &runtimepath =~? 'vim-auto-origami'
     au!
     au CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
   augroup END
+endif
+
+" --- vim-better-whitespace ---
+if &runtimepath =~? 'vim-better-whitespace'
+  let g:strip_whitelines_at_eof=1
 endif
 
 " --- vim-devicons ---
