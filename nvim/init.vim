@@ -213,10 +213,10 @@ tnoremap kk <C-\><C-n>
 
 " faster command entry
 nnoremap ; :
-vnoremap ; :
+xnoremap ; :
 " but still keep the ; functionality
 " nnoremap : ;
-" vnoremap : ;
+" xnoremap : ;
 
 " easier nav in insert mode (Ctrl)
 " NOTE: <C-h> doesn't work thanks to <C-h> sending <bs> in most terminals
@@ -232,8 +232,8 @@ nnoremap L $
 " buffer switching (Shift + j/k)
 nnoremap K :bn<cr>
 nnoremap J :bp<cr>
-vnoremap K :bn<cr>
-vnoremap J :bp<cr>
+xnoremap K :bn<cr>
+xnoremap J :bp<cr>
 
 " window switching (Ctrl)
 nnoremap <C-j> <C-w>j
