@@ -12,7 +12,7 @@ alias vi="nvim"
 
 # --- General ---
 alias ls="exa"
-alias l="ls -1"
+alias l="ls -1 --group-directories-first"
 alias q="exit"
 alias quit="exit"
 alias r="ranger"
