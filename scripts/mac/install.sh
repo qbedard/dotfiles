@@ -75,7 +75,10 @@ brew cask install "${FONTS[@]}"
 echo "Installing Oh My Zsh..."
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
-echo "Installing fzf..."
+echo "Installing zsh-users/zsh-completions"
+git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+
+echo "Installing fzf shell extensions..."
 /usr/local/opt/fzf/install
 
 echo "Installion complete."

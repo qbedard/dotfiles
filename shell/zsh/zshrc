@@ -23,8 +23,10 @@ plugins=(
     vagrant
     web-search  # perform popular web searches such as 'google pictures of cats'
     zsh-autosuggestions
+    zsh-completions
     zsh-syntax-highlighting
-    )
+)
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
