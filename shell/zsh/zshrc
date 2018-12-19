@@ -41,3 +41,12 @@ fi
 # Vim keybindings
 # bindkey -v
 # export KEYTIMEOUT=1
+
+# append a nice env identifier if we're in a direnv venv
+function show_virtual_env() {
+  if [ -n "$VIRTUAL_ENV" ] && [ "$(basename $(dirname $VIRTUAL_ENV))" = '.direnv' ]; then
+    direnv_parent="$(dirname $(dirname $VIRTUAL_ENV))"
+    echo "(d:$(basename $direnv_parent)) "
+  fi
+}
+PS1='$(show_virtual_env)'$PS1
