@@ -271,7 +271,7 @@ Plug 'morhetz/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
-Plug 'Yggdroot/indentLine'  " nice indentation lines (note: mucks with conceal, might affect JSON)
+Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
 Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
 
 " ---------- Tags -----------
@@ -324,7 +324,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'gabrielelana/vim-markdown'  " better markdown
 
 " Python "
-Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }  " fixes python indentation issues
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }  " fixes python indent issues
 Plug 'tmhedberg/simpylfold', { 'for': 'python' }  " python folding
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 Plug 'mindriot101/vim-yapf', { 'for': 'python' }  " python auto-formatting
@@ -499,7 +499,9 @@ if &runtimepath =~? 'neomake'
   endif
 
   " luacheck (ignore implicit global definitions)
-  let g:neomake_lua_luacheck_args = ['--allow-defined', '--no-color', '--formatter=plain', '--ranges', '--codes', '--filename', '%:p']
+  let g:neomake_lua_luacheck_args = ['--allow-defined', '--no-color',
+                                    \'--formatter=plain', '--ranges',
+                                    \'--codes', '--filename', '%:p']
 
   let g:neomake_markdown_markdownlint_maker = {
     \ 'args': ['-r', '~MD022,~MD032'],
@@ -517,7 +519,8 @@ if &runtimepath =~? 'neomake'
       \ 'postprocess': function('neomake#makers#ft#python#Flake8EntryProcess')
     \ }
   let g:neomake_python_enabled_makers = ['flake8']
-  let g:neomake_python_flake8_args = ['--max-line-length=160', '--format=default']
+  let g:neomake_python_flake8_args = ['--max-line-length=160',
+                                     \'--format=default']
 
   let g:neomake_sh_enabled_makers = ['shellcheck']
   let g:neomake_sh_shellcheck_args = ['-x']
@@ -526,7 +529,7 @@ endif
 " --- vim-polyglot ---
 if &runtimepath =~? 'vim-polyglot'
   let b:python_version_2 = 1
-  let g:polyglot_disabled = ['markdown']  " polyglot seems to futz up markdown indentation
+  let g:polyglot_disabled = ['markdown']  " polyglot futz up markdown indent
 endif
 
 " --- SimplyFold ---
@@ -551,7 +554,7 @@ if &runtimepath =~? 'vimwiki'
   let g:vimwiki_list = [{'path': '~/.vimwiki',
                        \ 'syntax': 'markdown', 'ext': '.wiki',
                        \ 'automatic_nested_syntaxes': 1}]
-  " disable the <tab> mapping provided by vimwiki, which interferes with SuperTab
+  " disable <tab> mapping provided by vimwiki, which interferes with SuperTab
   let g:vimwiki_table_mappings = 0
 endif
 
