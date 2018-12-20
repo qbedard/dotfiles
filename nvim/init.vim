@@ -57,7 +57,8 @@ endif
 "-------------------------------- The Basics ---------------------------------"
 let g:mapleader=' '
 
-" set autochdir  " automatically set working directory
+" TODO: find out what this breaks
+set autochdir  " automatically set working directory
 
 if executable('zsh')
   set shell=zsh
@@ -151,6 +152,11 @@ if $TERM_PROGRAM =~? 'iTerm'
   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 endif
 
+" Go away, netrw!
+augroup hide_netrw
+    autocmd FileType netrw setl bufhidden=wipe
+augroup END
+
 "-------------------------------- Navigation ---------------------------------"
 set mouse=a  " let the mouse wheel scroll page, etc
 
@@ -163,6 +169,7 @@ set clipboard=unnamed
 set completeopt-=preview  " preview in a buffer?! No.
 
 "--------------------------------- Languages ---------------------------------"
+" TODO: find equivalent setting for Vim8
 if has('nvim')
   let g:python_host_prog  = 'python2'
   let g:python3_host_prog = 'python3'
@@ -203,7 +210,7 @@ cnoreabbrev vrr :source $MYVIMRC
 nnoremap <silent> <cr> :nohlsearch<cr>
 
 " keep the above mapping from interfering with special buffers
-augroup vimrc_CRfix
+augroup nohls_specials
   autocmd!
   " quickfix
   autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
@@ -264,14 +271,6 @@ inoremap <c-w> <c-g>u<c-w>
 nnoremap  <leader>i i<Space><Esc>r
 nnoremap  <leader>a a<Space><Esc>r
 
-" https://github.com/google/yapf
-if executable('yapf')
-  augroup enableyapf
-    autocmd!
-    autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
-  augroup END
-endif
-
 "-------------------------------- Completion ---------------------------------"
 " <cr> to select completion
 imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
@@ -300,10 +299,8 @@ Plug 'morhetz/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
-" Plug 'mhinz/vim-startify'  " fancy start screen
 Plug 'Yggdroot/indentLine'  " nice indentation lines (note: mucks with conceal, might affect JSON)
 Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
-" Plug 'tpope/vim-vinegar'  " inline buffer file browser (extends netrw)
 
 " ---------- Tags -----------
 if executable('ctags')
@@ -312,14 +309,10 @@ if executable('ctags')
 endif
 
 " ------ Fuzzy Search -------
-" Plug 'haya14busa/incsearch.vim'  " incremental highlighting, breaking nvim
-" Plug 'haya14busa/is.vim'  " successor to incsearch, not sure if nvim supported yet
-" Plug 'ctrlpvim/ctrlp.vim'  " FUZZY
 if executable('fzf')
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
 endif
-" Plug 'sunaku/vim-shortcut'  " discoverable shortcut system
 
 " --------- Motion ----------
 Plug 'easymotion/vim-easymotion'  " fast finding tool
@@ -333,12 +326,10 @@ Plug 'tpope/vim-commentary'  " commenting shortcuts
 Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
 Plug 'wellle/targets.vim'  " next/last surround pair text object
-" Plug 'editorconfig/editorconfig-vim'  " support for .editorconfig files
 Plug 'Valloric/MatchTagAlways'  " show matching tags
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
-" Plug 'ap/vim-css-color'  " preview color hex, words, etc (for CSS mostly), slow
 
 " ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
@@ -361,19 +352,15 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'gabrielelana/vim-markdown'  " better markdown
 
 " Python "
-" Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }  " fixes python indentation issues
 Plug 'tmhedberg/simpylfold', { 'for': 'python' }  " python folding
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
-" Plug 'tweekmonster/django-plus.vim'  " better django detection/support
+Plug 'mindriot101/vim-yapf', { 'for': 'python' }  " python auto-formatting
 
 " Misc "
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
 Plug 'hashivim/vim-vagrant'  " Vagrant support
 Plug 'tpope/vim-liquid'  " jekyll templates
-" Plug 'sophacles/vim-bundle-mako'  " mako template support
-" Plug 'chrisbra/csv.vim'  " strong csv toolset
-" Plug 'junegunn/vim-emoji'  " support for emoji
 
 " --------- Linting ---------
 Plug 'neomake/neomake'  " linting/building
@@ -390,26 +377,17 @@ endif
 Plug 'Shougo/neco-vim'  " VimL
 " TODO: figure out how to check if jedi is installed
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }  " python
-" This seems cool to get working...
-" Plug 'Shougo/echodoc.vim'  " show function defs
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 
 Plug 'ervandew/supertab'  " use tab for insert completions
 
 " -------- Snippets ---------
-" Plug 'sirver/ultisnips'
-" vvv This is breaking right now for some reason.
-" Plug 'Shougo/neosnippet.vim'
-" Plug 'Shougo/neosnippet-snippets'
-" Plug 'honza/vim-snippets'
-
 Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
 " ---------- Notes ----------
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 " --------- Preview ---------
-" Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 
 " --------- Writing ---------
@@ -427,7 +405,6 @@ endif
 
 "----------------------------- Configure Plugins -----------------------------"
 " TODO: better titles here
-" TODO: cleanup
 
 " --- airline ---
 if &runtimepath =~? 'vim-airline'
@@ -444,37 +421,9 @@ if &runtimepath =~? 'auto-pairs'
   let g:AutoPairsMapSpace = 0
 endif
 
-" --- CtrlP ---
-if &runtimepath =~? 'ctrlp.vim'
-  let g:ctrlp_working_path_mode = 'ra'
-  let g:ctrlp_cmd =  'CtrlP'
-  let g:ctrlp_extensions = ['buffertag', 'line']
-
-  " ignore some folders and files for CtrlP indexing
-  let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|public|tmp|var|Applications|Library)$',
-    \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.zip|\.pdf|\.tar|\.dmg'
-    \ }
-
-  " use ag instead of grep if available
-  if executable('ag')
-    " Use ag in CtrlP for listing files. Lightning fast and [respects .gitignore]<-disabled with -t
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" -t'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
-  endif
-endif
-
 " --- deoplete ---
 if &runtimepath =~? 'deoplete.nvim'
   call deoplete#enable()
-  " autocmd CompleteDone * pclose  " To close preview window of deoplete automagically
-  " tab completion
-  " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-  " custom marks
-  " call deoplete#custom#source('jedi', 'mark', '')
 endif
 
 " --- EasyMotion ---
@@ -488,14 +437,9 @@ endif
 
 " --- Emmet ---
 if &runtimepath =~? 'emmet-vim'
-  "  default is <C-Y>
+  " default is <C-Y>
   " let g:user_emmet_leader_key=','
   let g:user_emmet_install_global=1
-endif
-
-" --- Fugitive ---
-if &runtimepath =~? 'vim-fugitive'
-  "" :command Gadd Git add %
 endif
 
 " --- fzf ---
@@ -509,8 +453,6 @@ if &runtimepath =~? 'fzf.vim'
   " mappings
   nnoremap <C-f> :BLines<cr>
   nnoremap <C-b> :Buffers<cr>
-  " nnoremap <C-a> :Ag<cr>  " conflicts with increment, temp disabled
-  " nnoremap <C-p> :GFiles --exclude-standard --other<cr>
 
   " show files in a git project root (or current dir if not project)
   command! ProjectFiles execute 'Files' FindGitRoot()
@@ -536,21 +478,12 @@ if &runtimepath =~? 'gruvbox'
   hi FoldColumn ctermfg=DarkGrey
 endif
 
-
 " --- Gutentags ---
 if &runtimepath =~? 'vim-gutentags'
   let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
 endif
 
-
-" --- incsearch ---
-if &runtimepath =~? 'incsearch.vim'
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
-endif
-"
-" --- Indent Guides ---
+" --- indentLine ---
 if &runtimepath =~? 'indentLine'
   let g:indentLine_char = '│'
 endif
@@ -564,19 +497,8 @@ endif
 if &runtimepath =~? 'limelight.vim'
   nmap <Leader>l <Plug>(Limelight)
   xmap <Leader>l <Plug>(Limelight)
-  " let g:limelight_conceal_ctermfg = 245
   let g:limelight_conceal_ctermfg = 'gray'
-  " let g:limelight_conceal_guifg = '#928374'
   let g:limelight_conceal_guifg = 'DarkGray'
-endif
-
-" --- Markdown Preview ---
-if &runtimepath =~? 'vim-markdown-preview'
-  " let vim_markdown_preview_toggle=2
-  " let vim_markdown_preview_hotkey='<leader>m'
-  " let vim_markdown_preview_github=1
-  " let vim_markdown_preview_browser='Google Chrome'
-  " let vim_markdown_preview_temp_file=1
 endif
 
 " --- MatchTagAlways ---
@@ -633,68 +555,16 @@ if &runtimepath =~? 'neomake'
   endfunction
 endif
 
-
-" --- neosnippet.vim ---
-if &runtimepath =~? 'neosnippet.vim'
-  " imap <leader>e <Plug>(neosnippet_expand_or_jump)
-  " smap <leader>e <Plug>(neosnippet_expand_or_jump)
-  " xmap <leader>e <Plug>(neosnippet_expand_target)
-  imap <expr><cr> neosnippet#expandable() ?
-    \  "\<Plug>(neosnippet_expand)" : "\<cr>"
-  imap <expr><tab> neosnippet#jumpable() ?
-    \  "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-
-  " let g:neosnippet#enable_snipmate_compatibility = 1  " enable snipMate snippets
-endif
-
 " --- vim-polyglot ---
 if &runtimepath =~? 'vim-polyglot'
   let b:python_version_2 = 1
   let g:polyglot_disabled = ['markdown']  " polyglot seems to futz up markdown indentation
 endif
 
-" --- python-mode ---
-if &runtimepath =~? 'python-mode'
-  let g:pymode_syntax_space_errors = 0
-  let g:pymode_rope = 0  " no Rope
-  " - Linting -
-  let g:pymode_lint = 1  " Let's leave this to neomake for now.
-  " let g:pymode_lint_ignore = ["E501"]
-  " let g:pymode_syntax_slow_sync = 1
-  " " symbols
-  " let g:pymode_lint_todo_symbol = 'WW'
-  " let g:pymode_lint_comment_symbol = 'CC'
-  " let g:pymode_lint_visual_symbol = 'RR'
-  " let g:pymode_lint_error_symbol = '✖'
-  " let g:pymode_lint_info_symbol = 'ℹ'
-  " let g:pymode_lint_pyflakes_symbol = 'FF'
-endif
-
-" --- Ranger.vim ---
-if &runtimepath =~? 'ranger.vim'
-  let g:ranger_map_keys = 0
-  nmap <leader>r :Ranger<cr>
-endif
-
-" --- shortcut ---
-if &runtimepath =~? 'vim-shortcut'
-  " Shortcut show shortcut menu and run chosen shortcut
-  "       \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
-  " Shortcut fallback to shortcut menu on partial entry
-  "       \ noremap <silent> <Leader> :Shortcuts<Return>
-endif
-
 " --- SimplyFold ---
 if &runtimepath =~? 'simpylfold'
   let g:SimpylFold_docstring_preview = 1
   set foldlevel=99
-endif
-
-" --- Startify ---
-if &runtimepath =~? 'vim-startify'
-  let g:startify_change_to_vcs_root = 1
-  let g:startify_session_autoload = 1
-  let g:startify_custom_header = startify#fortune#boxed()
 endif
 
 " --- SuperTab ---
@@ -706,13 +576,6 @@ endif
 " --- Tagbar ---
 if &runtimepath =~? 'tagbar'
   nmap <leader>t :TagbarToggle<cr>
-endif
-
-" --- UltiSnips ---
-if &runtimepath =~? 'ultisnips'
-  " let g:UltiSnipsExpandTrigger="<leader>e"
-  " let g:UltiSnipsJumpForwardTrigger="<c-n>"
-  " let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 endif
 
 " --- Vimwiki ---
@@ -750,22 +613,4 @@ if &runtimepath =~? 'vim-easy-align'
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
-endif
-
-" --- vim-emoji ---
-if &runtimepath =~? 'vim-emoji'
-  set completefunc=emoji#complete
-endif
-
-" --- vim-indent-guides ---
-if &runtimepath =~? 'vim-indent-guides'
-  " let g:indent_guides_guide_size = 1
-  " let g:indent_guides_enable_on_vim_startup = 1
-endif
-
-" --- YouCompleteMe ---
-if &runtimepath =~? 'youcompleteme'
-  let g:ycm_autoclose_preview_window_after_completion=1
-  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 endif
