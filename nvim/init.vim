@@ -19,39 +19,22 @@
 "-----------------------------------------------------------------------------"
 "                                   General                                   "
 "-----------------------------------------------------------------------------"
-let $RUNTIME_DIR = $HOME . '/.dotfiles/nvim'
-let $DATA_DIR = $HOME . '/.local/share/nvim'
+"-------------------------------- Directories --------------------------------"
+if $XDG_CONFIG_HOME ==? ''
+  let $XDG_CONFIG_HOME = expand('$HOME/.config')
+endif
+let $RUNTIME_DIR = expand('$XDG_CONFIG_HOME/nvim')  " ~/.config/nvim
+
+if $XDG_DATA_HOME ==? ''
+  let $XDG_DATA_HOME = expand('$HOME/.local/share')
+endif
+let $DATA_DIR = $XDG_DATA_HOME . '/nvim'  " ~/.local/share/nvim
 
 "------------------------------ Neovim Defaults ------------------------------"
 " If we're not in Neovim, make sure all the defaults are the same.
 if !has('nvim')
-  set nocompatible
-  set autoindent
-  set autoread
-  set backspace=indent,eol,start
-  set backupdir=.,$DATA_DIR/backup
-  set belloff=all
-  set complete=.,w,b,u,t  " -=i
-  set directory=$DATA_DIR/swap//
-  set display+=lastline
-  set formatoptions=tcqj  " +=j
-  set history=10000
-  set hlsearch
-  set incsearch
-  set nolangremap
-  set laststatus=2
-  set listchars=tab:>\ ,trail:-,nbsp:+
-  set nrformats=bin,hex  " -=octal
-  set ruler
-  set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize  " -=options
-  set showcmd
-  set smarttab
-  set tabpagemax=50
-  set tags=$DATA_DIR/tags  " ./tags;,tags
-  set ttyfast
-  set undodir=$DATA_DIR/undo
-  set viminfo=!,'100,<50,s10,h  " +=!
-  set wildmenu
+  runtime! plugin/neovim-defaults.vim
+  let &runtimepath.=expand(',$DATA_DIR/site') 
 endif
 
 "-------------------------------- The Basics ---------------------------------"
@@ -370,7 +353,7 @@ Plug 'neomake/neomake'  " linting/building
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 else
-  Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+  Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
