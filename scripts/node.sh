@@ -10,7 +10,8 @@ PACKAGES=(
     htmlhint
     instant-markdown-d
     jsonlint
-    markdownlint-cli
+    # markdownlint-cli  # noisy and slow
+    neovim
 )
 npm install -g "${PACKAGES[@]}"
 
