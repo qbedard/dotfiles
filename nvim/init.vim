@@ -519,12 +519,8 @@ if &runtimepath =~? 'neomake'
   let g:neomake_python_enabled_makers = ['flake8']
   let g:neomake_python_flake8_args = ['--max-line-length=160', '--format=default']
 
-  function! neomake#makers#ft#zsh#shellcheck() abort
-    let l:maker = neomake#makers#ft#sh#shellcheck()
-    let l:maker.args += ['--shell', 'zsh']
-    let l:maker.args += ['-x']
-    return l:maker
-  endfunction
+  let g:neomake_sh_enabled_makers = ['shellcheck']
+  let g:neomake_sh_shellcheck_args = ['-x']
 endif
 
 " --- vim-polyglot ---
