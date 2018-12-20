@@ -571,6 +571,7 @@ endif
 " --- vim-better-whitespace ---
 if &runtimepath =~? 'vim-better-whitespace'
   let g:strip_whitelines_at_eof=1
+  cnoreabbrev trim :StripWhitespace
 endif
 
 " --- vim-devicons ---
