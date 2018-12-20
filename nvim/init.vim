@@ -34,7 +34,7 @@ let $DATA_DIR = $XDG_DATA_HOME . '/nvim'  " ~/.local/share/nvim
 " If we're not in Neovim, make sure all the defaults are the same.
 if !has('nvim')
   runtime! plugin/neovim-defaults.vim
-  let &runtimepath.=expand(',$DATA_DIR/site') 
+  let &runtimepath.=expand(',$DATA_DIR/site')
 endif
 
 "-------------------------------- The Basics ---------------------------------"
