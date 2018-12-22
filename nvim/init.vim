@@ -269,7 +269,6 @@ call plug#begin('$DATA_DIR/site/plugged')
 " ----------- GUI -----------
 Plug 'morhetz/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
 Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
