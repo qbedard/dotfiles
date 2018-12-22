@@ -228,10 +228,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " tab switching (Ctrl+Tab)
-map  <C-Tab>  :tabnext<cr>
-imap <C-Tab>  <C-O>:tabnext<cr>
-map  <M-Tab>  :tabprev<cr>
-imap <M-Tab>  <C-O>:tabprev<cr>
+noremap  <C-Tab>  :tabnext<cr>
+inoremap <C-Tab>  <C-O>:tabnext<cr>
+noremap  <M-Tab>  :tabprev<cr>
+inoremap <M-Tab>  <C-O>:tabprev<cr>
 
 "---------------------------------- Editing ----------------------------------"
 " redo
@@ -263,7 +263,6 @@ endif
 "------------------------------ Install Plugins ------------------------------"
 filetype off
 call plug#begin('$DATA_DIR/site/plugged')
-
 " /----------------------------- Start Plugins ------------------------------\
 
 " ----------- GUI -----------
@@ -399,11 +398,11 @@ endif
 
 " --- EasyMotion ---
 if &runtimepath =~? 'vim-easymotion'
-  map \ <Plug>(easymotion-prefix)
+  noremap \ <Plug>(easymotion-prefix)
 
   " <Leader>f{char} to move to {char}
-  map  <Leader>f <Plug>(easymotion-bd-f)
-  nmap <Leader>f <Plug>(easymotion-overwin-f)
+  noremap  <Leader>f <Plug>(easymotion-bd-f)
+  nnoremap <Leader>f <Plug>(easymotion-overwin-f)
 endif
 
 " --- Emmet ---
@@ -466,8 +465,8 @@ endif
 
 " --- LimeLight ---
 if &runtimepath =~? 'limelight.vim'
-  nmap <Leader>l <Plug>(Limelight)
-  xmap <Leader>l <Plug>(Limelight)
+  nnoremap <Leader>l <Plug>(Limelight)
+  xnoremap <Leader>l <Plug>(Limelight)
   let g:limelight_conceal_ctermfg = 'gray'
   let g:limelight_conceal_guifg = 'DarkGray'
 endif
@@ -545,7 +544,7 @@ endif
 
 " --- Tagbar ---
 if &runtimepath =~? 'tagbar'
-  nmap <leader>t :TagbarToggle<cr>
+  nnoremap <leader>t :TagbarToggle<cr>
 endif
 
 " --- Vimwiki ---
@@ -580,8 +579,8 @@ endif
 " --- vim-easy-align ---
 if &runtimepath =~? 'vim-easy-align'
   " Start interactive EasyAlign in visual mode (e.g. vipga)
-  xmap ga <Plug>(EasyAlign)
+  xnoremap ga <Plug>(EasyAlign)
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
+  nnoremap ga <Plug>(EasyAlign)
 endif
