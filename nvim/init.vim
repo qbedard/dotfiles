@@ -178,8 +178,8 @@ cnoreabbrev vrr :source $MYVIMRC
 "                                  Mappings                                   "
 "-----------------------------------------------------------------------------"
 "--------------------------------- Searching ---------------------------------"
-" clear search highlighting with <cr>
-nnoremap <silent> <cr> :nohlsearch<cr>
+" clear search highlighting with <CR>
+nnoremap <silent> <CR> :nohlsearch<CR>
 
 " keep the above mapping from interfering with special buffers
 augroup nohls_specials
@@ -216,10 +216,10 @@ nnoremap H ^
 nnoremap L $
 
 " buffer switching (Shift + j/k)
-nnoremap K :bn<cr>
-nnoremap J :bp<cr>
-xnoremap K :bn<cr>
-xnoremap J :bp<cr>
+nnoremap K :bn<CR>
+nnoremap J :bp<CR>
+xnoremap K :bn<CR>
+xnoremap J :bp<CR>
 
 " window switching (Ctrl)
 nnoremap <C-j> <C-w>j
@@ -228,24 +228,24 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " tab switching (Ctrl+Tab)
-noremap  <C-Tab>  :tabnext<cr>
-inoremap <C-Tab>  <C-O>:tabnext<cr>
-noremap  <M-Tab>  :tabprev<cr>
-inoremap <M-Tab>  <C-O>:tabprev<cr>
+noremap  <C-Tab>  :tabnext<CR>
+inoremap <C-Tab>  <C-O>:tabnext<CR>
+noremap  <M-Tab>  :tabprev<CR>
+inoremap <M-Tab>  <C-O>:tabprev<CR>
 
 "---------------------------------- Editing ----------------------------------"
 " redo
 nnoremap U <C-R>
-inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
+inoremap <C-u> <C-g>u<C-u>
+inoremap <C-w> <C-g>u<C-w>
 
 " insert a single character
 nnoremap  <leader>i i<Space><Esc>r
 nnoremap  <leader>a a<Space><Esc>r
 
 "-------------------------------- Completion ---------------------------------"
-" <cr> to select completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr"
+" <CR> to select completion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr"
 
 "-----------------------------------------------------------------------------"
 "                                   Plugins                                   "
@@ -421,12 +421,12 @@ if &runtimepath =~? 'fzf.vim'
   augroup END
 
   " mappings
-  nnoremap <C-f> :BLines<cr>
-  nnoremap <C-b> :Buffers<cr>
+  nnoremap <C-f> :BLines<CR>
+  nnoremap <C-b> :Buffers<CR>
 
   " show files in a git project root (or current dir if not project)
   command! ProjectFiles execute 'Files' FindGitRoot()
-  nnoremap <C-p> :ProjectFiles<cr>
+  nnoremap <C-p> :ProjectFiles<CR>
 endif
 
 " --- GitGutter ---
@@ -474,7 +474,7 @@ endif
 " --- MatchTagAlways ---
 if &runtimepath =~? 'MatchTagAlways'
   " Jump to matching tags
-  nnoremap <leader>% :MtaJumpToOtherTag<cr>
+  nnoremap <leader>% :MtaJumpToOtherTag<CR>
 
   let g:mta_filetypes = {
     \ 'html' : 1,
@@ -544,7 +544,7 @@ endif
 
 " --- Tagbar ---
 if &runtimepath =~? 'tagbar'
-  nnoremap <leader>t :TagbarToggle<cr>
+  nnoremap <leader>t :TagbarToggle<CR>
 endif
 
 " --- Vimwiki ---
