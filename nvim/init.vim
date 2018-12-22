@@ -321,7 +321,7 @@ Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 Plug 'hail2u/vim-css3-syntax'
 
 " Markdown "
-Plug 'gabrielelana/vim-markdown'  " better markdown
+Plug 'plasticboy/vim-markdown'  " better markdown
 
 " Python "
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }  " fixes python indent issues
