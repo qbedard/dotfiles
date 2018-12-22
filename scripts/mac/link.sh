@@ -13,17 +13,17 @@ ln -sfn  "$DOTPATH/shell/zsh/zshrc" "$HOME/.zshrc"
 ln -sfn  "$DOTPATH/shell/bash/bashrc" "$HOME/.bashrc"
 
 # neovim
-ln -sfn "$DOTPATH/nvim" "$HOME/.config/nvim"  # just link the whole dir
-ln -sfn "$DOTPATH/nvim" "$HOME/.vim"  # also for other vims
+ln -sfn "$DOTPATH/vim" "$HOME/.config/nvim"  # just link the whole dir
+ln -sfn "$DOTPATH/vim" "$HOME/.vim"  # also for other vims
 
 # TODO: This needs some attention to get vim to see neovim's local data.
 # ln -sfn "$HOME/.local/share/nvim/site" "/usr/share/vim/vimfiles"  # share the share files
 
 # mkdir -p "$HOME/.config/nvim"
-# ln -sfn "$DOTPATH/nvim/init.vim" "$HOME/.config/nvim/init.vim"
-# ln -sfn "$DOTPATH/nvim/plugins.vim" "$HOME/.config/nvim/plugins.vim"
-# ln -sfn "$DOTPATH/nvim/after" "$HOME/.config/nvim/after"
-# ln -sfn "$DOTPATH/nvim/ftplugin" "$HOME/.config/nvim/ftplugin"
+# ln -sfn "$DOTPATH/vim/init.vim" "$HOME/.config/nvim/init.vim"
+# ln -sfn "$DOTPATH/vim/plugins.vim" "$HOME/.config/nvim/plugins.vim"
+# ln -sfn "$DOTPATH/vim/after" "$HOME/.config/nvim/after"
+# ln -sfn "$DOTPATH/vim/ftplugin" "$HOME/.config/nvim/ftplugin"
 
 # ranger
 mkdir -p "$HOME/.config/ranger"

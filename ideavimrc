@@ -1,4 +1,4 @@
 set visualbell
 set noerrorbells
 
-source ~/.dotfiles/nvim/init.vim
+source '~/.dotfiles/vim/init.vim'
