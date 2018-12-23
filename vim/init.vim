@@ -75,8 +75,6 @@ let g:netrw_dirhistmax = 0
 "---------------------------- Tabs & Indentation -----------------------------"
 set smartindent
 set expandtab  " tab inserts spaces
-set shiftwidth=4
-set softtabstop=4
 
 " Wrap a line around visually if it's too long.
 set wrap
