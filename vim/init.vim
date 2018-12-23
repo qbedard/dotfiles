@@ -245,7 +245,7 @@ nnoremap  <leader>a a<Space><Esc>r
 
 "-------------------------------- Completion ---------------------------------"
 " <CR> to select completion
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "-----------------------------------------------------------------------------"
 "                                   Plugins                                   "
