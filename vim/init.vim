@@ -454,6 +454,8 @@ endif
 " --- indentLine ---
 if &runtimepath =~? 'indentLine'
   let g:indentLine_char = '│'
+  let g:indentLine_bufTypeExclude = ['help', 'terminal']
+  let g:indentLine_fileTypeExclude = ['text', 'markdown']
 endif
 
 " --- Instant Markdown ---
