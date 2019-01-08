@@ -91,6 +91,11 @@ if which hub > /dev/null; then
   eval "$(hub alias -s)"
 fi
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

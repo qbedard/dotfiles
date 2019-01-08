@@ -31,8 +31,6 @@ PACKAGES=(
     hub
     lua
     neovim
-    node
-    npm
     python@2
     python3
     ranger
@@ -75,8 +73,11 @@ brew cask install "${FONTS[@]}"
 echo "Installing Oh My Zsh..."
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
-echo "Installing zsh-users/zsh-completions"
+echo "Installing zsh-users/zsh-completions..."
 git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+
+echo "Installing zsh-nvm..."
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 
 echo "Installing fzf shell extensions..."
 /usr/local/opt/fzf/install

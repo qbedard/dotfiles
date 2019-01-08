@@ -24,6 +24,7 @@ plugins=(
     web-search  # perform popular web searches such as 'google pictures of cats'
     zsh-autosuggestions
     zsh-completions
+    zsh-nvm
     zsh-syntax-highlighting
 )
 autoload -U compinit && compinit
