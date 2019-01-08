@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Installing node..."
+nvm install node
+
 echo "Updating npm..."
 npm update -g
 
