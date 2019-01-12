@@ -2,52 +2,38 @@ export ZSH=${HOME}/.oh-my-zsh
 ZSH_THEME="kolo"
 
 plugins=(
-    aws
-    brew
-    cargo
-    django
-    docker
-    docker-compose
-    exa
-    fasd
-    gem
-    git
-    git-extras
-    npm
-    osx
-    pip
-    python
-    redis-cli
-    # sudo  # pressing ESC twice puts 'sudo' in front of the current command
-    # tmux
-    vagrant
-    web-search  # perform popular web searches such as 'google pictures of cats'
-    zsh-autosuggestions
-    zsh-completions
-    zsh-nvm
-    zsh-syntax-highlighting
+  aws
+  brew
+  cargo
+  # django
+  docker
+  docker-compose
+  exa
+  fasd
+  # gem
+  git
+  git-extras
+  npm
+  osx
+  pip
+  python
+  # redis-cli
+  # tmux
+  # vagrant
+  web-search  # perform popular web searches such as 'google pictures of cats'
+  zsh-autosuggestions
+  zsh-completions
+  # zsh-nvm  # takes crazy long
+  zsh-syntax-highlighting
 )
 autoload -U compinit && compinit
-
 source $ZSH/oh-my-zsh.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source $HOME/.dotfiles/shell/common.sh
 
+# --- direnv ---
 if hash direnv 2>/dev/null; then
-    eval "$(direnv hook zsh)"
+  eval "$(direnv hook zsh)"
 fi
-
-# Vim keybindings
-# bindkey -v
-# export KEYTIMEOUT=1
-
-# append a nice env identifier if we're in a direnv venv
-function show_virtual_env() {
-  if [ -n "$VIRTUAL_ENV" ] && [ "$(basename $(dirname $VIRTUAL_ENV))" = '.direnv' ]; then
-    direnv_parent="$(dirname $(dirname $VIRTUAL_ENV))"
-    echo "(d:$(basename $direnv_parent)) "
-  fi
-}
-PS1='$(show_virtual_env)'$PS1

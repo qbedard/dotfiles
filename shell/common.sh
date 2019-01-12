@@ -6,6 +6,7 @@ export PATH="/usr/local/opt/python@2/bin:$PATH"
 
 # add cargo binaries to path
 export PATH="/Users/tim/.cargo/bin:$PATH"
+
 # ----- Aliases ----- #
 alias vim="nvim"
 alias vi="nvim"
@@ -82,40 +83,27 @@ alias dcd="docker-compose down"
 # alias vs="vim settings.py"
 # alias vl="vim local_settings.py"
 
-# ----- Misc ----- #
-
+# ----- Tool Config ----- #
 export VISUAL=nvim
 export EDITOR=nvim
 
 # 10ms for key sequences
 export KEYTIMEOUT=1
 
-# git -> hub
-if which hub > /dev/null; then
-  eval "$(hub alias -s)"
-fi
+# --- cheat ---
+export CHEATCOLORS=true
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+# --- direnv ---
+# append a nice env identifier if we're in a direnv venv
+function show_virtual_env() {
+  if [ -n "$VIRTUAL_ENV" ] && [ "$(basename $(dirname $VIRTUAL_ENV))" = '.direnv' ]; then
+    direnv_parent="$(dirname $(dirname $VIRTUAL_ENV))"
+    echo "(d:$(basename $direnv_parent)) "
+  fi
+}
+PS1='$(show_virtual_env)'$PS1
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# use rg with fzf
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-
-# vimpager
-# export PAGER=vimpager
-
-# ripgrep default settings alias
-alias rg='rg --smart-case'
-
- #rtv
-export RTV_EDITOR=vim
-
-# fasd
+# --- fasd ---
 fasd_cache="$HOME/.fasd-init-sh"
 if [ "$(command -v fasd)" -nt "$fasd_cache" ] || [ ! -s "$fasd_cache" ]; then
   fasd --init auto >| "$fasd_cache"
@@ -123,16 +111,34 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
-# fasd aliases
 alias j='fasd_cd -d'
 alias v='f -e vim'
 alias o='a -e open'
 
-# neomutt
+# --- fzf ---
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# use rg with fzf
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+
+# --- hub ---
+if which hub > /dev/null; then
+  eval "$(hub alias -s)"
+fi
+
+# --- neomutt ---
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
-# cheat
-export CHEATCOLORS=true
+# --- nvm ---
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
-# python
+# --- python ---
 export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
+
+# --- ripgrep ---
+alias rg='rg --smart-case'
+
+# --- rtv ---
+export RTV_EDITOR=vim
