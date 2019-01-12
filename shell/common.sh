@@ -47,6 +47,10 @@ alias gl="git pull"
 alias gt="git tag"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
+# --- GitVersion ---
+alias gv="gitversion"
+alias gvv="gitversion /showvariable semver"
+
 # --- Python ---
 alias pup="pip install --upgrade pip"
 alias pup2="pip2 install --upgrade pip"
