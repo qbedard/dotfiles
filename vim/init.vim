@@ -324,6 +324,8 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }  " fixes python indent
 Plug 'tmhedberg/simpylfold', { 'for': 'python' }  " python folding
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 Plug 'mindriot101/vim-yapf', { 'for': 'python' }  " python auto-formatting
+Plug 'tell-k/vim-autopep8', { 'for': 'python' }  " python auto-formatting
+Plug 'ambv/black', { 'for': 'python' }  " python auto-formatting
 
 " Misc "
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
@@ -388,6 +390,14 @@ endif
 if &runtimepath =~? 'auto-pairs'
   let g:AutoPairsMapSpace = 0
 endif
+
+" --- black ---
+" avoiding check wrap for now as black doesn't actually get added to runtimepath
+" if &runtimepath =~? 'black'
+  let g:black_virtualenv = expand('$DATA_DIR/site/venv')
+  let g:black_linelength = 88
+  let g:black_skip_string_normalization = 1
+" endif
 
 " --- deoplete ---
 if &runtimepath =~? 'deoplete.nvim'
