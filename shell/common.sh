@@ -14,6 +14,7 @@ alias vi="nvim"
 # --- General ---
 alias ls="exa --group-directories-first"
 alias l="ls -1"
+alias la="l -a"
 alias ll="ls -lh --git"
 alias llg="ll --grid"
 alias lt="ls -T"
