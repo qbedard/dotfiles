@@ -284,7 +284,7 @@ endif
 
 " --------- Motion ----------
 Plug 'easymotion/vim-easymotion'  " fast finding tool
-Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
+" Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
 
 " --------- Editing ---------
 Plug 'ntpeters/vim-better-whitespace'  " better whitespace stripping
