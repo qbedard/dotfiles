@@ -152,8 +152,8 @@ set completeopt-=preview  " preview in a buffer?! No.
 "--------------------------------- Languages ---------------------------------"
 " TODO: find equivalent setting for Vim8
 if has('nvim')
-  let g:python_host_prog  = 'python2'
-  let g:python3_host_prog = 'python3'
+  let g:python_host_prog  = expand('$HOME/.local/share/nvim/venv/python2/bin/python')
+  let g:python3_host_prog = expand('$HOME/.local/share/nvim/venv/python3/bin/python')
 endif
 
 "-----------------------------------------------------------------------------"
@@ -295,7 +295,7 @@ Plug 'tpope/vim-commentary'  " commenting shortcuts
 Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
 Plug 'wellle/targets.vim'  " next/last surround pair text object
-Plug 'Valloric/MatchTagAlways'  " show matching tags
+" Plug 'Valloric/MatchTagAlways'  " show matching tags <- bugging out
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
@@ -403,6 +403,10 @@ endif
 " --- deoplete ---
 if &runtimepath =~? 'deoplete.nvim'
   call deoplete#enable()
+endif
+
+" --- deoplete-jedi ---
+if &runtimepath =~? 'deoplete-jedi'
 endif
 
 " --- EasyMotion ---
