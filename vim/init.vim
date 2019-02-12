@@ -273,7 +273,7 @@ Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
 " ---------- Tags -----------
 if executable('ctags')
   Plug 'ludovicchabant/vim-gutentags'  " manages tag files
-  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }  " neat tag nav UI
+  Plug 'majutsushi/tagbar'  " neat tag nav UI
 endif
 
 " ------ Fuzzy Search -------
