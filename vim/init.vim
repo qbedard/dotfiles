@@ -152,8 +152,27 @@ set completeopt-=preview  " preview in a buffer?! No.
 "--------------------------------- Languages ---------------------------------"
 " TODO: find equivalent setting for Vim8
 if has('nvim')
-  let g:python_host_prog  = expand('$HOME/.local/share/nvim/venv/python2/bin/python')
-  let g:python3_host_prog = expand('$HOME/.local/share/nvim/venv/python3/bin/python')
+  " let g:python_host_prog  = expand('$HOME/.local/share/nvim/venv/python2/bin/python')
+  " let g:python3_host_prog = expand('$HOME/.local/share/nvim/venv/python3/bin/python')
+  let g:python_host_prog  = 'python'
+  let g:python3_host_prog = 'python3'
+
+" TODO: maybe fix this to add nvim-specific venv site packages to current env
+  " if has('python3')
+  "   function AddPython3NvimSitePackages()
+  "     python3 << EOF
+
+" import site, sys
+" from pathlib import Path
+" data_dir = '{}/.local/share'.format(Path.home())
+" py_ver = sys.version[:3]
+" py_site = '{}/venv/python3/lib/python{}/site-packages'.format(data_dir, py_ver)
+" site.addsitedir(py_site)
+
+" EOF
+  "   endfunction
+  "   call AddPython3NvimSitePackages()
+  " endif
 endif
 
 "-----------------------------------------------------------------------------"
