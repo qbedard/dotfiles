@@ -284,7 +284,8 @@ endif
 
 " --------- Motion ----------
 Plug 'easymotion/vim-easymotion'  " fast finding tool
-" Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
+Plug 'kshenoy/vim-signature'  " show marks in the sign column
+"Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
 
 " --------- Editing ---------
 Plug 'ntpeters/vim-better-whitespace'  " better whitespace stripping
