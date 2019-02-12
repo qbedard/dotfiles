@@ -591,11 +591,6 @@ if &runtimepath =~? 'vim-devicons'
   let g:webdevicons_enable_ctrlp = 1
 endif
 
-" --- vim-markdown ---
-if &runtimepath =~? 'vim-markdown'
-  let g:vim_markdown_new_list_item_indent = 2
-endif
-
 " --- vim-easy-align ---
 if &runtimepath =~? 'vim-easy-align'
   " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -603,4 +598,9 @@ if &runtimepath =~? 'vim-easy-align'
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nnoremap ga <Plug>(EasyAlign)
+endif
+
+" --- vim-markdown ---
+if &runtimepath =~? 'vim-markdown'
+  let g:vim_markdown_new_list_item_indent = 2
 endif
