@@ -327,6 +327,7 @@ Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 Plug 'mindriot101/vim-yapf', { 'for': 'python' }  " python auto-formatting
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }  " python auto-formatting
 Plug 'ambv/black', { 'for': 'python' }  " python auto-formatting
+Plug 'timbedard/vim-isort'  " python import sorting
 
 " Misc "
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
@@ -347,7 +348,7 @@ else
 endif
 Plug 'Shougo/neco-vim'  " VimL
 " TODO: figure out how to check if jedi is installed
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }  " python
+Plug 'zchee/deoplete-jedi'  " python
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 
 Plug 'ervandew/supertab'  " use tab for insert completions
@@ -598,6 +599,13 @@ if &runtimepath =~? 'vim-easy-align'
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nnoremap ga <Plug>(EasyAlign)
+endif
+
+" --- vim-isort ---
+if &runtimepath =~? 'vim-isort'
+  let g:vim_isort_map = ''  " disable mapping
+  let g:vim_isort_config_overrides = {
+    \ 'include_trailing_comma': 1, 'multi_line_output': 3}
 endif
 
 " --- vim-markdown ---
