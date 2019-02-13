@@ -41,7 +41,7 @@ endif
 let g:mapleader=' '
 
 " TODO: find out what this breaks
-set autochdir  " automatically set working directory
+" set autochdir  " automatically set working directory
 
 if executable('zsh')
   set shell=zsh
@@ -266,6 +266,7 @@ call plug#begin('$DATA_DIR/site/plugged')
 " ----------- GUI -----------
 Plug 'morhetz/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
+Plug 'justinmk/vim-dirvish'  " file browser
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
 Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
