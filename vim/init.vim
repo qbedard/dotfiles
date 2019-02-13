@@ -358,6 +358,7 @@ Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " 
 " Plug 'davidhalter/jedi-vim'  " python completion
 
 Plug 'ervandew/supertab'  " use tab for insert completions
+" TODO: figure out what's overwriting echodoc in python
 Plug 'Shougo/echodoc.vim'  " show func sig
 
 " -------- Snippets ---------
@@ -411,6 +412,11 @@ endif
 " --- deoplete ---
 if &runtimepath =~? 'deoplete.nvim'
   call deoplete#enable()
+  call deoplete#custom#option('num_processes', 0)
+  call deoplete#custom#option('sources', {
+    \ 'python': ['jedi'],
+    \})
+
 endif
 
 " --- deoplete-jedi ---
