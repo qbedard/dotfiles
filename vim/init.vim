@@ -411,12 +411,12 @@ endif
 
 " --- deoplete ---
 if &runtimepath =~? 'deoplete.nvim'
-  call deoplete#enable()
+  " call deoplete#enable()
+  let g:deoplete#enable_at_startup = 1
   call deoplete#custom#option('num_processes', 0)
   call deoplete#custom#option('sources', {
     \ 'python': ['jedi'],
-    \})
-
+    \ })
 endif
 
 " --- deoplete-jedi ---
