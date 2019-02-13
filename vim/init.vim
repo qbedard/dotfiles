@@ -262,6 +262,10 @@ endif
 filetype off
 call plug#begin('$DATA_DIR/site/plugged')
 " /----------------------------- Start Plugins ------------------------------\
+" Note: On-demand loading breaks my conditional config approach,
+" so the options are:
+" 1) on-demand load, unconditional config
+" 2) always load, conditional config
 
 " ----------- GUI -----------
 Plug 'morhetz/gruvbox'  " excellent theme
@@ -324,11 +328,11 @@ Plug 'plasticboy/vim-markdown'  " better markdown
 
 " Python "
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }  " fixes python indent issues
-Plug 'tmhedberg/simpylfold', { 'for': 'python' }  " python folding
+Plug 'tmhedberg/simpylfold'  " python folding
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 Plug 'mindriot101/vim-yapf', { 'for': 'python' }  " python auto-formatting
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }  " python auto-formatting
-Plug 'ambv/black', { 'for': 'python' }  " python auto-formatting
+Plug 'ambv/black'  " python auto-formatting
 Plug 'timbedard/vim-isort'  " python import sorting
 
 " Misc "
@@ -349,11 +353,13 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'Shougo/neco-vim'  " VimL
+Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 " TODO: figure out how to check if jedi is installed
 Plug 'zchee/deoplete-jedi'  " python
-Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
+" Plug 'davidhalter/jedi-vim'  " python completion
 
 Plug 'ervandew/supertab'  " use tab for insert completions
+Plug 'Shougo/echodoc.vim'  " show func sig
 
 " -------- Snippets ---------
 Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
@@ -421,11 +427,17 @@ if &runtimepath =~? 'vim-easymotion'
   nnoremap <Leader>f <Plug>(easymotion-overwin-f)
 endif
 
+" --- echodoc ---
+if &runtimepath =~? 'echodoc.vim'
+  let g:echodoc#enable_at_startup = 1
+  let g:echodoc#enable_force_overwrite = 1
+endif
+
 " --- Emmet ---
 if &runtimepath =~? 'emmet-vim'
   " default is <C-Y>
   " let g:user_emmet_leader_key=','
-  let g:user_emmet_install_global=1
+  let g:user_emmet_install_global = 1
 endif
 
 " --- fzf ---
@@ -457,7 +469,7 @@ endif
 
 " --- gruvbox ---
 if &runtimepath =~? 'gruvbox'
-  let g:gruvbox_italic=1
+  let g:gruvbox_italic = 1
   colorscheme gruvbox
   highlight clear SignColumn
   highlight clear FoldColumn
@@ -467,6 +479,7 @@ endif
 " --- Gutentags ---
 if &runtimepath =~? 'vim-gutentags'
   let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
+  let g:gutentags_exclude_filetypes = ['gitcommit', 'markdown', 'plaintext', 'csv']
 endif
 
 " --- indentLine ---
@@ -585,7 +598,7 @@ endif
 
 " --- vim-better-whitespace ---
 if &runtimepath =~? 'vim-better-whitespace'
-  let g:strip_whitelines_at_eof=1
+  let g:strip_whitelines_at_eof = 1
   cnoreabbrev trim StripWhitespace
 endif
 
