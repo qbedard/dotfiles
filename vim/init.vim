@@ -299,6 +299,7 @@ Plug 'wellle/targets.vim'  " next/last surround pair text object
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
+Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
 
 " ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
