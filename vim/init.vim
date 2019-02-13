@@ -327,11 +327,11 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'plasticboy/vim-markdown'  " better markdown
 
 " Python "
-Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }  " fixes python indent issues
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}  " fixes python indent issues
 Plug 'tmhedberg/simpylfold'  " python folding
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
-Plug 'mindriot101/vim-yapf', { 'for': 'python' }  " python auto-formatting
-Plug 'tell-k/vim-autopep8', { 'for': 'python' }  " python auto-formatting
+Plug 'mindriot101/vim-yapf', {'for': 'python'}  " python auto-formatting
+Plug 'tell-k/vim-autopep8', {'for': 'python'}  " python auto-formatting
 Plug 'ambv/black'  " python auto-formatting
 Plug 'timbedard/vim-isort'  " python import sorting
 
@@ -354,8 +354,7 @@ else
 endif
 Plug 'Shougo/neco-vim'  " VimL
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
-" TODO: figure out how to check if jedi is installed
-Plug 'zchee/deoplete-jedi'  " python
+Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
 " Plug 'davidhalter/jedi-vim'  " python completion
 
 Plug 'ervandew/supertab'  " use tab for insert completions
@@ -365,10 +364,10 @@ Plug 'Shougo/echodoc.vim'  " show func sig
 Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
 " ---------- Notes ----------
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 
 " --------- Preview ---------
-Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " --------- Writing ---------
 Plug 'junegunn/goyo.vim'  " no-distractions editing
