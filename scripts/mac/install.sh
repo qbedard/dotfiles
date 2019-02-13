@@ -76,8 +76,8 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 echo "Installing zsh-users/zsh-completions..."
 git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 
-echo "Installing zsh-nvm..."
-git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+# echo "Installing zsh-nvm..."
+# git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 
 echo "Installing fzf shell extensions..."
 /usr/local/opt/fzf/install
