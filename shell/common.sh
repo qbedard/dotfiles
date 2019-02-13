@@ -7,6 +7,10 @@ export PATH="/usr/local/opt/python@2/bin:$PATH"
 # add cargo binaries to path
 export PATH="/Users/tim/.cargo/bin:$PATH"
 
+# add openssl to path for compilers
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
 # ----- Aliases ----- #
 alias vim="nvim"
 alias vi="nvim"
@@ -29,6 +33,11 @@ alias rbs="source ~/.bashrc"
 alias vr="vim ~/.dotfiles/vim/init.vim"
 alias vp="vim ~/.dotfiles/vim/plugins.vim"
 
+# --- Docker Compose --- #
+alias dc="docker-compose"
+alias dcu="docker-compose up"
+alias dcd="docker-compose down"
+
 # --- Git ---
 alias gs="git status -sb"
 alias ga="git add"
@@ -49,40 +58,16 @@ alias gl="git pull"
 alias gt="git tag"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
-# --- GitVersion ---
-alias gv="gitversion"
-alias gvv="gitversion /showvariable semver"
-
 # --- Python ---
 alias pup="pip install --upgrade pip"
 alias pup2="pip2 install --upgrade pip"
 alias pup3="pip3 install --upgrade pip"
 
-# ----- Vagrant ----- #
+# --- Vagrant --- #
 alias vu="vagrant up"
 alias vd="vagrant destroy"
 alias vh="vagrant halt"
 alias vss="vagrant ssh"
-
-# ----- Docker Compose ----- #
-alias dc="docker-compose"
-alias dcu="docker-compose up"
-alias dcd="docker-compose down"
-
-# ----- UT PyPE  ----- #
-# alias pw="pype_workon"
-# alias pw2.8="pype_workon 27.8.0"
-# alias pw2.11="pype_workon 27.11.0"
-# alias pw3.11="pype_workon 36.11.0"
-# alias dj="python manage.py"
-# alias djrs="python manage.py runserver"
-# alias djrss="python manage.py runsslserver"
-# alias djsh="python manage.py shell"
-# alias djsu="python manage.py createsuperuser"
-# alias djm="python manage.py migrate"
-# alias djmm="python manage.py makemigrations"
-# alias vs="vim settings.py"
-# alias vl="vim local_settings.py"
 
 # ----- Tool Config ----- #
 export VISUAL=nvim
@@ -127,13 +112,10 @@ if which hub > /dev/null; then
   eval "$(hub alias -s)"
 fi
 
-# --- neomutt ---
-export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
-
 # --- nvm ---
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# [ -s "$NVM_DIR/etc/bash_completion" ] && . "$NVM_DIR/etc/bash_completion"  # This loads nvm bash_completion
 
 # --- python ---
 export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
