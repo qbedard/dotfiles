@@ -381,7 +381,7 @@ Plug 'Shougo/neco-vim'  " VimL
 " Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
 " Plug 'davidhalter/jedi-vim'  " python completion
 
-" Plug 'ervandew/supertab'  " use tab for insert completions
+Plug 'ervandew/supertab'  " use tab for insert completions
 " TODO: figure out what's overwriting echodoc in python
 " Plug 'Shougo/echodoc.vim'  " show func sig
 
