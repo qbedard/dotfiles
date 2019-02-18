@@ -215,10 +215,10 @@ xnoremap ; :
 
 " easier nav in insert mode (Ctrl)
 " NOTE: <C-h> doesn't work thanks to <C-h> sending <bs> in most terminals
-inoremap <C-k> <C-o>gk
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-inoremap <C-j> <C-o>gj
+" inoremap <C-k> <C-o>gk
+" inoremap <C-h> <Left>
+" inoremap <C-l> <Right>
+" inoremap <C-j> <C-o>gj
 
 " nav to begin and end of line (rather than buffer) with H/L
 nnoremap H ^
@@ -231,10 +231,10 @@ xnoremap K :bn<CR>
 xnoremap J :bp<CR>
 
 " window switching (Ctrl)
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-l> <C-w>l
 
 " tab switching (Ctrl+Tab)
 noremap  <C-Tab>  :tabnext<CR>
@@ -299,6 +299,7 @@ if executable('fzf')
 endif
 
 " --------- Motion ----------
+Plug 'christoomey/vim-tmux-navigator'  " tmux nav integration
 Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'kshenoy/vim-signature'  " show marks in the sign column
 "Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
@@ -350,6 +351,7 @@ Plug 'ambv/black'  " python auto-formatting
 Plug 'timbedard/vim-isort'  " python import sorting
 
 " Misc "
+Plug 'tmux-plugins/vim-tmux'  " tmux.conf syntax
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
 Plug 'hashivim/vim-vagrant'  " Vagrant support
 Plug 'tpope/vim-liquid'  " jekyll templates
@@ -644,4 +646,14 @@ endif
 " --- vim-markdown ---
 if &runtimepath =~? 'vim-markdown'
   let g:vim_markdown_new_list_item_indent = 2
+endif
+
+" --- vim-tmux-navigator ---
+if &runtimepath =~? 'vim-tmux-navigator'
+  " let g:tmux_navigator_no_mappings = 1
+  " nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
+  " nnoremap <silent> <C-J> :TmuxNavigateDown<cr>
+  " nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
+  " nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
+  " nnoremap <silent> <C-|> :TmuxNavigatePrevious<cr>
 endif
