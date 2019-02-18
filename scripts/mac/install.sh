@@ -20,29 +20,35 @@ brew update
 
 echo "Installing packages..."
 PACKAGES=(
-    autoconf
     awscli
-    ctags
+    bat  # cat replacement
+    # ctags
     direnv
-    exa
-    fasd
-    fzf
+    exa  # ls replacement
+    fasd  # fast dir nav
+    fd  # find replacement
+    fzf  # fuzzy
     git
-    hub
+    hub  # GitHub tools
     lua
     neovim
     python@2
     python3
-    ranger
-    ripgrep
+    ranger  # terminal file browser
+    # reattach-to-user-namespace  # fix tmux mac issues
+    ripgrep  # awesome grep
     ruby
-    shellcheck
-    the_silver_searcher
-    tree
+    shellcheck  # sh linter
+    # the_silver_searcher
+    # tmux
+    # tree
     zsh
     zsh-completions
 )
 brew install "${PACKAGES[@]}"
+
+echo "Installing universal-ctags..."
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 echo "Cleaning up..."
 brew cleanup
@@ -54,11 +60,11 @@ brew tap caskroom/versions
 echo "Installing Cask apps..."
 CASKS=(
     alfred
-    firefox-developer-edition
+    firefox-developer-edition  # TODO: fix mult vers cask
     insomnia
     iterm2
     sequel-pro
-    slack
+    # slack
     virtualbox
 )
 brew cask install "${CASKS[@]}"
@@ -66,7 +72,7 @@ brew cask install "${CASKS[@]}"
 echo "Installing fonts..."
 brew tap caskroom/fonts
 FONTS=(
-    font-sourcecodepro-nerd-font
+    font-sourcecodepro-nerd-font  # TODO: fix mult vers cask
 )
 brew cask install "${FONTS[@]}"
 

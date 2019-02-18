@@ -1,12 +1,13 @@
 #!/bin/bash
 
-DOTFILES="$HOME/.dotfiles"
+DOTPATH="$(git rev-parse --show-toplevel)"
+CONFIG_DIR="$HOME/.config"
 
-. "$DOTFILES/scripts/mac/config.sh"
-. "$DOTFILES/scripts/mac/install.sh"
-. "$DOTFILES/scripts/python.sh"
-. "$DOTFILES/scripts/ruby.sh"
-. "$DOTFILES/scripts/node.sh"
-. "$DOTFILES/scripts/lua.sh"
-. "$DOTFILES/scripts/mac/link.sh"
-. "$DOTFILES/scripts/git.sh"
+. "$DOTPATH/scripts/mac/config.sh"
+. "$DOTPATH/scripts/mac/install.sh"
+# . "$DOTPATH/scripts/python.sh"
+# . "$DOTPATH/scripts/ruby.sh"
+# . "$DOTPATH/scripts/node.sh"
+# . "$DOTPATH/scripts/lua.sh"
+. "$DOTPATH/scripts/mac/link.sh"
+. "$DOTPATH/scripts/git.sh"

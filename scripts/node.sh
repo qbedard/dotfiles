@@ -14,7 +14,7 @@ PACKAGES=(
     csslint
     eslint
     htmlhint
-    instant-markdown-d
+    instant-markdown-d  # vim md preview
     jsonlint
     # markdownlint-cli  # noisy and slow
     neovim
