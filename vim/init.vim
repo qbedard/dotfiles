@@ -144,10 +144,21 @@ set mouse=a  " let the mouse wheel scroll page, etc
 "---------------------------------- Editing ----------------------------------"
 set viewoptions-=options  " keep from saving cur dir in view
 
-" yank to system clipboard
-set clipboard=unnamed
+set clipboard=unnamed  " yank to system clipboard
 
 set completeopt-=preview  " preview in a buffer?! No.
+
+" some brilliant line movement mappings from junegunn
+" nnoremap <silent> <C-k> :move-2<cr>
+" nnoremap <silent> <C-j> :move+<cr>
+" nnoremap <silent> <C-h> <<
+" nnoremap <silent> <C-l> >>
+" xnoremap <silent> <C-k> :move-2<cr>gv
+" xnoremap <silent> <C-j> :move'>+<cr>gv
+" xnoremap <silent> <C-h> <gv
+" xnoremap <silent> <C-l> >gv
+" xnoremap < <gv
+" xnoremap > >gv
 
 "--------------------------------- Languages ---------------------------------"
 " TODO: find equivalent setting for Vim8
@@ -305,6 +316,9 @@ Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
 Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
+Plug 'AndrewRadev/splitjoin.vim'  " single-line <-> multi-line
+Plug 'AndrewRadev/switch.vim'  " true <-> false, etc
+Plug 'AndrewRadev/whitespaste.vim'  " auto-fix whitespace lines when pasting
 
 " ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
