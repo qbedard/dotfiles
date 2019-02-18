@@ -152,8 +152,8 @@ set completeopt-=preview  " preview in a buffer?! No.
 "--------------------------------- Languages ---------------------------------"
 " TODO: find equivalent setting for Vim8
 if has('nvim')
-  let g:python_host_prog  = expand('$HOME/.local/share/nvim/venv/python2/bin/python')
-  let g:python3_host_prog = expand('$HOME/.local/share/nvim/venv/python3/bin/python')
+  let g:python_host_prog  = expand('$DATA_DIR/venv/python2/bin/python')
+  let g:python3_host_prog = expand('$DATA_DIR/venv/python3/bin/python')
 endif
 
 "-----------------------------------------------------------------------------"
@@ -411,7 +411,6 @@ endif
 
 " --- deoplete ---
 if &runtimepath =~? 'deoplete.nvim'
-  " call deoplete#enable()
   let g:deoplete#enable_at_startup = 1
   call deoplete#custom#option('num_processes', 0)
   call deoplete#custom#option('sources', {
