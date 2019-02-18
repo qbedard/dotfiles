@@ -13,6 +13,11 @@ ln -sfn  "$DOTPATH/shell/zsh/zshrc" "$HOME/.zshrc"
 # bash
 ln -sfn  "$DOTPATH/shell/bash/bashrc" "$HOME/.bashrc"
 
+# tmux
+mkdir -p "$CONFIG_DIR/tmux"
+ln -sfn  "$DOTPATH/tmux.conf" "$CONFIG_DIR/tmux/tmux.conf"
+ln -sfn  "$DOTPATH/tmux.conf" "$HOME/.tmux.conf"
+
 # neovim
 ln -sfn "$DOTPATH/vim" "$CONFIG_DIR/nvim"  # just link the whole dir
 ln -sfn "$DOTPATH/vim" "$HOME/.vim"  # also for other vims

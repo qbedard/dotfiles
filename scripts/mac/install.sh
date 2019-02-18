@@ -35,12 +35,12 @@ PACKAGES=(
     python@2
     python3
     ranger  # terminal file browser
-    # reattach-to-user-namespace  # fix tmux mac issues
+    reattach-to-user-namespace  # fix tmux mac issues
     ripgrep  # awesome grep
     ruby
     shellcheck  # sh linter
     # the_silver_searcher
-    # tmux
+    tmux
     # tree
     zsh
     zsh-completions
@@ -87,5 +87,8 @@ git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugi
 
 echo "Installing fzf shell extensions..."
 /usr/local/opt/fzf/install
+
+echo "Installing tpm (Tmux Plugin Manager)..."
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "Installion complete."
