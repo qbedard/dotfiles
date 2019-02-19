@@ -376,8 +376,8 @@ else
 endif
 Plug 'Shougo/neco-vim'  " VimL
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
-Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
-" Plug 'davidhalter/jedi-vim'  " python completion
+" Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
+Plug 'davidhalter/jedi-vim'  " python completion
 
 Plug 'ervandew/supertab'  " use tab for insert completions
 " TODO: figure out what's overwriting echodoc in python
@@ -443,13 +443,9 @@ endif
 if &runtimepath =~? 'deoplete.nvim'
   let g:deoplete#enable_at_startup = 1
   call deoplete#custom#option('num_processes', 0)
-  call deoplete#custom#option('sources', {
-    \ 'python': ['jedi'],
-    \ })
-endif
-
-" --- deoplete-jedi ---
-if &runtimepath =~? 'deoplete-jedi'
+  " call deoplete#custom#option('sources', {
+  "   \ 'python': ['jedi'],
+  "   \ })
 endif
 
 " --- EasyMotion ---
