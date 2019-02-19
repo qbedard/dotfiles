@@ -8,6 +8,10 @@ nnoremap ; :
 let $XDG_DATA_HOME = expand('$HOME/.local/share')
 let $DATA_DIR = $XDG_DATA_HOME . '/nvim'  " ~/.local/share/nvim
 
+"---------------------------------- Python -----------------------------------"
+let g:python_host_prog  = expand('$DATA_DIR/venv/python2/bin/python')
+let g:python3_host_prog = expand('$DATA_DIR/venv/python3/bin/python')
+
 "----------------------------- Install vim-plug ------------------------------"
 let $PLUG_LOC = expand('$DATA_DIR/site/autoload/plug.vim')
 if empty(glob($PLUG_LOC))
@@ -22,10 +26,17 @@ endif
 filetype off
 call plug#begin('$DATA_DIR/site/plugged')
 
-" plugins go here
+Plug 'w0rp/ale'  " linting/building
 
 call plug#end()
 filetype plugin indent on
 
 "----------------------------- Configure Plugins -----------------------------"
-" config options go here
+" --- ALE ---
+if &runtimepath =~? 'ale'
+  let g:airline#extensions#ale#enabled = 1
+  let g:ale_completion_enabled = 1
+  let g:ale_cursor_detail = 0
+  let g:ale_set_balloons = 1
+  let g:ale_virtualtext_cursor = 1
+endif
