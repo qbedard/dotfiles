@@ -16,6 +16,7 @@ alias vim="nvim"
 alias vi="nvim"
 
 # --- General ---
+alias c="clear"
 alias ls="exa --group-directories-first"
 alias l="ls -1"
 alias la="l -a"
