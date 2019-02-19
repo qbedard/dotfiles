@@ -426,6 +426,11 @@ if &runtimepath =~? 'ale'
   let g:ale_virtualtext_cursor = 1
   " let g:ale_python_flake8_options = '--max-line-length=120'
   let g:ale_python_flake8_options = '--ignore=E501'
+  let g:ale_yaml_yamllint_options =
+    \ '-d "{extends: default, rules: {' .
+      \ 'document-start: {present: false}, ' .
+      \ 'indentation: {indent-sequences: consistent}' .
+    \ '}}"'
 endif
 
 " --- auto-pairs ---
