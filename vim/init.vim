@@ -649,6 +649,11 @@ if &runtimepath =~? 'vim-markdown'
   let g:vim_markdown_new_list_item_indent = 2
 endif
 
+" --- vim-signature ---
+if &runtimepath =~? 'vim-signature'
+  let g:SignatureMarkTextHLDynamic = 1
+endif
+
 " --- vim-tmux-navigator ---
 if &runtimepath =~? 'vim-tmux-navigator'
   " let g:tmux_navigator_no_mappings = 1
