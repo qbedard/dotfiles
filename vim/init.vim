@@ -28,7 +28,18 @@ let $RUNTIME_DIR = expand('$XDG_CONFIG_HOME/nvim')  " ~/.config/nvim
 if $XDG_DATA_HOME ==? ''
   let $XDG_DATA_HOME = expand('$HOME/.local/share')
 endif
-let $DATA_DIR = $XDG_DATA_HOME . '/nvim'  " ~/.local/share/nvim
+let $DATA_DIR = expand('$XDG_DATA_HOME/nvim')  " ~/.local/share/nvim
+
+"----------------------------------- Python ----------------------------------"
+" TODO: find equivalent setting for Vim8
+if has('nvim')
+  let $VENV_DIR = expand('$DATA_DIR/venv')
+  " dedicated vim venvs
+  let g:python_host_prog  = expand('$VENV_DIR/python2/bin/python')
+  let g:python3_host_prog = expand('$VENV_DIR/python3/bin/python')
+  " add python3 bins to PATH
+  let $PATH = expand('$VENV_DIR/python3/bin:$PATH')
+endif
 
 "------------------------------ Neovim Defaults ------------------------------"
 " If we're not in Neovim, make sure all the defaults are the same.
@@ -159,13 +170,6 @@ set completeopt-=preview  " preview in a buffer?! No.
 " xnoremap <silent> <C-l> >gv
 " xnoremap < <gv
 " xnoremap > >gv
-
-"--------------------------------- Languages ---------------------------------"
-" TODO: find equivalent setting for Vim8
-if has('nvim')
-  let g:python_host_prog  = expand('$DATA_DIR/venv/python2/bin/python')
-  let g:python3_host_prog = expand('$DATA_DIR/venv/python3/bin/python')
-endif
 
 "-----------------------------------------------------------------------------"
 "                                  Commands                                   "
