@@ -26,17 +26,10 @@ endif
 filetype off
 call plug#begin('$DATA_DIR/site/plugged')
 
-Plug 'w0rp/ale'  " linting/building
+" plugins
 
 call plug#end()
 filetype plugin indent on
 
 "----------------------------- Configure Plugins -----------------------------"
-" --- ALE ---
-if &runtimepath =~? 'ale'
-  let g:airline#extensions#ale#enabled = 1
-  let g:ale_completion_enabled = 1
-  let g:ale_cursor_detail = 0
-  let g:ale_set_balloons = 1
-  let g:ale_virtualtext_cursor = 1
-endif
+" plugin config

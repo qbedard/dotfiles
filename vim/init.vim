@@ -367,23 +367,21 @@ Plug 'tpope/vim-liquid'  " jekyll templates
 Plug 'w0rp/ale'  " linting/building
 
 " ------- Completion --------
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'Shougo/neco-vim'  " VimL
-" Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
-" Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
+Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
+Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
 " Plug 'davidhalter/jedi-vim'  " python completion
 
 Plug 'ervandew/supertab'  " use tab for insert completions
 " TODO: figure out what's overwriting echodoc in python
-" Plug 'Shougo/echodoc.vim'  " show func sig
+Plug 'Shougo/echodoc.vim'  " show func sig
 
 " -------- Snippets ---------
 Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
@@ -423,9 +421,8 @@ endif
 " --- ALE ---
 if &runtimepath =~? 'ale'
   let g:airline#extensions#ale#enabled = 1
-  let g:ale_completion_enabled = 1
-  let g:ale_cursor_detail = 0
-  let g:ale_set_balloons = 1
+  " let g:ale_completion_enabled = 1
+  " let g:ale_set_balloons = 1
   let g:ale_virtualtext_cursor = 1
 endif
 
