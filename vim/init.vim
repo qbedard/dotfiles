@@ -424,7 +424,8 @@ if &runtimepath =~? 'ale'
   " let g:ale_completion_enabled = 1
   " let g:ale_set_balloons = 1
   let g:ale_virtualtext_cursor = 1
-  let g:ale_python_flake8_options = '--max-line-length=120'
+  " let g:ale_python_flake8_options = '--max-line-length=120'
+  let g:ale_python_flake8_options = '--ignore=E501'
 endif
 
 " --- auto-pairs ---
