@@ -28,9 +28,9 @@ alias q="exit"
 alias quit="exit"
 alias r="ranger"
 alias vzs="vim ~/.zshrc"
-alias rzs="source ~/.zshrc"
+alias rzs=". ~/.zshrc"
 alias vbs="vim ~/.bashrc"
-alias rbs="source ~/.bashrc"
+alias rbs=". ~/.bashrc"
 alias vr="vim ~/.dotfiles/vim/init.vim"
 alias vp="vim ~/.dotfiles/vim/plugins.vim"
 
@@ -82,10 +82,10 @@ export CHEATCOLORS=true
 
 # --- direnv ---
 # append a nice env identifier if we're in a direnv venv
-function show_virtual_env() {
-  if [ -n "$VIRTUAL_ENV" ] && [ "$(basename $(dirname $VIRTUAL_ENV))" = '.direnv' ]; then
-    direnv_parent="$(dirname $(dirname $VIRTUAL_ENV))"
-    echo "(d:$(basename $direnv_parent)) "
+show_virtual_env() {
+  if [ -n "$VIRTUAL_ENV" ] && [ "$(basename "$(dirname "$VIRTUAL_ENV")")" = '.direnv' ]; then
+    direnv_parent="$(dirname "$(dirname "$VIRTUAL_ENV")")"
+    echo "(d:$(basename "$direnv_parent"))"
   fi
 }
 PS1='$(show_virtual_env)'$PS1
@@ -95,7 +95,7 @@ fasd_cache="$HOME/.fasd-init-sh"
 if [ "$(command -v fasd)" -nt "$fasd_cache" ] || [ ! -s "$fasd_cache" ]; then
   fasd --init auto >| "$fasd_cache"
 fi
-source "$fasd_cache"
+. "$fasd_cache"
 unset fasd_cache
 
 alias j='fasd_cd -d'
@@ -103,13 +103,13 @@ alias v='f -e vim'
 alias o='a -e open'
 
 # --- fzf ---
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
 
 # use rg with fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # --- hub ---
-if which hub > /dev/null; then
+if command -v hub > /dev/null; then
   eval "$(hub alias -s)"
 fi
 
