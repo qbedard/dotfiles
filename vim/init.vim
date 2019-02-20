@@ -289,7 +289,7 @@ Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'justinmk/vim-dirvish'  " file browser
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
-Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
+" Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
 
 " ---------- Tags -----------
 if executable('ctags')
@@ -337,7 +337,8 @@ Plug 'sodapopcan/vim-twiggy'  " branch manager
 " General "
 Plug 'sheerun/vim-polyglot'  " a ton of language support
 Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
-" Plug 'Konfekt/FastFold'  " faster folding by ignoring manual folding
+Plug 'Konfekt/FastFold'  " more intuitive folding
+Plug 'pseewald/vim-anyfold'  " faster folding by ignoring manual folding
 Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 
 " CSS "
@@ -631,13 +632,18 @@ if &runtimepath =~? 'vimwiki'
   " disable <tab> mapping provided by vimwiki, which interferes with SuperTab
   let g:vimwiki_table_mappings = 0
 endif
+" --- vim-anyfold ---
+if &runtimepath =~? 'vim-anyfold'
+  augroup anyfoldactivate
+    autocmd! VimEnter * AnyFoldActivate
+  augroup END
+endif
 
 " --- vim-auto-origami ---
 if &runtimepath =~? 'vim-auto-origami'
   let g:auto_origami_foldcolumn = 3
   augroup autofoldcolumn
-    au!
-    au CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
+    autocmd! CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
   augroup END
 endif
 
