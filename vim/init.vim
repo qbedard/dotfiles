@@ -150,6 +150,11 @@ augroup hide_netrw
     autocmd FileType netrw setl bufhidden=wipe
 augroup END
 
+" fix italics with tmux
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+
 "-------------------------------- Navigation ---------------------------------"
 set mouse=a  " let the mouse wheel scroll page, etc
 
