@@ -5,7 +5,7 @@ CONFIG_DIR="$HOME/.config"
 echo "Linking config files..."
 
 # make .config dir if it doesn't exist
-mkdir -p $CONFIG_DIR
+mkdir -p "$CONFIG_DIR"
 
 # zsh
 ln -sfn  "$DOTPATH/shell/zsh/zshrc" "$HOME/.zshrc"
