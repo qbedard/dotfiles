@@ -362,8 +362,10 @@
 	<string>D0E26D9B-B596-4D99-B876-8E961AA62285</string>
 	<key>DimInactiveSplitPanes</key>
 	<false/>
-	<key>EnableProxyIcon</key>
+	<key>EnableDivisionView</key>
 	<true/>
+	<key>EnableProxyIcon</key>
+	<false/>
 	<key>GlobalKeyMap</key>
 	<dict>
 		<key>0x19-0x60000</key>
@@ -485,6 +487,8 @@
 	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>JobName</key>
+	<false/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
@@ -532,9 +536,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>530 476 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>933 309 937 514 0 0 1920 1057 </string>
+	<string>2128 764 770 429 0 0 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>960 0 954 1057 0 0 1920 1057 </string>
+	<string>1680 0 1674 1867 0 0 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1123 0 1114 1867 0 0 3360 1867 </string>
 	<key>NeverWarnAboutShortLivedSessions_D0E26D9B-B596-4D99-B876-8E961AA62285</key>
@@ -1338,8 +1342,10 @@
 	<key>StretchTabsToFillBar</key>
 	<true/>
 	<key>TabStyleWithAutomaticOption</key>
-	<integer>3</integer>
+	<integer>1</integer>
 	<key>UseBorder</key>
+	<false/>
+	<key>WindowNumber</key>
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
