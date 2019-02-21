@@ -210,8 +210,8 @@ augroup nohls_specials
 augroup END
 
 "--------------------------------- Navigation --------------------------------"
-" faster exiting from insert mode
-inoremap jj <Esc>
+" faster exiting from insert mode (-noremap to allow for abbrevs to work)
+imap jj <Esc>
 
 " faster exiting from terminal mode
 tnoremap kk <C-\><C-n>
@@ -637,6 +637,7 @@ if &runtimepath =~? 'vimwiki'
   " disable <tab> mapping provided by vimwiki, which interferes with SuperTab
   let g:vimwiki_table_mappings = 0
 endif
+
 " --- vim-anyfold ---
 if &runtimepath =~? 'vim-anyfold'
   augroup anyfoldactivate
