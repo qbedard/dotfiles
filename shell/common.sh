@@ -114,9 +114,12 @@ if command -v hub > /dev/null; then
 fi
 
 # --- nvm ---
-# export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 # [ -s "$NVM_DIR/etc/bash_completion" ] && . "$NVM_DIR/etc/bash_completion"  # This loads nvm bash_completion
+
+# add npm bins to PATH
+for d in "$NVM_DIR/versions/node"/v*/bin; do PATH="$PATH:$d"; done
 
 # --- python ---
 export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
