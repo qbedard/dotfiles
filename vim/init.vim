@@ -439,7 +439,7 @@ if &runtimepath =~? 'ale'
 
   " Linters
   " let g:ale_python_flake8_options = '--max-line-length=120'
-  let g:ale_python_flake8_options = '--ignore=E501'
+  let g:ale_python_flake8_options = '--ignore=E501,W503'
   let g:ale_yaml_yamllint_options =
     \ '-d "{extends: default, rules: {' .
       \ 'document-start: {present: false}, ' .
