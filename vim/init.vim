@@ -329,7 +329,7 @@ Plug 'junegunn/vim-peekaboo'  " show preview of registers
 Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
 Plug 'AndrewRadev/splitjoin.vim'  " single-line <-> multi-line
 Plug 'AndrewRadev/switch.vim'  " true <-> false, etc
-Plug 'AndrewRadev/whitespaste.vim'  " auto-fix whitespace lines when pasting
+" Plug 'AndrewRadev/whitespaste.vim'  " auto-fix whitespace lines when pasting
 
 " ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
