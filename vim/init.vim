@@ -530,7 +530,8 @@ endif
 " --- Gutentags ---
 if &runtimepath =~? 'vim-gutentags'
   let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
-  let g:gutentags_exclude_filetypes = ['gitcommit', 'markdown', 'plaintext', 'csv']
+  let g:gutentags_exclude_filetypes = [
+    \ 'gitcommit', 'markdown', 'plaintext', 'python', 'csv']
 endif
 
 " --- indentLine ---
