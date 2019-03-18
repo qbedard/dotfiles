@@ -97,7 +97,7 @@ set wrapmargin=0
 "----------------------------- Line Numbers, Etc -----------------------------"
 set number relativenumber
 
-augroup numbertoggle
+augroup number_toggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
@@ -130,7 +130,7 @@ set lazyredraw
 set t_Co=256  " terminal colors
 set background=dark
 
-augroup winresize
+augroup win_resize
   autocmd!
   autocmd VimResized * wincmd =
 augroup END
@@ -274,7 +274,7 @@ let $PLUG_LOC = expand('$DATA_DIR/site/autoload/plug.vim')
 if empty(glob($PLUG_LOC))
   silent !curl -fLo $PLUG_LOC --create-dirs
     \ "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  augroup autopluginstall
+  augroup auto_pluginstall
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC | UpdateRemotePlugins
   augroup END
 endif
@@ -493,7 +493,7 @@ endif
 
 " --- fzf ---
 if &runtimepath =~? 'fzf.vim'
-  augroup hidefzfstatusline
+  augroup hide_fzf_statusline
     autocmd! FileType fzf
     autocmd  FileType fzf set laststatus=0 noruler
       \| autocmd BufLeave <buffer> set laststatus=2 ruler
@@ -641,7 +641,7 @@ endif
 
 " --- vim-anyfold ---
 if &runtimepath =~? 'vim-anyfold'
-  augroup anyfoldactivate
+  augroup anyfold_activate
     autocmd! VimEnter * AnyFoldActivate
   augroup END
 endif
@@ -649,7 +649,7 @@ endif
 " --- vim-auto-origami ---
 if &runtimepath =~? 'vim-auto-origami'
   let g:auto_origami_foldcolumn = 3
-  augroup autofoldcolumn
+  augroup auto_fold_column
     autocmd! CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
   augroup END
 endif

@@ -1,2 +1,4 @@
 " Natural
-au BufNewFile,BufRead *.nat			setf natural
+augroup detect_natural
+  autocmd BufNewFile,BufRead *.nat	setf natural
+augroup END
