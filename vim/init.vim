@@ -97,7 +97,7 @@ set wrapmargin=0
 "----------------------------- Line Numbers, Etc -----------------------------"
 set number relativenumber
 
-augroup numbertoggle
+augroup number_toggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
@@ -130,7 +130,7 @@ set lazyredraw
 set t_Co=256  " terminal colors
 set background=dark
 
-augroup winresize
+augroup win_resize
   autocmd!
   autocmd VimResized * wincmd =
 augroup END
@@ -274,7 +274,7 @@ let $PLUG_LOC = expand('$DATA_DIR/site/autoload/plug.vim')
 if empty(glob($PLUG_LOC))
   silent !curl -fLo $PLUG_LOC --create-dirs
     \ "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  augroup autopluginstall
+  augroup auto_pluginstall
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC | UpdateRemotePlugins
   augroup END
 endif
@@ -329,7 +329,7 @@ Plug 'junegunn/vim-peekaboo'  " show preview of registers
 Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
 Plug 'AndrewRadev/splitjoin.vim'  " single-line <-> multi-line
 Plug 'AndrewRadev/switch.vim'  " true <-> false, etc
-Plug 'AndrewRadev/whitespaste.vim'  " auto-fix whitespace lines when pasting
+" Plug 'AndrewRadev/whitespaste.vim'  " auto-fix whitespace lines when pasting
 
 " ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
@@ -441,7 +441,7 @@ if &runtimepath =~? 'ale'
   " let g:ale_python_flake8_options = '--max-line-length=120'
   let g:ale_c_clangformat_options =
     \ '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
-  let g:ale_python_flake8_options = '--ignore=E501'
+  let g:ale_python_flake8_options = '--ignore=E501,W503'
   let g:ale_yaml_yamllint_options =
     \ '-d "{extends: default, rules: {' .
       \ 'document-start: {present: false}, ' .
@@ -495,7 +495,7 @@ endif
 
 " --- fzf ---
 if &runtimepath =~? 'fzf.vim'
-  augroup hidefzfstatusline
+  augroup hide_fzf_statusline
     autocmd! FileType fzf
     autocmd  FileType fzf set laststatus=0 noruler
       \| autocmd BufLeave <buffer> set laststatus=2 ruler
@@ -532,7 +532,8 @@ endif
 " --- Gutentags ---
 if &runtimepath =~? 'vim-gutentags'
   let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
-  let g:gutentags_exclude_filetypes = ['gitcommit', 'markdown', 'plaintext', 'csv']
+  let g:gutentags_exclude_filetypes = [
+    \ 'gitcommit', 'markdown', 'plaintext', 'python', 'csv']
 endif
 
 " --- indentLine ---
@@ -642,7 +643,7 @@ endif
 
 " --- vim-anyfold ---
 if &runtimepath =~? 'vim-anyfold'
-  augroup anyfoldactivate
+  augroup anyfold_activate
     autocmd! VimEnter * AnyFoldActivate
   augroup END
 endif
@@ -650,7 +651,7 @@ endif
 " --- vim-auto-origami ---
 if &runtimepath =~? 'vim-auto-origami'
   let g:auto_origami_foldcolumn = 3
-  augroup autofoldcolumn
+  augroup auto_fold_column
     autocmd! CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
   augroup END
 endif

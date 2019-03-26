@@ -17,7 +17,7 @@ let $PLUG_LOC = expand('$DATA_DIR/site/autoload/plug.vim')
 if empty(glob($PLUG_LOC))
   silent !curl -fLo $PLUG_LOC --create-dirs
     \ "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  augroup autopluginstall
+  augroup auto_pluginstall
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC | UpdateRemotePlugins
   augroup END
 endif
