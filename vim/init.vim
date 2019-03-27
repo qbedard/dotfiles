@@ -520,6 +520,12 @@ if &runtimepath =~? 'vim-gitgutter'
   endif
 endif
 
+" --- GitGutter ---
+if &runtimepath =~? 'vim-gitgutter'
+  let g:goyo_width = 100
+  let g:goyo_height = '100%'
+endif
+
 " --- gruvbox ---
 if &runtimepath =~? 'gruvbox'
   let g:gruvbox_italic = 1
