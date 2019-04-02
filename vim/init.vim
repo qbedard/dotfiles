@@ -441,6 +441,8 @@ if &runtimepath =~? 'ale'
   " let g:ale_python_flake8_options = '--max-line-length=120'
   let g:ale_c_clangformat_options =
     \ '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
+  let g:ale_python_black_executable = expand('$DATA_DIR/venv/python3/bin/black')
+  let g:ale_python_black_options = '--line-length 88 -S'
   let g:ale_python_flake8_options = '--ignore=E501,W503'
   let g:ale_yaml_yamllint_options =
     \ '-d "{extends: default, rules: {' .
