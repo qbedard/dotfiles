@@ -369,7 +369,6 @@ Plug 'hashivim/vim-vagrant'  " Vagrant support
 Plug 'tpope/vim-liquid'  " jekyll templates
 
 " --------- Linting ---------
-" Plug 'neomake/neomake'  " linting/building
 Plug 'w0rp/ale'  " linting/building
 
 " ------- Completion --------
@@ -578,43 +577,6 @@ if &runtimepath =~? 'MatchTagAlways'
     \ 'htmldjango' : 1,
     \ 'liquid': 1,
     \ }
-endif
-
-" --- NeoMake ---
-if &runtimepath =~? 'neomake'
-  " lint when writing a buffer.
-  if has('nvim') || v:version >= 800
-    call neomake#configure#automake('nrw', 500)
-  else
-    call neomake#configure#automake('rw')
-  endif
-
-  " luacheck (ignore implicit global definitions)
-  let g:neomake_lua_luacheck_args = ['--allow-defined', '--no-color',
-                                    \'--formatter=plain', '--ranges',
-                                    \'--codes', '--filename', '%:p']
-
-  let g:neomake_markdown_markdownlint_maker = {
-    \ 'args': ['-r', '~MD022,~MD032'],
-    \ 'errorformat': '%f: %l: %m'
-    \ }
-
-  " pylint is super noisy, so let's stick to flake8.
-  let g:neomake_python_flake8_maker = {
-    \ 'args': ['--max-line-length=160', '--format=default'],
-    \ 'errorformat':
-      \ '%E%f:%l: could not compile,%-Z%p^,' .
-      \ '%A%f:%l:%c: %t%n %m,' .
-      \ '%A%f:%l: %t%n %m,' .
-      \ '%-G%.%#',
-      \ 'postprocess': function('neomake#makers#ft#python#Flake8EntryProcess')
-    \ }
-  let g:neomake_python_enabled_makers = ['flake8']
-  let g:neomake_python_flake8_args = ['--max-line-length=160',
-                                     \'--format=default']
-
-  let g:neomake_sh_enabled_makers = ['shellcheck']
-  let g:neomake_sh_shellcheck_args = ['-x']
 endif
 
 " --- vim-polyglot ---
