@@ -1,7 +1,7 @@
 set colorcolumn=120
 
 " enable ale linters
-let b:ale_linters = {'python': ['flake8', 'pylint']}
+let b:ale_linters = {'python': ['flake8']}
 
 " splitjoin
 let b:splitjoin_python_brackets_on_separate_lines = 1
