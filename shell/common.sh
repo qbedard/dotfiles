@@ -11,6 +11,12 @@ export PATH="/Users/tim/.cargo/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
 
+# XDG_DATA_HOME
+if [ -z "$XDG_DATA_HOME" ]; then
+  XDG_DATA_HOME="$HOME/.local/share"
+fi
+echo $XDG_DATA_HOME
+
 # ----- Aliases ----- #
 alias vim="nvim"
 alias vi="nvim"
@@ -83,9 +89,17 @@ export CHEATCOLORS=true
 # --- direnv ---
 # append a nice env identifier if we're in a direnv venv
 show_virtual_env() {
-  if [ -n "$VIRTUAL_ENV" ] && [ "$(basename "$(dirname "$VIRTUAL_ENV")")" = '.direnv' ]; then
+  if [ -n "$VIRTUAL_ENV" ] && \
+     [ "$(basename "$(dirname "$VIRTUAL_ENV")")" = '.direnv' ]
+    # regular direnv
+  then
     direnv_parent="$(dirname "$(dirname "$VIRTUAL_ENV")")"
     echo "(d:$(basename "$direnv_parent"))"
+  elif [ -n "$VIRTUAL_ENV" ] && \
+       [ "$(dirname "$VIRTUAL_ENV")" = "$XDG_DATA_HOME/virtualenvs" ]
+    # Pipenv (expects global venv dir, not local .venv)
+  then
+    echo "(p:$(basename "$VIRTUAL_ENV"))"
   fi
 }
 PS1='$(show_virtual_env)'$PS1
