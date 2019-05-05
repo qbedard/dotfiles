@@ -431,6 +431,9 @@ if &runtimepath =~? 'ale'
   " let g:ale_set_balloons = 1
   let g:ale_virtualtext_cursor = 1
 
+  nmap <silent> <leader>] :ALENext<cr>
+  nmap <silent> <leader>[ :ALEPrevious<cr>
+
   " venv detection of direnv venvs
   let g:ale_virtualenv_dir_names = [
     \ '.direnv','.env', '.venv', 'env', 've-py3', 've', 'virtualenv', 'venv']
