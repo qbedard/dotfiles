@@ -1,4 +1,4 @@
-set colorcolumn=120
+set colorcolumn=80
 
 " enable ale linters
 let b:ale_linters = {'python': ['flake8']}
