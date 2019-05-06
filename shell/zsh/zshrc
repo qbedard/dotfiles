@@ -8,7 +8,6 @@ plugins=(
   # django
   docker
   docker-compose
-  exa
   fasd
   # gem
   git
