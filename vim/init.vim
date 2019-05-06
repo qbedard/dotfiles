@@ -338,6 +338,9 @@ Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
 Plug 'junegunn/gv.vim'  " badass commit browser
 Plug 'sodapopcan/vim-twiggy'  " branch manager
 
+" --------- Testing ---------
+Plug 'janko-m/vim-test'
+
 " ----- Language/Syntax -----
 " General "
 Plug 'sheerun/vim-polyglot'  " a ton of language support
