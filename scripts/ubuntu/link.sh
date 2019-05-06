@@ -7,6 +7,9 @@ echo "Linking config files..."
 # make .config dir if it doesn't exist
 mkdir -p $CONFIG_DIR
 
+# alacritty
+ln -sfn  "$DOTPATH/alacritty.yml" "$CONFIG_DIR/alacritty/alacritty.yml"
+
 # zsh
 ln -sfn  "$DOTPATH/shell/zsh/zshrc" "$HOME/.zshrc"
 

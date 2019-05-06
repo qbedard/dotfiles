@@ -59,6 +59,7 @@ brew tap caskroom/versions
 
 echo "Installing Cask apps..."
 CASKS=(
+    alacritty
     alfred
     firefox-developer-edition  # TODO: fix mult vers cask
     insomnia

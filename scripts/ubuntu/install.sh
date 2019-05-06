@@ -18,6 +18,7 @@ sudo apt-get update
 
 echo "Installing packages..."
 PACKAGES=(
+    alacritty
     autoconf
     awscli
     ctags
