@@ -515,6 +515,7 @@ if &runtimepath =~? 'fzf.vim'
   " mappings
   nnoremap <C-f> :BLines<CR>
   nnoremap <C-b> :Buffers<CR>
+  nnoremap <C-c> :Commands<CR>
 
   " show files in a git project root (or current dir if not project)
   command! ProjectFiles execute 'Files' FindGitRoot()
