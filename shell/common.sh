@@ -15,7 +15,6 @@ export CPPFLAGS="-I/usr/local/opt/openssl/include"
 if [ -z "$XDG_DATA_HOME" ]; then
   XDG_DATA_HOME="$HOME/.local/share"
 fi
-echo $XDG_DATA_HOME
 
 # ----- Aliases ----- #
 alias vim="nvim"
