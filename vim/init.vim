@@ -165,17 +165,22 @@ set clipboard=unnamed  " yank to system clipboard
 
 set completeopt-=preview  " preview in a buffer?! No.
 
-" some brilliant line movement mappings from junegunn
-" nnoremap <silent> <C-k> :move-2<cr>
-" nnoremap <silent> <C-j> :move+<cr>
-" nnoremap <silent> <C-h> <<
-" nnoremap <silent> <C-l> >>
-" xnoremap <silent> <C-k> :move-2<cr>gv
-" xnoremap <silent> <C-j> :move'>+<cr>gv
-" xnoremap <silent> <C-h> <gv
-" xnoremap <silent> <C-l> >gv
-" xnoremap < <gv
-" xnoremap > >gv
+"--- some brilliant line movement mappings inspired by junegunn ---"
+" ÓÔÒ = Shift + Option + hjkl
+" move current line up/down
+nnoremap <silent>  :move-2<cr>
+nnoremap <silent> Ô :move+<cr>
+"indent/outdent current line
+nnoremap <silent> Ó <<
+nnoremap <silent> Ò >>
+" move selection up/down
+xnoremap <silent>  :move-2<cr>gv
+xnoremap <silent> Ô :move'>+<cr>gv
+" indent/outdent selection (and keep selection)
+xnoremap <silent> Ó <gv
+xnoremap <silent> Ò >gv
+xnoremap < <gv
+xnoremap > >gv
 
 "-----------------------------------------------------------------------------"
 "                                  Commands                                   "
