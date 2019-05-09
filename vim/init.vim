@@ -434,6 +434,8 @@ endif
 " --- ALE ---
 if &runtimepath =~? 'ale'
   " General
+  cnoreabbrev fix ALEFix
+
   let g:airline#extensions#ale#enabled = 1
   " let g:ale_completion_enabled = 1
   " let g:ale_set_balloons = 1
