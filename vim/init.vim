@@ -458,6 +458,11 @@ if &runtimepath =~? 'ale'
   let g:ale_python_black_options = '--line-length 88 -S'
   " let g:ale_python_flake8_options = '--max-line-length=120'
   let g:ale_python_flake8_options = '--ignore=E501,W503 --max-complexity=12'
+  let g:ale_python_isort_options = '--force-grid-wrap=0 ' .
+                                 \ '--line-width=88 ' .
+                                 \ '--multi-line=3 ' .
+                                 \ '--trailing-comma ' .
+                                 \ '--use-parentheses'
   let g:ale_yaml_yamllint_options =
     \ '-d "{extends: default, rules: {' .
       \ 'document-start: {present: false}, ' .
@@ -474,7 +479,7 @@ endif
 " avoiding check wrap for now as black doesn't actually get added to runtimepath
 " if &runtimepath =~? 'black'
   let g:black_virtualenv = expand('$DATA_DIR/site/venv')
-  let g:black_linelength = 88
+  " let g:black_linelength = 88
   let g:black_skip_string_normalization = 1
 " endif
 
@@ -665,8 +670,14 @@ endif
 " --- vim-isort ---
 if &runtimepath =~? 'vim-isort'
   let g:vim_isort_map = ''  " disable mapping
+  " compatible with Black
   let g:vim_isort_config_overrides = {
-    \ 'include_trailing_comma': 1, 'multi_line_output': 3}
+    \ 'force_grid_wrap': 1,
+    \ 'include_trailing_comma': 1,
+    \ 'line_length': 88,
+    \ 'multi_line_output': 3,
+    \ 'use_parentheses': 1
+    \ }
 endif
 
 " --- vim-markdown ---
