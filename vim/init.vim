@@ -326,15 +326,16 @@ Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
 Plug 'tpope/vim-commentary'  " commenting shortcuts
 Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
+Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
 Plug 'wellle/targets.vim'  " next/last surround pair text object
 " Plug 'Valloric/MatchTagAlways'  " show matching tags <- bugging out
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
-Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
 Plug 'AndrewRadev/splitjoin.vim'  " single-line <-> multi-line
 Plug 'AndrewRadev/switch.vim'  " true <-> false, etc
 " Plug 'AndrewRadev/whitespaste.vim'  " auto-fix whitespace lines when pasting
+" Plug 'stefandtw/quickfix-reflector.vim'  " editable quickfix
 
 " ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
