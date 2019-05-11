@@ -1,4 +1,5 @@
 #!/bin/bash
+
 DOTPATH="$(git rev-parse --show-toplevel)"
 CONFIG_DIR="$HOME/.config"
 
@@ -11,10 +12,10 @@ mkdir -p "$CONFIG_DIR"
 ln -sfn  "$DOTPATH/alacritty.yml" "$CONFIG_DIR/alacritty/alacritty.yml"
 
 # zsh
-ln -sfn  "$DOTPATH/shell/zsh/zshrc" "$HOME/.zshrc"
+ln -sfn  "$DOTPATH/shell/zshrc" "$HOME/.zshrc"
 
 # bash
-ln -sfn  "$DOTPATH/shell/bash/bashrc" "$HOME/.bashrc"
+ln -sfn  "$DOTPATH/shell/bashrc" "$HOME/.bashrc"
 
 # tmux
 mkdir -p "$CONFIG_DIR/tmux"

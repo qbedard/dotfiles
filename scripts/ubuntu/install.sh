@@ -34,9 +34,9 @@ PACKAGES=(
     python3
     python3-pip
     ranger
+    ripgrep
     ruby
     shellcheck
-    silversearcher-ag
     tree
     zsh
     zsh-completions

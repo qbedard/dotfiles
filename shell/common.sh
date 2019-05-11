@@ -1,15 +1,18 @@
 # ----- PATH ----- #
-export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # add brew's local bins
+  export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
-# add python 2 to path
-export PATH="/usr/local/opt/python@2/bin:$PATH"
+  # add python 2 to path
+  export PATH="/usr/local/opt/python@2/bin:$PATH"
+
+  # add openssl to path for compilers
+  export LDFLAGS="-L/usr/local/opt/openssl/lib"
+  export CPPFLAGS="-I/usr/local/opt/openssl/include"
+fi
 
 # add cargo binaries to path
-export PATH="/Users/tim/.cargo/bin:$PATH"
-
-# add openssl to path for compilers
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # XDG_DATA_HOME
 if [ -z "$XDG_DATA_HOME" ]; then
@@ -22,6 +25,9 @@ alias vi="nvim"
 
 # --- General ---
 alias c="clear"
+alias q="exit"
+alias quit="exit"
+
 alias ls="exa --group-directories-first"
 alias l="ls -1"
 alias la="l -a"
@@ -29,9 +35,11 @@ alias ll="ls -lh --git"
 alias llg="ll --grid"
 alias lt="ls -T"
 alias llt="ll -T"
-alias q="exit"
-alias quit="exit"
+
+alias cat="bat"
+
 alias r="ranger"
+
 alias vzs="vim ~/.zshrc"
 alias rzs=". ~/.zshrc"
 alias vbs="vim ~/.bashrc"
