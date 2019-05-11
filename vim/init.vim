@@ -629,10 +629,11 @@ endif
 " --- Vimwiki ---
 if &runtimepath =~? 'vimwiki'
   let g:vimwiki_list = [{'path': '~/.vimwiki',
-                       \ 'syntax': 'markdown', 'ext': '.wiki',
+                       \ 'syntax': 'markdown', 'ext': '.md',
                        \ 'automatic_nested_syntaxes': 1}]
   " disable <tab> mapping provided by vimwiki, which interferes with SuperTab
   let g:vimwiki_table_mappings = 0
+  let g:vimwiki_global_ext = 0
 endif
 
 " --- vim-anyfold ---
