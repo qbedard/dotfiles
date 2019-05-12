@@ -624,7 +624,6 @@ if &runtimepath =~? 'vimwiki'
                        \ 'index': 'home',
                        \ 'links_space_char': '-'}]
   let g:vimwiki_global_ext = 0
-  let g:vimwiki_markdown_link_ext = 1  " GitHub compatible
   let g:vimwiki_auto_chdir = 1
   " let g:vimwiki_hl_headers = 1
   " let g:vimwiki_folding = 'syntax:quick'  " not working
