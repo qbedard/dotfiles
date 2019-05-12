@@ -201,19 +201,6 @@ cnoreabbrev vrr :source $MYVIMRC
 "-----------------------------------------------------------------------------"
 "                                  Mappings                                   "
 "-----------------------------------------------------------------------------"
-"--------------------------------- Searching ---------------------------------"
-" clear search highlighting with <CR>
-nnoremap <silent> <CR> :nohlsearch<CR>
-
-" keep the above mapping from interfering with special buffers
-augroup nohls_specials
-  autocmd!
-  " quickfix
-  autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
-  " command history
-  autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
-augroup END
-
 "--------------------------------- Navigation --------------------------------"
 " faster exiting from insert mode (-noremap to allow for abbrevs to work)
 imap jj <Esc>
@@ -300,6 +287,7 @@ Plug 'justinmk/vim-dirvish'  " file browser
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
 " Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
+Plug 'romainl/vim-cool'  " nohls after searching
 
 " ---------- Tags -----------
 if executable('ctags')
@@ -631,9 +619,11 @@ if &runtimepath =~? 'vimwiki'
   let g:vimwiki_list = [{'path': '~/.vimwiki',
                        \ 'syntax': 'markdown', 'ext': '.md',
                        \ 'automatic_nested_syntaxes': 1}]
-  " disable <tab> mapping provided by vimwiki, which interferes with SuperTab
-  let g:vimwiki_table_mappings = 0
+  " let g:vimwiki_hl_headers = 1
   let g:vimwiki_global_ext = 0
+  let g:vimwiki_markdown_link_ext = 1  " GitHub compatible
+  " let g:vimwiki_folding = 'syntax:quick'  " not working
+  " let g:vimwiki_listsyms = ' ○◐●✓'
 endif
 
 " --- vim-anyfold ---
