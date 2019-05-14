@@ -386,7 +386,7 @@ Plug 'ervandew/supertab'  " use tab for insert completions
 Plug 'Shougo/echodoc.vim'  " show func sig
 
 " -------- Snippets ---------
-Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
+" Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
 " ---------- Notes ----------
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
@@ -500,7 +500,7 @@ endif
 
 " --- Emmet ---
 if &runtimepath =~? 'emmet-vim'
-  " default is <C-Y>
+  " default is <C-Y>  " TODO: find a better mapping
   " let g:user_emmet_leader_key=','
   let g:user_emmet_install_global = 1
 endif
