@@ -94,6 +94,12 @@ set linebreak
 set textwidth=0
 set wrapmargin=0
 
+" TODO: find out why the setting doesn't stick unless in an autocmd
+set list
+augroup set_listchars
+  autocmd VimEnter * :set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:·
+augroup END
+
 "----------------------------- Line Numbers, Etc -----------------------------"
 set number relativenumber
 
@@ -647,6 +653,7 @@ endif
 
 " --- vim-better-whitespace ---
 if &runtimepath =~? 'vim-better-whitespace'
+  let g:better_whitespace_enabled = 0
   let g:strip_whitelines_at_eof = 1
   cnoreabbrev trim StripWhitespace
 endif
