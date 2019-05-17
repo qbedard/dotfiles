@@ -385,11 +385,15 @@ endif
 Plug 'Shougo/neco-vim'  " VimL
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
-" Plug 'davidhalter/jedi-vim'  " python completion
-
-Plug 'ervandew/supertab'  " use tab for insert completions
 " TODO: figure out what's overwriting echodoc in python
 Plug 'Shougo/echodoc.vim'  " show func sig
+"
+" Plug 'davidhalter/jedi-vim'  " python completion
+
+" TODO: put together a decent setup for this
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+Plug 'ervandew/supertab'  " use tab for insert completions
 
 " -------- Snippets ---------
 " Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
