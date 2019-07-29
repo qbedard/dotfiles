@@ -131,7 +131,7 @@ endif
 set guioptions=  " remove scrollbars, etc
 
 set cursorline
-set lazyredraw
+" set lazyredraw  " causes flickering
 
 set t_Co=256  " terminal colors
 set background=dark
@@ -385,9 +385,10 @@ endif
 Plug 'Shougo/neco-vim'  " VimL
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }  " machine learning autocompletion
 " TODO: figure out what's overwriting echodoc in python
 Plug 'Shougo/echodoc.vim'  " show func sig
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }  " machine learning autocompletion
+
 " Plug 'davidhalter/jedi-vim'  " python completion
 
 " TODO: put together a decent setup for this
@@ -487,9 +488,10 @@ endif
 " --- deoplete ---
 if &runtimepath =~? 'deoplete.nvim'
   let g:deoplete#enable_at_startup = 1
-  call deoplete#custom#option('num_processes', 0)
-  call deoplete#custom#option('sources', {
-    \ 'python': ['jedi'],
+  call deoplete#custom#option({
+    \ 'auto_refresh_delay': 5,
+    \ 'num_processes': 0,
+    \ 'sources': {'python': ['jedi', 'tabnine']},
     \ })
 endif
 
