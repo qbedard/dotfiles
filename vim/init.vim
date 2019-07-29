@@ -387,7 +387,7 @@ Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
 " TODO: figure out what's overwriting echodoc in python
 Plug 'Shougo/echodoc.vim'  " show func sig
-"
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }  " machine learning autocompletion
 " Plug 'davidhalter/jedi-vim'  " python completion
 
 " TODO: put together a decent setup for this
