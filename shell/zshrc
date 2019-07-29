@@ -40,3 +40,5 @@ source "$HOME/.dotfiles/shell/common.sh"
 if hash direnv 2>/dev/null; then
   eval "$(direnv hook zsh)"
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
