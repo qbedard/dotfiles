@@ -360,7 +360,7 @@ Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}  " fixes python indent i
 Plug 'tmhedberg/simpylfold'  " python folding
 " TODO: fix bad commenting in requirements.txt (/* */ vs #)
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
-Plug 'ambv/black'  " python auto-formatting
+Plug 'psf/black'  " python auto-formatting
 Plug 'tell-k/vim-autopep8', {'for': 'python'}  " python auto-formatting
 Plug 'mindriot101/vim-yapf', {'for': 'python'}  " python auto-formatting
 Plug 'timbedard/vim-isort'  " python import sorting
