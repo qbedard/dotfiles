@@ -322,7 +322,7 @@ Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
 Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
 Plug 'wellle/targets.vim'  " next/last surround pair text object
-" Plug 'Valloric/MatchTagAlways'  " show matching tags <- bugging out
+Plug 'Valloric/MatchTagAlways'  " show matching tags <- bugging out
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
@@ -330,6 +330,7 @@ Plug 'AndrewRadev/splitjoin.vim'  " single-line <-> multi-line
 Plug 'AndrewRadev/switch.vim'  " true <-> false, etc
 " Plug 'AndrewRadev/whitespaste.vim'  " auto-fix whitespace lines when pasting
 " Plug 'stefandtw/quickfix-reflector.vim'  " editable quickfix
+" Plug 'kkoomen/vim-doge'  " doc generator, TODO: set mappings
 
 " ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
@@ -339,7 +340,7 @@ Plug 'junegunn/gv.vim'  " badass commit browser
 Plug 'sodapopcan/vim-twiggy'  " branch manager
 
 " --------- Testing ---------
-Plug 'janko-m/vim-test'
+Plug 'janko-m/vim-test'  " TODO: figure this out
 
 " ----- Language/Syntax -----
 " General "
@@ -348,6 +349,9 @@ Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
 Plug 'Konfekt/FastFold'  " more intuitive folding
 Plug 'pseewald/vim-anyfold'  " faster folding by ignoring manual folding
 Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
+
+" XML/HTML "
+" Plug 'alvan/vim-closetag'  " auto-close XML tags <- adds flicker
 
 " CSS "
 Plug 'hail2u/vim-css3-syntax'
