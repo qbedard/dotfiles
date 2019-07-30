@@ -376,7 +376,7 @@ Plug 'hashivim/vim-vagrant'  " Vagrant support
 Plug 'tpope/vim-liquid'  " jekyll templates
 
 " --------- Linting ---------
-Plug 'w0rp/ale'  " linting/building
+Plug 'dense-analysis/ale'  " linting/building
 
 " ------- Completion --------
 if has('nvim')
