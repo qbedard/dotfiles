@@ -634,11 +634,17 @@ endif
 if &runtimepath =~? 'vimwiki'
   " going for maximum GitHub compatibility here
   let g:vimwiki_list = [{'path': '~/.vimwiki',
-                       \ 'syntax': 'markdown', 'ext': '.md',
-                       \ 'auto_diary_index': 1,
-                       \ 'automatic_nested_syntaxes': 1,
-                       \ 'index': 'home',
-                       \ 'links_space_char': '-'}]
+                         \ 'syntax': 'markdown', 'ext': '.md',
+                         \ 'auto_diary_index': 1,
+                         \ 'automatic_nested_syntaxes': 1,
+                         \ 'index': 'home',
+                         \ 'links_space_char': '-'},
+                       \ {'path': '~/.vimwiki-personal',
+                         \ 'syntax': 'markdown', 'ext': '.md',
+                         \ 'auto_diary_index': 1,
+                         \ 'automatic_nested_syntaxes': 1,
+                         \ 'index': 'home',
+                         \ 'links_space_char': '-'}]
   let g:vimwiki_global_ext = 0
   let g:vimwiki_auto_chdir = 1
   " let g:vimwiki_hl_headers = 1
