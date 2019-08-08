@@ -30,6 +30,7 @@ PACKAGES=(
     fzf  # fuzzy
     git
     hub  # GitHub tools
+    lazydocker  # docker term UI
     lua
     neovim
     python@2
@@ -39,9 +40,7 @@ PACKAGES=(
     ripgrep  # awesome grep
     ruby
     shellcheck  # sh linter
-    # the_silver_searcher
     tmux
-    # tree
     zsh
     zsh-completions
 )

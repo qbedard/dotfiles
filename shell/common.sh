@@ -51,6 +51,7 @@ alias vp="vim ~/.dotfiles/vim/plugins.vim"
 alias dc="docker-compose"
 alias dcu="docker-compose up"
 alias dcd="docker-compose down"
+alias ld="lazydocker"
 
 # --- Git ---
 alias gs="git status -sb"
