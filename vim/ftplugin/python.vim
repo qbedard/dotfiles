@@ -1,6 +1,6 @@
 set colorcolumn=80
 
-" enable ale linters
+" enable ale linters/fixers
 let b:ale_linters = {'python': ['flake8']}
 let b:ale_fixers = {'python': ['black', 'isort']}
 
