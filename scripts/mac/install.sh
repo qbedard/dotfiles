@@ -54,26 +54,28 @@ echo "Cleaning up..."
 brew cleanup
 
 echo "Installing Cask..."
-brew tap caskroom/cask
-brew tap caskroom/versions
+brew tap homebrew/cask
+brew tap homebrew/cask-versions
 
 echo "Installing Cask apps..."
 CASKS=(
     alacritty
     alfred
-    firefox-developer-edition  # TODO: fix mult vers cask
+    firefox-developer-edition
     insomnia
     iterm2
-    sequel-pro
     # slack
+    tableplus
+    universal-ctags
     virtualbox
 )
 brew cask install "${CASKS[@]}"
 
 echo "Installing fonts..."
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 FONTS=(
-    font-sourcecodepro-nerd-font  # TODO: fix mult vers cask
+    font-hack-nerd-font
+    font-hack-nerd-font-mono
 )
 brew cask install "${FONTS[@]}"
 
