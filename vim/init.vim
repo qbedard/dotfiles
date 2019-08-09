@@ -322,6 +322,7 @@ Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
 Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
 Plug 'wellle/targets.vim'  " next/last surround pair text object
+Plug 'michaeljsmith/vim-indent-object'  " indentation level text object
 Plug 'Valloric/MatchTagAlways'  " show matching tags <- bugging out
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
 Plug 'junegunn/vim-easy-align'  " line stuff up
