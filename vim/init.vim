@@ -100,6 +100,8 @@ augroup set_listchars
   autocmd VimEnter * :set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:·
 augroup END
 
+set foldlevel=99  " for SimplyFold
+
 "----------------------------- Line Numbers, Etc -----------------------------"
 set number relativenumber
 
@@ -478,17 +480,12 @@ if &runtimepath =~? 'ale'
 endif
 
 " --- auto-pairs ---
-if &runtimepath =~? 'auto-pairs'
-  let g:AutoPairsMapSpace = 0
-endif
+let g:AutoPairsMapSpace = 0
 
 " --- black ---
-" avoiding check wrap for now as black doesn't actually get added to runtimepath
-" if &runtimepath =~? 'black'
-  let g:black_virtualenv = expand('$DATA_DIR/site/venv')
-  " let g:black_linelength = 88
-  let g:black_skip_string_normalization = 1
-" endif
+let g:black_virtualenv = expand('$DATA_DIR/site/venv')
+" let g:black_linelength = 88
+let g:black_skip_string_normalization = 1
 
 " --- deoplete ---
 if &runtimepath =~? 'deoplete.nvim'
@@ -510,17 +507,13 @@ if &runtimepath =~? 'vim-easymotion'
 endif
 
 " --- echodoc ---
-if &runtimepath =~? 'echodoc.vim'
-  let g:echodoc#enable_at_startup = 1
-  let g:echodoc#enable_force_overwrite = 1
-endif
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#enable_force_overwrite = 1
 
 " --- Emmet ---
-if &runtimepath =~? 'emmet-vim'
-  " default is <C-Y>  " TODO: find a better mapping
-  " let g:user_emmet_leader_key=','
-  let g:user_emmet_install_global = 1
-endif
+" default is <C-Y>  " TODO: find a better mapping
+" let g:user_emmet_leader_key=','
+let g:user_emmet_install_global = 1
 
 " --- fzf ---
 if &runtimepath =~? 'fzf.vim'
@@ -550,11 +543,9 @@ if &runtimepath =~? 'vim-gitgutter'
   endif
 endif
 
-" --- GitGutter ---
-if &runtimepath =~? 'vim-gitgutter'
-  let g:goyo_width = 100
-  let g:goyo_height = '100%'
-endif
+" --- Goyo ---
+let g:goyo_width = 100
+let g:goyo_height = '100%'
 
 " --- gruvbox ---
 if &runtimepath =~? 'gruvbox'
@@ -566,23 +557,17 @@ if &runtimepath =~? 'gruvbox'
 endif
 
 " --- Gutentags ---
-if &runtimepath =~? 'vim-gutentags'
-  let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
-  let g:gutentags_exclude_filetypes = [
-    \ 'gitcommit', 'markdown', 'plaintext', 'python', 'csv']
-endif
+let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
+let g:gutentags_exclude_filetypes = [
+  \ 'gitcommit', 'markdown', 'plaintext', 'python', 'csv']
 
 " --- indentLine ---
-if &runtimepath =~? 'indentLine'
-  let g:indentLine_char = '│'
-  let g:indentLine_bufTypeExclude = ['help', 'terminal']
-  let g:indentLine_fileTypeExclude = ['text', 'markdown']
-endif
+let g:indentLine_char = '│'
+let g:indentLine_bufTypeExclude = ['help', 'terminal']
+let g:indentLine_fileTypeExclude = ['text', 'markdown']
 
 " --- Instant Markdown ---
-if &runtimepath =~? 'vim-instant-markdown'
-  let g:instant_markdown_autostart = 0
-endif
+let g:instant_markdown_autostart = 0
 
 " --- LimeLight ---
 if &runtimepath =~? 'limelight.vim'
@@ -609,22 +594,15 @@ if &runtimepath =~? 'MatchTagAlways'
 endif
 
 " --- vim-polyglot ---
-if &runtimepath =~? 'vim-polyglot'
-  let b:python_version_2 = 1
-  let g:polyglot_disabled = ['markdown']  " polyglot futz up markdown indent
-endif
+let b:python_version_2 = 1
+let g:polyglot_disabled = ['markdown']  " polyglot futz up markdown indent
 
 " --- SimplyFold ---
-if &runtimepath =~? 'simpylfold'
-  let g:SimpylFold_docstring_preview = 1
-  set foldlevel=99
-endif
+let g:SimpylFold_docstring_preview = 1
 
 " --- SuperTab ---
-if &runtimepath =~? 'supertab'
-  " Tabbing goes bottom-to-top and for some reason this fixes it.
-  let g:SuperTabDefaultCompletionType = '<C-n>'
-endif
+" Tabbing goes bottom-to-top and for some reason this fixes it.
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " --- Tagbar ---
 if &runtimepath =~? 'tagbar'
@@ -632,26 +610,24 @@ if &runtimepath =~? 'tagbar'
 endif
 
 " --- Vimwiki ---
-if &runtimepath =~? 'vimwiki'
-  " going for maximum GitHub compatibility here
-  let g:vimwiki_list = [{'path': '~/.vimwiki',
-                         \ 'syntax': 'markdown', 'ext': '.md',
-                         \ 'auto_diary_index': 1,
-                         \ 'automatic_nested_syntaxes': 1,
-                         \ 'index': 'home',
-                         \ 'links_space_char': '-'},
-                       \ {'path': '~/.vimwiki-personal',
-                         \ 'syntax': 'markdown', 'ext': '.md',
-                         \ 'auto_diary_index': 1,
-                         \ 'automatic_nested_syntaxes': 1,
-                         \ 'index': 'home',
-                         \ 'links_space_char': '-'}]
-  let g:vimwiki_global_ext = 0
-  let g:vimwiki_auto_chdir = 1
-  " let g:vimwiki_hl_headers = 1
-  " let g:vimwiki_folding = 'syntax:quick'  " not working
-  " let g:vimwiki_listsyms = ' ○◐●✓'
-endif
+" going for maximum GitHub compatibility here
+let g:vimwiki_list = [{'path': '~/.vimwiki',
+                       \ 'syntax': 'markdown', 'ext': '.md',
+                       \ 'auto_diary_index': 1,
+                       \ 'automatic_nested_syntaxes': 1,
+                       \ 'index': 'home',
+                       \ 'links_space_char': '-'},
+                     \ {'path': '~/.vimwiki-personal',
+                       \ 'syntax': 'markdown', 'ext': '.md',
+                       \ 'auto_diary_index': 1,
+                       \ 'automatic_nested_syntaxes': 1,
+                       \ 'index': 'home',
+                       \ 'links_space_char': '-'}]
+let g:vimwiki_global_ext = 0
+let g:vimwiki_auto_chdir = 1
+" let g:vimwiki_hl_headers = 1
+" let g:vimwiki_folding = 'syntax:quick'  " not working
+" let g:vimwiki_listsyms = ' ○◐●✓'
 
 " --- vim-anyfold ---
 if &runtimepath =~? 'vim-anyfold'
@@ -676,9 +652,7 @@ if &runtimepath =~? 'vim-better-whitespace'
 endif
 
 " --- vim-devicons ---
-if &runtimepath =~? 'vim-devicons'
-  let g:webdevicons_enable_ctrlp = 1
-endif
+let g:webdevicons_enable_ctrlp = 1
 
 " --- vim-easy-align ---
 if &runtimepath =~? 'vim-easy-align'
@@ -690,34 +664,18 @@ if &runtimepath =~? 'vim-easy-align'
 endif
 
 " --- vim-isort ---
-if &runtimepath =~? 'vim-isort'
-  let g:vim_isort_map = ''  " disable mapping
-  " compatible with Black
-  let g:vim_isort_config_overrides = {
-    \ 'force_grid_wrap': 1,
-    \ 'include_trailing_comma': 1,
-    \ 'line_length': 88,
-    \ 'multi_line_output': 3,
-    \ 'use_parentheses': 1
-    \ }
-endif
+let g:vim_isort_map = ''  " disable mapping
+" compatible with Black
+let g:vim_isort_config_overrides = {
+  \ 'force_grid_wrap': 1,
+  \ 'include_trailing_comma': 1,
+  \ 'line_length': 88,
+  \ 'multi_line_output': 3,
+  \ 'use_parentheses': 1
+  \ }
 
 " --- vim-markdown ---
-if &runtimepath =~? 'vim-markdown'
-  let g:vim_markdown_new_list_item_indent = 2
-endif
+let g:vim_markdown_new_list_item_indent = 2
 
 " --- vim-signature ---
-if &runtimepath =~? 'vim-signature'
-  let g:SignatureMarkTextHLDynamic = 1
-endif
-
-" --- vim-tmux-navigator ---
-if &runtimepath =~? 'vim-tmux-navigator'
-  " let g:tmux_navigator_no_mappings = 1
-  " nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
-  " nnoremap <silent> <C-J> :TmuxNavigateDown<cr>
-  " nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
-  " nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
-  " nnoremap <silent> <C-|> :TmuxNavigatePrevious<cr>
-endif
+let g:SignatureMarkTextHLDynamic = 1
