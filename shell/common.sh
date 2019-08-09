@@ -3,12 +3,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   # add brew's local bins
   export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
-  # add python 2 to path
-  export PATH="/usr/local/opt/python@2/bin:$PATH"
-
   # add openssl to path for compilers
   export LDFLAGS="-L/usr/local/opt/openssl/lib"
   export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
+  # add python 2 to path
+  export PATH="/usr/local/opt/python@2/bin:$PATH"
+
+  # add ruby bins to path
+  export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 
   # go root
   export GOROOT="$(brew --prefix golang)/libexec"
