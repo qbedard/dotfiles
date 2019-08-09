@@ -9,10 +9,17 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   # add openssl to path for compilers
   export LDFLAGS="-L/usr/local/opt/openssl/lib"
   export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
+  # go root
+  export GOROOT="$(brew --prefix golang)/libexec"
 fi
 
 # add cargo binaries to path
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# add go binaries to path
+export GOPATH="$HOME/.go"
+export PATH="${GOPATH}/bin:${GOROOT}/bin:$PATH"
 
 # XDG_DATA_HOME
 if [ -z "$XDG_DATA_HOME" ]; then
