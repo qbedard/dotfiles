@@ -139,6 +139,7 @@ alias o='a -e open'
 
 # --- fzf ---
 [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
 
 # use rg with fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'

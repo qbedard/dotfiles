@@ -18,6 +18,7 @@ RUN apk --update-cache upgrade && \
         exa \
         fasd \
         fd \
+        # TODO: Get fzf working properly.
         fzf \
         fzf-zsh-completion \
         git \
@@ -70,4 +71,5 @@ RUN cd /root/.dotfiles && \
 RUN nvim --headless +PlugInstall +qall
 
 WORKDIR /root
+ENV SHELL "/bin/zsh"
 CMD "/bin/zsh"
