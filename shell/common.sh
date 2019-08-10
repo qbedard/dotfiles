@@ -24,6 +24,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH="$HOME/.go"
 export PATH="${GOPATH}/bin:${GOROOT}/bin:$PATH"
 
+# add yarn binaries and modules to path
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 # XDG_DATA_HOME
 if [ -z "$XDG_DATA_HOME" ]; then
   XDG_DATA_HOME="$HOME/.local/share"
@@ -140,18 +143,15 @@ alias o='a -e open'
 # use rg with fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
-# --- hub ---
-if command -v hub > /dev/null; then
-  eval "$(hub alias -s)"
-fi
-
 # --- nvm ---
-export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-# [ -s "$NVM_DIR/etc/bash_completion" ] && . "$NVM_DIR/etc/bash_completion"  # This loads nvm bash_completion
+if command -v nvm > /dev/null; then
+  export NVM_DIR="$HOME/.nvm"
+  # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+  # [ -s "$NVM_DIR/etc/bash_completion" ] && . "$NVM_DIR/etc/bash_completion"  # This loads nvm bash_completion
 
-# add npm bins to PATH
-for d in "$NVM_DIR/versions/node"/v*/bin; do PATH="$PATH:$d"; done
+  # add npm bins to PATH
+  for d in "$NVM_DIR/versions/node"/v*/bin; do PATH="$PATH:$d"; done
+fi
 
 # --- python ---
 export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files

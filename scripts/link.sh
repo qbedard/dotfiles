@@ -9,6 +9,7 @@ echo "Linking config files..."
 mkdir -p "$CONFIG_DIR"
 
 # alacritty
+mkdir -p "$CONFIG_DIR/alacritty"
 ln -sfn  "$DOTPATH/alacritty.yml" "$CONFIG_DIR/alacritty/alacritty.yml"
 
 # zsh
