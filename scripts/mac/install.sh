@@ -62,10 +62,9 @@ CASKS=(
     alfred
     firefox-developer-edition
     insomnia
-    iterm2
+    # iterm2
     # slack
     tableplus
-    universal-ctags
     virtualbox
 )
 brew cask install "${CASKS[@]}"
