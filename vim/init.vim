@@ -362,6 +362,9 @@ Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 " CSS "
 Plug 'hail2u/vim-css3-syntax'
 
+" JavaScript "
+Plug 'mxw/vim-jsx'  " jsx for React
+
 " Markdown "
 Plug 'plasticboy/vim-markdown'  " better markdown
 
@@ -396,7 +399,8 @@ endif
 Plug 'Shougo/neco-vim'  " VimL
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }  " machine learning autocompletion
+Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}  " machine learning autocompletion
+Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern'}  " js autocompletion
 " TODO: figure out what's overwriting echodoc in python
 Plug 'Shougo/echodoc.vim'  " show func sig
 
@@ -414,7 +418,17 @@ Plug 'ervandew/supertab'  " use tab for insert completions
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 
 " --------- Preview ---------
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+" Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+function! BuildMDComposer(info)
+  if a:info.status !=? 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMDComposer') }
 
 " --------- Writing ---------
 Plug 'junegunn/goyo.vim'  " no-distractions editing
@@ -467,15 +481,16 @@ if &runtimepath =~? 'ale'
   " Linters
   let g:ale_c_clangformat_options =
     \ '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
+  let g:ale_javascript_eslint_options = '--parser="babel-eslint"'
   let g:ale_python_black_executable = expand('$DATA_DIR/venv/python3/bin/black')
   let g:ale_python_black_options = '--line-length 88 -S'
-  " let g:ale_python_flake8_options = '--max-line-length=120'
   let g:ale_python_flake8_options = '--ignore=E501,W503 --max-complexity=12'
-  let g:ale_python_isort_options = '--force-grid-wrap=0 ' .
-                                 \ '--line-width=88 ' .
-                                 \ '--multi-line=3 ' .
-                                 \ '--trailing-comma ' .
-                                 \ '--use-parentheses'
+  let g:ale_python_isort_options =
+    \ '--force-grid-wrap=0 ' .
+    \ '--line-width=88 ' .
+    \ '--multi-line=3 ' .
+    \ '--trailing-comma ' .
+    \ '--use-parentheses'
   let g:ale_yaml_yamllint_options =
     \ '-d "{extends: default, rules: {' .
       \ 'document-start: {present: false}, ' .
@@ -497,7 +512,7 @@ if &runtimepath =~? 'deoplete.nvim'
   call deoplete#custom#option({
     \ 'auto_refresh_delay': 5,
     \ 'num_processes': 0,
-    \ 'sources': {'python': ['jedi', 'tabnine']},
+    \ 'sources': {'python': ['jedi', 'tabnine'], 'javascript': ['tern']},
     \ })
 endif
 
@@ -563,7 +578,7 @@ endif
 " --- Gutentags ---
 let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
 let g:gutentags_exclude_filetypes = [
-  \ 'gitcommit', 'markdown', 'plaintext', 'python', 'csv']
+  \ 'gitcommit', 'javascript', 'markdown', 'plaintext', 'python', 'csv']
 
 " --- indentLine ---
 let g:indentLine_char = '│'

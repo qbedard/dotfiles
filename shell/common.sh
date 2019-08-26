@@ -25,7 +25,7 @@ export GOPATH="$HOME/.go"
 export PATH="${GOPATH}/bin:${GOROOT}/bin:$PATH"
 
 # add yarn binaries and modules to path
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # XDG_DATA_HOME
 if [ -z "$XDG_DATA_HOME" ]; then
@@ -146,7 +146,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # --- nvm ---
 if command -v nvm > /dev/null; then
-  export NVM_DIR="$HOME/.nvm"
+  # export NVM_DIR="$HOME/.nvm"
   # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
   # [ -s "$NVM_DIR/etc/bash_completion" ] && . "$NVM_DIR/etc/bash_completion"  # This loads nvm bash_completion
 
