@@ -480,7 +480,7 @@ if &runtimepath =~? 'ale'
   " Linters
   let g:ale_c_clangformat_options =
     \ '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
-  let g:ale_javascript_eslint_options = '--parser="babel-eslint"'
+  let g:ale_javascript_eslint_options = '--parser="babel-eslint" --plugin="react"'
   let g:ale_python_black_executable = expand('$DATA_DIR/venv/python3/bin/black')
   let g:ale_python_black_options = '--line-length 88 -S'
   let g:ale_python_flake8_options = '--ignore=E501,W503 --max-complexity=12'
@@ -511,7 +511,11 @@ if &runtimepath =~? 'deoplete.nvim'
   call deoplete#custom#option({
     \ 'auto_refresh_delay': 5,
     \ 'num_processes': 0,
-    \ 'sources': {'python': ['jedi', 'tabnine'], 'javascript': ['tern']},
+    \ 'sources': {
+      \ 'python': ['jedi', 'tabnine'],
+      \ 'javascript': ['tern'],
+      \ 'javascript.jsx': ['tern']
+    \ }
     \ })
 endif
 
