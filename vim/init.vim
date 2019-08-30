@@ -458,9 +458,8 @@ endif
 
 " --- ALE ---
 if &runtimepath =~? 'ale'
+  command Fix ALEFix
   " General
-  cnoreabbrev fix ALEFix
-
   let g:airline#extensions#ale#enabled = 1
   " let g:ale_completion_enabled = 1
   " let g:ale_set_balloons = 1
@@ -667,7 +666,7 @@ endif
 if &runtimepath =~? 'vim-better-whitespace'
   let g:better_whitespace_enabled = 0
   let g:strip_whitelines_at_eof = 1
-  cnoreabbrev trim StripWhitespace
+  command Trim StripWhitespace
 endif
 
 " --- vim-devicons ---
