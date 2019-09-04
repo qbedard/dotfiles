@@ -487,6 +487,7 @@ if &runtimepath =~? 'ale'
   let g:ale_python_isort_options =
     \ '--force-grid-wrap=0 ' .
     \ '--line-width=88 ' .
+    \ '--lines-after-imports=2 ' .
     \ '--multi-line=3 ' .
     \ '--trailing-comma ' .
     \ '--use-parentheses'
