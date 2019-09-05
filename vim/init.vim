@@ -486,9 +486,10 @@ if &runtimepath =~? 'ale'
   let g:ale_python_flake8_options = '--ignore=E501,W503 --max-complexity=12'
   let g:ale_python_isort_options =
     \ '--force-grid-wrap=0 ' .
-    \ '--line-width=88 ' .
+    \ '--line-width=80 ' .
     \ '--lines-after-imports=2 ' .
     \ '--multi-line=3 ' .
+    \ '--section-default=THIRDPARTY ' .
     \ '--trailing-comma ' .
     \ '--use-parentheses'
   let g:ale_yaml_yamllint_options =
