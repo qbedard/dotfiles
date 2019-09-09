@@ -399,7 +399,7 @@ endif
 Plug 'Shougo/neco-vim'  " VimL
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
-Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}  " machine learning autocompletion
+" Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}  " machine learning autocompletion
 Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern'}  " js autocompletion
 " TODO: figure out what's overwriting echodoc in python
 Plug 'Shougo/echodoc.vim'  " show func sig
@@ -514,7 +514,7 @@ if &runtimepath =~? 'deoplete.nvim'
     \ 'auto_refresh_delay': 5,
     \ 'num_processes': 0,
     \ 'sources': {
-      \ 'python': ['jedi', 'tabnine'],
+      \ 'python': ['jedi'],
       \ 'javascript': ['tern'],
       \ 'javascript.jsx': ['tern']
     \ }
