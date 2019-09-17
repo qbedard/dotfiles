@@ -395,7 +395,7 @@ Plug 'Shougo/neco-vim'  " VimL
 Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
 " Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}  " machine learning autocompletion
-Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern'}  " js autocompletion
+Plug 'carlitux/deoplete-ternjs', {'do': 'yarn global add tern'}  " js autocompletion
 " TODO: figure out what's overwriting echodoc in python
 Plug 'Shougo/echodoc.vim'  " show func sig
 
