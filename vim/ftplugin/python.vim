@@ -1,8 +1,10 @@
 set colorcolumn=80
 
-" enable ale linters/fixers
+" ALE
 let b:ale_linters = {'python': ['flake8']}
 let b:ale_fixers = {'python': ['black', 'isort']}
+let b:ale_fix_on_save = 1
+let b:ale_fix_on_save_ignore = {'python': ['black']}
 
 " splitjoin
 let b:splitjoin_python_brackets_on_separate_lines = 1
