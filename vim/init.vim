@@ -478,7 +478,7 @@ if &runtimepath =~? 'ale'
   let g:ale_javascript_eslint_options = '--parser="babel-eslint" --plugin="react"'
   let g:ale_python_black_executable = expand('$DATA_DIR/venv/python3/bin/black')
   let g:ale_python_black_options = '--line-length 88 -S'
-  let g:ale_python_flake8_options = '--ignore=E501,W503 --max-complexity=12'
+  let g:ale_python_flake8_options = '--ignore=E501,W503 --max-complexity=15'
   let g:ale_python_isort_options =
     \ '--force-grid-wrap=0 ' .
     \ '--line-width=80 ' .
