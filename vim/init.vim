@@ -373,11 +373,6 @@ Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}  " fixes python indent i
 Plug 'tmhedberg/simpylfold'  " python folding
 " TODO: fix bad commenting in requirements.txt (/* */ vs #)
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
-" ALE can do these things:
-" Plug 'psf/black'  " python auto-formatting
-" Plug 'tell-k/vim-autopep8', {'for': 'python'}  " python auto-formatting
-" Plug 'mindriot101/vim-yapf', {'for': 'python'}  " python auto-formatting
-" Plug 'timbedard/vim-isort'  " python import sorting
 
 " Misc "
 Plug 'tmux-plugins/vim-tmux'  " tmux.conf syntax
@@ -501,11 +496,6 @@ endif
 
 " --- auto-pairs ---
 let g:AutoPairsMapSpace = 0
-
-" --- black ---
-let g:black_virtualenv = expand('$DATA_DIR/site/venv')
-" let g:black_linelength = 88
-let g:black_skip_string_normalization = 1
 
 " --- deoplete ---
 if &runtimepath =~? 'deoplete.nvim'
@@ -686,17 +676,6 @@ if &runtimepath =~? 'vim-easy-align'
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nnoremap ga <Plug>(EasyAlign)
 endif
-
-" --- vim-isort ---
-let g:vim_isort_map = ''  " disable mapping
-" compatible with Black
-let g:vim_isort_config_overrides = {
-  \ 'force_grid_wrap': 1,
-  \ 'include_trailing_comma': 1,
-  \ 'line_length': 88,
-  \ 'multi_line_output': 3,
-  \ 'use_parentheses': 1
-  \ }
 
 " --- vim-markdown ---
 let g:vim_markdown_new_list_item_indent = 2
