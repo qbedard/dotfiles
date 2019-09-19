@@ -362,6 +362,7 @@ Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 
 " CSS "
 Plug 'hail2u/vim-css3-syntax'
+Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}  " show hex/rgba colors
 
 " JavaScript "
 Plug 'mxw/vim-jsx'  " jsx for React
@@ -582,6 +583,9 @@ endif
 let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
 let g:gutentags_exclude_filetypes = [
   \ 'gitcommit', 'javascript', 'markdown', 'plaintext', 'python', 'csv']
+
+" --- hexokinase ---
+let g:Hexokinase_ftEnabled = ['css', 'scss']
 
 " --- indentLine ---
 let g:indentLine_char = '│'
