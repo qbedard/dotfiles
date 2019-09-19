@@ -92,4 +92,7 @@ echo "Installing fzf shell extensions..."
 echo "Installing tpm (Tmux Plugin Manager)..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# echo "Installing base16 theme shell script..."
+# git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+
 echo "Installion complete."
