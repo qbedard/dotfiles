@@ -321,6 +321,7 @@ Plug 'christoomey/vim-tmux-navigator'  " tmux nav integration
 Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'kshenoy/vim-signature'  " show marks in the sign column
 "Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
+Plug 'tpope/vim-unimpaired'  " handy ]x/[x mappings
 
 " --------- Editing ---------
 Plug 'ntpeters/vim-better-whitespace'  " better whitespace stripping
