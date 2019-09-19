@@ -133,6 +133,8 @@ if has('syntax')
   syntax enable
 endif
 
+set noshowmode  " hide the mode (airline will show instead)
+
 set guioptions=  " remove scrollbars, etc
 
 set cursorline
@@ -158,7 +160,7 @@ endif
 
 " Go away, netrw!
 augroup hide_netrw
-    autocmd FileType netrw setl bufhidden=wipe
+  autocmd FileType netrw setl bufhidden=wipe
 augroup END
 
 " fix italics with tmux
@@ -286,14 +288,16 @@ endif
 filetype off
 call plug#begin('$DATA_DIR/site/plugged')
 " /----------------------------- Start Plugins ------------------------------\
-" Note: On-demand loading breaks my conditional config approach,
+" Note: On-demand loading breaks the conditional config approach,
 " so the options are:
 " 1) on-demand load, unconditional config
 " 2) always load, conditional config
 
 " ----------- GUI -----------
 Plug 'morhetz/gruvbox'  " excellent theme
+" Plug 'chriskempson/base16-vim'  " base 16 themes
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
+Plug 'vim-airline/vim-airline-themes'  " themes for airline
 Plug 'justinmk/vim-dirvish'  " file browser
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
@@ -379,17 +383,14 @@ Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 " Misc "
 Plug 'tmux-plugins/vim-tmux'  " tmux.conf syntax
 Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
-Plug 'hashivim/vim-vagrant'  " Vagrant support
 Plug 'tpope/vim-liquid'  " jekyll templates
 
 " --------- Linting ---------
 Plug 'dense-analysis/ale'  " linting/building
 
 " ------- Completion --------
-if has('nvim')
   Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-else
-  Plug 'Shougo/deoplete.nvim'
+if !has('nvim')
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
@@ -398,7 +399,6 @@ Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
 Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
 " Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}  " machine learning autocompletion
 Plug 'carlitux/deoplete-ternjs', {'do': 'yarn global add tern'}  " js autocompletion
-" TODO: figure out what's overwriting echodoc in python
 Plug 'Shougo/echodoc.vim'  " show func sig
 
 " Plug 'davidhalter/jedi-vim'  " python completion
@@ -444,30 +444,35 @@ endif
 " TODO: better titles here
 
 " --- airline ---
-if &runtimepath =~? 'vim-airline'
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline_powerline_fonts = 1
-  set noshowmode
-  if &runtimepath =~? 'vim-airline-themes'
-    let g:airline_theme='gruvbox'
-  endif
-endif
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " --- ALE ---
 if &runtimepath =~? 'ale'
+  " Commands
   command Fix ALEFix
+
+  " Mappings
+  nmap <silent> <leader>] :ALENext<cr>
+  nmap <silent> <leader>[ :ALEPrevious<cr>
+
   " General
   let g:airline#extensions#ale#enabled = 1
   " let g:ale_completion_enabled = 1
   " let g:ale_set_balloons = 1
   let g:ale_virtualtext_cursor = 1
 
-  nmap <silent> <leader>] :ALENext<cr>
-  nmap <silent> <leader>[ :ALEPrevious<cr>
-
   " venv detection of direnv venvs
   let g:ale_virtualenv_dir_names = [
-    \ '.direnv','.env', '.venv', 'env', 've-py3', 've', 'virtualenv', 'venv']
+    \ '.direnv',
+    \ '.env',
+    \ '.venv',
+    \ 'env',
+    \ 've',
+    \ 've-py3',
+    \ 'venv',
+    \ 'virtualenv',
+    \ ]
 
   " Signs
   let g:ale_sign_error = '✖'
@@ -499,11 +504,18 @@ endif
 " --- auto-pairs ---
 let g:AutoPairsMapSpace = 0
 
+" --- base16 ---
+if &runtimepath =~? 'base16-vim'
+  colorscheme base16-default-dark
+  let base16colorspace=256
+  let g:airline_theme='base16_gruvbox_dark_hard'
+endif
+
 " --- blamer.nvim ---
 if &runtimepath =~? 'blamer.nvim'
+  nnoremap <Leader>b :BlamerToggle<CR>
   let g:blamer_delay = 0
   let g:blamer_template = '<author>, <committer-time> • <summary>'
-  nnoremap <Leader>b :BlamerToggle<CR>
 endif
 
 " --- deoplete ---
@@ -572,17 +584,24 @@ let g:goyo_height = '100%'
 
 " --- gruvbox ---
 if &runtimepath =~? 'gruvbox'
-  let g:gruvbox_italic = 1
   colorscheme gruvbox
   highlight clear SignColumn
   highlight clear FoldColumn
   hi FoldColumn ctermfg=DarkGrey
+  let g:gruvbox_italic = 1
+  let g:airline_theme='gruvbox'
 endif
 
 " --- Gutentags ---
 let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
 let g:gutentags_exclude_filetypes = [
-  \ 'gitcommit', 'javascript', 'markdown', 'plaintext', 'python', 'csv']
+  \ 'csv',
+  \ 'gitcommit',
+  \ 'javascript',
+  \ 'markdown',
+  \ 'plaintext',
+  \ 'python',
+  \ ]
 
 " --- hexokinase ---
 let g:Hexokinase_ftEnabled = ['css', 'scss']
@@ -637,18 +656,23 @@ endif
 
 " --- Vimwiki ---
 " going for maximum GitHub compatibility here
-let g:vimwiki_list = [{'path': '~/.vimwiki',
-                       \ 'syntax': 'markdown', 'ext': '.md',
-                       \ 'auto_diary_index': 1,
-                       \ 'automatic_nested_syntaxes': 1,
-                       \ 'index': 'home',
-                       \ 'links_space_char': '-'},
-                     \ {'path': '~/.vimwiki-personal',
-                       \ 'syntax': 'markdown', 'ext': '.md',
-                       \ 'auto_diary_index': 1,
-                       \ 'automatic_nested_syntaxes': 1,
-                       \ 'index': 'home',
-                       \ 'links_space_char': '-'}]
+let g:vimwiki_list = [
+  \ {
+    \ 'path': '~/.vimwiki',
+    \ 'syntax': 'markdown', 'ext': '.md',
+    \ 'auto_diary_index': 1,
+    \ 'automatic_nested_syntaxes': 1,
+    \ 'index': 'home',
+    \ 'links_space_char': '-'
+  \ },
+  \ {
+    \ 'path': '~/.vimwiki-personal',
+    \ 'syntax': 'markdown', 'ext': '.md',
+    \ 'auto_diary_index': 1,
+    \ 'automatic_nested_syntaxes': 1,
+    \ 'index': 'home',
+    \ 'links_space_char': '-'
+  \ }]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_auto_chdir = 1
 " let g:vimwiki_hl_headers = 1
