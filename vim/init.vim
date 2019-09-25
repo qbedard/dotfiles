@@ -486,7 +486,14 @@ if &runtimepath =~? 'ale'
   let g:ale_javascript_eslint_options = '--parser="babel-eslint" --plugin="react"'
   let g:ale_python_black_executable = expand('$DATA_DIR/venv/python3/bin/black')
   let g:ale_python_black_options = '--line-length 88 -S'
-  let g:ale_python_flake8_options = '--ignore=E501,W503 --max-complexity=15'
+  " -- flake8 errors -- "
+  " E203 = spaces around ':' for slices
+  " E501 = line length
+  " E503 = line break before binary operator
+  let g:ale_python_flake8_options =
+    \ '--ignore=E203,E501,W503 ' .
+    \ '--max-complexity=15 ' .
+    \ '--max-line-length=88'
   let g:ale_python_isort_options =
     \ '--force-grid-wrap=0 ' .
     \ '--line-width=80 ' .
