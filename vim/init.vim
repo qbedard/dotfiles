@@ -489,7 +489,7 @@ if &runtimepath =~? 'ale'
   " -- flake8 errors -- "
   " E203 = spaces around ':' for slices
   " E501 = line length
-  " E503 = line break before binary operator
+  " W503 = line break before binary operator
   let g:ale_python_flake8_options =
     \ '--ignore=E203,E501,W503 ' .
     \ '--max-complexity=15 ' .
