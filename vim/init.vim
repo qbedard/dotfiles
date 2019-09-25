@@ -515,6 +515,7 @@ endif
 " --- blamer.nvim ---
 if &runtimepath =~? 'blamer.nvim'
   nnoremap <Leader>b :BlamerToggle<CR>
+  vnoremap <Leader>b :BlamerToggle<CR>
   let g:blamer_delay = 0
   let g:blamer_template = '<author>, <committer-time> • <summary>'
 endif
