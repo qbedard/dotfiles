@@ -451,7 +451,7 @@ let g:airline_powerline_fonts = 1
 " --- ALE ---
 if &runtimepath =~? 'ale'
   " Commands
-  command Fix ALEFix
+  command! Fix ALEFix
 
   " Mappings
   nmap <silent> <leader>] :ALENext<cr>
@@ -700,7 +700,7 @@ endif
 if &runtimepath =~? 'vim-better-whitespace'
   let g:better_whitespace_enabled = 0
   let g:strip_whitelines_at_eof = 1
-  command Trim StripWhitespace
+  command! Trim StripWhitespace
 endif
 
 " --- vim-devicons ---
