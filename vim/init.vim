@@ -652,7 +652,7 @@ endif
 
 " --- vim-polyglot ---
 let b:python_version_2 = 1
-let g:polyglot_disabled = ['markdown']  " polyglot futz up markdown indent
+let g:polyglot_disabled = ['helm', 'markdown']
 
 " --- SimplyFold ---
 let g:SimpylFold_docstring_preview = 1
