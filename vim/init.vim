@@ -607,12 +607,14 @@ endif
 " --- Gutentags ---
 let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
 let g:gutentags_exclude_filetypes = [
+  \ 'cfg',
   \ 'csv',
   \ 'gitcommit',
   \ 'javascript',
   \ 'markdown',
   \ 'plaintext',
   \ 'python',
+  \ 'toml',
   \ ]
 
 " --- hexokinase ---
