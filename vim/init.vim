@@ -367,7 +367,7 @@ Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 
 " CSS "
 Plug 'hail2u/vim-css3-syntax'
-" Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}  " show hex/rgba colors
+Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}  " show hex/rgba colors
 
 " JavaScript "
 Plug 'mxw/vim-jsx'  " jsx for React
