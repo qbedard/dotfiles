@@ -295,7 +295,7 @@ call plug#begin('$DATA_DIR/site/plugged')
 
 " ----------- GUI -----------
 Plug 'morhetz/gruvbox'  " excellent theme
-" Plug 'chriskempson/base16-vim'  " base 16 themes
+" Plug 'lifepillar/vim-gruvbox8'  " 'better' (simpler) gruvbox
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'  " themes for airline
 Plug 'justinmk/vim-dirvish'  " file browser
@@ -367,7 +367,7 @@ Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 
 " CSS "
 Plug 'hail2u/vim-css3-syntax'
-Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}  " show hex/rgba colors
+" Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}  " show hex/rgba colors
 
 " JavaScript "
 Plug 'mxw/vim-jsx'  " jsx for React
@@ -515,13 +515,6 @@ endif
 " --- auto-pairs ---
 let g:AutoPairsMapSpace = 0
 
-" --- base16 ---
-if &runtimepath =~? 'base16-vim'
-  colorscheme base16-default-dark
-  let base16colorspace=256
-  let g:airline_theme='base16_gruvbox_dark_hard'
-endif
-
 " --- blamer.nvim ---
 if &runtimepath =~? 'blamer.nvim'
   nnoremap <Leader>b :BlamerToggle<CR>
@@ -595,13 +588,27 @@ let g:goyo_width = 100
 let g:goyo_height = '100%'
 
 " --- gruvbox ---
-if &runtimepath =~? 'gruvbox'
+if &runtimepath =~? 'plugged/gruvbox'
   colorscheme gruvbox
   highlight clear SignColumn
   highlight clear FoldColumn
   hi FoldColumn ctermfg=DarkGrey
   let g:gruvbox_italic = 1
   let g:airline_theme='gruvbox'
+endif
+
+" --- gruvbox8 ---
+if &runtimepath =~? 'vim-gruvbox8'
+  colorscheme gruvbox8
+
+  highlight clear SignColumn
+  highlight clear FoldColumn
+  hi FoldColumn ctermfg=DarkGrey
+  " let g:gruvbox_italic = 1
+  let g:airline_theme='gruvbox'
+
+  let g:gruvbox_filetype_hi_groups = 1
+  let g:gruvbox_plugin_hi_groups = 1
 endif
 
 " --- Gutentags ---
