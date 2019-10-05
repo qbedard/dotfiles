@@ -12,6 +12,10 @@ mkdir -p "$CONFIG_DIR"
 mkdir -p "$CONFIG_DIR/alacritty"
 ln -sfn  "$DOTPATH/alacritty.yml" "$CONFIG_DIR/alacritty/alacritty.yml"
 
+# alacritty
+mkdir -p "$CONFIG_DIR/kitty"
+ln -sfn  "$DOTPATH/kitty.conf" "$CONFIG_DIR/kitty/kitty.conf"
+
 # zsh
 ln -sfn  "$DOTPATH/shell/zshrc" "$HOME/.zshrc"
 
