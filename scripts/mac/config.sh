@@ -18,15 +18,15 @@ echo "{
 }" > $HOME/Library/KeyBindings/DefaultKeyBindings.dict
 
 # Set fast key repeat rate
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
-defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write -globalDomain InitialKeyRepeat -int 12
+defaults write -globalDomain KeyRepeat -int 1
 
 # Require password as soon as screensaver or sleep mode starts
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Show filename extensions by default
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write -globalDomain AppleShowAllExtensions -bool true
 
 # Show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles YES
@@ -35,7 +35,7 @@ defaults write com.apple.finder AppleShowAllFiles YES
 
 # Fix italics in iterm + tmux + vim
 # src: https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be
-tic -x "$DOTPATH/scripts/mac/xterm-256color-italic.terminfo"
-tic -x "$DOTPATH/scripts/mac/tmux-256color.terminfo"
+# tic -x "$DOTPATH/scripts/mac/xterm-256color-italic.terminfo"
+# tic -x "$DOTPATH/scripts/mac/tmux-256color.terminfo"
 
 echo "Configuration complete."
