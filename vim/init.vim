@@ -135,6 +135,7 @@ endif
 
 set noshowmode  " hide the mode (airline will show instead)
 
+set termguicolors  " true color support
 set guioptions=  " remove scrollbars, etc
 
 set cursorline
@@ -166,7 +167,6 @@ augroup END
 " fix italics with tmux
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
 
 "-------------------------------- Navigation ---------------------------------"
 set mouse=a  " let the mouse wheel scroll page, etc
