@@ -104,6 +104,9 @@ export EDITOR=nvim
 # 10ms for key sequences
 export KEYTIMEOUT=1
 
+# --- gruvbox Colors --- #
+. "$HOME/.local/share/nvim/site/plugged/gruvbox/gruvbox_256palette.sh"
+
 # --- Base16 Theme ---
 # BASE16_SHELL="$HOME/.config/base16-shell/"
 # [ -n "$PS1" ] && \

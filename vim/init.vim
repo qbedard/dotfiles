@@ -589,12 +589,12 @@ let g:goyo_height = '100%'
 
 " --- gruvbox ---
 if &runtimepath =~? 'plugged/gruvbox'
-  colorscheme gruvbox
   highlight clear SignColumn
   highlight clear FoldColumn
   hi FoldColumn ctermfg=DarkGrey
   let g:gruvbox_italic = 1
   let g:airline_theme='gruvbox'
+  colorscheme gruvbox  " must come after gruvbox_italic
 endif
 
 " --- gruvbox8 ---
