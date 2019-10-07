@@ -35,7 +35,7 @@ defaults write com.apple.finder AppleShowAllFiles YES
 
 # Fix italics in iterm + tmux + vim
 # src: https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be
-# tic -x "$DOTPATH/scripts/mac/xterm-256color-italic.terminfo"
-# tic -x "$DOTPATH/scripts/mac/tmux-256color.terminfo"
+tic -x "$DOTPATH/scripts/mac/xterm-256color-italic.terminfo"
+tic -x "$DOTPATH/scripts/mac/tmux-256color.terminfo"
 
 echo "Configuration complete."
