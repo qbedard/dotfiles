@@ -1,4 +1,0 @@
-# ~/.config/starship.toml
-
-# Disable the newline at the start of the prompt
-add_newline = false
