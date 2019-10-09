@@ -5,4 +5,12 @@ if not functions -q fisher
     fish -c fisher
 end
 
-theme_gruvbox dark
+eval (starship init fish)
+
+# theme_gruvbox dark
+
+# Modify the terminal's 256 color palette to use the gruvbox theme
+# set -l GRUVBOX_SCRIPT "$HOME/.local/share/nvim/site/plugged/gruvbox/gruvbox_256palette.sh"
+# if test -f $GRUVBOX_SCRIPT
+#   bash $GRUVBOX_SCRIPT
+# end
