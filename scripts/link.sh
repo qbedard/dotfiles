@@ -22,6 +22,11 @@ ln -sfn  "$DOTPATH/shell/zshrc" "$HOME/.zshrc"
 # bash
 ln -sfn  "$DOTPATH/shell/bashrc" "$HOME/.bashrc"
 
+# fish
+mkdir -p "$CONFIG_DIR/fish"
+ln -sfn  "$DOTPATH/shell/fish/config.fish" "$CONFIG_DIR/fish/config.fish"
+ln -sfn  "$DOTPATH/shell/fish/fishfile" "$CONFIG_DIR/fish/fishfile"
+
 # tmux
 mkdir -p "$CONFIG_DIR/tmux"
 ln -sfn  "$DOTPATH/tmux.conf" "$CONFIG_DIR/tmux/tmux.conf"
