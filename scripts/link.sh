@@ -27,6 +27,9 @@ mkdir -p "$CONFIG_DIR/fish"
 ln -sfn  "$DOTPATH/shell/fish/config.fish" "$CONFIG_DIR/fish/config.fish"
 ln -sfn  "$DOTPATH/shell/fish/fishfile" "$CONFIG_DIR/fish/fishfile"
 
+# starship
+ln -sfn  "$DOTPATH/shell/starship.toml" "$CONFIG_DIR/starship.toml"
+
 # tmux
 mkdir -p "$CONFIG_DIR/tmux"
 ln -sfn  "$DOTPATH/tmux.conf" "$CONFIG_DIR/tmux/tmux.conf"
