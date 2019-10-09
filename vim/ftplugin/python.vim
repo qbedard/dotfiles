@@ -3,7 +3,7 @@ set colorcolumn=80
 " ALE
 let b:ale_linters = {'python': ['flake8']}
 let b:ale_fixers = {'python': ['black', 'isort']}
-let b:ale_fix_on_save = 1
+" let b:ale_fix_on_save = 1
 let b:ale_fix_on_save_ignore = {'python': ['black']}
 
 " splitjoin
