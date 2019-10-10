@@ -9,6 +9,10 @@ update-brew:
 	brew cleanup && \
 	echo "Cleaned!"
 
+update-omf:
+	@echo "Updating omf..." && \
+	fish -c "omf update"
+
 update-tmux:
 	@echo "Updating tmux plugins..." && \
 	bash $$HOME/.tmux/plugins/tpm/scripts/update_plugin.sh update all && \
@@ -19,4 +23,4 @@ update-vim:
 	nvim --headless +PlugUpgrade +PlugUpdate +PlugClean +qall && \
 	echo "\nVim plugins updated!"
 
-update: update-brew update-tmux update-vim
+update: update-brew update-omf update-tmux update-vim
