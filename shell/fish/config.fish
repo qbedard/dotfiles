@@ -49,6 +49,7 @@ abbr -a llg ll --grid
 abbr -a lt ls -T
 abbr -a llt ll -T
 
+abbr -a mk make
 abbr -a r ranger
 
 # --- Docker Compose ---
