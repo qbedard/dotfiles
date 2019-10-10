@@ -42,3 +42,5 @@ set ttyfast
 set undodir=$DATA_DIR/undo
 set viminfo=!,'100,<50,s10,h  " +=!
 set wildmenu
+
+set viewdir=$DATA_DIR/view
