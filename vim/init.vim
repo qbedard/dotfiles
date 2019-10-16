@@ -350,6 +350,7 @@ Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
 Plug 'junegunn/gv.vim'  " badass commit browser
 Plug 'sodapopcan/vim-twiggy'  " branch manager
 Plug 'APZelos/blamer.nvim'  " inline blame (virtual text)
+Plug 'rhysd/git-messenger.vim'  " popup commit message for cursor (:GitMessenger)
 
 " --------- Testing ---------
 Plug 'janko-m/vim-test'  " TODO: figure this out
