@@ -571,6 +571,10 @@ if &runtimepath =~? 'fzf.vim'
   " show files in a git project root (or current dir if not project)
   command! ProjectFiles execute 'Files' FindGitRoot()
   nnoremap <C-p> :ProjectFiles<CR>
+
+  " don't highlight the current line and selection column
+  let g:fzf_colors = {'bg+': ['bg', 'Normal']}
+
 endif
 
 " --- GitGutter ---
