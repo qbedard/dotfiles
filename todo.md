@@ -8,3 +8,7 @@
 - [ ] set up vim venvs
 - [ ] set up Pipenv workflow for managing Vim venvs
 - [ ] add update-oh-my-zsh make target
+
+* fish
+- [X] docker completions
+- [X] docker-compose completions

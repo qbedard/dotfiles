@@ -24,6 +24,8 @@ PACKAGES=(
     bat  # cat replacement
     # ctags
     direnv
+    docker-completions
+    docker-compose-completions
     exa  # ls replacement
     fasd  # fast dir nav
     fd  # find replacement
@@ -60,6 +62,7 @@ echo "Installing Cask apps..."
 CASKS=(
     alacritty
     alfred
+    docker
     firefox-developer-edition
     insomnia
     # iterm2
