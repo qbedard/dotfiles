@@ -91,7 +91,10 @@ alias pup="pip install --upgrade pip"
 alias pup2="pip2 install --upgrade pip"
 alias pup3="pip3 install --upgrade pip"
 
-# --- Vagrant --- #
+# --- ripgrep ---
+alias rgp="rg -g '*.py'"
+
+# --- Vagrant ---
 alias vu="vagrant up"
 alias vd="vagrant destroy"
 alias vh="vagrant halt"
