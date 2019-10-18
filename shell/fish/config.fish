@@ -82,6 +82,9 @@ abbr -a pup "pip install --upgrade pip"
 abbr -a pup2 "pip2 install --upgrade pip"
 abbr -a pup3 "pip3 install --upgrade pip"
 
+# --- ripgrep ---
+abbr -a rgp "rg -g '*.py'"
+
 # --- Vagrant --- #
 abbr -a vu "vagrant up"
 abbr -a vd "vagrant destroy"
