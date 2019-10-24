@@ -19,6 +19,9 @@ if functions -q fzf_key_bindings
 end
 
 # ----- PATH ----- #
+# add openssl to path for compilers
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
 
 # ----- Aliases ----- #
 alias vi nvim
