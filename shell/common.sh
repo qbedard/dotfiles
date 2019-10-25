@@ -90,6 +90,8 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C
 alias pup="pip install --upgrade pip"
 alias pup2="pip2 install --upgrade pip"
 alias pup3="pip3 install --upgrade pip"
+alias pe="pipenv"
+alias pei="pipenv install"
 
 # --- ripgrep ---
 alias rgp="rg -g '*.py'"

@@ -24,11 +24,11 @@ export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
 
 # ----- Aliases ----- #
-alias vi nvim
-alias vim nvim
+alias vi "nvim"
+alias vim "nvim"
 alias ls "exa --group-directories-first"
-alias cat bat
-# alias git hub
+alias cat "bat"
+# alias git "hub"
 
 alias rg='rg --smart-case'
 
@@ -45,21 +45,21 @@ abbr -a c clear
 abbr -a q exit
 
 # ls
-abbr -a l ls -1
-abbr -a la l -a
-abbr -a ll ls -lh --git
-abbr -a llg ll --grid
-abbr -a lt ls -T
-abbr -a llt ll -T
+abbr -a l "ls -1"
+abbr -a la "l -a"
+abbr -a ll "ls -lh --git"
+abbr -a llg "ll --grid"
+abbr -a lt "ls -T"
+abbr -a llt "ll -T"
 
-abbr -a mk make
-abbr -a r ranger
+abbr -a mk "make"
+abbr -a r "ranger"
 
 # --- Docker Compose ---
-abbr -a dc docker-compose
-abbr -a dcu docker-compose up
-abbr -a dcd docker-compose down
-abbr -a ld lazydocker
+abbr -a dc "docker-compose"
+abbr -a dcu "docker-compose up"
+abbr -a dcd "docker-compose down"
+abbr -a ld "lazydocker"
 
 # --- Git ---
 abbr -a gs "git status -sb"
@@ -84,6 +84,8 @@ abbr -a gt "git tag"
 abbr -a pup "pip install --upgrade pip"
 abbr -a pup2 "pip2 install --upgrade pip"
 abbr -a pup3 "pip3 install --upgrade pip"
+abbr -a pe "pipenv"
+abbr -a pei "pipenv install"
 
 # --- ripgrep ---
 abbr -a rgp "rg -g '*.py'"
@@ -95,6 +97,10 @@ abbr -a vh "vagrant halt"
 abbr -a vss "vagrant ssh"
 
 # ----- Misc ----- #
+# vim
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # use rg with fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
