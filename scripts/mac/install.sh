@@ -29,6 +29,7 @@ PACKAGES=(
     exa  # ls replacement
     fasd  # fast dir nav
     fd  # find replacement
+    fish  # shell
     fzf  # fuzzy
     git
     hub  # GitHub tools
@@ -91,6 +92,19 @@ git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugi
 
 echo "Installing fzf shell extensions..."
 /usr/local/opt/fzf/install
+
+echo "Installing poetry (and completions)..."
+curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
+
+# Bash (macOS/Homebrew)
+poetry completions bash > $(brew --prefix)/etc/bash_completion.d/poetry.bash-completion
+
+# Fish
+poetry completions fish > ~/.config/fish/completions/poetry.fish
+
+# Oh-My-Zsh
+mkdir $ZSH/plugins/poetry
+poetry completions zsh > $ZSH/plugins/poetry/_poetry
 
 echo "Installing tpm (Tmux Plugin Manager)..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

@@ -10,6 +10,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   # add python 2 to path
   export PATH="/usr/local/opt/python@2/bin:$PATH"
 
+  export PATH="$HOME/.poetry/bin:$PATH"
+
   # add ruby bins to path
   export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 

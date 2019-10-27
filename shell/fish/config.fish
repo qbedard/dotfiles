@@ -22,6 +22,8 @@ end
 # add openssl to path for compilers
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
+# add poetry to PATH
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # ----- Aliases ----- #
 alias vi "nvim"
