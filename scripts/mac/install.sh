@@ -95,16 +95,18 @@ echo "Installing fzf shell extensions..."
 
 echo "Installing poetry (and completions)..."
 curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
+# temporary until 1.0.0 is released.
+"$HOME/.poetry/bin/poetry" self:update --preview
 
 # Bash (macOS/Homebrew)
-poetry completions bash > $(brew --prefix)/etc/bash_completion.d/poetry.bash-completion
+"$HOME/.poetry/bin/poetry" completions bash > $(brew --prefix)/etc/bash_completion.d/poetry.bash-completion
 
 # Fish
-poetry completions fish > ~/.config/fish/completions/poetry.fish
+"$HOME/.poetry/bin/poetry" completions fish > ~/.config/fish/completions/poetry.fish
 
 # Oh-My-Zsh
 mkdir $ZSH/plugins/poetry
-poetry completions zsh > $ZSH/plugins/poetry/_poetry
+"$HOME/.poetry/bin/poetry" completions zsh > $ZSH/plugins/poetry/_poetry
 
 echo "Installing tpm (Tmux Plugin Manager)..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
