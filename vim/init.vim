@@ -339,6 +339,7 @@ Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
 Plug 'AndrewRadev/splitjoin.vim'  " single-line <-> multi-line
 Plug 'AndrewRadev/switch.vim'  " true <-> false, etc
+Plug 'AndrewRadev/sideways.vim'  " SidewaysLeft/SidewaysRight to swap arguments
 " Plug 'AndrewRadev/whitespaste.vim'  " auto-fix whitespace lines when pasting
 Plug 'stefandtw/quickfix-reflector.vim'  " editable quickfix
 " Plug 'kkoomen/vim-doge'  " doc generator, TODO: set mappings
