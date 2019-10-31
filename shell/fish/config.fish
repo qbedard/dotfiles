@@ -5,6 +5,11 @@
 #     curl -L https://get.oh-my.fish | fish
 # end
 
+if status is-interactive
+and not set -q TMUX
+    exec tmux
+end
+
 # Modify the terminal's 256 color palette to use the gruvbox theme
 # set -l GRUVBOX_SCRIPT "$HOME/.local/share/nvim/site/plugged/gruvbox/gruvbox_256palette.sh"
 # if test -f $GRUVBOX_SCRIPT
