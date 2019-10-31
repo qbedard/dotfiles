@@ -13,6 +13,10 @@
 
 set -g theme_nerd_fonts yes
 set theme_color_scheme gruvbox
+set -g theme_date_format "+%a %b %d %l:%M%p"
+
+# disable greeting
+function fish_greeting; end
 
 if functions -q fzf_key_bindings
     fzf_key_bindings
