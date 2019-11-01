@@ -121,3 +121,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # --- python ---
 export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
+
+# --- direnv ---
+direnv hook fish | source
