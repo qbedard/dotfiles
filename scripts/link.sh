@@ -35,6 +35,10 @@ mkdir -p "$CONFIG_DIR/tmux"
 ln -sfn  "$DOTPATH/tmux.conf" "$CONFIG_DIR/tmux/tmux.conf"
 ln -sfn  "$DOTPATH/tmux.conf" "$HOME/.tmux.conf"
 
+# direnv
+mkdir -p "$CONFIG_DIR/direnv"
+ln -sfn  "$DOTPATH/direnvrc" "$CONFIG_DIR/direnv/direnvrc"
+
 # neovim
 ln -sfn "$DOTPATH/vim" "$CONFIG_DIR/nvim"  # just link the whole dir
 ln -sfn "$DOTPATH/vim" "$HOME/.vim"  # also for other vims
