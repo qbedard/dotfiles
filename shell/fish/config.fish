@@ -31,6 +31,8 @@ end
 # add openssl to path for compilers
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
+# add python3 bins to PATH
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 # add poetry to PATH
 export PATH="$HOME/.poetry/bin:$PATH"
 
@@ -54,6 +56,8 @@ alias o 'a -e open'
 # --- General ---
 abbr -a c clear
 abbr -a q exit
+
+abbr -a popd prevd
 
 # ls
 abbr -a l "ls -1"
