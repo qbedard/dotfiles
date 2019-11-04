@@ -7,7 +7,8 @@
 
 if status is-interactive
 and not set -q TMUX
-    exec tmux
+    # attach to session "main" if it exists, otherwise create it
+    exec tmux new-session -A -s main
 end
 
 # Modify the terminal's 256 color palette to use the gruvbox theme
