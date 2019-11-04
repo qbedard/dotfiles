@@ -61,11 +61,12 @@ brew tap homebrew/cask-versions
 
 echo "Installing Cask apps..."
 CASKS=(
-    alacritty
+    # alacritty
     alfred
     docker
     firefox-developer-edition
     insomnia
+    kitty
     # iterm2
     # slack
     tableplus
