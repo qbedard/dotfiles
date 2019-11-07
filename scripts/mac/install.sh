@@ -23,6 +23,7 @@ PACKAGES=(
     awscli
     bat  # cat replacement
     # ctags
+    diff-so-fancy  # fancy git diff
     direnv
     docker-completions
     docker-compose-completions
@@ -94,6 +95,9 @@ git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugi
 echo "Installing fzf shell extensions..."
 /usr/local/opt/fzf/install
 
+echo "Configuring git to use diff-so-fancy..."
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+
 echo "Installing poetry (and completions)..."
 curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
 # temporary until 1.0.0 is released.
@@ -115,4 +119,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # echo "Installing base16 theme shell script..."
 # git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
-echo "Installion complete."
+echo "Installation complete."
