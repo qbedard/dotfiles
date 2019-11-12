@@ -38,4 +38,9 @@ defaults write com.apple.finder AppleShowAllFiles YES
 tic -x "$DOTPATH/scripts/mac/xterm-256color-italic.terminfo"
 tic -x "$DOTPATH/scripts/mac/tmux-256color.terminfo"
 
+echo "Changing shell to fish..."
+# TODO: make this avoid repetitive additions if re-run
+sudo echo "/usr/local/bin/fish" >> /etc/shells
+chsh -s /usr/local/bin/fish
+
 echo "Configuration complete."
