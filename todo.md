@@ -6,8 +6,7 @@
 - [X] macOS config via `defaults`
 - [ ] .gitconfig
 - [ ] set up vim venvs
-- [ ] set up Pipenv workflow for managing Vim venvs
-- [ ] add update-oh-my-zsh make target
+- [ ] add update-oh-my-zsh make target?
 
 * fish
 - [X] docker completions
