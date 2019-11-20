@@ -378,7 +378,7 @@ Plug 'mxw/vim-jsx'  " jsx for React
 Plug 'plasticboy/vim-markdown'  " better markdown
 
 " Python "
-Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}  " fixes python indent issues
+" Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}  " fixes python indent issues
 Plug 'tmhedberg/simpylfold'  " python folding
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 
