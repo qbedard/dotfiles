@@ -380,7 +380,6 @@ Plug 'plasticboy/vim-markdown'  " better markdown
 " Python "
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}  " fixes python indent issues
 Plug 'tmhedberg/simpylfold'  " python folding
-" TODO: fix bad commenting in requirements.txt (/* */ vs #)
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 
 " Misc "
