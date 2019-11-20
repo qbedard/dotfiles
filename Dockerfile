@@ -28,7 +28,7 @@ RUN apk --update-cache upgrade && \
         make \
         musl-dev \
         neovim \
-        neovim-docs \
+        neovim-doc \
         oh-my-zsh \
         openssh \
         python3 \
