@@ -54,6 +54,12 @@ abbr -a q exit
 
 abbr -a popd prevd
 
+# faster traversal up dirs
+abbr -a ... "../../"
+abbr -a .... "../../../"
+abbr -a ..... "../../../../"
+abbr -a ...... "../../../../../"
+
 # ls
 abbr -a l "ls -1"
 abbr -a la "l -a"
