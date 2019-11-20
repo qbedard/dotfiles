@@ -622,10 +622,8 @@ let g:gutentags_exclude_filetypes = [
   \ 'cfg',
   \ 'csv',
   \ 'gitcommit',
-  \ 'javascript',
   \ 'markdown',
   \ 'plaintext',
-  \ 'python',
   \ 'toml',
   \ ]
 
