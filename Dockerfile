@@ -39,6 +39,7 @@ RUN apk --update-cache upgrade && \
         tmux \
         tmux-zsh-completion \
         # tokei \
+        yarn \
         zsh \
         zsh-vcs
 
