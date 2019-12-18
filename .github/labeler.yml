@@ -1,0 +1,10 @@
+docker:
+  - Dockerfile
+fish:
+  - shell/fish/*
+script:
+  - scripts/*
+shell:
+  - shell/*
+vim:
+  - vim/*
