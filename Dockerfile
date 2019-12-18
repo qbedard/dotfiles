@@ -18,6 +18,7 @@ RUN apk --update-cache upgrade && \
         exa \
         fasd \
         fd \
+        fish \
         # TODO: Get fzf working properly.
         fzf \
         fzf-zsh-completion \
@@ -73,5 +74,5 @@ RUN cd /root/.dotfiles && \
 RUN nvim --headless +PlugInstall +qall
 
 WORKDIR /root
-ENV SHELL "/bin/zsh"
-CMD "/bin/zsh"
+ENV SHELL "/bin/fish"
+CMD "/bin/fish"
