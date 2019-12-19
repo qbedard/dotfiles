@@ -36,7 +36,6 @@ alias vi "nvim"
 alias vim "nvim"
 alias ls "exa --group-directories-first"
 alias cat "bat"
-# alias git "hub"
 
 alias rg='rg --smart-case'
 
