@@ -61,7 +61,7 @@ abbr -a ...... "../../../../../"
 
 # ls
 abbr -a l "ls -1"
-abbr -a la "l -a"
+abbr -a la "ls -1a"
 abbr -a ll "ls -lh --git"
 abbr -a llg "ll --grid"
 abbr -a lt "ls -T"
