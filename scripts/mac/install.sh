@@ -35,11 +35,9 @@ PACKAGES=(
     git
     hub  # GitHub tools
     lazydocker  # docker term UI
-    lua
     neovim
     python@2
     python3
-    ranger  # terminal file browser
     reattach-to-user-namespace  # fix tmux mac issues
     ripgrep  # awesome grep
     ruby
@@ -62,14 +60,11 @@ brew tap homebrew/cask-versions
 
 echo "Installing Cask apps..."
 CASKS=(
-    # alacritty
     alfred
     docker
     firefox-developer-edition
     insomnia
     kitty
-    # iterm2
-    # slack
     tableplus
     virtualbox
 )
