@@ -53,8 +53,6 @@ alias llt="ll -T"
 
 alias cat="bat"
 
-alias r="ranger"
-
 alias vzs="vim ~/.zshrc"
 alias rzs=". ~/.zshrc"
 alias vbs="vim ~/.bashrc"

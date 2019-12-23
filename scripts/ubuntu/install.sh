@@ -26,7 +26,6 @@ PACKAGES=(
     direnv
     fasd
     git
-    lua
     neovim
     nodejs
     npm
@@ -34,7 +33,6 @@ PACKAGES=(
     python-pip
     python3
     python3-pip
-    ranger
     ripgrep
     ruby
     shellcheck

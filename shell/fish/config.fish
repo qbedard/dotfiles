@@ -74,7 +74,6 @@ abbr -a llt "ll -T"
 abbr -a llta "ll -T -a"
 
 abbr -a mk "make"
-abbr -a r "ranger"
 
 # --- Docker Compose ---
 abbr -a dc "docker-compose"
