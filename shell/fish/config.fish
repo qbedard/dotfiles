@@ -60,12 +60,18 @@ abbr -a ..... "../../../../"
 abbr -a ...... "../../../../../"
 
 # ls
+abbr -a ls "ls"
+abbr -a lsa "ls -a"
 abbr -a l "ls -1"
 abbr -a la "ls -1a"
 abbr -a ll "ls -lh --git"
+abbr -a lla "ls -lh --git -a"
 abbr -a llg "ll --grid"
+abbr -a llga "ll --grid -a"
 abbr -a lt "ls -T"
+abbr -a lta "ls -T -a"
 abbr -a llt "ll -T"
+abbr -a llta "ll -T -a"
 
 abbr -a mk "make"
 abbr -a r "ranger"
