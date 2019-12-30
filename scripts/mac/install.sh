@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# Note: This script requires that the following be done before running:
-# 1. Install Xcode.
-# 2. Install Command Line Tools.
-# 3. Accept the CLT agreement.
-
 # Things this script does not install:
 # - Magnet
+
+# Command Line Tools
+xcode-select --install
 
 # Homebrew
 if test ! "$(which brew)"; then
