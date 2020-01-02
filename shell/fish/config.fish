@@ -34,6 +34,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # ----- Aliases ----- #
 alias vi "nvim"
 alias vim "nvim"
+
 alias ls "exa --group-directories-first"
 alias cat "bat"
 
@@ -41,6 +42,9 @@ alias rg='rg --smart-case'
 
 alias glog "git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
+alias lazydocker "env TERMINFO= lazydocker"
+
+# fasd
 alias j 'fasd_cd -d'
 alias v 'f -e vim'
 alias o 'a -e open'
