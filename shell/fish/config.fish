@@ -26,7 +26,7 @@ export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # ----- Aliases ----- #
-alias tmux "TERM=tmux-256color tmux"
+alias tmux "env TERM=tmux-256color tmux"
 
 alias vi "nvim"
 alias vim "nvim"
