@@ -22,7 +22,7 @@ brew "neovim"
 brew "openapi-generator"
 # brew "python@2"
 brew "python"
-brew "reattach-to-user-namespace"  # fix tmux mac issues
+brew "reattach-to-user-namespace"  # fix tmux pasteboard mac issues
 brew "ripgrep"  # awesome grep
 # brew "ruby"
 brew "shellcheck"  # sh linter
