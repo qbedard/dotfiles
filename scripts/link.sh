@@ -20,7 +20,9 @@ ln -sfn  "$DOTPATH/shell/bashrc" "$HOME/.bashrc"
 
 # fish
 mkdir -p "$CONFIG_DIR/fish"
+# mkdir -p "$CONFIG_DIR/fish/functions"
 ln -sfn  "$DOTPATH/shell/fish/config.fish" "$CONFIG_DIR/fish/config.fish"
+# ln -sfn  "$DOTPATH/shell/fish/functions/gruvbox_colors.fish" "$CONFIG_DIR/fish/functions/gruvbox_colors.fish"
 
 # tmux
 mkdir -p "$CONFIG_DIR/tmux"

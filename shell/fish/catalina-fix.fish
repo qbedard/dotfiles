@@ -4,5 +4,5 @@
 # We can automate it later if the fish or macOS teams don't fix it.
 
 funced __fish_describe_command
-# comment out the function
+# comment out the inside of the function
 funcsave __fish_describe_command

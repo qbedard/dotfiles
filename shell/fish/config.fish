@@ -5,8 +5,11 @@
 #     curl -L https://get.oh-my.fish | fish
 # end
 
-set -g theme_nerd_fonts yes
+source "$HOME/.dotfiles/shell/fish/gruvbox_colors.fish"
+# gruvbox_colors
+
 set theme_color_scheme gruvbox
+set -g theme_nerd_fonts yes
 set -g theme_date_format "+%a %b %d %l:%M%p"
 
 # disable greeting
