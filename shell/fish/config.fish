@@ -5,12 +5,6 @@
 #     curl -L https://get.oh-my.fish | fish
 # end
 
-if status is-interactive
-and not set -q TMUX
-    # attach to session "main" if it exists, otherwise create it
-    exec tmux new-session -A -s main
-end
-
 set -g theme_nerd_fonts yes
 set theme_color_scheme gruvbox
 set -g theme_date_format "+%a %b %d %l:%M%p"
@@ -32,6 +26,8 @@ export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # ----- Aliases ----- #
+alias tmux "TERM=tmux-256color tmux"
+
 alias vi "nvim"
 alias vim "nvim"
 
@@ -41,8 +37,6 @@ alias cat "bat"
 alias rg='rg --smart-case'
 
 alias glog "git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-
-alias lazydocker "env TERMINFO= lazydocker"
 
 # fasd
 alias j 'fasd_cd -d'
@@ -133,3 +127,9 @@ export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
 
 # --- direnv ---
 direnv hook fish | source
+
+if status is-interactive
+and not set -q TMUX
+    # attach to session "main" if it exists, otherwise create it
+    exec tmux new-session -A -s main
+end
