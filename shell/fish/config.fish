@@ -98,6 +98,7 @@ abbr -a gd "git diff"
 abbr -a gdtv "git difftool"
 abbr -a gm "git merge"
 abbr -a gp "git push"
+abbr -a gf "git fetch"
 abbr -a gl "git pull"
 abbr -a gt "git tag"
 
