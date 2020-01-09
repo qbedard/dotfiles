@@ -5,7 +5,11 @@ layout_poetry() {
     exit 2
   fi
 
-  local VENV=$(dirname $(poetry run which python))
+  if [[ ! $(poetry env info -p) ]]; then
+    poetry env use python3
+  fi
+
+  local VENV=$(dirname $(poetry env info -p))
   export VIRTUAL_ENV=$(echo "$VENV" | rev | cut -d'/' -f2- | rev)
   export POETRY_ACTIVE=1
   PATH_add "$VENV"
