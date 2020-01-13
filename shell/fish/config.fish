@@ -31,6 +31,9 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # ----- Aliases ----- #
 alias tmux "env TERM=tmux-256color tmux"
 
+# TODO: Test these
+alias e "nvim"
+alias v "nvim"
 alias vi "nvim"
 alias vim "nvim"
 
@@ -43,7 +46,7 @@ alias glog "git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C
 
 # fasd
 alias j 'fasd_cd -d'
-alias v 'f -e vim'
+# alias v 'f -e vim'
 alias o 'a -e open'
 
 # ----- Abbreviations ----- #
