@@ -200,6 +200,9 @@ cnoreabbrev vrr :source $MYVIMRC
 "--------------------------------- Navigation --------------------------------"
 " faster exiting from insert mode (-noremap to allow for abbrevs to work)
 imap jj <Esc>
+" TODO: find out why <C-i> doesn't work
+inoremap <C-i> <Esc>
+inoremap <C-l> <Esc>
 
 " faster exiting from terminal mode
 tnoremap kk <C-\><C-n>
@@ -227,12 +230,6 @@ nnoremap K :bn<CR>
 nnoremap J :bp<CR>
 xnoremap K :bn<CR>
 xnoremap J :bp<CR>
-
-" window switching (Ctrl)
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-l> <C-w>l
 
 " tab switching (Ctrl+Tab)
 noremap  <C-Tab>  :tabnext<CR>
@@ -442,7 +439,6 @@ endif
 
 
 "----------------------------- Configure Plugins -----------------------------"
-" TODO: better titles here
 
 " --- airline ---
 let g:airline#extensions#tabline#enabled = 1
