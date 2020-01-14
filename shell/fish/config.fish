@@ -64,7 +64,6 @@ abbr -a ..... "../../../../"
 abbr -a ...... "../../../../../"
 
 # ls
-abbr -a ls "ls"
 abbr -a lsa "ls -a"
 abbr -a l "ls -1"
 abbr -a la "ls -1a"
@@ -114,6 +113,7 @@ abbr -a pei "pipenv install"
 
 # --- ripgrep ---
 abbr -a rgp "rg -g '*.py'"
+abbr -a rgl "rg -l"
 
 # --- Vagrant --- #
 abbr -a vu "vagrant up"
