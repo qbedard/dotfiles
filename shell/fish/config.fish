@@ -5,9 +5,6 @@
 #     curl -L https://get.oh-my.fish | fish
 # end
 
-source "$HOME/.dotfiles/shell/fish/gruvbox_colors.fish"
-# gruvbox_colors
-
 set theme_color_scheme gruvbox
 set -g theme_nerd_fonts yes
 set -g theme_date_format "+%a %b %d %l:%M%p"
@@ -29,8 +26,6 @@ export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # ----- Aliases ----- #
-alias tmux "env TERM=tmux-256color tmux"
-
 # TODO: Test these
 alias e "nvim"
 alias v "nvim"
@@ -150,4 +145,13 @@ function colortest
         }
         printf "\n";
     }'
+end
+
+if status is-interactive
+and not set -q TMUX
+    # TODO: Find out why the hell this borks fzf when not inside this conditional
+    bash "$HOME/.local/share/nvim/site/plugged/gruvbox/gruvbox_256palette.sh"
+    # attach to session "main" if it exists, otherwise create it
+    # TODO: Attach only if none attached
+    exec tmux new-session -A -s main
 end
