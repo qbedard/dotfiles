@@ -77,7 +77,7 @@ abbr -a mk "make"
 abbr -a dc "docker-compose"
 abbr -a dcu "docker-compose up"
 abbr -a dcd "docker-compose down"
-abbr -a ld "lazydocker"
+abbr -a ld "env TERM=screen-256color lazydocker"
 
 # --- Git ---
 abbr -a gs "git status -sb"
