@@ -501,11 +501,16 @@ if &runtimepath =~? 'ale'
     \ '--section-default=THIRDPARTY ' .
     \ '--trailing-comma ' .
     \ '--use-parentheses'
+  let g:ale_python_pyls_executable = expand('$DATA_DIR/venv/python3/bin/pyls')
   let g:ale_yaml_yamllint_options =
     \ '-d "{extends: default, rules: {' .
       \ 'document-start: {present: false}, ' .
       \ 'indentation: {indent-sequences: consistent}' .
     \ '}}"'
+
+  " Completion
+  " let g:ale_completion_enabled = 1
+  " set omnifunc=ale#completion#OmniFunc
 endif
 
 " --- auto-pairs ---
