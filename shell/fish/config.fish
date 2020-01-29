@@ -24,6 +24,8 @@ export CPPFLAGS="-I/usr/local/opt/openssl/include"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 # add poetry to PATH
 export PATH="$HOME/.poetry/bin:$PATH"
+# add rust tools to path
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # ----- Aliases ----- #
 # TODO: Test these
