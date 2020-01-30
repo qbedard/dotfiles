@@ -452,9 +452,12 @@ if &runtimepath =~? 'ale'
   command! Fix ALEFix
 
   " Mappings
-  nmap <silent> <leader>] :ALENext<CR>
-  nmap <silent> <leader>[ :ALEPrevious<CR>
-  nmap gd :ALEGoToDefinition<CR>
+  nmap <silent> <leader>] <Plug>(ale_next_wrap)
+  nmap <silent> <leader>[ <Plug>(ale_previous_wrap)
+  nmap <silent> gf <Plug>(ale_fix)
+  nmap <silent> gd <Plug>(ale_go_to_definition)
+  nmap <silent> gy <Plug>(ale_go_to_type_definition)
+  nmap <silent> gr <Plug>(ale_find_references)
 
   " General
   let g:airline#extensions#ale#enabled = 1
