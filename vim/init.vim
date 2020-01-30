@@ -35,13 +35,15 @@ let $DATA_DIR = expand('$XDG_DATA_HOME/nvim')  " ~/.local/share/nvim
 " TODO: find equivalent setting for Vim8
 if has('nvim')
   let $VENV_DIR = expand('$DATA_DIR/venv')
+  let $PYTHON2_VENV_DIR = expand('$VENV_DIR/python2')
+  let $PYTHON3_VENV_DIR = expand('$VENV_DIR/python3')
   " TODO: automate creation of venvs
   if isdirectory($VENV_DIR)
     " dedicated vim venvs
-    let g:python_host_prog  = expand('$VENV_DIR/python2/bin/python')
-    let g:python3_host_prog = expand('$VENV_DIR/python3/bin/python')
+    let g:python_host_prog  = expand('$PYTHON2_VENV_DIR/bin/python')
+    let g:python3_host_prog = expand('$PYTHON3_VENV_DIR/bin/python')
     " add python3 bins to PATH
-    let $PATH = expand('$PATH:$VENV_DIR/python3/bin')
+    let $PATH = expand('$PATH:$PYTHON3_VENV_DIR/bin')
   endif
 endif
 
@@ -480,7 +482,7 @@ if &runtimepath =~? 'ale'
   let g:ale_c_clangformat_options =
     \ '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
   let g:ale_javascript_eslint_options = '--parser="babel-eslint" --plugin="react"'
-  let g:ale_python_black_executable = expand('$DATA_DIR/venv/python3/bin/black')
+  let g:ale_python_black_executable = expand('$PYTHON3_VENV_DIR/bin/black')
   let g:ale_python_black_options = '--line-length 88 -S'
   " -- flake8 error codes -- "
   " mcCabe, Error, pyFlakes, Warning, Bugbear, Naming
@@ -501,7 +503,7 @@ if &runtimepath =~? 'ale'
     \ '--section-default=THIRDPARTY ' .
     \ '--trailing-comma ' .
     \ '--use-parentheses'
-  let g:ale_python_pyls_executable = expand('$DATA_DIR/venv/python3/bin/pyls')
+  let g:ale_python_pyls_executable = expand('$PYTHON3_VENV_DIR/bin/pyls')
   let g:ale_yaml_yamllint_options =
     \ '-d "{extends: default, rules: {' .
       \ 'document-start: {present: false}, ' .
