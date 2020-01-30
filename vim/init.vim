@@ -401,7 +401,7 @@ Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " 
 Plug 'carlitux/deoplete-ternjs', {'do': 'yarn global add tern'}  " js autocompletion
 Plug 'Shougo/echodoc.vim'  " show func sig
 
-" Plug 'davidhalter/jedi-vim'  " python completion
+Plug 'davidhalter/jedi-vim'  " python completion
 
 " TODO: put together a decent setup for this
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
@@ -455,9 +455,9 @@ if &runtimepath =~? 'ale'
   nmap <silent> <leader>] <Plug>(ale_next_wrap)
   nmap <silent> <leader>[ <Plug>(ale_previous_wrap)
   nmap <silent> gf <Plug>(ale_fix)
-  nmap <silent> gd <Plug>(ale_go_to_definition)
-  nmap <silent> gy <Plug>(ale_go_to_type_definition)
-  nmap <silent> gr <Plug>(ale_find_references)
+  " nmap <silent> gd <Plug>(ale_go_to_definition)
+  " nmap <silent> gy <Plug>(ale_go_to_type_definition)
+  " nmap <silent> gr <Plug>(ale_find_references)
 
   " General
   let g:airline#extensions#ale#enabled = 1
@@ -643,6 +643,9 @@ let g:indentLine_fileTypeExclude = ['text', 'markdown']
 
 " --- Instant Markdown ---
 let g:instant_markdown_autostart = 0
+
+" --- jedi-vim ---
+let g:jedi#completions_enabled = 0
 
 " --- LimeLight ---
 if &runtimepath =~? 'limelight.vim'
