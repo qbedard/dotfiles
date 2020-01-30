@@ -646,6 +646,7 @@ let g:instant_markdown_autostart = 0
 
 " --- jedi-vim ---
 let g:jedi#completions_enabled = 0
+let g:jedi#documentation_command = '<leader>k'
 
 " --- LimeLight ---
 if &runtimepath =~? 'limelight.vim'
