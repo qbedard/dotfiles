@@ -251,14 +251,14 @@ nnoremap  <leader>a a<Space><Esc>r
 
 "--- some brilliant line movement mappings from junegunn ---"
 " move current line up/down
-nnoremap <silent> <M-k> :move-2<cr>
-nnoremap <silent> <M-j> :move+<cr>
+nnoremap <silent> <M-k> :move-2<CR>
+nnoremap <silent> <M-j> :move+<CR>
 "indent/outdent current line
 nnoremap <silent> <M-h> <<
 nnoremap <silent> <M-l> >>
 " move selection up/down
-xnoremap <silent> <M-k> :move-2<cr>gv
-xnoremap <silent> <M-j> :move'>+<cr>gv
+xnoremap <silent> <M-k> :move-2<CR>gv
+xnoremap <silent> <M-j> :move'>+<CR>gv
 " indent/outdent selection (and keep selection)
 xnoremap <silent> <M-h> <gv
 xnoremap <silent> <M-l> >gv
@@ -452,8 +452,9 @@ if &runtimepath =~? 'ale'
   command! Fix ALEFix
 
   " Mappings
-  nmap <silent> <leader>] :ALENext<cr>
-  nmap <silent> <leader>[ :ALEPrevious<cr>
+  nmap <silent> <leader>] :ALENext<CR>
+  nmap <silent> <leader>[ :ALEPrevious<CR>
+  nmap gd :ALEGoToDefinition<CR>
 
   " General
   let g:airline#extensions#ale#enabled = 1
