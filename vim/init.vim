@@ -463,6 +463,7 @@ if &runtimepath =~? 'ale'
   let g:airline#extensions#ale#enabled = 1
   " let g:ale_completion_enabled = 1
   " let g:ale_set_balloons = 1
+  " let g:ale_set_highlights = 0
   let g:ale_virtualtext_cursor = 1
 
   " venv detection of direnv venvs
