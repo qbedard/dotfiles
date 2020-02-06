@@ -372,9 +372,6 @@ Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}  " show hex/rgba colors
 " JavaScript "
 Plug 'mxw/vim-jsx'  " jsx for React
 
-" Markdown "
-Plug 'plasticboy/vim-markdown'  " better markdown
-
 " Python "
 " Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}  " fixes python indent issues
 Plug 'tmhedberg/simpylfold'  " python folding
@@ -488,7 +485,7 @@ if &runtimepath =~? 'ale'
     \ '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
   let g:ale_javascript_eslint_options = '--parser="babel-eslint" --plugin="react"'
   let g:ale_python_black_executable = expand('$PYTHON3_VENV_DIR/bin/black')
-  let g:ale_python_black_options = '--line-length 88 -S'
+  " let g:ale_python_black_options = '--line-length 88 -S'
   " -- flake8 error codes -- "
   " mcCabe, Error, pyFlakes, Warning, Bugbear, Naming
   " E203 = spaces around ':' for slices
@@ -673,8 +670,7 @@ if &runtimepath =~? 'MatchTagAlways'
 endif
 
 " --- vim-polyglot ---
-let b:python_version_2 = 1
-let g:polyglot_disabled = ['helm', 'markdown']
+let g:polyglot_disabled = ['helm']
 
 " --- SimplyFold ---
 let g:SimpylFold_docstring_preview = 1
@@ -747,7 +743,7 @@ if &runtimepath =~? 'vim-easy-align'
   nnoremap ga <Plug>(EasyAlign)
 endif
 
-" --- vim-markdown ---
+" --- vim-markdown (polyglot) ---
 let g:vim_markdown_new_list_item_indent = 2
 
 " --- vim-signature ---
