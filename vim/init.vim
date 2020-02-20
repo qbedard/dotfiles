@@ -341,6 +341,7 @@ Plug 'AndrewRadev/sideways.vim'  " SidewaysLeft/SidewaysRight to swap arguments
 " Plug 'AndrewRadev/whitespaste.vim'  " auto-fix whitespace lines when pasting
 Plug 'stefandtw/quickfix-reflector.vim'  " editable quickfix
 " Plug 'kkoomen/vim-doge'  " doc generator, TODO: set mappings
+Plug 'godlygeek/tabular'  " align tabular data
 
 " ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
