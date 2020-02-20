@@ -535,6 +535,10 @@ if &runtimepath =~? 'deoplete.nvim'
   call deoplete#custom#option({
     \ 'auto_refresh_delay': 5,
     \ 'num_processes': 0,
+    \ 'omni_patterns': {
+      \ 'complete_method': 'omnifunc',
+      \ 'terraform': '[^ *\t"{=$]\w*',
+      \ },
     \ 'sources': {
       \ 'python': ['jedi'],
       \ 'javascript': ['tern'],
