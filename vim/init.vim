@@ -324,8 +324,9 @@ Plug 'tpope/vim-unimpaired'  " handy ]x/[x mappings
 " --------- Editing ---------
 Plug 'ntpeters/vim-better-whitespace'  " better whitespace stripping
 Plug 'zhimsel/vim-stay'  " persist editing state when switching buffers, etc
-Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
+" Plug 'cometsong/CommentFrame.vim'  " fancy comment title frame generator
 Plug 'tpope/vim-commentary'  " commenting shortcuts
+Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
 Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
 Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
