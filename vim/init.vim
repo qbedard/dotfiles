@@ -302,6 +302,10 @@ Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe 
 " Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
 Plug 'romainl/vim-cool'  " nohls after searching
 
+" TODO: Fidget with these guys. They're neat.
+" Plug 'camspiers/animate.vim'
+" Plug 'camspiers/lens.vim'
+
 " ---------- Tags -----------
 if executable('ctags')
   Plug 'ludovicchabant/vim-gutentags'  " manages tag files
