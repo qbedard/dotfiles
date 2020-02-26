@@ -413,17 +413,18 @@ Plug 'ervandew/supertab'  " use tab for insert completions
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 
 " --------- Preview ---------
+Plug 'suan/vim-instant-markdown'
 " Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-function! BuildMDComposer(info)
-  if a:info.status !=? 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMDComposer') }
+" function! BuildMDComposer(info)
+"   if a:info.status !=? 'unchanged' || a:info.force
+"     if has('nvim')
+"       !cargo build --release
+"     else
+"       !cargo build --release --no-default-features --features json-rpc
+"     endif
+"   endif
+" endfunction
+" Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMDComposer') }
 
 " --------- Writing ---------
 Plug 'junegunn/goyo.vim'  " no-distractions editing
@@ -645,6 +646,7 @@ let g:indentLine_fileTypeExclude = ['text', 'markdown']
 
 " --- Instant Markdown ---
 let g:instant_markdown_autostart = 0
+let g:instant_markdown_python = 1
 
 " --- jedi-vim ---
 let g:jedi#completions_enabled = 0
