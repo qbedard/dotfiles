@@ -24,3 +24,9 @@ update-vim:
 	echo "\nVim plugins updated!"
 
 update: update-brew update-omf update-tmux update-vim
+
+stow:
+	stow --target "$$HOME" config
+
+unstow:
+	stow --delete --target "$$HOME" config
