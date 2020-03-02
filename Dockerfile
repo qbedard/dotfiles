@@ -77,5 +77,5 @@ RUN cd /root/.dotfiles && make stow
 RUN nvim --headless +PlugInstall +qall
 
 WORKDIR /root
-ENV SHELL "/bin/fish"
-CMD "/bin/fish"
+ENV SHELL "/usr/bin/fish"
+CMD "/usr/bin/fish"
