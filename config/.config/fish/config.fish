@@ -161,5 +161,5 @@ and not set -q TMUX
     bash "$HOME/.local/share/nvim/site/plugged/gruvbox/gruvbox_256palette.sh"
     # attach to session "main" if it exists, otherwise create it
     # TODO: Attach only if none attached
-    exec tmux new-session -A -s main
+    # exec tmux new-session -A -s main
 end
