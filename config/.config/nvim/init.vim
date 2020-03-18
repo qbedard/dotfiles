@@ -60,8 +60,8 @@ let g:mapleader=' '
 " TODO: find out what this breaks
 " set autochdir  " automatically set working directory
 
-if executable('zsh')
-  set shell=zsh
+if executable('fish')
+  set shell=fish
 endif
 
 set hidden  " switch buffers without saving
@@ -613,6 +613,7 @@ if &runtimepath =~? 'plugged/gruvbox'
   highlight clear FoldColumn
   hi FoldColumn ctermfg=DarkGrey
   let g:gruvbox_italic = 1
+  let g:gruvbox_terminal_colors = 1
   let g:airline_theme='gruvbox'
   colorscheme gruvbox  " must come after gruvbox_italic
 endif
@@ -642,7 +643,7 @@ let g:gutentags_exclude_filetypes = [
   \ ]
 
 " --- hexokinase ---
-let g:Hexokinase_ftEnabled = ['css', 'scss']
+let g:Hexokinase_ftEnabled = ['css', 'scss', 'xml']
 
 " --- indentLine ---
 let g:indentLine_char = '│'

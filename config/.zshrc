@@ -34,7 +34,7 @@ test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_int
 
 # --- the real business ---
 # TODO: Find a way to make this dynamic
-source "$HOME/.dotfiles/shell/common.sh"
+source "$HOME/.common.sh"
 
 # --- direnv ---
 if hash direnv 2>/dev/null; then
