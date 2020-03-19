@@ -129,8 +129,8 @@ export EDITOR="$VISUAL"
 
 # use rg with fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-# TODO: modify this to include directories
-export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_CTRL_T_COMMAND='fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv"'
+export FZF_ALT_C_COMMAND='fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
 
 # --- python ---
 export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
