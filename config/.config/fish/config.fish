@@ -139,16 +139,21 @@ end
 function __fzf_either_preview -a file
     if test -d $file
         __fzf_dir_preview $file
-    else
+    else if test -e $file
         __fzf_file_preview $file
     end
 end
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FZF_DEFAULT_OPTS='--preview "__fzf_either_preview {}"'
 export FZF_CTRL_T_COMMAND='fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv"'
+export FZF_CTRL_T_OPTS='--preview "__fzf_either_preview {}"'
 export FZF_ALT_C_COMMAND='fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
 export FZF_ALT_C_OPTS='--preview "__fzf_dir_preview {}"'
+export FZF_OPEN_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_OPEN_OPTS='--height 40% --reverse'
+
+# for some reason, this isn't getting set via omf
+bind \co '__fzf_open --editor'
 
 function fco -d "Fuzzy-find and checkout a branch"
     git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
