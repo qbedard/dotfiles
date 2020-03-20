@@ -127,10 +127,32 @@ abbr -a vss "vagrant ssh"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# use rg with fzf
+# fzf
+function __fzf_file_preview -a file
+    bat --line-range :100 --color=always $file
+end
+
+function __fzf_dir_preview -a dir
+    exa --tree --level 1 --all --color=always $dir
+end
+
+function __fzf_either_preview -a file
+    if test -d $file
+        __fzf_dir_preview $file
+    else
+        __fzf_file_preview $file
+    end
+end
+
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_OPTS='--preview "__fzf_either_preview {}"'
 export FZF_CTRL_T_COMMAND='fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv"'
 export FZF_ALT_C_COMMAND='fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
+export FZF_ALT_C_OPTS='--preview "__fzf_dir_preview {}"'
+
+function fco -d "Fuzzy-find and checkout a branch"
+    git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
+end
 
 # --- python ---
 export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
