@@ -127,6 +127,10 @@ abbr -a vss "vagrant ssh"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+# bat
+# use bat as man pager
+export MANPAGER="sh -c 'col -bx | bat --language man --plain'"
+
 # fzf
 function __fzf_file_preview -a file
     bat --line-range :100 --color=always $file
