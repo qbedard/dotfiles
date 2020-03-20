@@ -150,7 +150,7 @@ export FZF_CTRL_T_OPTS='--preview "__fzf_either_preview {}"'
 export FZF_ALT_C_COMMAND='fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
 export FZF_ALT_C_OPTS='--preview "__fzf_dir_preview {}"'
 export FZF_OPEN_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_OPEN_OPTS='--height 40% --reverse'
+export FZF_OPEN_OPTS='--height 40% --reverse --preview "__fzf_file_preview {}"'
 
 # for some reason, this isn't getting set via omf
 bind \co '__fzf_open --editor'
