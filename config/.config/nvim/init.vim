@@ -610,13 +610,17 @@ let g:goyo_height = '100%'
 
 " --- gruvbox ---
 if &runtimepath =~? 'plugged/gruvbox'
-  highlight clear SignColumn
-  highlight clear FoldColumn
-  hi FoldColumn ctermfg=DarkGrey
   let g:gruvbox_italic = 1
+  let g:gruvbox_sign_column='bg0'
   let g:gruvbox_terminal_colors = 1
   let g:airline_theme='gruvbox'
+
   colorscheme gruvbox  " must come after gruvbox_italic
+
+  " match the fold column colors to the line number column
+  " must come after colorscheme gruvbox
+  highlight clear FoldColumn
+  highlight! link FoldColumn LineNr
 endif
 
 " --- gruvbox8 ---
