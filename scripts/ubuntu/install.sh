@@ -16,7 +16,7 @@ echo 'deb http://download.opensuse.org/repositories/shells:/zsh-users:/zsh-compl
 echo "Updating apt-get..."
 sudo apt-get update
 
-# TODO: Updaet to match mac install as closely as possible
+# TODO: Update to match mac install as closely as possible
 echo "Installing packages..."
 PACKAGES=(
     alacritty
