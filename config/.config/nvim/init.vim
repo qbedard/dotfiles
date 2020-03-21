@@ -771,9 +771,10 @@ let g:SignatureMarkTextHLDynamic = 1
 " --- vim-signify ---
 if &runtimepath =~? 'vim-signify'
   set signcolumn=yes
-  " let g:signify_sign_add          = '│'
-  " let g:signify_sign_change       = '│'
-  let g:signify_sign_change       = '~'
+  let g:signify_sign_change = '~'
+  highlight! link SignifySignChange GruvboxBlueSign
+
+  " nifty hunk motions
   omap ic <plug>(signify-motion-inner-pending)
   xmap ic <plug>(signify-motion-inner-visual)
   omap ac <plug>(signify-motion-outer-pending)
