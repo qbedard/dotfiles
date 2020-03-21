@@ -6,7 +6,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" \
 RUN apk --update-cache upgrade && \
     apk add \
         # keeps fish/py3-pip completions from halting build
-        --force-overwrite \ 
+        --force-overwrite \
         bash \
         bat \
         cargo \
