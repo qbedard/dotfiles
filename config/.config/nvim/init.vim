@@ -418,7 +418,8 @@ Plug 'ervandew/supertab'  " use tab for insert completions
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 
 " --------- Preview ---------
-Plug 'suan/vim-instant-markdown'
+Plug 'iamcco/markdown-preview.nvim', {'do': ':call mkdp#util#install()'}
+" Plug 'suan/vim-instant-markdown'
 " Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 " function! BuildMDComposer(info)
 "   if a:info.status !=? 'unchanged' || a:info.force
