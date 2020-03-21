@@ -12,24 +12,18 @@ set -g theme_date_format "+%a %b %d %l:%M%p"
 # disable greeting
 function fish_greeting; end
 
-if functions -q fzf_key_bindings
-    fzf_key_bindings
-end
-
 # ----- PATH ----- #
-# add openssl to path for compilers
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
-# add python3 bins to PATH
-export PATH="$HOME/Library/Python/3.7/bin:$PATH"
-# add poetry to PATH
-export PATH="$HOME/.poetry/bin:$PATH"
-# add ruby gems to path
-export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
-# add rust tools to path
-export PATH="$HOME/.cargo/bin:$PATH"
+set -gp fish_user_paths "$HOME/bin"  # custom binarys
+set -gp fish_user_paths "$HOME/Library/Python/3.7/bin"  # python3
+set -gp fish_user_paths "$HOME/.poetry/bin"  # poetry
+set -gp fish_user_paths "/usr/local/opt/ruby/bin"  # ruby
+set -gp fish_user_paths "/usr/local/lib/ruby/gems/2.7.0/bin"  # ruby gems
+set -gp fish_user_paths "$HOME/.cargo/bin"  # rust
 
-set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
+
+# add openssl for compilers
+set -gx LDFLAGS "-L/usr/local/opt/openssl/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/openssl/include"
 
 # ----- Aliases ----- #
 # TODO: Test these
@@ -41,7 +35,7 @@ alias vim "nvim"
 alias ls "exa --group-directories-first"
 alias cat "bat"
 
-alias rg='rg --smart-case'
+alias rg 'rg --smart-case'
 
 alias glog "git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
@@ -124,12 +118,12 @@ abbr -a vss "vagrant ssh"
 
 # ----- Misc ----- #
 # vim
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+set -gx VISUAL nvim
+set -gx EDITOR "$VISUAL"
 
 # bat
 # use bat as man pager
-export MANPAGER="sh -c 'col -bx | bat --language man --plain'"
+set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
 
 # fzf
 function __fzf_file_preview -a file
@@ -148,23 +142,25 @@ function __fzf_either_preview -a file
     end
 end
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FZF_CTRL_T_COMMAND='fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv"'
-export FZF_CTRL_T_OPTS='--preview "__fzf_either_preview {}"'
-export FZF_ALT_C_COMMAND='fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
-export FZF_ALT_C_OPTS='--preview "__fzf_dir_preview {}"'
-export FZF_OPEN_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_OPEN_OPTS='--height 40% --reverse --preview "__fzf_file_preview {}"'
+set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+set -gx FZF_CTRL_T_COMMAND 'fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv"'
+set -gx FZF_CTRL_T_OPTS '--preview "__fzf_either_preview {}"'
+set -gx FZF_ALT_C_COMMAND 'fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
+set -gx FZF_ALT_C_OPTS '--preview "__fzf_dir_preview {}"'
+set -gx FZF_OPEN_COMMAND $FZF_DEFAULT_COMMAND
+set -gx FZF_OPEN_OPTS '--height 40% --reverse --preview "__fzf_file_preview {}"'
 
 # for some reason, this isn't getting set via omf
 bind \co '__fzf_open --editor'
+# try this out too
+bind \ce '__fzf_open --editor'
 
 function fco -d "Fuzzy-find and checkout a branch"
     git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
 end
 
 # --- python ---
-export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
+set -gx PYTHONDONTWRITEBYTECODE 1  # prevent .pyc files
 
 # --- direnv ---
 direnv hook fish | source
