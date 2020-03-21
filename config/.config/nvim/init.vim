@@ -351,7 +351,8 @@ Plug 'godlygeek/tabular'  " align tabular data
 " ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
 Plug 'tpope/vim-rhubarb'  " GitHub support for fugitive
-Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
+" Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
+Plug 'mhinz/vim-signify'
 Plug 'junegunn/gv.vim'  " badass commit browser
 Plug 'sodapopcan/vim-twiggy'  " branch manager
 Plug 'APZelos/blamer.nvim'  " inline blame (virtual text)
@@ -766,3 +767,15 @@ let g:vim_markdown_new_list_item_indent = 2
 
 " --- vim-signature ---
 let g:SignatureMarkTextHLDynamic = 1
+
+" --- vim-signify ---
+if &runtimepath =~? 'vim-signify'
+  set signcolumn=yes
+  " let g:signify_sign_add          = '│'
+  " let g:signify_sign_change       = '│'
+  let g:signify_sign_change       = '~'
+  omap ic <plug>(signify-motion-inner-pending)
+  xmap ic <plug>(signify-motion-inner-visual)
+  omap ac <plug>(signify-motion-outer-pending)
+  xmap ac <plug>(signify-motion-outer-visual)
+endif
