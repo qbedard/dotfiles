@@ -61,7 +61,7 @@ let g:mapleader=' '
 " set autochdir  " automatically set working directory
 
 if executable('fish')
-  set shell=fish
+  set shell=fish  " only needed for vim
 endif
 
 set hidden  " switch buffers without saving
@@ -138,6 +138,8 @@ endif
 set noshowmode  " hide the mode (airline will show instead)
 
 set termguicolors  " true color support
+let $NVIM_TERM = 1
+
 set guioptions=  " remove scrollbars, etc
 
 set cursorline
@@ -613,7 +615,6 @@ let g:goyo_height = '100%'
 if &runtimepath =~? 'plugged/gruvbox'
   let g:gruvbox_italic = 1
   let g:gruvbox_sign_column='bg0'
-  let g:gruvbox_terminal_colors = 1
   let g:airline_theme='gruvbox'
 
   colorscheme gruvbox  " must come after gruvbox_italic

@@ -5,6 +5,13 @@
 #     curl -L https://get.oh-my.fish | fish
 # end
 
+# fix stupid neovim COLORTERM issue
+# Note: This only solves the issue for things that happen after config.fish is loaded.
+#    Anything before will still be borked color-wise.
+# if test $NVIM_TERM
+#     set -gx COLORTERM truecolor
+# end
+
 set theme_color_scheme gruvbox
 set -g theme_nerd_fonts yes
 set -g theme_date_format "+%a %b %d %l:%M%p"
@@ -19,7 +26,6 @@ set -gp fish_user_paths "$HOME/.poetry/bin"  # poetry
 set -gp fish_user_paths "/usr/local/opt/ruby/bin"  # ruby
 set -gp fish_user_paths "/usr/local/lib/ruby/gems/2.7.0/bin"  # ruby gems
 set -gp fish_user_paths "$HOME/.cargo/bin"  # rust
-
 
 # add openssl for compilers
 set -gx LDFLAGS "-L/usr/local/opt/openssl/lib"
