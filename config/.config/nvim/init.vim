@@ -388,7 +388,6 @@ Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 
 " Misc "
 Plug 'tmux-plugins/vim-tmux'  " tmux.conf syntax
-Plug 'ekalinin/Dockerfile.vim'  " Dockerfile support
 Plug 'tpope/vim-liquid'  " jekyll templates
 
 " --------- Linting ---------
