@@ -5,13 +5,6 @@
 #     curl -L https://get.oh-my.fish | fish
 # end
 
-# fix stupid neovim COLORTERM issue
-# Note: This only solves the issue for things that happen after config.fish is loaded.
-#    Anything before will still be borked color-wise.
-# if test $NVIM_TERM
-#     set -gx COLORTERM truecolor
-# end
-
 set theme_color_scheme gruvbox
 set -g theme_nerd_fonts yes
 set -g theme_date_format "+%a %b %d %l:%M%p"
