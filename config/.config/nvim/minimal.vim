@@ -1,5 +1,6 @@
 "---------------------------------- General ----------------------------------"
 set noshowmode
+set number
 set signcolumn=yes
 inoremap jj <Esc>
 nnoremap ; :
@@ -27,9 +28,24 @@ filetype off
 call plug#begin('$DATA_DIR/site/plugged')
 
 " plugins
+Plug 'morhetz/gruvbox'  " excellent theme
 
 call plug#end()
 filetype plugin indent on
 
 "----------------------------- Configure Plugins -----------------------------"
 " plugin config
+
+" --- gruvbox ---
+if &runtimepath =~? 'plugged/gruvbox'
+  let g:gruvbox_italic = 1
+  let g:gruvbox_sign_column='bg0'
+  let g:airline_theme='gruvbox'
+
+  colorscheme gruvbox  " must come after gruvbox_italic
+
+  " match the fold column colors to the line number column
+  " must come after colorscheme gruvbox
+  highlight clear FoldColumn
+  highlight! link FoldColumn LineNr
+endif
