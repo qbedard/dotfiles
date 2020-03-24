@@ -394,7 +394,7 @@ Plug 'tpope/vim-liquid'  " jekyll templates
 Plug 'dense-analysis/ale'  " linting/building
 
 " ------- Completion --------
-  Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 if !has('nvim')
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
