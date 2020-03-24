@@ -268,8 +268,8 @@ xnoremap < <gv
 xnoremap > >gv
 
 "-------------------------------- Completion ---------------------------------"
-" <CR> to select completion
-inoremap <expr> <CR> pumvisible() ? '\<C-y>' : '\<C-g>u\<CR>'
+" <CR> to select completion (must be double quotes!)
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "-----------------------------------------------------------------------------"
 "                                   Plugins                                   "
