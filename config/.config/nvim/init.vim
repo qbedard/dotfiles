@@ -145,7 +145,6 @@ set guioptions=  " remove scrollbars, etc
 set cursorline
 " set lazyredraw  " causes flickering
 
-set t_Co=256  " terminal colors
 set background=dark
 
 augroup win_resize
@@ -201,6 +200,7 @@ cnoreabbrev vrr :source $MYVIMRC
 "-----------------------------------------------------------------------------"
 "                                  Mappings                                   "
 "-----------------------------------------------------------------------------"
+
 "--------------------------------- Navigation --------------------------------"
 " faster exiting from insert mode (-noremap to allow for abbrevs to work)
 imap jj <Esc>
@@ -269,7 +269,7 @@ xnoremap > >gv
 
 "-------------------------------- Completion ---------------------------------"
 " <CR> to select completion
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? '\<C-y>' : '\<C-g>u\<CR>'
 
 "-----------------------------------------------------------------------------"
 "                                   Plugins                                   "
@@ -468,6 +468,7 @@ if &runtimepath =~? 'ale'
 
   " General
   let g:airline#extensions#ale#enabled = 1
+  " set omnifunc=ale#completion#OmniFunc
   " let g:ale_completion_enabled = 1
   " let g:ale_set_balloons = 1
   " let g:ale_set_highlights = 0
@@ -496,12 +497,14 @@ if &runtimepath =~? 'ale'
   let g:ale_javascript_eslint_options = '--parser="babel-eslint" --plugin="react"'
   let g:ale_python_black_executable = expand('$PYTHON3_VENV_DIR/bin/black')
   " let g:ale_python_black_options = '--line-length 88 -S'
-  " -- flake8 error codes -- "
-  " mcCabe, Error, pyFlakes, Warning, Bugbear, Naming
-  " E203 = spaces around ':' for slices
-  " E501 = line length
-  " W503 = line break before binary operator
-  " B950 = >10% line length
+  " /----- flake8 error codes -----------------\"
+  " | mcCabe, Error, pyFlakes, Warning,        |
+  " |   Bugbear, Naming                        |
+  " | E203 = spaces around ':' for slices      |
+  " | E501 = line length                       |
+  " | W503 = line break before binary operator |
+  " | B950 = >10% line length                  |
+  " \------------------------------------------/
   let g:ale_python_flake8_options =
     \ '--ignore=E203,E501,W503 ' .
     \ '--max-complexity=15 ' .
@@ -521,10 +524,6 @@ if &runtimepath =~? 'ale'
       \ 'document-start: {present: false}, ' .
       \ 'indentation: {indent-sequences: consistent}' .
     \ '}}"'
-
-  " Completion
-  " let g:ale_completion_enabled = 1
-  " set omnifunc=ale#completion#OmniFunc
 endif
 
 " --- auto-pairs ---
@@ -552,7 +551,7 @@ if &runtimepath =~? 'deoplete.nvim'
       \ 'python': ['jedi'],
       \ 'javascript': ['tern'],
       \ 'javascript.jsx': ['tern']
-    \ }
+      \ }
     \ })
 endif
 
@@ -593,7 +592,6 @@ if &runtimepath =~? 'fzf.vim'
 
   " don't highlight the current line and selection column
   let g:fzf_colors = {'bg+': ['bg', 'Normal']}
-
 endif
 
 " --- GitGutter ---
@@ -626,16 +624,16 @@ endif
 
 " --- gruvbox8 ---
 if &runtimepath =~? 'vim-gruvbox8'
-  colorscheme gruvbox8
-
-  highlight clear SignColumn
-  highlight clear FoldColumn
-  hi FoldColumn ctermfg=DarkGrey
-  " let g:gruvbox_italic = 1
   let g:airline_theme='gruvbox'
-
   let g:gruvbox_filetype_hi_groups = 1
   let g:gruvbox_plugin_hi_groups = 1
+
+  colorscheme gruvbox8
+
+  " match the fold column colors to the line number column
+  " must come after colorscheme gruvbox
+  highlight clear FoldColumn
+  highlight! link FoldColumn LineNr
 endif
 
 " --- Gutentags ---
@@ -713,7 +711,7 @@ let g:vimwiki_list = [
     \ 'automatic_nested_syntaxes': 1,
     \ 'index': 'home',
     \ 'links_space_char': '-'
-  \ },
+    \ },
   \ {
     \ 'path': '~/.vimwiki-personal',
     \ 'syntax': 'markdown', 'ext': '.md',
@@ -721,7 +719,8 @@ let g:vimwiki_list = [
     \ 'automatic_nested_syntaxes': 1,
     \ 'index': 'home',
     \ 'links_space_char': '-'
-  \ }]
+    \ }
+  \ ]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_auto_chdir = 1
 let g:vimwiki_hl_headers = 1
