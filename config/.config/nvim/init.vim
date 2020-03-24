@@ -402,22 +402,23 @@ Plug 'tmux-plugins/vim-tmux'  " tmux.conf syntax
 Plug 'tpope/vim-liquid'  " jekyll templates
 
 " --------- Linting ---------
-Plug 'dense-analysis/ale'  " linting/building
+" Plug 'dense-analysis/ale'  " linting/building
 
 " ------- Completion --------
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-if !has('nvim')
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'Shougo/neco-vim'  " VimL
-Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
-Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
-" Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}  " machine learning autocompletion
-Plug 'carlitux/deoplete-ternjs', {'do': 'yarn global add tern'}  " js autocompletion
+Plug 'neovim/nvim-lsp'
+" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+" if !has('nvim')
+  " Plug 'roxma/nvim-yarp'
+  " Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" Plug 'Shougo/neco-vim'  " VimL
+" Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
+" Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
+" " Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}  " machine learning autocompletion
+" Plug 'carlitux/deoplete-ternjs', {'do': 'yarn global add tern'}  " js autocompletion
 " Plug 'Shougo/echodoc.vim'  " show func sig
 
-Plug 'davidhalter/jedi-vim'  " python completion
+" Plug 'davidhalter/jedi-vim'  " python completion
 
 " TODO: put together a decent setup for this
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
@@ -743,6 +744,27 @@ let g:envelop_python3_packages = [
   \ 'python-language-server[all]',
   \ 'vim-vint',
   \ ]
+
+" --- nvim-lsp ---
+if &runtimepath =~? 'nvim-lsp'
+lua << EOF
+require'nvim_lsp'.bashls.setup{}
+require'nvim_lsp'.pyls.setup{}
+require'nvim_lsp'.vimls.setup{}
+EOF
+  nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+  nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+  nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+  nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+  nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+  nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+  nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+
+  " Use LSP omni-completion in Python files.
+  autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+  autocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
+endif
 
 " --- vim-polyglot ---
 let g:polyglot_disabled = ['helm']
