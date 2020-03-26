@@ -406,15 +406,15 @@ Plug 'tpope/vim-liquid'  " jekyll templates
 
 " ------- Completion --------
 Plug 'neovim/nvim-lsp'
-" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-" if !has('nvim')
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" Plug 'Shougo/deoplete-lsp'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+if !has('nvim')
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/deoplete-lsp'
 " Plug 'Shougo/neco-vim'  " VimL
 " Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
-" Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
+Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
 " " Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}  " machine learning autocompletion
 " Plug 'carlitux/deoplete-ternjs', {'do': 'yarn global add tern'}  " js autocompletion
 " Plug 'Shougo/echodoc.vim'  " show func sig
@@ -533,7 +533,7 @@ if &runtimepath =~? 'deoplete.nvim'
       \ 'terraform': '[^ *\t"{=$]\w*',
       \ },
     \ 'sources': {
-      \ 'python': ['jedi'],
+      \ 'python': ['lsp'],
       \ 'javascript': ['tern'],
       \ 'javascript.jsx': ['tern']
       \ }
