@@ -37,14 +37,13 @@ if has('nvim')
   let $VENV_DIR = expand('$DATA_DIR/venv')
   let $PYTHON2_VENV_DIR = expand('$VENV_DIR/python2')
   let $PYTHON3_VENV_DIR = expand('$VENV_DIR/python3')
-  " TODO: automate creation of venvs
-  if isdirectory($VENV_DIR)
-    " dedicated vim venvs
-    let g:python_host_prog  = expand('$PYTHON2_VENV_DIR/bin/python')
-    let g:python3_host_prog = expand('$PYTHON3_VENV_DIR/bin/python')
-    " add python3 bins to PATH
-    let $PATH = expand('$PATH:$PYTHON3_VENV_DIR/bin')
-  endif
+  " if isdirectory($VENV_DIR)
+  "   " dedicated vim venvs
+  "   let g:python_host_prog  = expand('$PYTHON2_VENV_DIR/bin/python')
+  "   let g:python3_host_prog = expand('$PYTHON3_VENV_DIR/bin/python')
+  "   add python3 bins to PATH
+  "   let $PATH = expand('$PATH:$PYTHON3_VENV_DIR/bin')
+  " endif
 endif
 
 "------------------------------ Neovim Defaults ------------------------------"
@@ -364,6 +363,9 @@ Plug 'rhysd/git-messenger.vim'  " popup commit message for cursor (:GitMessenger
 
 " --------- Testing ---------
 Plug 'janko-m/vim-test'  " TODO: figure this out
+
+" --------- Testing ---------
+Plug 'timbedard/neovenv'  " virtualenv management
 
 " ----- Language/Syntax -----
 " General "
@@ -723,6 +725,50 @@ if &runtimepath =~? 'MatchTagAlways'
     \ 'liquid': 1,
     \ }
 endif
+
+" --- Neovenv --- "
+set pyxversion=3
+let g:neovenvs = {
+  \ 'node': {
+    \ 'commands': {
+      \ 'create': ['npm', 'init', '-y'],
+      \ 'install': ['npm', 'install'],
+      \ 'update': ['npm', 'update'],
+      \ },
+    \ 'host_prog_target': 'node_modules/.bin/neovim-node-host',
+    \ 'packages': [
+      \ 'neovim',
+      \ ],
+    \ },
+  \ 'python3': {
+    \ 'add_to_path': [
+      \ 'bin/black',
+      \ 'bin/flake8',
+      \ 'bin/isort',
+      \ 'bin/python',
+      \ 'bin/pip',
+      \ 'bin/pyls',
+      \ 'bin/vint',
+      \ ],
+    \ 'commands': {
+      \ 'create': ['python3', '-m', 'venv', '.'],
+      \ 'install': ['{vpath}bin/pip3', 'install'],
+      \ 'update': ['{vpath}bin/pip3', 'install', '--upgrade'],
+      \ },
+    \ 'host_prog_target': 'bin/python3',
+    \ 'packages': [
+      \ 'black',
+      \ 'flake8',
+      \ 'flake8-bugbear',
+      \ 'isort',
+      \ 'pep8-naming',
+      \ 'pip',
+      \ 'pynvim',
+      \ 'python-language-server[all]',
+      \ 'vint',
+      \ ],
+    \ },
+  \ }
 
 " --- vim-polyglot ---
 let g:polyglot_disabled = ['helm']
