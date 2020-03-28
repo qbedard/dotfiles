@@ -1,5 +1,5 @@
 " convert from A-space indent to B-space indent
-function! s:ConvertSpaces(from_width, to_width)
+function! s:convert_spaces(from_width, to_width)
   " convert every [from] spaces to a tab
   :let &tabstop=a:from_width
   :let &softtabstop=a:from_width
@@ -11,4 +11,4 @@ function! s:ConvertSpaces(from_width, to_width)
   :set expandtab
   :retab!
 endfunction
-command! -nargs=* ConvertSpaces :call s:ConvertSpaces(<f-args>)
+command! -nargs=* ConvertSpaces :call s:convert_spaces(<f-args>)
