@@ -745,9 +745,9 @@ let g:neovenvs = {
       \ 'bin/black',
       \ 'bin/flake8',
       \ 'bin/isort',
-      \ 'bin/python',
-      \ 'bin/pip',
+      \ 'bin/pip3',
       \ 'bin/pyls',
+      \ 'bin/python3',
       \ 'bin/vint',
       \ ],
     \ 'commands': {
