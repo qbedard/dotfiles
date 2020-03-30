@@ -499,7 +499,9 @@ if &runtimepath =~? 'ale'
   let g:ale_c_clangformat_options =
     \ '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
   let g:ale_javascript_eslint_options = '--parser="babel-eslint" --plugin="react"'
+  " TODO: fix the way these paths are retrieved
   let g:ale_python_black_executable = expand('$PYTHON3_VENV_DIR/bin/black')
+  let g:ale_python_pyls_executable = expand('$PYTHON3_VENV_DIR/bin/pyls')
   " let g:ale_python_black_options = '--line-length 88 -S'
   " /----- flake8 error codes -----------------\"
   " | mcCabe, Error, pyFlakes, Warning,        |
@@ -522,7 +524,7 @@ if &runtimepath =~? 'ale'
     \ '--section-default=THIRDPARTY ' .
     \ '--trailing-comma ' .
     \ '--use-parentheses'
-  let g:ale_python_pyls_executable = expand('$PYTHON3_VENV_DIR/bin/pyls')
+  let g:ale_vim_vint_executable = expand('$PYTHON3_VENV_DIR/bin/vint')
   let g:ale_yaml_yamllint_options =
     \ '-d "{extends: default, rules: {' .
       \ 'document-start: {present: false}, ' .
@@ -765,7 +767,7 @@ let g:neovenvs = {
       \ 'pip',
       \ 'pynvim',
       \ 'python-language-server[all]',
-      \ 'vint',
+      \ 'vim-vint',
       \ ],
     \ },
   \ }
