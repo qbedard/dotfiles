@@ -322,6 +322,8 @@ endif
 
 " --------- Motion ----------
 Plug 'christoomey/vim-tmux-navigator'  " tmux nav integration
+" TODO: adjust mappings to support this
+" Plug 'RyanMillerC/better-vim-tmux-resizer'  " resizing like vim-tmux-navigator
 Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'kshenoy/vim-signature'  " show marks in the sign column
 "Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
