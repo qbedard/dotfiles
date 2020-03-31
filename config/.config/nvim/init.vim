@@ -365,7 +365,7 @@ Plug 'rhysd/git-messenger.vim'  " popup commit message for cursor (:GitMessenger
 Plug 'janko-m/vim-test'  " TODO: figure this out
 
 " --------- Testing ---------
-Plug 'timbedard/neovenv'  " virtualenv management
+Plug 'timbedard/vim-envelop'  " virtualenv management
 
 " ----- Language/Syntax -----
 " General "
@@ -728,9 +728,9 @@ if &runtimepath =~? 'MatchTagAlways'
     \ }
 endif
 
-" --- Neovenv --- "
+" --- vim-envelop --- "
 set pyxversion=3
-let g:neovenvs = {
+let g:envelop_envs = {
   \ 'node': {
     \ 'commands': {
       \ 'create': ['npm', 'init', '-y'],
