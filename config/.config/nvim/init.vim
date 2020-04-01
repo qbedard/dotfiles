@@ -363,8 +363,9 @@ Plug 'rhysd/git-messenger.vim'  " popup commit message for cursor (:GitMessenger
 
 " --------- Testing ---------
 Plug 'janko-m/vim-test'  " TODO: figure this out
+Plug 'junegunn/vader.vim'  " TODO: figure this out
 
-" --------- Testing ---------
+" --------- Environments ---------
 Plug 'timbedard/vim-envelop'  " virtualenv management
 
 " ----- Language/Syntax -----
