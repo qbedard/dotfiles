@@ -106,7 +106,9 @@ abbr -a pe "pipenv"
 abbr -a pei "pipenv install"
 
 # --- ripgrep ---
+abbr -a rgp "rg -g '*.mako'"
 abbr -a rgp "rg -g '*.py'"
+abbr -a rgv "rg -g '*.vim'"
 abbr -a rgl "rg -l"
 
 # --- Vagrant --- #
