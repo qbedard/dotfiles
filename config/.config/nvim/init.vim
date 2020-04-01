@@ -767,8 +767,9 @@ let g:vimwiki_hl_headers = 1
 
 " --- vim-anyfold ---
 if &runtimepath =~? 'vim-anyfold'
+  let g:anyfold_motion = 0
   augroup anyfold_activate
-    autocmd! VimEnter * AnyFoldActivate
+    autocmd! Filetype * AnyFoldActivate
   augroup END
 endif
 
