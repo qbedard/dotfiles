@@ -744,7 +744,13 @@ let g:envelop_envs = {
       \ ],
     \ },
   \ 'python3': {
-    \ 'add_to_path': [
+    \ 'commands': {
+      \ 'create': ['python3', '-m', 'venv', '.'],
+      \ 'install': ['{vpath}bin/pip3', 'install'],
+      \ 'update': ['{vpath}bin/pip3', 'install', '--upgrade'],
+      \ },
+    \ 'host_prog_target': 'bin/python3',
+    \ 'link': [
       \ 'bin/black',
       \ 'bin/flake8',
       \ 'bin/isort',
@@ -753,12 +759,6 @@ let g:envelop_envs = {
       \ 'bin/python3',
       \ 'bin/vint',
       \ ],
-    \ 'commands': {
-      \ 'create': ['python3', '-m', 'venv', '.'],
-      \ 'install': ['{vpath}bin/pip3', 'install'],
-      \ 'update': ['{vpath}bin/pip3', 'install', '--upgrade'],
-      \ },
-    \ 'host_prog_target': 'bin/python3',
     \ 'packages': [
       \ 'black',
       \ 'flake8',
