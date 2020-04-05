@@ -738,7 +738,7 @@ let g:envelop_envs = {
       \ 'install': ['npm', 'install'],
       \ 'update': ['npm', 'update'],
       \ },
-    \ 'host_prog_target': 'node_modules/.bin/neovim-node-host',
+    \ 'host_prog': 'node_modules/.bin/neovim-node-host',
     \ 'packages': [
       \ 'neovim',
       \ ],
@@ -749,7 +749,7 @@ let g:envelop_envs = {
       \ 'install': ['{vpath}bin/pip3', 'install'],
       \ 'update': ['{vpath}bin/pip3', 'install', '--upgrade'],
       \ },
-    \ 'host_prog_target': 'bin/python3',
+    \ 'host_prog': 'bin/python3',
     \ 'link': [
       \ 'bin/black',
       \ 'bin/flake8',
