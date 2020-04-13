@@ -34,7 +34,8 @@ alias vim "nvim"
 alias ls "exa --group-directories-first"
 alias cat "bat"
 
-alias rg 'rg --smart-case'
+# TODO: maybe move this to a ripgreprc (pointed at by setting RIPGREP_CONFIG_PATH)
+alias rg 'rg --smart-case --max-columns 120 --max-columns-preview'
 
 alias glog "git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
