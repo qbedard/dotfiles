@@ -692,7 +692,7 @@ let g:gutentags_exclude_filetypes = [
   \ ]
 
 " --- hexokinase ---
-let g:Hexokinase_ftEnabled = ['css', 'scss', 'xml']
+let g:Hexokinase_ftEnabled = ['css', 'less', 'scss', 'xml']
 
 " --- indentLine ---
 let g:indentLine_char = '│'
