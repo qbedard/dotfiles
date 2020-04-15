@@ -32,6 +32,7 @@ endif
 let $DATA_DIR = expand('$XDG_DATA_HOME/nvim')  " ~/.local/share/nvim
 
 "----------------------------------- Python ----------------------------------"
+set pyxversion=3
 " TODO: find equivalent setting for Vim8
 if has('nvim')
   let $VENV_DIR = expand('$DATA_DIR/venv')
@@ -732,48 +733,27 @@ if &runtimepath =~? 'MatchTagAlways'
 endif
 
 " --- vim-envelop --- "
-set pyxversion=3
-let g:envelop_envs = {
-  \ 'node': {
-    \ 'commands': {
-      \ 'create': ['npm', 'init', '-y'],
-      \ 'install': ['npm', 'install'],
-      \ 'update': ['npm', 'update'],
-      \ },
-    \ 'host_prog': 'node_modules/.bin/neovim-node-host',
-    \ 'packages': [
-      \ 'neovim',
-      \ ],
-    \ },
-  \ 'python3': {
-    \ 'commands': {
-      \ 'create': ['python3', '-m', 'venv', '.'],
-      \ 'install': ['{vpath}bin/pip3', 'install'],
-      \ 'update': ['{vpath}bin/pip3', 'install', '--upgrade'],
-      \ },
-    \ 'host_prog': 'bin/python3',
-    \ 'link': [
-      \ 'bin/black',
-      \ 'bin/flake8',
-      \ 'bin/isort',
-      \ 'bin/pip3',
-      \ 'bin/pyls',
-      \ 'bin/python3',
-      \ 'bin/vint',
-      \ ],
-    \ 'packages': [
-      \ 'black',
-      \ 'flake8',
-      \ 'flake8-bugbear',
-      \ 'isort',
-      \ 'pep8-naming',
-      \ 'pip',
-      \ 'pynvim',
-      \ 'python-language-server[all]',
-      \ 'vim-vint',
-      \ ],
-    \ },
-  \ }
+let g:envelop_python3_packages = [
+  \ 'black',
+  \ 'flake8',
+  \ 'flake8-bugbear',
+  \ 'isort',
+  \ 'pep8-naming',
+  \ 'pip',
+  \ 'pynvim',
+  \ 'python-language-server[all]',
+  \ 'vim-vint',
+  \ ]
+let g:envelop_python3_link = [
+  \ 'bin/black',
+  \ 'bin/flake8',
+  \ 'bin/isort',
+  \ 'bin/pip3',
+  \ 'bin/pyls',
+  \ 'bin/python3',
+  \ 'bin/vint',
+  \ ]
+let g:envelop_python3_set_host_prog = 1
 
 " --- vim-polyglot ---
 let g:polyglot_disabled = ['helm']
