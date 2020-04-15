@@ -292,6 +292,8 @@ call plug#begin('$DATA_DIR/site/plugged')
 " 1) on-demand load, unconditional config
 " 2) always load, conditional config
 
+Plug 'junegunn/vim-plug'  " add docs
+
 " ----------- GUI -----------
 Plug 'morhetz/gruvbox'  " excellent theme
 " Plug 'lifepillar/vim-gruvbox8'  " 'better' (simpler) gruvbox
