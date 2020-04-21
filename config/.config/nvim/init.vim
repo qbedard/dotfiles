@@ -36,6 +36,7 @@ set pyxversion=3
 " TODO: find equivalent setting for Vim8
 if has('nvim')
   let $VENV_DIR = expand('$DATA_DIR/venv')
+  let $NODE_VENV_DIR = expand('$VENV_DIR/node')
   let $PYTHON2_VENV_DIR = expand('$VENV_DIR/python2')
   let $PYTHON3_VENV_DIR = expand('$VENV_DIR/python3')
   " if isdirectory($VENV_DIR)
@@ -528,6 +529,7 @@ if &runtimepath =~? 'ale'
     \ '--section-default=THIRDPARTY ' .
     \ '--trailing-comma ' .
     \ '--use-parentheses'
+  let g:ale_css_stylelint_options = '--config "' . expand('$HOME/.stylelintrc.json') . '"'
   let g:ale_vim_vint_executable = expand('$PYTHON3_VENV_DIR/bin/vint')
   let g:ale_yaml_yamllint_options =
     \ '-d "{extends: default, rules: {' .

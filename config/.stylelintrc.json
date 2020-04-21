@@ -1,0 +1,3 @@
+{
+  "extends": "/Users/tim/.local/share/nvim/venv/node/node_modules/stylelint-config-standard"
+}
