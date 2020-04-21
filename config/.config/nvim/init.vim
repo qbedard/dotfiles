@@ -733,6 +733,21 @@ if &runtimepath =~? 'MatchTagAlways'
 endif
 
 " --- vim-envelop --- "
+let g:envelop_node_link = ['/node_modules/.bin/stylelint']
+let g:envelop_node_packages = [
+  \ 'neovim',
+  \ 'stylelint',
+  \ 'stylelint-config-standard',
+  \ ]
+let g:envelop_python3_link = [
+  \ 'bin/black',
+  \ 'bin/flake8',
+  \ 'bin/isort',
+  \ 'bin/pip3',
+  \ 'bin/pyls',
+  \ 'bin/python3',
+  \ 'bin/vint',
+  \ ]
 let g:envelop_python3_packages = [
   \ 'black',
   \ 'flake8',
@@ -744,16 +759,6 @@ let g:envelop_python3_packages = [
   \ 'python-language-server[all]',
   \ 'vim-vint',
   \ ]
-let g:envelop_python3_link = [
-  \ 'bin/black',
-  \ 'bin/flake8',
-  \ 'bin/isort',
-  \ 'bin/pip3',
-  \ 'bin/pyls',
-  \ 'bin/python3',
-  \ 'bin/vint',
-  \ ]
-let g:envelop_python3_set_host_prog = 1
 
 " --- vim-polyglot ---
 let g:polyglot_disabled = ['helm']
