@@ -128,6 +128,7 @@ set -gx EDITOR "$VISUAL"
 set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
 
 # fzf
+
 function __fzf_file_preview -a file
     bat --line-range :100 --color=always $file
 end
@@ -157,6 +158,13 @@ bind \co '__fzf_open --editor'
 # try this out too
 bind \ce '__fzf_open --editor'
 
+bind \cg\cd __gd
+bind \cg\cb __gb
+bind \cg\ct __gt
+bind \cg\ch __gh
+bind \cg\cr __gr
+bind \cg\cs __gs
+
 function fco -d "Fuzzy-find and checkout a branch"
     git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
 end
@@ -166,23 +174,6 @@ set -gx PYTHONDONTWRITEBYTECODE 1  # prevent .pyc files
 
 # --- direnv ---
 direnv hook fish | source
-
-# color test
-function colortest
-    awk 'BEGIN{
-        s="/\\\\/\\\\/\\\\/\\\\/\\\\"; s=s s s s s s s s;
-        for (colnum = 0; colnum<77; colnum++) {
-            r = 255-(colnum*255/76);
-            g = (colnum*510/76);
-            b = (colnum*255/76);
-            if (g>255) g = 510-g;
-            printf "\033[48;2;%d;%d;%dm", r,g,b;
-            printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
-            printf "%s\033[0m", substr(s,colnum+1,1);
-        }
-        printf "\n";
-    }'
-end
 
 if status is-interactive
 and not set -q TMUX
