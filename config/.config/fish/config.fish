@@ -158,12 +158,12 @@ bind \co '__fzf_open --editor'
 # try this out too
 bind \ce '__fzf_open --editor'
 
-bind \cg\cd __gd
-bind \cg\cb __gb
-bind \cg\ct __gt
-bind \cg\ch __gh
-bind \cg\cr __gr
-bind \cg\cs __gs
+bind \cg\cd __fzf_git_diff_file
+bind \cg\cb __fzf_git_branch
+bind \cg\ct __fzf_git_tag
+bind \cg\ch __fzf_git_commit_hash
+bind \cg\cr __fzf_git_remote
+bind \cg\cs __fzf_git_stash
 
 function fco -d "Fuzzy-find and checkout a branch"
     git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
