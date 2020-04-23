@@ -2,7 +2,7 @@
 
 # Oh My Fish
 # if not functions -q omf
-#     curl -L https://get.oh-my.fish | fish
+#   curl -L https://get.oh-my.fish | fish
 # end
 
 set theme_color_scheme gruvbox
@@ -130,19 +130,19 @@ set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
 # fzf
 
 function __fzf_file_preview -a file
-    bat --line-range :100 --color=always $file
+  bat --line-range :100 --color=always $file
 end
 
 function __fzf_dir_preview -a dir
-    exa --tree --level 1 --all --color=always $dir
+  exa --tree --level 1 --all --color=always $dir
 end
 
 function __fzf_either_preview -a file
-    if test -d $file
-        __fzf_dir_preview $file
-    else if test -e $file
-        __fzf_file_preview $file
-    end
+  if test -d $file
+    __fzf_dir_preview $file
+  else if test -e $file
+    __fzf_file_preview $file
+  end
 end
 
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
@@ -166,7 +166,7 @@ bind \cg\cr __fzf_git_remote
 bind \cg\cs __fzf_git_stash
 
 function fco -d "Fuzzy-find and checkout a branch"
-    git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
+  git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
 end
 
 # --- python ---
@@ -177,9 +177,9 @@ direnv hook fish | source
 
 if status is-interactive
 and not set -q TMUX
-    # TODO: Find out why the hell this borks fzf when not inside this conditional
-    bash "$HOME/.local/share/nvim/site/plugged/gruvbox/gruvbox_256palette.sh"
-    # attach to session "main" if it exists, otherwise create it
-    # TODO: Attach only if none attached
-    # exec tmux new-session -A -s main
+  # TODO: Find out why the hell this borks fzf when not inside this conditional
+  bash "$HOME/.local/share/nvim/site/plugged/gruvbox/gruvbox_256palette.sh"
+  # attach to session "main" if it exists, otherwise create it
+  # TODO: Attach only if none attached
+  # exec tmux new-session -A -s main
 end
