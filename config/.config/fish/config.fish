@@ -32,7 +32,7 @@ alias v "nvim"
 alias vi "nvim"
 alias vim "nvim"
 
-alias ls "exa --group-directories-first"
+alias ls "exa --group-directories-first --icons"
 alias cat "bat"
 
 # TODO: maybe move this to a ripgreprc (pointed at by setting RIPGREP_CONFIG_PATH)
@@ -135,7 +135,7 @@ function __fzf_file_preview -a file
 end
 
 function __fzf_dir_preview -a dir
-  exa --tree --level 1 --all --color=always $dir
+  exa --tree --level 1 --all --icons --color=always $dir
 end
 
 function __fzf_either_preview -a file
