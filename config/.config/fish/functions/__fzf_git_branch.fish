@@ -6,9 +6,9 @@ function __fzf_git_branch
   set -l fzf_query $commandline[2]
 
 # TODO: Confirm that this shows remote branches.
-  git branch --color=always --sort committerdate | grep -v '/HEAD\s' --color=always |
+  git branch --all --color=always --sort committerdate | grep -v '/HEAD\s' --color=always |
   sed 's/^..//' | cut -d' ' -f1 |
-  # sed 's#remotes/##' |
+  sed 's#remotes/##' |
   fzf --height=50% --reverse --ansi --multi --tac --preview-window right:70% \
     --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" (echo {} | sed s/^..// | cut -d" " -f1) | head -200' \
     --query $fzf_query |
