@@ -1,2 +1,2 @@
-" enable ale linters/fixers
+" ALE
 let b:ale_fixers = {'sql': ['sqlfmt']}

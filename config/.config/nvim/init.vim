@@ -499,43 +499,6 @@ if &runtimepath =~? 'ale'
   let g:ale_sign_error = '✖'
   let g:ale_sign_warning = '⚠'
   let g:ale_sign_info = '➤'
-
-  " Linters
-  let g:ale_c_clangformat_options =
-    \ '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
-  let g:ale_javascript_eslint_options = '--parser="babel-eslint" --plugin="react"'
-  " TODO: fix the way these paths are retrieved
-  let g:ale_python_black_executable = expand('$PYTHON3_VENV_DIR/bin/black')
-  let g:ale_python_pyls_executable = expand('$PYTHON3_VENV_DIR/bin/pyls')
-  " let g:ale_python_black_options = '--line-length 88 -S'
-  " /----- flake8 error codes -----------------\"
-  " | mcCabe, Error, pyFlakes, Warning,        |
-  " |   Bugbear, Naming                        |
-  " | E203 = spaces around ':' for slices      |
-  " | E501 = line length                       |
-  " | W503 = line break before binary operator |
-  " | B950 = >10% line length                  |
-  " \------------------------------------------/
-  let g:ale_python_flake8_options =
-    \ '--ignore=E203,E501,W503 ' .
-    \ '--max-complexity=15 ' .
-    \ '--max-line-length=80 ' .
-    \ '--select=C,E,F,W,B,N '
-  let g:ale_python_isort_options =
-    \ '--force-grid-wrap=0 ' .
-    \ '--line-width=80 ' .
-    \ '--lines-after-imports=2 ' .
-    \ '--multi-line=3 ' .
-    \ '--section-default=THIRDPARTY ' .
-    \ '--trailing-comma ' .
-    \ '--use-parentheses'
-  let g:ale_css_stylelint_options = '--config "' . expand('$HOME/.stylelintrc.json') . '"'
-  let g:ale_vim_vint_executable = expand('$PYTHON3_VENV_DIR/bin/vint')
-  let g:ale_yaml_yamllint_options =
-    \ '-d "{extends: default, rules: {' .
-      \ 'document-start: {present: false}, ' .
-      \ 'indentation: {indent-sequences: consistent}' .
-    \ '}}"'
 endif
 
 " --- auto-pairs ---
@@ -735,9 +698,13 @@ if &runtimepath =~? 'MatchTagAlways'
 endif
 
 " --- vim-envelop --- "
-let g:envelop_node_link = ['/node_modules/.bin/stylelint']
+let g:envelop_node_link = [
+  \ '/node_modules/.bin/prettier',
+  \ '/node_modules/.bin/stylelint',
+  \ ]
 let g:envelop_node_packages = [
   \ 'neovim',
+  \ 'prettier',
   \ 'stylelint',
   \ 'stylelint-config-standard',
   \ ]

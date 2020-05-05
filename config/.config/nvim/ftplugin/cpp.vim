@@ -1,2 +1,2 @@
-" enable ale linters
+" ALE
 let b:ale_linters = {'cpp': ['clang','clangtidy', 'gcc']}
