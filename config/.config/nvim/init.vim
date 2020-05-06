@@ -699,10 +699,12 @@ endif
 
 " --- vim-envelop --- "
 let g:envelop_node_link = [
+  \ '/node_modules/.bin/eslint',
   \ '/node_modules/.bin/prettier',
   \ '/node_modules/.bin/stylelint',
   \ ]
 let g:envelop_node_packages = [
+  \ 'eslint',
   \ 'neovim',
   \ 'prettier',
   \ 'stylelint',
