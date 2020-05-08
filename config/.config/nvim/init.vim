@@ -331,6 +331,7 @@ Plug 'easymotion/vim-easymotion'  " fast finding tool
 Plug 'kshenoy/vim-signature'  " show marks in the sign column
 "Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
 Plug 'tpope/vim-unimpaired'  " handy ]x/[x mappings
+Plug 'unblevable/quick-scope'  " highlight unique letters in words for f/t
 
 " --------- Editing ---------
 Plug 'ntpeters/vim-better-whitespace'  " better whitespace stripping
@@ -696,6 +697,9 @@ if &runtimepath =~? 'MatchTagAlways'
     \ 'liquid': 1,
     \ }
 endif
+
+" --- vim-envelop --- "
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " --- vim-envelop --- "
 let g:envelop_node_link = [
