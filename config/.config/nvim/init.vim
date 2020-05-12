@@ -306,6 +306,7 @@ Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
 " Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
 Plug 'romainl/vim-cool'  " nohls after searching
+" Plug 'liuchengxu/vim-which-key'  " show key bindings while typing  TODO: set up
 
 " TODO: Fidget with these guys. They're neat.
 " Plug 'camspiers/animate.vim'
