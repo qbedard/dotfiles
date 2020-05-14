@@ -425,7 +425,7 @@ Plug 'haorenW1025/completion-nvim'
 " TODO: put together a decent setup for this
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
-Plug 'ervandew/supertab'  " use tab for insert completions
+" Plug 'ervandew/supertab'  " use tab for insert completions
 
 " -------- Snippets ---------
 " Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
@@ -749,11 +749,12 @@ let g:envelop_python3_packages = [
 
 " --- nvim-lsp ---
 if &runtimepath =~? 'nvim-lsp'
-  lua require'nvim_lsp'.bashls.setup{}
-  lua require'nvim_lsp'.pyls.setup{}
-  lua require'nvim_lsp'.vimls.setup{}
-  " lua require'nvim_lsp'.pyls.setup{on_attach=require'completion'.on_attach}
-  " lua require'nvim_lsp'.vimls.setup{on_attach=require'completion'.on_attach}
+  " lua require'nvim_lsp'.bashls.setup{}
+  " lua require'nvim_lsp'.pyls.setup{}
+  " lua require'nvim_lsp'.vimls.setup{}
+  lua require'nvim_lsp'.bashls.setup{on_attach=require'completion'.on_attach}
+  lua require'nvim_lsp'.pyls.setup{on_attach=require'completion'.on_attach}
+  lua require'nvim_lsp'.vimls.setup{on_attach=require'completion'.on_attach}
   nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
   nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
   " nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -766,6 +767,28 @@ if &runtimepath =~? 'nvim-lsp'
   " Use LSP omni-completion in Python files.
   " autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
   " autocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
+  " --- completion-nvim ---
+  set completeopt=menuone,noinsert,noselect
+  set shortmess+=c
+  " let g:completion_enable_auto_popup = 0
+
+  " check previous cols
+  function! s:check_behind() abort
+    function! s:col_is_space(col)
+      return a:col && getline('.')[a:col - 1] =~# '\s'
+    endfunction
+    let prev = col('.') - 1
+    return !prev || s:col_is_space(prev) && s:col_is_space(prev - 1)
+  endfunction
+
+  " <TAB>/<S-TAB> through completeopts
+  inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_behind() ? "\<TAB>" :
+    \ completion#trigger_completion()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 endif
 
 " --- vim-polyglot ---
