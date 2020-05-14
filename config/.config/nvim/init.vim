@@ -406,15 +406,16 @@ Plug 'tpope/vim-liquid'  " jekyll templates
 
 " ------- Completion --------
 Plug 'neovim/nvim-lsp'
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-if !has('nvim')
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'Shougo/deoplete-lsp'
+Plug 'haorenW1025/completion-nvim'
+" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+" if !has('nvim')
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" Plug 'Shougo/deoplete-lsp'
 " Plug 'Shougo/neco-vim'  " VimL
 " Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
-Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
+" Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
 " " Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}  " machine learning autocompletion
 " Plug 'carlitux/deoplete-ternjs', {'do': 'yarn global add tern'}  " js autocompletion
 " Plug 'Shougo/echodoc.vim'  " show func sig
@@ -748,11 +749,11 @@ let g:envelop_python3_packages = [
 
 " --- nvim-lsp ---
 if &runtimepath =~? 'nvim-lsp'
-lua << EOF
-require'nvim_lsp'.bashls.setup{}
-require'nvim_lsp'.pyls.setup{}
-require'nvim_lsp'.vimls.setup{}
-EOF
+  lua require'nvim_lsp'.bashls.setup{}
+  lua require'nvim_lsp'.pyls.setup{}
+  lua require'nvim_lsp'.vimls.setup{}
+  " lua require'nvim_lsp'.pyls.setup{on_attach=require'completion'.on_attach}
+  " lua require'nvim_lsp'.vimls.setup{on_attach=require'completion'.on_attach}
   nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
   nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
   " nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -763,8 +764,8 @@ EOF
   nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 
   " Use LSP omni-completion in Python files.
-  autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  autocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
+  " autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+  " autocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
 endif
 
 " --- vim-polyglot ---
