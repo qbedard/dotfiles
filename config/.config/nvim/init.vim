@@ -713,18 +713,24 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " --- vim-envelop --- "
 let g:envelop_node_link = [
+  \ '/node_modules/.bin/bash-language-server',
+  \ '/node_modules/.bin/css-languageserver',
   \ '/node_modules/.bin/eslint',
+  \ '/node_modules/.bin/html-languageserver',
   \ '/node_modules/.bin/prettier',
   \ '/node_modules/.bin/stylelint',
   \ '/node_modules/.bin/vim-language-server',
   \ ]
 let g:envelop_node_packages = [
+  \ 'bash-language-server',
   \ 'eslint',
   \ 'neovim',
   \ 'prettier',
   \ 'stylelint',
   \ 'stylelint-config-standard',
   \ 'vim-language-server',
+  \ 'vscode-css-languageserver-bin',
+  \ 'vscode-html-languageserver-bin',
   \ ]
 let g:envelop_python3_link = [
   \ 'bin/black',
@@ -750,6 +756,8 @@ let g:envelop_python3_packages = [
 " --- nvim-lsp ---
 if &runtimepath =~? 'nvim-lsp'
   lua require'nvim_lsp'.bashls.setup{on_attach=require'completion'.on_attach}
+  lua require'nvim_lsp'.cssls.setup{on_attach=require'completion'.on_attach}
+  lua require'nvim_lsp'.html.setup{on_attach=require'completion'.on_attach}
   lua
     \ <<EOF
 require'nvim_lsp'.pyls.setup{
