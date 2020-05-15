@@ -749,11 +749,23 @@ let g:envelop_python3_packages = [
 
 " --- nvim-lsp ---
 if &runtimepath =~? 'nvim-lsp'
-  " lua require'nvim_lsp'.bashls.setup{}
-  " lua require'nvim_lsp'.pyls.setup{}
-  " lua require'nvim_lsp'.vimls.setup{}
   lua require'nvim_lsp'.bashls.setup{on_attach=require'completion'.on_attach}
-  lua require'nvim_lsp'.pyls.setup{on_attach=require'completion'.on_attach}
+  lua
+    \ <<EOF
+require'nvim_lsp'.pyls.setup{
+  on_attach = require'completion'.on_attach,
+  settings = {
+    pyls = {
+      configurationSources = {'flake8'},
+      plugins = {
+        pycodestyle = {
+          maxLineLength = 88,
+        }
+      }
+    }
+  }
+}
+EOF
   lua require'nvim_lsp'.vimls.setup{on_attach=require'completion'.on_attach}
   nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
   nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -763,10 +775,6 @@ if &runtimepath =~? 'nvim-lsp'
   nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
   nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
   nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-
-  " Use LSP omni-completion in Python files.
-  " autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  " autocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
   " --- completion-nvim ---
   set completeopt=menuone,noinsert,noselect
