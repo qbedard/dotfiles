@@ -361,7 +361,7 @@ Plug 'godlygeek/tabular'  " align tabular data
 Plug 'tpope/vim-fugitive'  " the defacto git standard
 Plug 'tpope/vim-rhubarb'  " GitHub support for fugitive
 " Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
-Plug 'mhinz/vim-signify'
+Plug 'timbedard/vim-signify'
 Plug 'junegunn/gv.vim'  " badass commit browser
 Plug 'sodapopcan/vim-twiggy'  " branch manager
 Plug 'APZelos/blamer.nvim'  " inline blame (virtual text)
@@ -830,6 +830,7 @@ let g:SignatureMarkTextHLDynamic = 1
 " --- vim-signify ---
 if &runtimepath =~? 'vim-signify'
   set signcolumn=yes
+  let g:signify_priority = 0
   let g:signify_sign_change = '~'
   highlight! link SignifySignChange GruvboxBlueSign
 
