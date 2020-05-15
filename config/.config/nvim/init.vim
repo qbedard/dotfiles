@@ -361,7 +361,7 @@ Plug 'godlygeek/tabular'  " align tabular data
 Plug 'tpope/vim-fugitive'  " the defacto git standard
 Plug 'tpope/vim-rhubarb'  " GitHub support for fugitive
 " Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
-Plug 'timbedard/vim-signify', {'branch': 'priority'}
+Plug 'mhinz/vim-signify'  " scm gutter signs
 Plug 'junegunn/gv.vim'  " badass commit browser
 Plug 'sodapopcan/vim-twiggy'  " branch manager
 Plug 'APZelos/blamer.nvim'  " inline blame (virtual text)
