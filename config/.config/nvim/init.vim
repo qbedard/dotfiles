@@ -707,6 +707,7 @@ let g:envelop_node_link = [
   \ '/node_modules/.bin/eslint',
   \ '/node_modules/.bin/prettier',
   \ '/node_modules/.bin/stylelint',
+  \ '/node_modules/.bin/vim-language-server',
   \ ]
 let g:envelop_node_packages = [
   \ 'eslint',
@@ -714,6 +715,7 @@ let g:envelop_node_packages = [
   \ 'prettier',
   \ 'stylelint',
   \ 'stylelint-config-standard',
+  \ 'vim-language-server',
   \ ]
 let g:envelop_python3_link = [
   \ 'bin/black',
