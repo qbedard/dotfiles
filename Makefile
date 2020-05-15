@@ -20,7 +20,7 @@ update-tmux:
 
 update-vim:
 	@echo "Updating vim plugins..." && \
-	nvim --headless +PlugUpgrade +PlugDiff +PlugUpdate +PlugClean! +qall && \
+	nvim --headless +EnvUpdate +PlugUpgrade +PlugDiff +PlugUpdate +PlugClean! +qall && \
 	echo "\nVim plugins updated!"
 
 update: update-brew update-omf update-tmux update-vim
