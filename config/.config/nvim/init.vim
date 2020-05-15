@@ -823,15 +823,21 @@ endif
 
 " --- vim-markdown (polyglot) ---
 let g:vim_markdown_new_list_item_indent = 2
-
 " --- vim-signature ---
 let g:SignatureMarkTextHLDynamic = 1
+
 
 " --- vim-signify ---
 if &runtimepath =~? 'vim-signify'
   set signcolumn=yes
   let g:signify_priority = 0
-  let g:signify_sign_change = '~'
+
+  let g:signify_sign_add = ''
+  let g:signify_sign_delete = ''
+  let g:signify_sign_delete_first_line = ''
+  let g:signify_sign_change = ''
+
+  " let g:signify_sign_change = '~'
   highlight! link SignifySignChange GruvboxBlueSign
 
   " nifty hunk motions
