@@ -51,7 +51,7 @@ endif
 "------------------------------ Neovim Defaults ------------------------------"
 " If we're not in Neovim, make sure all the defaults are the same.
 if !has('nvim')
-  runtime! plugin/neovim-defaults.vim
+  runtime! neovim-defaults.vim
   let &runtimepath.=expand(',$DATA_DIR/site')
 endif
 
