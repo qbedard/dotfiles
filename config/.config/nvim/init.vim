@@ -789,6 +789,14 @@ if &runtimepath =~? 'nvim-lsp'
     \ completion#trigger_completion()
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+  " sign define LspDiagnosticsErrorSign text=✖
+  " sign define LspDiagnosticsWarningSign text=
+  " sign define LspDiagnosticsInformationSign text=➤
+  sign define LspDiagnosticsErrorSign text=
+  sign define LspDiagnosticsWarningSign text=
+  sign define LspDiagnosticsInformationSign text=
+  sign define LspDiagnosticsHintSign text=➤
+
 endif
 
 " --- vim-polyglot ---
