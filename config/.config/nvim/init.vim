@@ -403,6 +403,7 @@ Plug 'tpope/vim-liquid'  " jekyll templates
 
 " --------- Linting ---------
 " Plug 'dense-analysis/ale'  " linting/building
+Plug 'sbdchd/neoformat'  " formatting
 
 " ------- Completion --------
 Plug 'neovim/nvim-lsp'
@@ -706,6 +707,12 @@ if &runtimepath =~? 'MatchTagAlways'
     \ 'htmldjango' : 1,
     \ 'liquid': 1,
     \ }
+endif
+
+" --- Neoformat ---
+if &runtimepath =~? 'neoformat'
+  command! Fix Neoformat
+  nmap <silent> gf :Neoformat<CR>
 endif
 
 " --- vim-quickscope --- "
