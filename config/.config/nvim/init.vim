@@ -719,6 +719,7 @@ let g:envelop_node_link = [
   \ '/node_modules/.bin/html-languageserver',
   \ '/node_modules/.bin/prettier',
   \ '/node_modules/.bin/stylelint',
+  \ '/node_modules/.bin/typescript-language-server',
   \ '/node_modules/.bin/vim-language-server',
   \ ]
 let g:envelop_node_packages = [
@@ -728,6 +729,7 @@ let g:envelop_node_packages = [
   \ 'prettier',
   \ 'stylelint',
   \ 'stylelint-config-standard',
+  \ 'typescript-language-server',
   \ 'vim-language-server',
   \ 'vscode-css-languageserver-bin',
   \ 'vscode-html-languageserver-bin',
@@ -774,6 +776,7 @@ require'nvim_lsp'.pyls.setup{
   }
 }
 EOF
+  lua require'nvim_lsp'.tsserver.setup{on_attach=require'completion'.on_attach}
   lua require'nvim_lsp'.vimls.setup{on_attach=require'completion'.on_attach}
   nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
   nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
