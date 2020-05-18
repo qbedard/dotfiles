@@ -712,7 +712,7 @@ endif
 " --- Neoformat ---
 if &runtimepath =~? 'neoformat'
   command! Fix Neoformat
-  nmap <silent> gf :Neoformat<CR>
+  " nmap <silent> gf :Neoformat<CR>
 endif
 
 " --- vim-quickscope --- "
@@ -757,6 +757,8 @@ let g:envelop_python3_packages = [
   \ 'isort',
   \ 'pep8-naming',
   \ 'pip',
+  \ 'pyls-black',
+  \ 'pyls-isort',
   \ 'pynvim',
   \ 'python-language-server[all]',
   \ 'vim-vint',
@@ -775,6 +777,8 @@ require'nvim_lsp'.pyls.setup{
     pyls = {
       configurationSources = {'flake8'},
       plugins = {
+        autopep8 = {enabled = true},
+        black = {enabled = true},
         flake8 = {
           enabled = true,
         },
@@ -782,9 +786,8 @@ require'nvim_lsp'.pyls.setup{
           enabled = false,
           maxLineLength = 88,
         },
-        pyflakes = {
-          enabled = false,
-        },
+        pyflakes = {enabled = false},
+        yapf = {enabled = false},
       }
     }
   }
@@ -800,6 +803,7 @@ EOF
   nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
   nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
   nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+  nnoremap <silent> gf    <cmd>lua vim.lsp.buf.formatting()<CR>
 
   " --- completion-nvim ---
   set completeopt=menuone,noinsert,noselect
