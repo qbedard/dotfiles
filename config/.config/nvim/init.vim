@@ -777,7 +777,7 @@ require'nvim_lsp'.pyls.setup{
     pyls = {
       configurationSources = {'flake8'},
       plugins = {
-        autopep8 = {enabled = true},
+        autopep8 = {enabled = false},
         black = {enabled = true},
         flake8 = {
           enabled = true,
