@@ -794,7 +794,19 @@ require'nvim_lsp'.pyls.setup{
 }
 EOF
   lua require'nvim_lsp'.tsserver.setup{on_attach=require'completion'.on_attach}
-  lua require'nvim_lsp'.vimls.setup{on_attach=require'completion'.on_attach}
+  lua
+    \ <<EOF
+require'nvim_lsp'.vimls.setup{
+  on_attach=require'completion'.on_attach,
+  init_options = {
+    runtimepath = vim.api.nvim_get_option('runtimepath'),
+    indexes = {
+      gap = 75,
+      count = 5,
+    },
+  },
+}
+EOF
   nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
   nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
   " nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
