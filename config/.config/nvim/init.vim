@@ -449,6 +449,9 @@ Plug 'iamcco/markdown-preview.nvim', {'do': ':call mkdp#util#install()'}
 Plug 'junegunn/goyo.vim'  " no-distractions editing
 Plug 'junegunn/limelight.vim'  " highlight current block
 
+" --------- Misc ---------
+Plug 'ChristianChiarulli/codi.vim'  " inline REPL eval
+
 " \------------------------------ End Plugins -------------------------------/
 
 call plug#end()
