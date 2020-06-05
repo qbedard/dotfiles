@@ -5,7 +5,6 @@ function __fzf_git_branch
   set -l commandline (__fzf_parse_commandline)
   set -l fzf_query $commandline[2]
 
-# TODO: Confirm that this shows remote branches.
   git branch --all --color=always --sort committerdate | grep -v '/HEAD\s' --color=always |
   sed 's/^..//' | cut -d' ' -f1 |
   sed 's#remotes/##' |
