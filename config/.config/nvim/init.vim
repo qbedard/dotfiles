@@ -408,6 +408,7 @@ Plug 'sbdchd/neoformat'  " formatting
 " ------- Completion --------
 Plug 'neovim/nvim-lsp'
 Plug 'haorenW1025/completion-nvim'
+Plug 'haorenW1025/diagnostic-nvim'
 " Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " if !has('nvim')
 "   Plug 'roxma/nvim-yarp'
@@ -766,57 +767,18 @@ let g:envelop_python3_packages = [
 
 " --- nvim-lsp ---
 if &runtimepath =~? 'nvim-lsp'
-  lua require'nvim_lsp'.bashls.setup{on_attach=require'completion'.on_attach}
-  lua require'nvim_lsp'.cssls.setup{on_attach=require'completion'.on_attach}
-  lua require'nvim_lsp'.html.setup{on_attach=require'completion'.on_attach}
-  lua
-    \ <<EOF
-require'nvim_lsp'.pyls.setup{
-  on_attach = require'completion'.on_attach,
-  settings = {
-    pyls = {
-      configurationSources = {'flake8'},
-      plugins = {
-        autopep8 = {enabled = false},
-        black = {enabled = true},
-        flake8 = {
-          enabled = true,
-        },
-        pycodestyle = {
-          enabled = false,
-          maxLineLength = 88,
-        },
-        pyflakes = {enabled = false},
-        yapf = {enabled = false},
-      }
-    }
-  }
-}
-EOF
-  lua require'nvim_lsp'.tsserver.setup{on_attach=require'completion'.on_attach}
-  lua
-    \ <<EOF
-require'nvim_lsp'.vimls.setup{
-  on_attach=require'completion'.on_attach,
-  init_options = {
-    runtimepath = vim.api.nvim_get_option('runtimepath'),
-    indexes = {
-      gap = 75,
-      count = 5,
-    },
-  },
-}
-EOF
-  nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-  " nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+  lua require'init'.setup_nvim_lsp()
+
+  nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+  " nnoremap <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>
   " nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-  " nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-  nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+  " nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+  nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
   " nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-  nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-  nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-  nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-  nnoremap <silent> gf    <cmd>lua vim.lsp.buf.formatting()<CR>
+  nnoremap <silent> 1gD <cmd>lua vim.lsp.buf.type_definition()<CR>
+  nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
+  nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>
 
   " --- completion-nvim ---
   set completeopt=menuone,noinsert,noselect
@@ -847,6 +809,12 @@ EOF
   sign define LspDiagnosticsInformationSign text=
   sign define LspDiagnosticsHintSign text=➤
 
+  " --- diagnostic-nvim ---
+  let g:diagnostic_enable_virtual_text = 1
+  let g:diagnostic_virtual_text_prefix = ''
+
+  nnoremap [w :PrevDiagnosticCycle<cr>
+  nnoremap ]w :NextDiagnosticCycle<cr>
 endif
 
 " --- vim-polyglot ---
