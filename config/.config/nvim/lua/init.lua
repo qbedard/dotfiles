@@ -36,7 +36,7 @@ function M.setup_nvim_lsp()
   -- }
   require'nvim_lsp'.tsserver.setup{on_attach=on_attach}
   require'nvim_lsp'.vimls.setup{
-    on_attach=require'completion'.on_attach,
+    on_attach=on_attach,
     init_options = {
       runtimepath = vim.api.nvim_get_option('runtimepath'),
       indexes = {
