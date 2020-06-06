@@ -812,9 +812,6 @@ if &runtimepath =~? 'nvim-lsp'
   " --- diagnostic-nvim ---
   let g:diagnostic_enable_virtual_text = 1
   let g:diagnostic_virtual_text_prefix = ''
-
-  nnoremap [w :PrevDiagnosticCycle<cr>
-  nnoremap ]w :NextDiagnosticCycle<cr>
 endif
 
 " --- vim-polyglot ---
