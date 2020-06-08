@@ -726,6 +726,7 @@ let g:envelop_node_link = [
   \ '/node_modules/.bin/eslint',
   \ '/node_modules/.bin/html-languageserver',
   \ '/node_modules/.bin/prettier',
+  \ '/node_modules/.bin/sql-language-server',
   \ '/node_modules/.bin/stylelint',
   \ '/node_modules/.bin/typescript-language-server',
   \ '/node_modules/.bin/vim-language-server',
@@ -735,6 +736,7 @@ let g:envelop_node_packages = [
   \ 'eslint',
   \ 'neovim',
   \ 'prettier',
+  \ 'sql-language-server',
   \ 'stylelint',
   \ 'stylelint-config-standard',
   \ 'typescript-language-server',
@@ -749,6 +751,7 @@ let g:envelop_python3_link = [
   \ 'bin/pip3',
   \ 'bin/pyls',
   \ 'bin/python3',
+  \ 'bin/sqlformat',
   \ 'bin/vint',
   \ ]
 let g:envelop_python3_packages = [
@@ -762,6 +765,7 @@ let g:envelop_python3_packages = [
   \ 'pyls-isort',
   \ 'pynvim',
   \ 'python-language-server[all]',
+  \ 'sqlparse',
   \ 'vim-vint',
   \ ]
 

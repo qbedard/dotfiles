@@ -1,6 +1,31 @@
 local M = {}
 
 function M.setup_nvim_lsp()
+
+  --- sql-langauge-server config ---
+  -- local configs = require 'nvim_lsp/configs'
+  -- local util = require 'nvim_lsp/util'
+
+  -- configs.sql = {
+  --   default_config = {
+  --     cmd = {'sql-language-server', 'up', '--method', 'stdio'};
+  --     filetypes = {"sql"};
+  --     root_dir = function(fname)
+  --       return util.path.dirname(fname)
+  --     end;
+  --   };
+  --   docs = {
+  --     package_json = "https://raw.githubusercontent.com/joe-re/sql-language-server/master/package.json";
+  --     description = [[
+  -- https://github.com/joe-re/sql-language-server
+  -- `sql-language-server`, a language server for SQL.
+  --     ]];
+  --     default_config = {
+  --       root_dir = "vim's starting directory";
+  --     };
+  --   };
+  -- };
+
   local on_attach = function()
     require'completion'.on_attach()
     require'diagnostic'.on_attach()
@@ -30,6 +55,7 @@ function M.setup_nvim_lsp()
       }
     }
   }
+  -- require'nvim_lsp'.sql.setup{on_attach=on_attach}
   -- require'nvim_lsp'.sumneko_lua.setup{
   --   on_attach = on_attach,
   --   cmd = {"path", "to", "cmd"};
@@ -45,6 +71,7 @@ function M.setup_nvim_lsp()
       },
     },
   }
+
 end
 
 return M
