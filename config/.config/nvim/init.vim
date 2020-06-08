@@ -33,20 +33,6 @@ let $DATA_DIR = expand('$XDG_DATA_HOME/nvim')  " ~/.local/share/nvim
 
 "----------------------------------- Python ----------------------------------"
 set pyxversion=3
-" TODO: find equivalent setting for Vim8
-if has('nvim')
-  let $VENV_DIR = expand('$DATA_DIR/venv')
-  let $NODE_VENV_DIR = expand('$VENV_DIR/node')
-  let $PYTHON2_VENV_DIR = expand('$VENV_DIR/python2')
-  let $PYTHON3_VENV_DIR = expand('$VENV_DIR/python3')
-  " if isdirectory($VENV_DIR)
-  "   " dedicated vim venvs
-  "   let g:python_host_prog  = expand('$PYTHON2_VENV_DIR/bin/python')
-  "   let g:python3_host_prog = expand('$PYTHON3_VENV_DIR/bin/python')
-  "   add python3 bins to PATH
-  "   let $PATH = expand('$PATH:$PYTHON3_VENV_DIR/bin')
-  " endif
-endif
 
 "------------------------------ Neovim Defaults ------------------------------"
 " If we're not in Neovim, make sure all the defaults are the same.
