@@ -712,6 +712,13 @@ endif
 
 " --- Neoformat ---
 if &runtimepath =~? 'neoformat'
+  let g:neoformat_mysql_sqlformat = {
+    \ 'exe': 'sqlformat',
+    \ 'args': ['--reindent', '-'],
+    \ 'stdin': 1,
+    \ }
+  let g:neoformat_enabled_mysql = ['sqlformat']
+
   command! Fix Neoformat
   " nmap <silent> gf :Neoformat<CR>
 endif
