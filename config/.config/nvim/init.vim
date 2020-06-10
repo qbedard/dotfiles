@@ -714,15 +714,15 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " --- vim-envelop --- "
 let g:envelop_node_link = [
-  \ '/node_modules/.bin/bash-language-server',
-  \ '/node_modules/.bin/css-languageserver',
-  \ '/node_modules/.bin/eslint',
-  \ '/node_modules/.bin/html-languageserver',
-  \ '/node_modules/.bin/prettier',
-  \ '/node_modules/.bin/sql-language-server',
-  \ '/node_modules/.bin/stylelint',
-  \ '/node_modules/.bin/typescript-language-server',
-  \ '/node_modules/.bin/vim-language-server',
+  \ 'node_modules/.bin/bash-language-server',
+  \ 'node_modules/.bin/css-languageserver',
+  \ 'node_modules/.bin/eslint',
+  \ 'node_modules/.bin/html-languageserver',
+  \ 'node_modules/.bin/prettier',
+  \ 'node_modules/.bin/sql-language-server',
+  \ 'node_modules/.bin/stylelint',
+  \ 'node_modules/.bin/typescript-language-server',
+  \ 'node_modules/.bin/vim-language-server',
   \ ]
 let g:envelop_node_packages = [
   \ 'bash-language-server',
