@@ -1,0 +1,8 @@
+package brew
+package direnv
+package fasd
+package fzf
+package hub
+package pyenv
+theme bobthefish
+theme default
