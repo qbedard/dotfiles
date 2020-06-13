@@ -1,0 +1,17 @@
+- clean: ['~']
+
+- create:
+  - ~/github
+
+- link:
+  ~/.config:
+    glob: true
+    path: config/*
+    relink: true
+  ~/.bashrc:
+  ~/.eslintrc.yml:
+  ~/.ggitignore:
+  ~/.ideavimrc:
+  ~/.stylelintrc.json:
+  ~/.tmux.conf:
+  ~/.zshrc:
