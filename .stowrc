@@ -1,0 +1,8 @@
+--ignore=.stowrc
+--ignore=Brewfile
+--ignore=Dockerfile
+--ignore=Makefile
+--ignore=\.md
+--ignore=^\.git.*
+--ignore=scripts
+--target=$HOME
