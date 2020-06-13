@@ -1,5 +1,5 @@
 # --- Packages --- #
-brew "awscli"
+# brew "awscli"
 brew "bat"  # cat replacement
 brew "cmake"
 brew "coreutils"  # GNU coreutils (macOS utils are a little different)
@@ -7,7 +7,7 @@ brew "diff-so-fancy"  # fancy git diff
 brew "direnv"
 brew "docker-completion"
 brew "docker-compose-completion"
-brew "exa"  # ls replacement
+brew "exa", args: ['HEAD']  # ls replacement
 brew "fasd"  # fast dir nav
 brew "fd"  # find replacement
 brew "fish"  # shell
@@ -16,16 +16,18 @@ brew "git"
 brew "gnupg"  # GPG tools
 brew "hub"  # GitHub tools
 brew "lazydocker"  # docker term UI
-brew "libssh2"
 # brew "mysql"
-brew "neovim"
+brew "neovim", args: ['HEAD']
+brew "node"
 brew "openapi-generator"
-# brew "python@2"
+brew "poetry"
 brew "python"
 brew "reattach-to-user-namespace"  # fix tmux pasteboard mac issues
+cask "rectangle"
 brew "ripgrep"  # awesome grep
 # brew "ruby"
-brew "shellcheck"  # sh linter
+# brew "shellcheck"  # sh linter
+brew "stow"
 brew "tmux"
 brew "tokei"
 brew "zsh"  # backup shell
@@ -35,6 +37,10 @@ brew "zsh-syntax-highlighting"
 # --- Third Party Taps --- #
 tap "universal-ctags/universal-ctags"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ['HEAD']
+
+tap "github/gh"
+brew "github/gh/gh"
+
 # tap "aws/tap"
 # tap "cloudflare/cloudflare"
 
