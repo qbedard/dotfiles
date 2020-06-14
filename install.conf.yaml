@@ -3,29 +3,29 @@
     command: brew bundle --no-lock
     stdout: true
     stderr: true
-  - 
+  -
     command: omf install
     stdout: true
     stderr: true
 
-- clean: 
-  ~/:
-  ~/.config:
-    recursive: true
+- clean:
+    ~/:
+    ~/.config:
+      recursive: true
 
 - create:
   - ~/github
 
 - link:
-  ~/.config:
-    create: true
-    glob: true
-    path: config/*
-    relink: true
-  ~/.bashrc:
-  ~/.eslintrc.yml:
-  ~/.ggitignore:
-  ~/.ideavimrc:
-  ~/.stylelintrc.json:
-  ~/.tmux.conf:
-  ~/.zshrc:
+    ~/.config:
+      glob: true
+      path: config/*
+      create: true
+      relink: true
+    ~/.bashrc:
+    ~/.eslintrc.yml:
+    ~/.ggitignore:
+    ~/.ideavimrc:
+    ~/.stylelintrc.json:
+    ~/.tmux.conf:
+    ~/.zshrc:
