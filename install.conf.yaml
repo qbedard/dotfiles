@@ -1,44 +1,10 @@
-- tap:
-  - github/gh
-  - homebrew/cask-fonts
-  - universal-ctags/universal-ctags
+- shell:
+  - brew bundle
 
-- brew:
-  - bat
-  - cmake
-  - diff-so-fancy
-  - direnv
-  - docker-completion
-  - docker-compose-completion
-  - exa --HEAD
-  - fasd
-  - fd
-  - fish
-  - fzf
-  - gh
-  - hub
-  - lazydocker
-  - neovim --HEAD
-  - nnn
-  - poetry
-  - python
-  - reattach-to-user-namespace
-  - ripgrep
-  - tmux
-  - tokei
-  - universal-ctags
-
-- cask:
-  - alfred
-  - docker
-  - firefox
-  - firefox-developer-edition
-  - kitty
-  - font-hack-nerd-font
-  - font-hack-nerd-font-mono
-  - rectangle
-
-- clean: ['~']
+- clean: 
+  ~:
+  ~/.config:
+    recursive: true
 
 - create:
   - ~/github
