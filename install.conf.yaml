@@ -3,6 +3,10 @@
     command: brew bundle
     stdout: true
     stderr: true
+  - 
+    command: omf install
+    stdout: true
+    stderr: true
 
 - clean: 
   ~:
