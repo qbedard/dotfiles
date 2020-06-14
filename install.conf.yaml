@@ -22,6 +22,26 @@
       path: config/*
       create: true
       relink: true
+    ~/.config/direnv:
+      glob: true
+      path: config/direnv/*
+      create: true
+      relink: true
+    ~/.config/fish:
+      glob: true
+      path: config/fish/*
+      create: true
+      relink: true
+    ~/.config/fish/functions:
+      glob: true
+      path: config/fish/functions/*
+      create: true
+      relink: true
+    ~/.config/kitty:
+      glob: true
+      path: config/kitty/*
+      create: true
+      relink: true
     ~/.bashrc:
     ~/.eslintrc.yml:
     ~/.ggitignore:
