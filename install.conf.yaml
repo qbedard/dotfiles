@@ -1,6 +1,6 @@
 - shell:
   -
-    command: brew bundle
+    command: brew bundle --no-lock
     stdout: true
     stderr: true
   - 
