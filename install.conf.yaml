@@ -18,6 +18,7 @@
 
 - link:
   ~/.config:
+    create: true
     glob: true
     path: config/*
     relink: true
