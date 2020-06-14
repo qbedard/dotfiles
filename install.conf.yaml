@@ -9,7 +9,7 @@
     stderr: true
 
 - clean: 
-  ~:
+  ~/:
   ~/.config:
     recursive: true
 
