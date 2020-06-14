@@ -1,5 +1,8 @@
 - shell:
-  - brew bundle
+  -
+    command: brew bundle
+    stdout: true
+    stderr: true
 
 - clean: 
   ~:
