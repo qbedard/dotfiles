@@ -1,6 +1,6 @@
 - shell:
   -
-    command: brew bundle --no-lock
+    command: 'brew bundle --no-lock'
     stdout: true
     stderr: true
   -
@@ -17,31 +17,6 @@
   - ~/github
 
 - link:
-    ~/.config:
-      glob: true
-      path: config/*
-      create: true
-      relink: true
-    ~/.config/direnv:
-      glob: true
-      path: config/direnv/*
-      create: true
-      relink: true
-    ~/.config/fish:
-      glob: true
-      path: config/fish/*
-      create: true
-      relink: true
-    ~/.config/fish/functions:
-      glob: true
-      path: config/fish/functions/*
-      create: true
-      relink: true
-    ~/.config/kitty:
-      glob: true
-      path: config/kitty/*
-      create: true
-      relink: true
     ~/.bashrc:
     ~/.eslintrc.yml:
     ~/.ggitignore:
@@ -49,3 +24,7 @@
     ~/.stylelintrc.json:
     ~/.tmux.conf:
     ~/.zshrc:
+
+- stow:
+    config:
+      target: ~/.config

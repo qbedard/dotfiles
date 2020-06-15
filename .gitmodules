@@ -6,3 +6,5 @@
 [submodule ".dotbot-plugins/dotbot-stow"]
 	path = .dotbot-plugins/dotbot-stow
 	url = https://github.com/timbedard/dotbot-stow.git
+[submodule "dotbot"]
+	ignore = dirty
