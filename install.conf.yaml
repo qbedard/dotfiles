@@ -1,12 +1,10 @@
 - shell:
-  -
-    command: 'brew bundle --no-lock'
-    stdout: true
-    stderr: true
-  -
-    command: omf install
-    stdout: true
-    stderr: true
+    - command: 'brew bundle --no-lock'
+      stdout: true
+      stderr: true
+    - command: omf install
+      stdout: true
+      stderr: true
 
 - clean:
     ~/:
@@ -14,7 +12,7 @@
       recursive: true
 
 - create:
-  - ~/github
+    - ~/github
 
 - link:
     ~/.bashrc:
