@@ -1,3 +1,6 @@
+# ~/.config/flake8
+
+[flake8]
 # mcCabe, Error, pyFlakes, Warning, Bugbear, Naming
 # B950 = >10% line length
 select = C,E,F,W,B,N,B950
