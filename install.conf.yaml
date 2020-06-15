@@ -1,10 +1,11 @@
+- defaults:
+    shell:
+      stdout: true
+      stderr: true
+
 - shell:
-    - command: 'brew bundle --no-lock'
-      stdout: true
-      stderr: true
-    - command: omf install
-      stdout: true
-      stderr: true
+    - 'brew bundle --no-lock'
+    - omf install
 
 - clean:
     ~/:
