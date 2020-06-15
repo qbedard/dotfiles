@@ -723,6 +723,7 @@ let g:envelop_node_link = [
   \ 'node_modules/.bin/stylelint',
   \ 'node_modules/.bin/typescript-language-server',
   \ 'node_modules/.bin/vim-language-server',
+  \ 'node_modules/.bin/yaml-language-server',
   \ ]
 let g:envelop_node_packages = [
   \ 'bash-language-server',
@@ -736,6 +737,7 @@ let g:envelop_node_packages = [
   \ 'vim-language-server',
   \ 'vscode-css-languageserver-bin',
   \ 'vscode-html-languageserver-bin',
+  \ 'yaml-language-server',
   \ ]
 let g:envelop_python3_link = [
   \ 'bin/black',

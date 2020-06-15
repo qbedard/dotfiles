@@ -51,9 +51,9 @@ function M.setup_nvim_lsp()
           },
           pyflakes = {enabled = false},
           yapf = {enabled = false},
-        }
-      }
-    }
+        },
+      },
+    },
   }
   -- require'nvim_lsp'.sql.setup{on_attach=on_attach}
   -- require'nvim_lsp'.sumneko_lua.setup{
@@ -68,6 +68,18 @@ function M.setup_nvim_lsp()
       indexes = {
         gap = 75,
         count = 5,
+      },
+    },
+  }
+  require'nvim_lsp'.yamlls.setup{
+    on_attach = on_attach,
+    settings = {
+      yaml = {
+        format = {
+          enable = true,
+          singleQuote = true,
+        },
+        validate = true,
       },
     },
   }
