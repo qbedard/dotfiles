@@ -4,8 +4,8 @@
       stderr: true
 
 - shell:
-    - 'brew bundle --no-lock'
-    - omf install
+    - bash -c 'if [ "$(uname)" == "Darwin" ]; then brew bundle --no-lock; fi'
+    - fish -c 'omf install'
 
 - clean:
     ~/:
