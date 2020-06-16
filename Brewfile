@@ -27,6 +27,7 @@ cask "rectangle"
 brew "ripgrep"  # awesome grep
 # brew "ruby"
 # brew "shellcheck"  # sh linter
+brew "shfmt"
 brew "stow"
 brew "tmux"
 brew "tokei"
