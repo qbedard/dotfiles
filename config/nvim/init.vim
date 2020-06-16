@@ -716,6 +716,7 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:envelop_node_link = [
   \ 'node_modules/.bin/bash-language-server',
   \ 'node_modules/.bin/css-languageserver',
+  \ 'node_modules/.bin/docker-langserver',
   \ 'node_modules/.bin/eslint',
   \ 'node_modules/.bin/html-languageserver',
   \ 'node_modules/.bin/prettier',
@@ -723,10 +724,12 @@ let g:envelop_node_link = [
   \ 'node_modules/.bin/stylelint',
   \ 'node_modules/.bin/typescript-language-server',
   \ 'node_modules/.bin/vim-language-server',
+  \ 'node_modules/.bin/vscode-json-languageserver',
   \ 'node_modules/.bin/yaml-language-server',
   \ ]
 let g:envelop_node_packages = [
   \ 'bash-language-server',
+  \ 'dockerfile-language-server-nodejs',
   \ 'eslint',
   \ 'neovim',
   \ 'prettier',
@@ -737,6 +740,7 @@ let g:envelop_node_packages = [
   \ 'vim-language-server',
   \ 'vscode-css-languageserver-bin',
   \ 'vscode-html-languageserver-bin',
+  \ 'vscode-json-languageserver',
   \ 'yaml-language-server',
   \ ]
 let g:envelop_python3_link = [

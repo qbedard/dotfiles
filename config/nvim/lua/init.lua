@@ -26,14 +26,19 @@ function M.setup_nvim_lsp()
   --   };
   -- };
 
+  -- TODO: terraform-ls
+
   local on_attach = function()
     require'completion'.on_attach()
     require'diagnostic'.on_attach()
   end
 
   require'nvim_lsp'.bashls.setup{on_attach=on_attach}
+  require'nvim_lsp'.cmake.setup{on_attach=on_attach}
   require'nvim_lsp'.cssls.setup{on_attach=on_attach}
+  require'nvim_lsp'.dockerls.setup{on_attach=on_attach}
   require'nvim_lsp'.html.setup{on_attach=on_attach}
+  require'nvim_lsp'.jsonls.setup{on_attach=on_attach}
   require'nvim_lsp'.pyls.setup{
     on_attach = on_attach,
     settings = {
