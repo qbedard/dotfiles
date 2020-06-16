@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Things this script does not install:
-# - Magnet
-
 # Command Line Tools
 xcode-select --install
 
