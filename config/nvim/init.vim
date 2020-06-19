@@ -655,6 +655,7 @@ let g:gutentags_exclude_filetypes = [
   \ 'gitconfig',
   \ 'gitrebase',
   \ 'gitsendemail',
+  \ 'yaml',
   \ ]
 
 " --- hexokinase ---
