@@ -649,6 +649,7 @@ endif
 " --- Gutentags ---
 let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
 let g:gutentags_exclude_filetypes = [
+  \ 'envrc',
   \ 'git',
   \ 'gitcommit',
   \ 'gitconfig',
