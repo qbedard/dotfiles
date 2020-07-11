@@ -416,7 +416,7 @@ Plug 'haorenW1025/diagnostic-nvim'
 " Plug 'ervandew/supertab'  " use tab for insert completions
 
 " -------- Snippets ---------
-" Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
+Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
 " ---------- Notes ----------
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
@@ -544,7 +544,7 @@ let g:echodoc#enable_force_overwrite = 1
 
 " --- Emmet ---
 " default is <C-Y>  " TODO: find a better mapping
-" let g:user_emmet_leader_key=','
+let g:user_emmet_leader_key=','
 let g:user_emmet_install_global = 1
 
 " --- fzf ---
@@ -737,9 +737,6 @@ let g:envelop_node_packages = [
   \ 'eslint',
   \ 'neovim',
   \ 'prettier',
-  \ 'sql-language-server',
-  \ 'stylelint',
-  \ 'stylelint-config-standard',
   \ 'typescript-language-server',
   \ 'vim-language-server',
   \ 'vscode-css-languageserver-bin',
@@ -747,6 +744,9 @@ let g:envelop_node_packages = [
   \ 'vscode-json-languageserver',
   \ 'yaml-language-server',
   \ ]
+  " \ 'sql-language-server',
+  " \ 'stylelint',
+  " \ 'stylelint-config-standard',
 let g:envelop_python3_link = [
   \ 'bin/black',
   \ 'bin/flake8',
