@@ -9,4 +9,5 @@ Abolish m{od,do}{le,dle,del}{,s}  m{od}{el}{}
 Abolish oc{cu,u}r{,ence,rence}{,ing,ring}  oc{cu}r{,rence,rence}{,ring,ring}
 Abolish repitition{,s}  repetition{}
 Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or}  {despe,sepa}rat{}
+Abolish temp{al}te temp{la}te
 Abolish wh{ci,cic,icc}h{,c}  wh{ic}h
