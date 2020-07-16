@@ -416,7 +416,7 @@ Plug 'haorenW1025/diagnostic-nvim'
 " Plug 'ervandew/supertab'  " use tab for insert completions
 
 " -------- Snippets ---------
-Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
+" Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
 
 " ---------- Notes ----------
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
