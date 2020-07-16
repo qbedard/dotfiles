@@ -761,7 +761,7 @@ let g:envelop_python3_packages = [
   \ 'black',
   \ 'flake8',
   \ 'flake8-bugbear',
-  \ 'isort',
+  \ 'isort<5',
   \ 'pep8-naming',
   \ 'pip',
   \ 'pyls-black',

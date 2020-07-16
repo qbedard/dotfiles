@@ -47,9 +47,7 @@ function M.setup_nvim_lsp()
         plugins = {
           autopep8 = {enabled = false},
           black = {enabled = true},
-          flake8 = {
-            enabled = true,
-          },
+          flake8 = {enabled = true},
           pycodestyle = {
             enabled = false,
             maxLineLength = 88,
