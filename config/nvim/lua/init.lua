@@ -34,7 +34,7 @@ function M.setup_nvim_lsp()
   end
 
   require'nvim_lsp'.bashls.setup{on_attach=on_attach}
-  require'nvim_lsp'.cmake.setup{on_attach=on_attach}
+  -- require'nvim_lsp'.cmake.setup{on_attach=on_attach}
   require'nvim_lsp'.cssls.setup{on_attach=on_attach}
   require'nvim_lsp'.dockerls.setup{on_attach=on_attach}
   require'nvim_lsp'.html.setup{on_attach=on_attach}
