@@ -717,6 +717,15 @@ endif
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " --- vim-envelop --- "
+let g:envelop_enabled = ['lua', 'node', 'python3']
+let g:envelop_lua_packages = [
+  \ 'lua-lsp',
+  \ 'luaformatter',
+  \ ]
+let g:envelop_lua_link = [
+  \ 'luaformatter',
+  \ 'lua_modules/bin/lua-format',
+  \ ]
 let g:envelop_node_link = [
   \ 'node_modules/.bin/bash-language-server',
   \ 'node_modules/.bin/css-languageserver',
