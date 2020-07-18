@@ -801,6 +801,12 @@ if &runtimepath =~? 'nvim-lsp'
   set shortmess+=c
   " let g:completion_enable_auto_popup = 0
 
+  let g:completion_chain_complete_list = [
+    \{'complete_items': ['lsp', 'snippet', 'path']},
+    \{'mode': '<c-p>'},
+    \{'mode': '<c-n>'},
+    \]
+
   " check previous cols
   function! s:check_behind() abort
     function! s:col_is_space(col)
