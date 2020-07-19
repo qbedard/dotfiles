@@ -294,10 +294,6 @@ Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe 
 Plug 'romainl/vim-cool'  " nohls after searching
 " Plug 'liuchengxu/vim-which-key'  " show key bindings while typing  TODO: set up
 
-" TODO: Fidget with these guys. They're neat.
-" Plug 'camspiers/animate.vim'
-" Plug 'camspiers/lens.vim'
-
 " ---------- Tags -----------
 if executable('ctags')
   Plug 'ludovicchabant/vim-gutentags'  " manages tag files
@@ -410,7 +406,6 @@ Plug 'haorenW1025/diagnostic-nvim'
 
 " Plug 'davidhalter/jedi-vim'  " python completion
 
-" TODO: put together a decent setup for this
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Plug 'ervandew/supertab'  " use tab for insert completions
