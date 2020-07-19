@@ -112,6 +112,7 @@ abbr -a rgm "rg -g '*.mako'"
 abbr -a rgp "rg -g '*.py'"
 abbr -a rgv "rg -g '*.vim'"
 abbr -a rgl "rg -l"
+abbr -a rge vim_last_rg
 
 # --- Vagrant --- #
 abbr -a vu "vagrant up"
