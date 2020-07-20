@@ -6,9 +6,9 @@
 # end
 
 # set theme_color_scheme gruvbox
-# set -g theme_nerd_fonts yes
-# set -g theme_date_format "+%a %b %d %l:%M%p"
-# set -g theme_date_timezone America/Chicago
+set -g theme_nerd_fonts yes
+set -g theme_date_format "+%a %b %d %l:%M%p"
+set -g theme_date_timezone America/Chicago
 
 # disable greeting
 function fish_greeting; end

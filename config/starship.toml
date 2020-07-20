@@ -1,11 +1,28 @@
-add_newline = false
+format = "$all"
+
+[aws]
+disabled = true
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+
+[golang]
+format = "[$symbol$version]($style) "
+symbol = " "
 
 [line_break]
 disabled = true
 
+[nodejs]
+format = "[$symbol$version]($style) "
+
+[package]
+disabled = true
+
 [python]
+format = "[$symbol(@$virtualenv )]($style)"
 symbol = " "
 
-[time]
-use_12hr = true
-utc_time_offset = "local"
+[rust]
+format = "[$symbol$version]($style) "
+symbol = " "
