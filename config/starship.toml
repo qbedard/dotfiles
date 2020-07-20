@@ -1,0 +1,11 @@
+add_newline = false
+
+[line_break]
+disabled = true
+
+[python]
+symbol = " "
+
+[time]
+use_12hr = true
+utc_time_offset = "local"

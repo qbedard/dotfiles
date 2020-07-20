@@ -5,10 +5,10 @@
 #   curl -L https://get.oh-my.fish | fish
 # end
 
-set theme_color_scheme gruvbox
-set -g theme_nerd_fonts yes
-set -g theme_date_format "+%a %b %d %l:%M%p"
-set -g theme_date_timezone America/Chicago
+# set theme_color_scheme gruvbox
+# set -g theme_nerd_fonts yes
+# set -g theme_date_format "+%a %b %d %l:%M%p"
+# set -g theme_date_timezone America/Chicago
 
 # disable greeting
 function fish_greeting; end
@@ -189,3 +189,6 @@ and not set -q TMUX
   # TODO: Attach only if none attached
   # exec tmux new-session -A -s main
 end
+
+# starship prompt
+starship init fish | source
