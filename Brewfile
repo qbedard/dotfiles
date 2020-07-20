@@ -8,7 +8,7 @@ brew "direnv"
 brew "docker-completion"
 brew "docker-compose-completion"
 brew "exa", args: ['HEAD']  # ls replacement
-brew "fasd"  # fast dir nav
+# brew "fasd"  # fast dir nav
 brew "fd"  # find replacement
 brew "fish"  # shell
 brew "fzf"  # fuzzy
@@ -21,6 +21,7 @@ brew "neovim", args: ['HEAD']
 brew "node"
 brew "openapi-generator"
 brew "poetry"
+brew "procs"  # ps replacement
 brew "python"
 brew "reattach-to-user-namespace"  # fix tmux pasteboard mac issues
 cask "rectangle"
@@ -31,6 +32,7 @@ brew "shfmt"
 brew "stow"
 brew "tmux"
 brew "tokei"
+brew "zoxide"  # fast dir nav
 brew "zsh"  # backup shell
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"

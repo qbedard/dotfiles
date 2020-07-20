@@ -1,6 +1,5 @@
 package brew
 package direnv
-package fasd
 package fzf
 package hub
 package pyenv

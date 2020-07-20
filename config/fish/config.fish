@@ -41,9 +41,13 @@ alias rg 'rg --smart-case --max-columns 120 --max-columns-preview'
 alias glog "git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 # fasd
-alias j 'fasd_cd -d'
+# alias j 'fasd_cd -d'
 # alias v 'f -e vim'
-alias o 'a -e open'
+# alias o 'a -e open'
+
+# zoxide
+zoxide init fish | source
+abbr -a j z
 
 # ----- Abbreviations ----- #
 
