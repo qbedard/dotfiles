@@ -7,8 +7,26 @@ disabled = true
 # TODO: Figure out how to fix timer icons being kanji
 format = "[ $duration]($style) "
 
+[directory]
+read_only_symbol = ""
+
 [git_branch]
 format = "[$symbol$branch]($style) "
+
+[git_status]
+deleted = "x"
+# TODO: Flesh these out
+# format = "[($all_status)($ahead_behind)]($style) "
+# conflicted = ""
+# ahead = ""
+# behind = ""
+# diverged = ""
+# untracked = ""
+# stashed = ""
+# modified = ""
+# staged = ""
+# renamed = ""
+# deleted = ""
 
 [golang]
 format = "[$symbol$version]($style) "
@@ -24,7 +42,7 @@ format = "[$symbol$version]($style) "
 disabled = true
 
 [python]
-format = "[$symbol(@$virtualenv )]($style)"
+format = "[$symbol($virtualenv )]($style)"
 symbol = " "
 
 [rust]
