@@ -1,6 +1,7 @@
 format = "$all"
 
 [aws]
+symbol = " "
 disabled = true
 
 [cmd_duration]
@@ -10,8 +11,12 @@ format = "[ $duration]($style) "
 [directory]
 read_only_symbol = ""
 
+[docker]
+symbol = " "
+
 [git_branch]
 format = "[$symbol$branch]($style) "
+symbol = " "
 
 [git_status]
 deleted = "x"
@@ -32,6 +37,9 @@ deleted = "x"
 format = "[$symbol$version]($style) "
 symbol = " "
 
+[java]
+symbol = " "
+
 [line_break]
 disabled = true
 
@@ -39,12 +47,20 @@ disabled = true
 format = "[$symbol$version]($style) "
 
 [package]
+symbol = " "
 disabled = true
 
 [python]
 format = "[$symbol($virtualenv )]($style)"
 symbol = " "
 
+[ruby]
+symbol = " "
+
 [rust]
 format = "[$symbol$version]($style) "
 symbol = " "
+
+[terraform]
+format = "[$symbol$version]($style) "
+symbol = " "
