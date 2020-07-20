@@ -3,6 +3,10 @@ format = "$all"
 [aws]
 disabled = true
 
+[cmd_duration]
+# TODO: Figure out how to fix timer icons being kanji
+format = "[ $duration]($style) "
+
 [git_branch]
 format = "[$symbol$branch]($style) "
 
