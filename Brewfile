@@ -29,6 +29,7 @@ brew "ripgrep"  # awesome grep
 # brew "ruby"
 # brew "shellcheck"  # sh linter
 brew "shfmt"
+brew "starship", args: ['HEAD']  # shell prompt
 brew "stow"
 brew "tmux"
 brew "tokei"
