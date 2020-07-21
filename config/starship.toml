@@ -64,3 +64,4 @@ symbol = " "
 [terraform]
 format = "[$symbol$version]($style) "
 symbol = " "
+disabled = true
