@@ -9,7 +9,7 @@ function __fzf_git_branch
   sed 's/^..//' | cut -d' ' -f1 |
   sed 's#remotes/##' |
   fzf --height=50% --reverse --ansi --multi --tac --preview-window right:70% \
-    --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" (echo {} | sed s/^..// | cut -d" " -f1) | head -200' \
+    --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" {} | head -200' \
     --query $fzf_query |
   while read -l s; set results $results $s; end
 
