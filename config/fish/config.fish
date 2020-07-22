@@ -160,10 +160,12 @@ bind \co '__fzf_open --editor'
 # try this out too
 bind \ce '__fzf_open --editor'
 
+bind \cs '__fzf_ripgrep'
+
 bind \cg\cf __fzf_git_diff_file
 bind \cg\cb __fzf_git_branch
 bind \cg\ct __fzf_git_tag
-bind \cg\cc __fzf_git_commit_hash
+bind \cg\cc __fzf_git_commit_hash  # bound to c instead of h because C-hjkl nav around
 bind \cg\cr __fzf_git_remote
 bind \cg\cs __fzf_git_stash
 

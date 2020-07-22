@@ -24,10 +24,10 @@
 
 # end
 
-function fzf_ripgrep
+function __fzf_ripgrep
   set -l rg_cmd "rg -l --hidden --no-ignore-vcs --glob '!.git/*' --glob '!.direnv/*'"
 
-  set -l selected (
+  set -l results (
     FZF_DEFAULT_COMMAND="rg --files" fzf \
       -m \
       -e \
@@ -40,7 +40,12 @@ function fzf_ripgrep
       --preview "rg -i --pretty --context 2 {q} {}" | cut -d":" -f1,2
   )
 
-  # if test -n "$selected"
-  #   $EDITOR $selected
-  # end
+  if test -n "$results"
+    # $EDITOR $results
+    for result in $results
+      commandline -it -- (string escape $result)
+      commandline -it -- " "
+    end
+    commandline -f repaint
+  end
 end
