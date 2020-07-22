@@ -153,7 +153,7 @@ set -gx FZF_ALT_C_OPTS '--preview "__fzf_dir_preview {}"'
 set -gx FZF_OPEN_COMMAND $FZF_DEFAULT_COMMAND
 set -gx FZF_OPEN_OPTS '--height 40% --reverse --preview "__fzf_file_preview {}"'
 
-set -gx _ZO_FZF_OPTS '--preview "__fzf_dir_preview {}"'
+set -gx _ZO_FZF_OPTS '--height=50% --reverse --preview "__fzf_dir_preview {}"'
 
 # for some reason, this isn't getting set via omf
 bind \co '__fzf_open --editor'
