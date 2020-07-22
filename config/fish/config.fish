@@ -40,15 +40,6 @@ alias rg 'rg --smart-case --max-columns 120 --max-columns-preview'
 
 alias glog "git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
-# fasd
-# alias j 'fasd_cd -d'
-# alias v 'f -e vim'
-# alias o 'a -e open'
-
-# zoxide
-zoxide init fish | source
-abbr -a j z
-
 # ----- Abbreviations ----- #
 
 # --- General ---
@@ -118,11 +109,14 @@ abbr -a rgv "rg -g '*.vim'"
 abbr -a rgl "rg -l"
 abbr -a rge vim_last_rg
 
-# --- Vagrant --- #
+# --- Vagrant ---
 abbr -a vu "vagrant up"
 abbr -a vd "vagrant destroy"
 abbr -a vh "vagrant halt"
 abbr -a vss "vagrant ssh"
+
+# --- zoxide ---
+abbr -a j z
 
 # ----- Misc ----- #
 # vim
@@ -134,13 +128,13 @@ set -gx EDITOR "$VISUAL"
 set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
 
 # fzf
-
 function __fzf_file_preview -a file
   bat --line-range :100 --color=always $file
 end
 
 function __fzf_dir_preview -a dir
-  exa --tree --level 1 --all --icons --color=always $dir
+  exa --tree --level 1 --all --icons --color=always \
+    (echo $dir | sed "s/^[ 0-9]*//" )  # strip leading spaces/numbers for zoxide
 end
 
 function __fzf_either_preview -a file
@@ -158,6 +152,8 @@ set -gx FZF_ALT_C_COMMAND 'fd --type directory --hidden --follow --no-ignore-vcs
 set -gx FZF_ALT_C_OPTS '--preview "__fzf_dir_preview {}"'
 set -gx FZF_OPEN_COMMAND $FZF_DEFAULT_COMMAND
 set -gx FZF_OPEN_OPTS '--height 40% --reverse --preview "__fzf_file_preview {}"'
+
+set -gx _ZO_FZF_OPTS '--preview "__fzf_dir_preview {}"'
 
 # for some reason, this isn't getting set via omf
 bind \co '__fzf_open --editor'
@@ -189,6 +185,9 @@ and not set -q TMUX
   # TODO: Attach only if none attached
   # exec tmux new-session -A -s main
 end
+
+# zoxide
+zoxide init fish | source
 
 # starship prompt
 starship init fish | source
