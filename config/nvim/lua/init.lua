@@ -44,7 +44,7 @@ function M.setup_nvim_lsp()
           autopep8 = {enabled = false},
           black = {enabled = true},
           flake8 = {enabled = true},
-          jedi_signature_help = {enabled = false}, -- stupid slow
+          -- jedi_signature_help = {enabled = false}, -- stupid slow
           pycodestyle = {enabled = false, maxLineLength = 88},
           pyflakes = {enabled = false},
           yapf = {enabled = false}

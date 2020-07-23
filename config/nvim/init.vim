@@ -798,6 +798,8 @@ if &runtimepath =~? 'nvim-lsp'
   nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>
 
   " --- completion-nvim ---
+  let g:completion_enable_auto_signature = 0  " crazy slow
+
   set completeopt=menuone,noinsert,noselect
   set shortmess+=c
   " let g:completion_enable_auto_popup = 0
