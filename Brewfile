@@ -15,6 +15,7 @@ brew "fzf"  # fuzzy
 brew "git"
 brew "gnupg"  # GPG tools
 brew "hub"  # GitHub tools
+brew "jq"  # JSON parsing
 brew "lazydocker"  # docker term UI
 # brew "mysql"
 brew "neovim", args: ['HEAD']

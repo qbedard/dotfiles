@@ -1,0 +1,19 @@
+aliases:
+  repos: |-
+    !gh api graphql -f query="
+      query {
+        viewer {
+          organizations(first: 10) {
+            nodes {
+              repositories(first: 100) {
+                nodes {
+                  nameWithOwner
+                }
+              }
+            }
+          }
+        }
+      }
+    " \
+    | jq .data.viewer.organizations.nodes[].repositories.nodes[].nameWithOwner \
+    | sed "s/\"//g"
