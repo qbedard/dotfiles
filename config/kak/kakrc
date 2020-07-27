@@ -1,0 +1,22 @@
+colorscheme gruvbox
+set-option global ui_options ncurses_assistant=off
+
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+# plug "andreyorst/plug.kak"
+plug "alexherbo2/prelude.kak"
+plug "alexherbo2/auto-pairs.kak"
+plug "andreyorst/fzf.kak"
+plug "andreyorst/powerline.kak" config %{
+    powerline-start
+}
+plug "andreyorst/smarttab.kak"
+
+map global normal <c-p> ": fzf-mode<ret>" -docstring 'fzf'
+
+map global normal '#' :comment-line<ret> -docstring 'comment line'
+map global normal '<a-#>' :comment-block<ret> -docstring 'comment block'
+
+eval %sh{kak-lsp --kakoune -s $kak_session}
+hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
+        lsp-enable-window
+}
