@@ -25,8 +25,8 @@ update-vim:
 
 update: update-brew update-omf update-tmux update-vim
 
-stow:
-	stow --target "$$HOME" config
+install:
+	./install
 
-unstow:
-	stow --delete --target "$$HOME" config
+link:
+	./install --only clean link stow
