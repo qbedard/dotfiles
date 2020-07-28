@@ -12,6 +12,7 @@ brew "exa", args: ['HEAD']  # ls replacement
 brew "fd"  # find replacement
 brew "fish"  # shell
 brew "fzf"  # fuzzy
+brew "ghq"  # repo organization
 brew "git"
 brew "gnupg"  # GPG tools
 brew "hub"  # GitHub tools
