@@ -288,11 +288,10 @@ Plug 'morhetz/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'  " themes for airline
 Plug 'justinmk/vim-dirvish'  " file browser
-Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
+Plug 'romainl/vim-cool'  " nohls after searching
 Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
 " Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
-Plug 'romainl/vim-cool'  " nohls after searching
-" Plug 'liuchengxu/vim-which-key'  " show key bindings while typing  TODO: set up
+" Plug 'liuchengxu/vim-which-key'  " show key bindings while typing TODO: set up
 
 " ---------- Tags -----------
 if executable('ctags')
@@ -310,48 +309,45 @@ endif
 Plug 'christoomey/vim-tmux-navigator'  " tmux nav integration
 " TODO: adjust mappings to support this
 " Plug 'RyanMillerC/better-vim-tmux-resizer'  " resizing like vim-tmux-navigator
-Plug 'easymotion/vim-easymotion'  " fast finding tool
+" Plug 'easymotion/vim-easymotion'  " fast finding tool TODO: not working, investigate
 Plug 'kshenoy/vim-signature'  " show marks in the sign column
-"Plug 'rhysd/clever-f.vim'  " fast f/t repetition (instead of ;)
 Plug 'tpope/vim-unimpaired'  " handy ]x/[x mappings
 Plug 'unblevable/quick-scope'  " highlight unique letters in words for f/t
 
 " --------- Editing ---------
 Plug 'ntpeters/vim-better-whitespace'  " better whitespace stripping
 Plug 'zhimsel/vim-stay'  " persist editing state when switching buffers, etc
-" Plug 'cometsong/CommentFrame.vim'  " fancy comment title frame generator
+" Plug 'cometsong/CommentFrame.vim'  " fancy comment title frame generator TODO: set up
 Plug 'tpope/vim-commentary'  " commenting shortcuts
 Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
 Plug 'tpope/vim-surround'  " quoting, etc
 Plug 'tpope/vim-repeat'  " repeat supported plugin maps
 Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
 Plug 'wellle/targets.vim'  " next/last surround pair text object
-Plug 'michaeljsmith/vim-indent-object'  " indentation level text object
-" Plug 'Valloric/MatchTagAlways'  " show matching tags <- bugging out
+Plug 'michaeljsmith/vim-indent-object'  " [i]ndentation level text object
+" Plug 'Valloric/MatchTagAlways'  " show matching tags TODO: fix bugging out
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
-Plug 'junegunn/vim-easy-align'  " line stuff up
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
+Plug 'junegunn/vim-easy-align'  " line stuff up with ga motion
 Plug 'AndrewRadev/splitjoin.vim'  " single-line <-> multi-line
-Plug 'AndrewRadev/switch.vim'  " true <-> false, etc
-Plug 'AndrewRadev/sideways.vim'  " SidewaysLeft/SidewaysRight to swap arguments
-" Plug 'AndrewRadev/whitespaste.vim'  " auto-fix whitespace lines when pasting
+Plug 'AndrewRadev/switch.vim'  " true <-> false, etc with gs
+Plug 'AndrewRadev/sideways.vim'  " swap arguments with SidewaysLeft/SidewaysRight
 Plug 'stefandtw/quickfix-reflector.vim'  " editable quickfix
-" Plug 'kkoomen/vim-doge'  " doc generator, TODO: set mappings
-Plug 'godlygeek/tabular'  " align tabular data
+Plug 'kkoomen/vim-doge'  " generate docs with with <leader>d, TODO: broken for js
 
 " ----------- Git -----------
 Plug 'tpope/vim-fugitive'  " the defacto git standard
 Plug 'tpope/vim-rhubarb'  " GitHub support for fugitive
-" Plug 'airblade/vim-gitgutter'  " way more than just gutter signs
-Plug 'mhinz/vim-signify'  " scm gutter signs
 Plug 'junegunn/gv.vim'  " badass commit browser
-Plug 'sodapopcan/vim-twiggy'  " branch manager
+" Plug 'sodapopcan/vim-twiggy'  " branch manager TODO: busted, solve
+
+Plug 'mhinz/vim-signify'  " scm gutter signs
 Plug 'APZelos/blamer.nvim'  " inline blame (virtual text)
 Plug 'rhysd/git-messenger.vim'  " popup commit message for cursor (:GitMessenger)
 
 " --------- Testing ---------
 Plug 'janko-m/vim-test'  " TODO: figure this out
-Plug 'junegunn/vader.vim'  " TODO: figure this out
+Plug 'junegunn/vader.vim'
 
 " --------- Environments ---------
 Plug 'timbedard/vim-envelop'  " virtualenv management
@@ -361,8 +357,10 @@ Plug 'timbedard/vim-envelop'  " virtualenv management
 Plug 'sheerun/vim-polyglot'  " a ton of language support
 Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
 Plug 'Konfekt/FastFold'  " more intuitive folding
-Plug 'pseewald/vim-anyfold'  " faster folding by ignoring manual folding
-Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
+Plug 'pseewald/vim-anyfold'  " faster folding by ignoring manual folding TODO: check perf
+
+" ga is currently overwritten by vim-easy-align
+" Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 
 " XML/HTML "
 " Plug 'alvan/vim-closetag'  " auto-close XML tags <- adds flicker
@@ -372,8 +370,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}  " show hex/rgba colors
 
 " Python "
-" Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}  " fixes python indent issues
-Plug 'tmhedberg/simpylfold'  " python folding
+" Plug 'tmhedberg/simpylfold'  " python folding TODO: test if needed anymore
 Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 
 " Misc "
@@ -403,15 +400,13 @@ Plug 'haorenW1025/diagnostic-nvim'
 
 " Plug 'davidhalter/jedi-vim'  " python completion
 
-" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
 " Plug 'ervandew/supertab'  " use tab for insert completions
 
 " -------- Snippets ---------
-" Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding
+" Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding TODO: better mapping
 
 " ---------- Notes ----------
-Plug 'vimwiki/vimwiki', {'branch': 'dev'}
+Plug 'vimwiki/vimwiki', {'branch': 'dev'}  " TODO: ditch?
 
 " --------- Preview ---------
 Plug 'iamcco/markdown-preview.nvim', {'do': ':call mkdp#util#install()'}
@@ -434,6 +429,9 @@ Plug 'junegunn/limelight.vim'  " highlight current block
 
 " --------- Misc ---------
 Plug 'ChristianChiarulli/codi.vim'  " inline REPL eval
+
+" wants to always be loaded last
+Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
 
 " \------------------------------ End Plugins -------------------------------/
 
@@ -915,10 +913,10 @@ let g:webdevicons_enable_ctrlp = 1
 " --- vim-easy-align ---
 if &runtimepath =~? 'vim-easy-align'
   " Start interactive EasyAlign in visual mode (e.g. vipga)
-  xnoremap ga <Plug>(EasyAlign)
+  xmap ga <Plug>(EasyAlign)
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nnoremap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
 endif
 
 " --- vim-javascript (polyglot) ---
