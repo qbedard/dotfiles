@@ -371,9 +371,6 @@ Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 Plug 'hail2u/vim-css3-syntax'
 Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}  " show hex/rgba colors
 
-" JavaScript "
-Plug 'mxw/vim-jsx'  " jsx for React
-
 " Python "
 " Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}  " fixes python indent issues
 Plug 'tmhedberg/simpylfold'  " python folding
@@ -919,6 +916,9 @@ if &runtimepath =~? 'vim-easy-align'
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nnoremap ga <Plug>(EasyAlign)
 endif
+
+" --- vim-javascript (polyglot) ---
+let g:javascript_plugin_jsdoc = 1
 
 " --- vim-markdown (polyglot) ---
 let g:vim_markdown_new_list_item_indent = 2
