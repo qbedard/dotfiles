@@ -499,7 +499,7 @@ if &runtimepath =~? 'ale'
 endif
 
 " --- auto-pairs ---
-let g:AutoPairsMapSpace = 0
+" let g:AutoPairsMapSpace = 0
 
 " --- blamer.nvim ---
 if &runtimepath =~? 'blamer.nvim'
@@ -823,6 +823,15 @@ if &runtimepath =~? 'nvim-lsp'
     \ completion#trigger_completion()
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+  " prevent completion-nvim from conflicting with auto-pairs
+  let g:completion_confirm_key = ""
+  inoremap <expr> <CR> pumvisible() ? "\<Plug>(completion_confirm_completion)" : "\<CR>"
+
+  " --- diagnostic-nvim ---
+  let g:diagnostic_insert_delay = 1
+  let g:diagnostic_enable_virtual_text = 1
+  let g:diagnostic_virtual_text_prefix = ''
+
   " sign define LspDiagnosticsErrorSign text=✖
   " sign define LspDiagnosticsWarningSign text=
   " sign define LspDiagnosticsInformationSign text=➤
@@ -830,11 +839,6 @@ if &runtimepath =~? 'nvim-lsp'
   sign define LspDiagnosticsWarningSign text=
   sign define LspDiagnosticsInformationSign text=
   sign define LspDiagnosticsHintSign text=➤
-
-  " --- diagnostic-nvim ---
-  let g:diagnostic_insert_delay = 1
-  let g:diagnostic_enable_virtual_text = 1
-  let g:diagnostic_virtual_text_prefix = ''
 endif
 
 " --- vim-polyglot ---
