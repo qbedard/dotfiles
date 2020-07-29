@@ -49,9 +49,10 @@ endfunction
 "                               General Use Setup                           {{{"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Custom Comment Functions {{{ ~~~~~
-function! CommentFrame#Custom(start_str, end_str, line_width,
-                     \frame_fill, title_fill, numspaces, titlestring)
-  call s:CommentFrame(a:start_str, a:end_str, a:line_width,
-                     \a:frame_fill, a:title_fill, a:numspaces, a:titlestring)
-endfunction
+" commented out to prevent load issue due to function/file name
+" function! CommentFrame#Custom(start_str, end_str, line_width,
+"                      \frame_fill, title_fill, numspaces, titlestring)
+"   call s:CommentFrame(a:start_str, a:end_str, a:line_width,
+"                      \a:frame_fill, a:title_fill, a:numspaces, a:titlestring)
+" endfunction
 "}}}
