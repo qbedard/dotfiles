@@ -291,7 +291,7 @@ Plug 'justinmk/vim-dirvish'  " file browser
 Plug 'romainl/vim-cool'  " nohls after searching
 Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
 " Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
-" Plug 'liuchengxu/vim-which-key'  " show key bindings while typing TODO: set up
+" Plug 'liuchengxu/vim-which-key'  " show maps TODO: fix map breaking gq
 
 " ---------- Tags -----------
 if executable('ctags')
@@ -495,9 +495,6 @@ if &runtimepath =~? 'ale'
   let g:ale_sign_warning = ''
   let g:ale_sign_info = ''
 endif
-
-" --- auto-pairs ---
-" let g:AutoPairsMapSpace = 0
 
 " --- blamer.nvim ---
 if &runtimepath =~? 'blamer.nvim'
@@ -789,7 +786,7 @@ if &runtimepath =~? 'nvim-lsp'
   " nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
   nnoremap <silent> 1gD <cmd>lua vim.lsp.buf.type_definition()<CR>
   nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-  nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
+  " nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
   nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>
 
   " --- completion-nvim ---
@@ -946,4 +943,55 @@ if &runtimepath =~? 'vim-signify'
   xmap ic <plug>(signify-motion-inner-visual)
   omap ac <plug>(signify-motion-outer-pending)
   xmap ac <plug>(signify-motion-outer-visual)
+endif
+
+" --- vim-which-key ---
+if &runtimepath =~? 'vim-which-key'
+  set timeoutlen=500
+
+  nnoremap <silent> g :<c-u>WhichKey 'g'<CR>
+  nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+  " hide the statusline for vim-which-key buffers
+  augroup which_key_hide_statusline
+    autocmd! FileType which_key
+    autocmd  FileType which_key set laststatus=0 noshowmode noruler
+      \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+  augroup END
+
+  let g:which_key_fallback_to_native_key=1
+  let g:which_key_use_floating_win = 0
+  " highlight default link WhichKeyFloating  Normal
+
+  let g:which_key_map_g = {
+    \ 'name' : '+g' ,
+    \ '%' : ['g%', 'matchit-backward'],
+    \ 'a' : ['ga', 'easy-align'],
+    \ 'c' : ['gc', 'comment'],
+    \ 'cc' : ['gcc', 'comment-line'],
+    \ 'd' : ['gd', 'lsp-definition'],
+    \ 'D' : ['gD', 'lsp-implementation'],
+    \ 'f' : ['gf', 'lsp-format'],
+    \ 'J' : ['gJ', 'join'],
+    \ 'r' : ['gr', 'lsp-references'],
+    \ 'S' : ['gS', 'split'],
+    \ 'x' : ['gx', 'which_key_ignore'],
+    \ }
+  call which_key#register('g', 'g:which_key_map_g')
+
+  let g:which_key_map_space = {
+    \ 'name' : '+<space>' ,
+    \ 'a' : ['<Space>a', 'append-char'],
+    \ 'b' : ['<Space>b', 'blamer-toggle'],
+    \ 'd' : ['<Space>d', 'generate-docs'],
+    \ 'G' : ['<Space>G', 'Goyo'],
+    \ 'g' : ['<Space>g', 'which_key_ignore'],
+    \ 'i' : ['<Space>i', 'insert-char'],
+    \ 'l' : ['<Space>l', 'Limelight'],
+    \ 't' : ['<Space>t', 'tagbar-toggle'],
+    \ }
+  let g:which_key_map_space.w = {
+    \ 'name' : '+wiki' ,
+    \ }
+  call which_key#register('<Space>', 'g:which_key_map_space')
 endif
