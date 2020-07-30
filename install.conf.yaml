@@ -5,7 +5,6 @@
 
 - shell:
     - bash -c 'if [ "$(uname)" == "Darwin" ]; then brew bundle --no-lock; fi'
-    - fish -c 'omf install'
 
 - clean:
     ~/:
@@ -13,7 +12,7 @@
       recursive: true
 
 - create:
-    - ~/github
+    - ~/.config
 
 - link:
     ~/.bashrc:
@@ -28,3 +27,7 @@
 - stow:
     config:
       target: ~/.config
+
+- shell:
+    - fish -c 'curl -L https://get.oh-my.fish | source - --noninteractive'
+    - fish -c 'omf install'
