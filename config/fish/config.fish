@@ -32,13 +32,20 @@ alias v "nvim"
 alias vi "nvim"
 alias vim "nvim"
 
-alias ls "exa --group-directories-first --icons"
-alias cat "bat"
+if command -v exa > /dev/null
+  alias ls "exa --group-directories-first --icons"
+end
+if command -v bat > /dev/null
+  alias cat "bat"
+end
 
 # TODO: maybe move this to a ripgreprc (pointed at by setting RIPGREP_CONFIG_PATH)
-alias rg 'rg --smart-case --max-columns 120 --max-columns-preview'
+alias rg 'rg --smart-case --max-columns=120 --max-columns-preview'
 
-alias glog "git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias glog "\
+  git log --graph --abbrev-commit --date=relative \
+  --pretty=format:'%Cred%h%Creset %an: %s - \
+  %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset'"
 
 # ----- Abbreviations ----- #
 
@@ -58,14 +65,20 @@ abbr -a ...... "../../../../../"
 abbr -a lsa "ls -a"
 abbr -a l "ls -1"
 abbr -a la "ls -1a"
-abbr -a ll "ls -lh --git"
-abbr -a lla "ls -lh --git -a"
-abbr -a llg "ll --grid"
-abbr -a llga "ll --grid -a"
-abbr -a lt "ls -T"
-abbr -a lta "ls -T -a"
-abbr -a llt "ll -T"
-abbr -a llta "ll -T -a"
+abbr -a la "ls -1a"
+abbr -a ll "ls -lh"
+abbr -a lla "ls -lh -a"
+
+if command -v exa > /dev/null
+  abbr -a ll "ls -lh --git"
+  abbr -a lla "ls -lh --git -a"
+  abbr -a llg "ll --grid"
+  abbr -a llga "ll --grid -a"
+  abbr -a lt "ls -T"
+  abbr -a lta "ls -T -a"
+  abbr -a llt "ll -T"
+  abbr -a llta "ll -T -a"
+end
 
 abbr -a mk "make"
 
@@ -99,8 +112,6 @@ abbr -a gt "git tag"
 abbr -a pup "pip install --upgrade pip"
 abbr -a pup2 "pip2 install --upgrade pip"
 abbr -a pup3 "pip3 install --upgrade pip"
-abbr -a pe "pipenv"
-abbr -a pei "pipenv install"
 
 # --- ripgrep ---
 abbr -a rgm "rg -g '*.mako'"
@@ -128,13 +139,24 @@ set -gx EDITOR "$VISUAL"
 set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
 
 # fzf
+if command -v bat > /dev/null
+  set -gx FZF_FILE_PREVIEW_CMD "bat --line-range :100 --color=always"
+else
+  set -gx FZF_FILE_PREVIEW_CMD "head -n 100"
+end
+
 function __fzf_file_preview -a file
-  bat --line-range :100 --color=always $file
+  fish -c "$FZF_FILE_PREVIEW_CMD $file"
+end
+
+if command -v exa > /dev/null
+  set -gx FZF_DIR_PREVIEW_CMD "exa --tree --level 1 --all --icons --color=always"
+else
+  set -gx FZF_DIR_PREVIEW_CMD "ls -1 -a"
 end
 
 function __fzf_dir_preview -a dir
-  exa --tree --level 1 --all --icons --color=always \
-    (echo $dir | sed "s/^[ 0-9]*//" )  # strip leading spaces/numbers for zoxide
+  $FZF_DIR_PREVIEW_CMD (echo $dir | sed "s/^[ 0-9]*//" )  # strip leading spaces/numbers
 end
 
 function __fzf_either_preview -a file
@@ -145,10 +167,17 @@ function __fzf_either_preview -a file
   end
 end
 
-set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
-set -gx FZF_CTRL_T_COMMAND 'fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv"'
+if command -v rg > /dev/null
+  set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+end
+if command -v rg > /dev/null
+  set -gx FZF_CTRL_T_COMMAND '\
+    fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv"'
+  set -gx FZF_ALT_C_COMMAND '\
+    fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
+end
+
 set -gx FZF_CTRL_T_OPTS '--preview "__fzf_either_preview {}"'
-set -gx FZF_ALT_C_COMMAND 'fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
 set -gx FZF_ALT_C_OPTS '--preview "__fzf_dir_preview {}"'
 set -gx FZF_OPEN_COMMAND $FZF_DEFAULT_COMMAND
 set -gx FZF_OPEN_OPTS '--height 40% --reverse --preview "__fzf_file_preview {}"'
@@ -170,14 +199,17 @@ bind \cg\cr __fzf_git_remote
 bind \cg\cs __fzf_git_stash
 
 function fco -d "Fuzzy-find and checkout a branch"
-  git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
+  git branch --all | grep -v HEAD | string trim | \
+    fzf | read -l result; and git checkout "$result"
 end
 
 # --- python ---
 set -gx PYTHONDONTWRITEBYTECODE 1  # prevent .pyc files
 
 # --- direnv ---
-direnv hook fish | source
+if command -v direnv > /dev/null
+  direnv hook fish | source
+end
 
 if status is-interactive
 and not set -q TMUX
@@ -189,7 +221,11 @@ and not set -q TMUX
 end
 
 # zoxide
-zoxide init fish | source
+if command -v zoxide > /dev/null
+  zoxide init fish | source
+end
 
 # starship prompt
-starship init fish | source
+if command -v starship > /dev/null
+  starship init fish | source
+end
