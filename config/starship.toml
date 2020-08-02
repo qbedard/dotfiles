@@ -56,6 +56,7 @@ format = "[$symbol($virtualenv )]($style)"
 symbol = " "
 
 [ruby]
+format = "[$symbol$version]($style) "
 symbol = " "
 
 [rust]
