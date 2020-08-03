@@ -12,7 +12,7 @@
       recursive: true
 
 - create:
-    - ~/.config
+    - ~/.config/gh
 
 - link:
     ~/.bashrc:
@@ -29,5 +29,4 @@
       target: ~/.config
 
 - shell:
-    - fish -c 'curl -L https://get.oh-my.fish | source - --noninteractive'
     - fish -c 'omf install'

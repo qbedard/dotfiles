@@ -16,6 +16,7 @@ RUN apk add \
         cmake \
         coreutils \
         curl \
+        fish \
         g++ \
         git \
         go \
@@ -70,6 +71,9 @@ RUN  git clone https://github.com/neovim/neovim.git && \
 RUN curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 RUN curl --proto '=https' --tlsv1.2 -sSf \
         https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
+
+# Other
+RUN fish -c 'curl -L https://get.oh-my.fish | source - --noninteractive'
 
 # user stuff
 RUN apk add \
