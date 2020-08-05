@@ -168,6 +168,8 @@ set clipboard=unnamed  " yank to system clipboard
 
 set completeopt-=preview  " preview in a buffer?! No.
 
+set nojoinspaces  " only insert one space after punction when joining lines
+
 "-----------------------------------------------------------------------------"
 "                                  Commands                                   "
 "-----------------------------------------------------------------------------"
