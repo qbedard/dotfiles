@@ -1,13 +1,24 @@
+install:
+	./install
+
+link:
+	./install --only clean link stow
+
+update-brew-head:
+	@echo "Updating homebrew head packages..."
+	@for p in $$(brew list --versions | rg "HEAD" | cut -d" " -f1); \
+		do brew reinstall $$p; done
+
 update-brew:
-	@echo "Updating homebrew packages..." && \
-	brew upgrade && \
-	echo "Homebrew packages updated!" && \
-	echo "Updating homebrew casks..." && \
-	brew cask upgrade && \
-	echo "Homebrew casks updated!" && \
-	echo "Cleaning up after homebrew updates..." && \
-	brew cleanup && \
-	echo "Cleaned!"
+	@echo "Updating homebrew packages..."
+	@brew upgrade &&
+	@echo "Homebrew packages updated!" &&
+	@echo "Updating homebrew casks..." &&
+	@brew cask upgrade &&
+	@echo "Homebrew casks updated!" &&
+	@echo "Cleaning up after homebrew updates..." &&
+	@brew cleanup &&
+	@echo "Cleaned!"
 
 update-omf:
 	@echo "Updating omf..." && \
@@ -24,9 +35,3 @@ update-vim:
 	echo "\nVim plugins updated!"
 
 update: update-brew update-omf update-tmux update-vim
-
-install:
-	./install
-
-link:
-	./install --only clean link stow
