@@ -1,4 +1,5 @@
 format = "$all"
+add_newline = false
 
 [aws]
 symbol = " "
