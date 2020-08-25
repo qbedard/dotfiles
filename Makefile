@@ -6,8 +6,7 @@ link:
 
 update-brew-head:
 	@echo "Updating homebrew head packages..."
-	@for p in $$(brew list --versions | rg "HEAD" | cut -d" " -f1); \
-		do brew reinstall $$p; done
+	@brew upgrade --fetch-HEAD
 
 update-brew:
 	@echo "Updating homebrew packages..."
