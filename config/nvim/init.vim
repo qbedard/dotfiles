@@ -728,13 +728,13 @@ let g:envelop_node_link = [
   \ 'node_modules/.bin/eslint',
   \ 'node_modules/.bin/html-languageserver',
   \ 'node_modules/.bin/prettier',
-  \ 'node_modules/.bin/sql-language-server',
-  \ 'node_modules/.bin/stylelint',
   \ 'node_modules/.bin/typescript-language-server',
   \ 'node_modules/.bin/vim-language-server',
   \ 'node_modules/.bin/vscode-json-languageserver',
   \ 'node_modules/.bin/yaml-language-server',
   \ ]
+  " \ 'node_modules/.bin/sql-language-server',
+  " \ 'node_modules/.bin/stylelint',
 let g:envelop_node_packages = [
   \ 'bash-language-server',
   \ 'dockerfile-language-server-nodejs',
