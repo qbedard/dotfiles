@@ -356,7 +356,7 @@ Plug 'timbedard/vim-envelop'  " virtualenv management
 
 " ----- Language/Syntax -----
 " General "
-Plug 'sheerun/vim-polyglot'  " a ton of language support
+Plug 'sheerun/vim-polyglot', {'commit': '0df1bfa'}  " a ton of language support
 Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
 Plug 'Konfekt/FastFold'  " more intuitive folding
 Plug 'pseewald/vim-anyfold'  " faster folding by ignoring manual folding TODO: check perf
@@ -377,6 +377,7 @@ Plug 'raimon49/requirements.txt.vim'  " syntax highlighting for requirements.txt
 
 " Misc "
 Plug 'tmux-plugins/vim-tmux'  " tmux.conf syntax
+" Plug 'sophacles/vim-bundle-mako'  " mako template (while polyglot detection broken)
 Plug 'tpope/vim-liquid'  " jekyll templates
 
 " --------- Linting ---------
@@ -385,8 +386,8 @@ Plug 'sbdchd/neoformat'  " formatting
 
 " ------- Completion --------
 Plug 'neovim/nvim-lsp'
-Plug 'haorenW1025/completion-nvim'
-Plug 'haorenW1025/diagnostic-nvim'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/diagnostic-nvim'
 " Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " if !has('nvim')
 "   Plug 'roxma/nvim-yarp'
