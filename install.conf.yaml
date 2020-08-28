@@ -12,6 +12,7 @@
       recursive: true
 
 - create:
+    - ~/bin
     - ~/.config/gh
 
 - link:
@@ -25,8 +26,8 @@
     ~/.zshrc:
 
 - stow:
-    config:
-      target: ~/.config
+    bin: ~/bin
+    config: ~/.config
 
 - shell:
     - fish -c 'omf install'
