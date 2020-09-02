@@ -357,7 +357,7 @@ Plug 'timbedard/vim-envelop'  " virtualenv management
 
 " ----- Language/Syntax -----
 " General "
-Plug 'sheerun/vim-polyglot', {'commit': '0df1bfa'}  " a ton of language support
+Plug 'sheerun/vim-polyglot'  " a ton of language support
 Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
 Plug 'Konfekt/FastFold'  " more intuitive folding
 Plug 'pseewald/vim-anyfold'  " faster folding by ignoring manual folding TODO: check perf
