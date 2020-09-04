@@ -327,6 +327,8 @@ Plug 'tpope/vim-repeat'  " repeat supported plugin maps
 Plug 'tpope/vim-abolish'  " abbreviation, substitution, coercion
 Plug 'wellle/targets.vim'  " next/last surround pair text object
 Plug 'michaeljsmith/vim-indent-object'  " [i]ndentation level text object
+Plug 'kana/vim-textobj-user'  " user-created text objects
+Plug 'kana/vim-textobj-line'  " [l]ine text object
 Plug 'terryma/vim-expand-region'  " expand visual selection
 " Plug 'Valloric/MatchTagAlways'  " show matching tags TODO: fix bugging out
 Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
