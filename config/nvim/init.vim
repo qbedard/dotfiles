@@ -388,7 +388,7 @@ Plug 'tpope/vim-liquid'  " jekyll templates
 Plug 'sbdchd/neoformat'  " formatting
 
 " ------- Completion --------
-Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 " Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
