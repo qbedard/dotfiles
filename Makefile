@@ -13,7 +13,7 @@ update-brew:
 	@brew upgrade
 	@echo "Homebrew packages updated!"
 	@echo "Updating homebrew casks..."
-	@brew cask upgrade
+	@brew upgrade --cask
 	@echo "Homebrew casks updated!"
 	@echo "Cleaning up after homebrew updates..."
 	@brew cleanup
