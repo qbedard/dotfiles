@@ -53,6 +53,7 @@ brew "github/gh/gh"
 # --- Casks --- #
 tap "homebrew/cask"
 cask "alfred"
+cask "brave-browser"
 cask "docker"
 cask "firefox"
 cask "firefox-developer-edition"
