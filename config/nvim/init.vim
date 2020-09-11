@@ -359,6 +359,8 @@ Plug 'timbedard/vim-envelop'  " virtualenv management
 
 " ----- Language/Syntax -----
 " General "
+" must be before plugin is loaded
+let g:polyglot_disabled = ['helm']
 Plug 'sheerun/vim-polyglot'  " a ton of language support
 Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
 Plug 'Konfekt/FastFold'  " more intuitive folding
@@ -841,9 +843,6 @@ if &runtimepath =~? 'nvim-lsp'
   sign define LspDiagnosticsInformationSign text=
   sign define LspDiagnosticsHintSign text=➤
 endif
-
-" --- vim-polyglot ---
-let g:polyglot_disabled = ['helm']
 
 " --- SimplyFold ---
 let g:SimpylFold_docstring_preview = 1
