@@ -54,7 +54,19 @@ function M.setup_nvim_lsp()
     }
   }
   -- require'nvim_lsp'.sql.setup {on_attach = on_attach}
-  -- require'nvim_lsp'.sumneko_lua.setup {on_attach = on_attach, cmd = {''}}
+  -- require'nvim_lsp'.sumneko_lua.setup {
+  --   on_attach = on_attach,
+  --   settings = {
+  --     Lua = {
+  --       runtime = {version = "LuaJIT"},
+  --       diagnostics = {
+  --         enable = true,
+  --         globals = {"vim", "spoon", "hs"},
+  --       }
+  --     }
+  --   },
+  --   cmd = {''},
+  -- }
   require'nvim_lsp'.tsserver.setup {on_attach = on_attach}
   require'nvim_lsp'.vimls.setup {
     on_attach = on_attach,
