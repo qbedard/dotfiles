@@ -273,9 +273,11 @@ if empty(glob($PLUG_LOC))
   augroup END
 endif
 
+let $PLUGGED = expand('$DATA_DIR/site/plugged')
+
 "------------------------------ Install Plugins ------------------------------"
 filetype off
-call plug#begin('$DATA_DIR/site/plugged')
+call plug#begin($PLUGGED)
 " /----------------------------- Start Plugins ------------------------------\
 " Note: On-demand loading breaks the conditional config approach,
 " so the options are:
@@ -393,6 +395,9 @@ Plug 'sbdchd/neoformat'  " formatting
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
+Plug 'sumneko/lua-language-server', {
+  \ 'do': 'cd 3rd/luamake && ninja -f ninja/macos.ninja && cd ../.. &&  ./3rd/luamake/luamake rebuild'
+  \ }
 " Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " if !has('nvim')
 "   Plug 'roxma/nvim-yarp'
@@ -621,9 +626,9 @@ nnoremap <Leader>G :Goyo<CR>
 
 " --- gruvbox ---
 if &runtimepath =~? 'plugged/gruvbox'
+  let g:airline_theme='gruvbox'
   let g:gruvbox_italic = 1
   let g:gruvbox_sign_column='bg0'
-  let g:airline_theme='gruvbox'
 
   colorscheme gruvbox  " must come after gruvbox_italic
 
