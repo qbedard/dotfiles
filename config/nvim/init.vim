@@ -34,13 +34,6 @@ let $DATA_DIR = expand('$XDG_DATA_HOME/nvim')  " ~/.local/share/nvim
 "----------------------------------- Python ----------------------------------"
 set pyxversion=3
 
-"------------------------------ Neovim Defaults ------------------------------"
-" If we're not in Neovim, make sure all the defaults are the same.
-if !has('nvim')
-  runtime! neovim-defaults.vim
-  let &runtimepath.=expand(',$DATA_DIR/site')
-endif
-
 "-------------------------------- The Basics ---------------------------------"
 let g:mapleader=' '
 
@@ -207,24 +200,17 @@ xnoremap ; :
 " nnoremap : ;
 " xnoremap : ;
 
-" easier nav in insert mode (Ctrl)
-" NOTE: <C-h> doesn't work thanks to <C-h> sending <bs> in most terminals
-" inoremap <C-k> <C-o>gk
-" inoremap <C-h> <Left>
-" inoremap <C-l> <Right>
-" inoremap <C-j> <C-o>gj
-
 " nav to begin and end of line (rather than buffer) with H/L
 nnoremap H ^
 nnoremap L $
 
-" buffer switching (Shift + j/k)
+" buffer switching similar to Vimium (Shift + j/k)
 nnoremap K :bn<CR>
 nnoremap J :bp<CR>
 xnoremap K :bn<CR>
 xnoremap J :bp<CR>
 
-" tab switching (Ctrl+Tab)
+" tab switching (Ctrl + Tab)
 noremap  <C-Tab>  :tabnext<CR>
 inoremap <C-Tab>  <C-O>:tabnext<CR>
 noremap  <M-Tab>  :tabprev<CR>
@@ -236,7 +222,7 @@ nnoremap U <C-R>
 inoremap <C-u> <C-g>u<C-u>
 inoremap <C-w> <C-g>u<C-w>
 
-" insert a single character
+" insert a single character  TODO: make repeatable
 nnoremap  <leader>i i<Space><Esc>r
 nnoremap  <leader>a a<Space><Esc>r
 
@@ -288,13 +274,11 @@ Plug 'junegunn/vim-plug'  " add docs
 
 " ----------- GUI -----------
 Plug 'morhetz/gruvbox'  " excellent theme
-" Plug 'lifepillar/vim-gruvbox8'  " 'better' (simpler) gruvbox
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'  " themes for airline
 Plug 'justinmk/vim-dirvish'  " file browser
 Plug 'romainl/vim-cool'  " nohls after searching
 Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
-" Plug 'benknoble/vim-auto-origami'  " auto-show foldcolumn
 " Plug 'liuchengxu/vim-which-key'  " show maps TODO: fix map breaking gq
 
 " ---------- Tags -----------
@@ -353,7 +337,7 @@ Plug 'APZelos/blamer.nvim'  " inline blame (virtual text)
 Plug 'rhysd/git-messenger.vim'  " popup commit message for cursor (:GitMessenger)
 
 " --------- Testing ---------
-Plug 'janko-m/vim-test'  " TODO: figure this out
+Plug 'janko-m/vim-test'
 Plug 'junegunn/vader.vim'
 
 " --------- Environments ---------
@@ -361,15 +345,11 @@ Plug 'timbedard/vim-envelop'  " virtualenv management
 
 " ----- Language/Syntax -----
 " General "
-" must be before plugin is loaded
-let g:polyglot_disabled = ['helm']
+let g:polyglot_disabled = ['helm']  " must be before plugin is loaded
 Plug 'sheerun/vim-polyglot'  " a ton of language support
 Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
 Plug 'Konfekt/FastFold'  " more intuitive folding
 Plug 'pseewald/vim-anyfold'  " faster folding by ignoring manual folding TODO: check perf
-
-" ga is currently overwritten by vim-easy-align
-" Plug 'tpope/vim-characterize'  " extend character metadata for `ga`
 
 " XML/HTML "
 " Plug 'alvan/vim-closetag'  " auto-close XML tags <- adds flicker
@@ -388,7 +368,6 @@ Plug 'tmux-plugins/vim-tmux'  " tmux.conf syntax
 Plug 'tpope/vim-liquid'  " jekyll templates
 
 " --------- Linting ---------
-" Plug 'dense-analysis/ale'  " linting/building
 Plug 'sbdchd/neoformat'  " formatting
 
 " ------- Completion --------
@@ -398,43 +377,15 @@ Plug 'nvim-lua/diagnostic-nvim'
 Plug 'sumneko/lua-language-server', {
   \ 'do': 'cd 3rd/luamake && ninja -f ninja/macos.ninja && cd ../.. &&  ./3rd/luamake/luamake rebuild'
   \ }
-" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-" if !has('nvim')
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" Plug 'Shougo/deoplete-lsp'
-" Plug 'Shougo/neco-vim'  " VimL
-" Plug 'fszymanski/deoplete-emoji'  " deoplete support for emoji
-" Plug 'deoplete-plugins/deoplete-jedi', {'do': 'git submodule update --init'}  " python
-" " Plug 'tbodt/deoplete-tabnine', {'do': './install.sh'}  " machine learning autocompletion
-" Plug 'carlitux/deoplete-ternjs', {'do': 'yarn global add tern'}  " js autocompletion
-" Plug 'Shougo/echodoc.vim'  " show func sig
-
-" Plug 'davidhalter/jedi-vim'  " python completion
-
-" Plug 'ervandew/supertab'  " use tab for insert completions
 
 " -------- Snippets ---------
 " Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding TODO: better mapping
 
 " ---------- Notes ----------
-Plug 'vimwiki/vimwiki', {'branch': 'dev'}  " TODO: ditch?
+Plug 'vimwiki/vimwiki', {'branch': 'dev'}  " TODO: ditch
 
 " --------- Preview ---------
 Plug 'iamcco/markdown-preview.nvim', {'do': ':call mkdp#util#install()'}
-" Plug 'suan/vim-instant-markdown'
-" Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-" function! BuildMDComposer(info)
-"   if a:info.status !=? 'unchanged' || a:info.force
-"     if has('nvim')
-"       !cargo build --release
-"     else
-"       !cargo build --release --no-default-features --features json-rpc
-"     endif
-"   endif
-" endfunction
-" Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMDComposer') }
 
 " --------- Writing ---------
 Plug 'junegunn/goyo.vim'  " no-distractions editing
@@ -467,72 +418,12 @@ endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 
-" --- ALE ---
-if &runtimepath =~? 'ale'
-  " Commands
-  command! Fix ALEFix
-
-  " Mappings
-  nmap <silent> ]w <Plug>(ale_next_wrap)
-  nmap <silent> [w <Plug>(ale_previous_wrap)
-  nmap <silent> gf <Plug>(ale_fix)
-  " nmap <silent> gd <Plug>(ale_go_to_definition)
-  " nmap <silent> gy <Plug>(ale_go_to_type_definition)
-  " nmap <silent> gr <Plug>(ale_find_references)
-
-  " General
-  let g:airline#extensions#ale#enabled = 1
-  " set omnifunc=ale#completion#OmniFunc
-  " let g:ale_completion_enabled = 1
-  " let g:ale_set_balloons = 1
-  " let g:ale_set_highlights = 0
-  let g:ale_virtualtext_cursor = 1
-
-  " venv detection of direnv venvs
-  let g:ale_virtualenv_dir_names = [
-    \ '.direnv',
-    \ '.env',
-    \ '.venv',
-    \ 'env',
-    \ 've',
-    \ 've-py3',
-    \ 'venv',
-    \ 'virtualenv',
-    \ ]
-
-  " Signs
-  " let g:ale_sign_error = '✖'
-  " let g:ale_sign_warning = '⚠'
-  " let g:ale_sign_info = '➤'
-  let g:ale_sign_error = ''
-  let g:ale_sign_warning = ''
-  let g:ale_sign_info = ''
-endif
-
 " --- blamer.nvim ---
 if &runtimepath =~? 'blamer.nvim'
   nnoremap <Leader>b :BlamerToggle<CR>
   vnoremap <Leader>b :BlamerToggle<CR>
   let g:blamer_delay = 0
   let g:blamer_template = '<author>, <committer-time> • <summary>'
-endif
-
-" --- deoplete ---
-if &runtimepath =~? 'deoplete.nvim'
-  let g:deoplete#enable_at_startup = 1
-  call deoplete#custom#option({
-    \ 'auto_refresh_delay': 5,
-    \ 'num_processes': 0,
-    \ 'omni_patterns': {
-      \ 'complete_method': 'omnifunc',
-      \ 'terraform': '[^ *\t"{=$]\w*',
-      \ },
-    \ 'sources': {
-      \ 'python': ['lsp'],
-      \ 'javascript': ['tern'],
-      \ 'javascript.jsx': ['tern']
-      \ }
-    \ })
 endif
 
 " --- EasyMotion ---
@@ -543,10 +434,6 @@ if &runtimepath =~? 'vim-easymotion'
   noremap  <Leader>f <Plug>(easymotion-bd-f)
   nnoremap <Leader>f <Plug>(easymotion-overwin-f)
 endif
-
-" --- echodoc ---
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#enable_force_overwrite = 1
 
 " --- Emmet ---
 " default is <C-Y>  " TODO: find a better mapping
@@ -572,16 +459,6 @@ if &runtimepath =~? 'fzf.vim'
 
   " don't highlight the current line and selection column
   let g:fzf_colors = {'bg+': ['bg', 'Normal']}
-endif
-
-" --- GitGutter ---
-if &runtimepath =~? 'vim-gitgutter'
-  let g:gitgutter_override_sign_column_highlight = 1
-  if exists('&signcolumn')  " Vim 7.4.2201
-    set signcolumn=yes
-  else
-    let g:gitgutter_sign_column_always = 1
-  endif
 endif
 
 " --- Goyo ---
@@ -638,20 +515,6 @@ if &runtimepath =~? 'plugged/gruvbox'
   highlight! link FoldColumn LineNr
 endif
 
-" --- gruvbox8 ---
-if &runtimepath =~? 'vim-gruvbox8'
-  let g:airline_theme='gruvbox'
-  let g:gruvbox_filetype_hi_groups = 1
-  let g:gruvbox_plugin_hi_groups = 1
-
-  colorscheme gruvbox8
-
-  " match the fold column colors to the line number column
-  " must come after colorscheme gruvbox
-  highlight clear FoldColumn
-  highlight! link FoldColumn LineNr
-endif
-
 " --- Gutentags ---
 let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
 let g:gutentags_exclude_filetypes = [
@@ -673,14 +536,6 @@ let g:Hexokinase_ftEnabled = ['css', 'less', 'scss', 'xml']
 let g:indentLine_char = '│'
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
 let g:indentLine_fileTypeExclude = ['text', 'markdown']
-
-" --- Instant Markdown ---
-let g:instant_markdown_autostart = 0
-let g:instant_markdown_python = 1
-
-" --- jedi-vim ---
-let g:jedi#completions_enabled = 0
-let g:jedi#documentation_command = '<leader>k'
 
 " --- LimeLight ---
 if &runtimepath =~? 'limelight.vim'
@@ -852,10 +707,6 @@ endif
 " --- SimplyFold ---
 let g:SimpylFold_docstring_preview = 1
 
-" --- SuperTab ---
-" Tabbing goes bottom-to-top and for some reason this fixes it.
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
 " --- Tagbar ---
 if &runtimepath =~? 'tagbar'
   nnoremap <leader>t :TagbarToggle<CR>
@@ -896,14 +747,6 @@ if &runtimepath =~? 'vim-anyfold'
   let g:anyfold_motion = 0
   augroup anyfold_activate
     autocmd! Filetype * AnyFoldActivate
-  augroup END
-endif
-
-" --- vim-auto-origami ---
-if &runtimepath =~? 'vim-auto-origami'
-  let g:auto_origami_foldcolumn = 3
-  augroup auto_fold_column
-    autocmd! CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
   augroup END
 endif
 
@@ -952,9 +795,9 @@ let g:javascript_plugin_jsdoc = 1
 
 " --- vim-markdown (polyglot) ---
 let g:vim_markdown_new_list_item_indent = 2
+
 " --- vim-signature ---
 let g:SignatureMarkTextHLDynamic = 1
-
 
 " --- vim-signify ---
 if &runtimepath =~? 'vim-signify'
