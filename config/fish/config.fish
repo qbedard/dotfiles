@@ -25,6 +25,11 @@ set -gp fish_user_paths "$HOME/.cargo/bin"  # rust
 set -gx LDFLAGS "-L/usr/local/opt/openssl/lib"
 set -gx CPPFLAGS "-I/usr/local/opt/openssl/include"
 
+# use sccache for cargo
+if command -v sccache > /dev/null
+  set -gx RUSTC_WRAPPER "sccache"
+end
+
 # ----- Aliases ----- #
 # TODO: Test these
 alias e "nvim"
