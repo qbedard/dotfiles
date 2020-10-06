@@ -304,7 +304,8 @@ Plug 'unblevable/quick-scope'  " highlight unique letters in words for f/t
 
 " --------- Editing ---------
 Plug 'ntpeters/vim-better-whitespace'  " better whitespace stripping
-Plug 'zhimsel/vim-stay'  " persist editing state when switching buffers, etc
+" Plug 'zhimsel/vim-stay'  " persist editing state when switching buffers, etc
+Plug 'farmergreg/vim-lastplace'  " remember cursor position
 " Plug 'cometsong/CommentFrame.vim'  " fancy comment title frame generator TODO: set up
 Plug 'tpope/vim-commentary'  " commenting shortcuts
 Plug 'tpope/vim-eunuch'  " unix cmds (Move, Delete, etc)
