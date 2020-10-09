@@ -15,9 +15,9 @@ update-brew:
 	@echo "Updating homebrew casks..."
 	@brew upgrade --cask
 	@echo "Homebrew casks updated!"
-	@echo "Cleaning up after homebrew updates..."
-	@brew cleanup
-	@echo "Cleaned!"
+	# @echo "Cleaning up after homebrew updates..."
+	# @brew cleanup
+	# @echo "Cleaned!"
 
 update-omf:
 	@echo "Updating omf..."
