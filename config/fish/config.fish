@@ -161,7 +161,7 @@ else
 end
 
 function __fzf_dir_preview -a dir
-  $FZF_DIR_PREVIEW_CMD (echo $dir | sed "s/^[ 0-9]*//" )  # strip leading spaces/numbers
+  fish -c "$FZF_DIR_PREVIEW_CMD (echo $dir | sed 's/^[ 0-9]*//' )"  # strip leading spaces/numbers
 end
 
 function __fzf_either_preview -a file
