@@ -177,7 +177,7 @@ if command -v rg > /dev/null
 end
 if command -v rg > /dev/null
   set -gx FZF_CTRL_T_COMMAND '\
-    fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv"'
+    fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv" --exclude ".venv"'
   set -gx FZF_ALT_C_COMMAND '\
     fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
 end
