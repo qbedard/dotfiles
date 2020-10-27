@@ -351,6 +351,7 @@ Plug 'sheerun/vim-polyglot'  " a ton of language support
 Plug 'tpope/vim-sleuth'  " detect shiftwidth and expandtab automagically
 Plug 'Konfekt/FastFold'  " more intuitive folding
 Plug 'pseewald/vim-anyfold'  " faster folding by ignoring manual folding TODO: check perf
+Plug 'pierreglaser/folding-nvim'  " lua-based LSP folding
 
 " XML/HTML "
 " Plug 'alvan/vim-closetag'  " auto-close XML tags <- adds flicker
@@ -375,9 +376,9 @@ Plug 'sbdchd/neoformat'  " formatting
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
-Plug 'sumneko/lua-language-server', {
-  \ 'do': 'cd 3rd/luamake && ninja -f ninja/macos.ninja && cd ../.. &&  ./3rd/luamake/luamake rebuild'
-  \ }
+" Plug 'sumneko/lua-language-server', {
+"   \ 'do': 'cd 3rd/luamake && ninja -f ninja/macos.ninja && cd ../.. &&  ./3rd/luamake/luamake rebuild'
+"   \ }
 
 " -------- Snippets ---------
 " Plug 'mattn/emmet-vim'  " fast HTML pseudo-coding TODO: better mapping

@@ -27,6 +27,7 @@ function M.setup_nvim_lsp()
   local on_attach = function()
     require'completion'.on_attach()
     require'diagnostic'.on_attach()
+    require'folding'.on_attach()
   end
 
   require'nvim_lsp'.bashls.setup {on_attach = on_attach}
@@ -55,23 +56,23 @@ function M.setup_nvim_lsp()
     }
   }
   -- require'nvim_lsp'.sql.setup {on_attach = on_attach}
-  require'nvim_lsp'.sumneko_lua.setup {
-    on_attach = on_attach,
-    settings = {
-      Lua = {
-        runtime = {version = "LuaJIT"},
-        diagnostics = {
-          enable = true,
-          globals = {"vim", "spoon", "hs"},
-        }
-      }
-    },
-    cmd = {
-      vim.api.nvim_eval(
-        "expand('$PLUGGED/lua-language-server/bin/macOS/lua-language-server')"
-        )
-    },
-  }
+  -- require'nvim_lsp'.sumneko_lua.setup {
+  --   on_attach = on_attach,
+  --   settings = {
+  --     Lua = {
+  --       runtime = {version = "LuaJIT"},
+  --       diagnostics = {
+  --         enable = true,
+  --         globals = {"vim", "spoon", "hs"},
+  --       }
+  --     }
+  --   },
+  --   cmd = {
+  --     vim.api.nvim_eval(
+  --       "expand('$PLUGGED/lua-language-server/bin/macOS/lua-language-server')"
+  --       )
+  --   },
+  -- }
   require'nvim_lsp'.tsserver.setup {on_attach = on_attach}
   require'nvim_lsp'.vimls.setup {
     on_attach = on_attach,
