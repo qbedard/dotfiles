@@ -15,7 +15,7 @@ function fish_greeting; end
 
 # ----- PATH ----- #
 set -gp fish_user_paths "$HOME/bin"  # custom binarys
-set -gp fish_user_paths "$HOME/Library/Python/3.7/bin"  # python3
+# set -gp fish_user_paths "$HOME/Library/Python/3.7/bin"  # python3
 set -gp fish_user_paths "$HOME/.poetry/bin"  # poetry
 set -gp fish_user_paths "/usr/local/opt/ruby/bin"  # ruby
 set -gp fish_user_paths "/usr/local/lib/ruby/gems/2.7.0/bin"  # ruby gems
@@ -109,6 +109,7 @@ abbr -a gd "git diff"
 abbr -a gdtv "git difftool"
 abbr -a gm "git merge"
 abbr -a gp "git push"
+abbr -a gpu "git push -u"
 abbr -a gf "git fetch"
 abbr -a gl "git pull"
 abbr -a gt "git tag"
