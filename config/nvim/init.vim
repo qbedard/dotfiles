@@ -273,7 +273,7 @@ call plug#begin($PLUGGED)
 Plug 'junegunn/vim-plug'  " add docs
 
 " ----------- GUI -----------
-Plug 'morhetz/gruvbox'  " excellent theme
+Plug 'gruvbox-community/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'  " themes for airline
 Plug 'justinmk/vim-dirvish'  " file browser
