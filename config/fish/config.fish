@@ -132,9 +132,6 @@ abbr -a vd "vagrant destroy"
 abbr -a vh "vagrant halt"
 abbr -a vss "vagrant ssh"
 
-# --- zoxide ---
-abbr -a j z
-
 # ----- Misc ----- #
 # vim
 set -gx VISUAL nvim

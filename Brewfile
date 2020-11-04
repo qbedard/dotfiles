@@ -8,7 +8,6 @@ brew "direnv"
 brew "docker-completion"
 brew "docker-compose-completion"
 brew "exa", args: ['HEAD']  # ls replacement
-# brew "fasd"  # fast dir nav
 brew "fd"  # find replacement
 brew "fish"  # shell
 brew "fzf"  # fuzzy
@@ -16,6 +15,7 @@ brew "ghq"  # repo organization
 brew "git"
 brew "gnupg"  # GPG tools
 brew "hub"  # GitHub tools
+brew "ipython"  # better python shell
 brew "jq"  # JSON parsing
 brew "lazydocker"  # docker term UI
 # brew "mysql"
@@ -26,12 +26,11 @@ brew "poetry"
 brew "procs"  # ps replacement
 brew "python"
 brew "reattach-to-user-namespace"  # fix tmux pasteboard mac issues
-cask "rectangle"
 brew "ripgrep"  # awesome grep
 # brew "ruby"
 # brew "shellcheck"  # sh linter
 brew "shfmt"
-brew "starship", args: ['HEAD']  # shell prompt
+brew "starship"  # shell prompt
 brew "stow"
 brew "tmux"
 brew "tokei"
@@ -55,10 +54,9 @@ tap "homebrew/cask"
 cask "alfred"
 cask "brave-browser"
 cask "docker"
-cask "firefox"
-cask "firefox-developer-edition"
 cask "insomnia"
 cask "kitty"
+cask "rectangle"
 cask "tableplus"
 # cask "virtualbox"
 
