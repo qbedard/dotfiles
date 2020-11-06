@@ -354,6 +354,12 @@ Plug 'Konfekt/FastFold'  " more intuitive folding
 Plug 'pseewald/vim-anyfold'  " faster folding by ignoring manual folding TODO: check perf
 Plug 'pierreglaser/folding-nvim'  " lua-based LSP folding
 
+" Treesitter "
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'romgrk/nvim-treesitter-context'  " show current scope context at top
+" Plug 'nvim-treesitter/nvim-treesitter-refactor'
+" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
 " XML/HTML "
 " Plug 'alvan/vim-closetag'  " auto-close XML tags <- adds flicker
 
@@ -705,6 +711,11 @@ if &runtimepath =~? 'nvim-lsp'
   sign define LspDiagnosticsWarningSign text=
   sign define LspDiagnosticsInformationSign text=
   sign define LspDiagnosticsHintSign text=➤
+endif
+
+" --- nvim-treesitter ---
+if &runtimepath =~? 'nvim-treesitter'
+  lua require'init'.setup_nvim_treesitter()
 endif
 
 " --- SimplyFold ---

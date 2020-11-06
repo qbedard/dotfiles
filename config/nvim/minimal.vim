@@ -4,6 +4,7 @@ set number
 set signcolumn=yes
 inoremap jj <Esc>
 nnoremap ; :
+let g:mapleader=' '
 
 "-------------------------------- Directories --------------------------------"
 let $XDG_DATA_HOME = expand('$HOME/.local/share')
@@ -30,6 +31,11 @@ call plug#begin('$DATA_DIR/site/plugged')
 " plugins
 Plug 'morhetz/gruvbox'  " excellent theme
 
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'romgrk/nvim-treesitter-context'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
 call plug#end()
 filetype plugin indent on
 
@@ -49,3 +55,7 @@ if &runtimepath =~? 'plugged/gruvbox'
   highlight clear FoldColumn
   highlight! link FoldColumn LineNr
 endif
+
+lua require'init'.setup_nvim_treesitter()
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
