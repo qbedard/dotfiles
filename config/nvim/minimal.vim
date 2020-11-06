@@ -29,7 +29,7 @@ filetype off
 call plug#begin('$DATA_DIR/site/plugged')
 
 " plugins
-Plug 'morhetz/gruvbox'  " excellent theme
+Plug 'gruvbox-community/gruvbox'  " excellent theme
 
 call plug#end()
 filetype plugin indent on
