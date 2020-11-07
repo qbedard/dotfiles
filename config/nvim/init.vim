@@ -514,7 +514,7 @@ nnoremap <Leader>G :Goyo<CR>
 if &runtimepath =~? 'plugged/gruvbox'
   let g:airline_theme='gruvbox'
   let g:gruvbox_italic = 1
-  let g:gruvbox_sign_column='bg0'
+  let g:gruvbox_sign_column = 'bg0'
 
   colorscheme gruvbox  " must come after gruvbox_italic
 
