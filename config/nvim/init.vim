@@ -827,10 +827,10 @@ if &runtimepath =~? 'vim-signify'
   highlight! link SignifySignChange GruvboxBlueSign
 
   " nifty hunk motions
-  omap ic <plug>(signify-motion-inner-pending)
-  xmap ic <plug>(signify-motion-inner-visual)
-  omap ac <plug>(signify-motion-outer-pending)
-  xmap ac <plug>(signify-motion-outer-visual)
+  omap ic <Plug>(signify-motion-inner-pending)
+  xmap ic <Plug>(signify-motion-inner-visual)
+  omap ac <Plug>(signify-motion-outer-pending)
+  xmap ac <Plug>(signify-motion-outer-visual)
 endif
 
 " --- vim-which-key ---

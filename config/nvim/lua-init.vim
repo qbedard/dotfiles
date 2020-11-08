@@ -99,6 +99,8 @@ augroup END
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 
+set foldlevel=99
+
 "-------------------------------- Navigation ---------------------------------"
 set mouse=a  " let the mouse wheel scroll page, etc
 
@@ -181,3 +183,12 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "------------------------------------ Lua ------------------------------------"
 lua require'init'
+let g:fzf_colors = {'bg+': ['bg', 'Normal']}
+
+function s:recompile_plugins()
+  luafile %
+  PackerCompile
+endfunction
+augroup recompile_plugins
+  autocmd BufWritePost plugins.lua call <SID>recompile_plugins()
+augroup END
