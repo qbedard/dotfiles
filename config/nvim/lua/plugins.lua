@@ -31,23 +31,18 @@ require('packer').startup(function()
         { mode = '<c-p>' },
         { mode = '<c-n>' },
       }
+      function _G.check_behind()
+        local col = vim.fn.col('.') - 1
+        local col_is_empty = function(col)
+          return col <= 0 or vim.fn.getline('.'):sub(col, col):match('%s')
+        end
+        return col_is_empty(col) and col_is_empty(col - 1) and true or false
+      end
       -- TODO: Convert to lua
       vim.api.nvim_exec(
         [[
-          set completeopt=menuone,noinsert,noselect
-          set shortmess+=c
-
-          " check previous cols
-          function! CheckBehind() abort
-            function! s:col_is_space(col)
-              return a:col && getline('.')[a:col - 1] =~# '\s'
-            endfunction
-            let prev = col('.') - 1
-            return !prev || s:col_is_space(prev) && s:col_is_space(prev - 1)
-          endfunction
-
           " <TAB>/<S-TAB> through completeopts
-          inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : CheckBehind() ? "\<TAB>" : completion#trigger_completion()
+          inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : v:lua.check_behind() ? "\<TAB>" : completion#trigger_completion()
           inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
           " prevent completion-nvim from conflicting with auto-pairs

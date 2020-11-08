@@ -178,6 +178,9 @@ xnoremap < <gv
 xnoremap > >gv
 
 "-------------------------------- Completion ---------------------------------"
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+
 " <CR> to select completion (must be double quotes!)
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
