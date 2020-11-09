@@ -649,7 +649,7 @@ if &runtimepath =~? 'nvim-lsp'
   " let g:completion_enable_auto_popup = 0
 
   let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp', 'snippet', 'path']},
+    \{'complete_items': ['lsp', 'snippet']},
     \{'mode': '<c-p>'},
     \{'mode': '<c-n>'},
     \]
