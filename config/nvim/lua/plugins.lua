@@ -117,11 +117,11 @@ require('packer').startup(function()
   }
   use {
     'romgrk/nvim-treesitter-context',
-    requires = {'nvim-treesitter/nvim-treesitter'},
+    requires = 'nvim-treesitter/nvim-treesitter',
   }
   use {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    requires = {'nvim-treesitter/nvim-treesitter'},
+    requires = 'nvim-treesitter/nvim-treesitter',
   }
   -- use 'nvim-treesitter/nvim-treesitter-refactor'
   -- use { 'nvim-treesitter/completion-treesitter', opt = true }
@@ -136,7 +136,7 @@ require('packer').startup(function()
   -- }
   use {
     'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    requires = 'kyazdani42/nvim-web-devicons',
   }
   use { 'norcalli/nvim-colorizer.lua', opt = true, ft = {'html', 'css'} }
 
@@ -155,7 +155,7 @@ require('packer').startup(function()
   }
   use {
     'vim-airline/vim-airline',
-    requires = {'vim-airline/vim-airline-themes', opt = true},
+    requires = 'vim-airline/vim-airline-themes',
     config = function()
       vim.g.airline_powerline_fonts = 1
       vim.g.airline_symbols = {
@@ -196,7 +196,7 @@ require('packer').startup(function()
         false
       )
     end,
-    requires = {'/usr/local/opt/fzf'},
+    requires = '/usr/local/opt/fzf',
   }
   -- use { 'ludovicchabant/vim-gutentags', opt = true }
   -- use { 'majutsushi/tagbar', opt = true, ft = {'c', 'cpp', 'typescript', 'typescriptreact'} }
