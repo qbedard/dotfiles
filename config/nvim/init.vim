@@ -20,17 +20,6 @@ scriptencoding utf-8
 "-----------------------------------------------------------------------------"
 "                                   General                                   "
 "-----------------------------------------------------------------------------"
-"-------------------------------- Directories --------------------------------"
-if $XDG_CONFIG_HOME ==? ''
-  let $XDG_CONFIG_HOME = expand('$HOME/.config')
-endif
-let $RUNTIME_DIR = expand('$XDG_CONFIG_HOME/nvim')  " ~/.config/nvim
-
-if $XDG_DATA_HOME ==? ''
-  let $XDG_DATA_HOME = expand('$HOME/.local/share')
-endif
-let $DATA_DIR = expand('$XDG_DATA_HOME/nvim')  " ~/.local/share/nvim
-
 "----------------------------------- Python ----------------------------------"
 set pyxversion=3
 
@@ -48,23 +37,17 @@ set hidden  " switch buffers without saving
 set splitbelow
 set splitright
 
-if has('autocmd')
-  filetype plugin indent on
-endif
+filetype plugin indent on
 
 " prevent delay when changing modes
-if !has('nvim') && &ttimeoutlen == -1
-  set ttimeout
-  set ttimeoutlen=50
-endif
+set ttimeout
+set ttimeoutlen=50
 
 " speed up screen updating
 set updatetime=100
 
 " persistent undo
-if has('persistent_undo')
-  set undofile
-endif
+set undofile
 
 " no netrwhist
 let g:netrw_dirhistmax = 0
@@ -111,9 +94,7 @@ if executable('rg')
 endif
 
 "-------------------------------- Appearance ---------------------------------"
-if has('syntax')
-  syntax enable
-endif
+syntax enable
 
 set noshowmode  " hide the mode (airline will show instead)
 
@@ -171,13 +152,6 @@ set nojoinspaces  " only insert one space after punction when joining lines
 :command! W w
 :command! WQ wq
 :command! Wq wq
-
-"------------------------------ vimrc Shortcuts ------------------------------"
-" shortcut to edit vimrc
-cnoreabbrev vr :e $RUNTIME_DIR/init.vim
-
-" reload vimrc
-cnoreabbrev vrr :source $MYVIMRC
 
 "-----------------------------------------------------------------------------"
 "                                  Mappings                                   "
@@ -250,7 +224,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 "                                   Plugins                                   "
 "-----------------------------------------------------------------------------"
 "----------------------------- Install vim-plug ------------------------------"
-let $PLUG_LOC = expand('$DATA_DIR/site/autoload/plug.vim')
+let $PLUG_LOC = stdpath('data') . '/site/autoload/plug.vim'
 if empty(glob($PLUG_LOC))
   silent !curl -fLo $PLUG_LOC --create-dirs
     \ "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
@@ -259,7 +233,7 @@ if empty(glob($PLUG_LOC))
   augroup END
 endif
 
-let $PLUGGED = expand('$DATA_DIR/site/plugged')
+let $PLUGGED = stdpath('data') . '/site/plugged'
 
 "------------------------------ Install Plugins ------------------------------"
 filetype off
@@ -319,8 +293,8 @@ Plug 'michaeljsmith/vim-indent-object'  " [i]ndentation level text object
 Plug 'kana/vim-textobj-user'  " user-created text objects
 Plug 'kana/vim-textobj-line'  " [l]ine text object
 Plug 'terryma/vim-expand-region'  " expand visual selection
-" Plug 'Valloric/MatchTagAlways'  " show matching tags TODO: fix bugging out
-Plug 'andymass/vim-matchup'  " insert closing quotes, parens, etc
+Plug 'tmsvg/pear-tree'  " insert closing quotes, parens, tags, etc
+Plug 'andymass/vim-matchup'  " highlight matching tags
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
 Plug 'junegunn/vim-easy-align'  " line stuff up with ga motion
 Plug 'AndrewRadev/splitjoin.vim'  " single-line <-> multi-line
@@ -526,7 +500,7 @@ if &runtimepath =~? 'plugged/gruvbox'
 endif
 
 " --- Gutentags ---
-let g:gutentags_cache_dir = expand('$DATA_DIR/tags')
+let g:gutentags_cache_dir = stdpath('data') . '/tags'
 let g:gutentags_exclude_filetypes = [
   \ 'cfg',
   \ 'dosini',
