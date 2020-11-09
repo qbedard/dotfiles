@@ -33,10 +33,10 @@ require('packer').startup(function()
       }
       function _G.check_behind()
         local col = vim.fn.col('.') - 1
-        local col_is_empty = function(col)
+        local is_empty = function(col)
           return col <= 0 or vim.fn.getline('.'):sub(col, col):match('%s')
         end
-        return col_is_empty(col) and col_is_empty(col - 1) and true or false
+        return is_empty(col) and is_empty(col - 1) and true or false
       end
       -- TODO: Convert to lua
       vim.api.nvim_exec(
