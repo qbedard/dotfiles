@@ -205,10 +205,10 @@ nnoremap H ^
 nnoremap L $
 
 " buffer switching similar to Vimium (Shift + j/k)
-nnoremap K :bn<CR>
-nnoremap J :bp<CR>
-xnoremap K :bn<CR>
-xnoremap J :bp<CR>
+nnoremap K :BufferNext<CR>
+nnoremap J :BufferPrevious<CR>
+xnoremap K :BufferNext<CR>
+xnoremap J :BufferPrevious<CR>
 
 " tab switching (Ctrl + Tab)
 noremap  <C-Tab>  :tabnext<CR>
@@ -276,6 +276,7 @@ Plug 'junegunn/vim-plug'  " add docs
 Plug 'gruvbox-community/gruvbox'  " excellent theme
 Plug 'vim-airline/vim-airline'  " adds metadata at the bottom
 Plug 'vim-airline/vim-airline-themes'  " themes for airline
+Plug 'romgrk/barbar.nvim'  " fancy tab bar
 Plug 'justinmk/vim-dirvish'  " file browser
 Plug 'romainl/vim-cool'  " nohls after searching
 Plug 'Yggdroot/indentLine'  " nice indentation lines (mucks with conceal, maybe JSON)
@@ -319,7 +320,7 @@ Plug 'kana/vim-textobj-user'  " user-created text objects
 Plug 'kana/vim-textobj-line'  " [l]ine text object
 Plug 'terryma/vim-expand-region'  " expand visual selection
 " Plug 'Valloric/MatchTagAlways'  " show matching tags TODO: fix bugging out
-Plug 'jiangmiao/auto-pairs'  " insert closing quotes, parens, etc
+Plug 'andymass/vim-matchup'  " insert closing quotes, parens, etc
 Plug 'junegunn/vim-peekaboo'  " show preview of registers
 Plug 'junegunn/vim-easy-align'  " line stuff up with ga motion
 Plug 'AndrewRadev/splitjoin.vim'  " single-line <-> multi-line
@@ -405,6 +406,7 @@ Plug 'ChristianChiarulli/codi.vim'  " inline REPL eval
 
 " wants to always be loaded last
 Plug 'ryanoasis/vim-devicons'  " fancy Nerd Font icons
+Plug 'kyazdani42/nvim-web-devicons'  " same, but lua
 
 " \------------------------------ End Plugins -------------------------------/
 
@@ -418,7 +420,6 @@ endif
 "----------------------------- Configure Plugins -----------------------------"
 
 " --- airline ---
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
