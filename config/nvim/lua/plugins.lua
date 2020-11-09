@@ -20,14 +20,38 @@ require('packer').startup(function()
 
   use {
     'neovim/nvim-lspconfig',
-    config = function() require'lsp' end,
+    run = ':LspInstall sumneko_lua',
+    config = function()
+      require'lsp'
+      vim.api.nvim_exec(
+        [[
+          nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+          " nnoremap <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>
+          " nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+          " nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+          nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
+          " nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+          nnoremap <silent> 1gD <cmd>lua vim.lsp.buf.type_definition()<CR>
+          nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+          " nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
+          nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>
+        ]],
+        false
+      )
+    end,
   }
   use {
     'nvim-lua/completion-nvim',
     config = function()
       vim.g.completion_enable_auto_signature = 0  -- crazy slow
       vim.g.completion_chain_complete_list = {
-        { complete_items = {'lsp', 'snippet', 'path'} },
+        {
+          complete_items = {
+            'lsp',
+            -- 'snippet',
+            -- 'path',
+          }
+        },
         { mode = '<c-p>' },
         { mode = '<c-n>' },
       }
@@ -78,20 +102,32 @@ require('packer').startup(function()
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    config = function() require'treesitter' end,
+    run = ':TSInstall all',
+    config = function()
+      require'treesitter'
+      -- TODO: Still a bit buggy
+      -- vim.api.nvim_exec(
+      --   [[
+      --     set foldmethod=expr
+      --     set foldexpr=nvim_treesitter#foldexpr()
+      --   ]],
+      --   false
+      -- )
+    end,
   }
-  -- use { 'nvim-treesitter/completion-treesitter', opt = true, event = 'VimEnter *' }
-  -- use 'nvim-treesitter/nvim-treesitter-refactor'
-  -- use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'romgrk/nvim-treesitter-context'
+  -- use { 'nvim-treesitter/completion-treesitter', opt = true }
+  -- use 'nvim-treesitter/nvim-treesitter-refactor'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
-  use {
-    'glepnir/galaxyline.nvim',
-    branch = 'main',
-    config = function() require'statusline' end,  -- TODO: Configure
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    disable = true,
-  }
+  -- TODO: Switch?
+  -- use {
+  --   'glepnir/galaxyline.nvim',
+  --   branch = 'main',
+  --   config = function() require'statusline' end,  -- TODO: Configure
+  --   requires = {'kyazdani42/nvim-web-devicons', opt = true},
+  --   disable = true,
+  -- }
   use {
     'romgrk/barbar.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
@@ -139,7 +175,7 @@ require('packer').startup(function()
       -- TODO: Find out why this isn't working for floating fzf
       -- don't highlight the current line and selection column
       -- vim.g.fzf_colors = { ['bg+'] = {'bg', 'Normal'} }
-      -- TODO: Convert to lua
+      -- TODO: Convert to lua?
       vim.api.nvim_exec(
         [[
           " mappings
@@ -224,7 +260,10 @@ require('packer').startup(function()
 
   --- copied stragglers ---
   use 'andymass/vim-matchup'
-  use 'tmsvg/pear-tree'
+  use{
+    'tmsvg/pear-tree',
+    config = function() vim.g.pear_tree_repeatable_expand = 0 end,
+  }
   -- use 'tpope/vim-apathy'
 
 end)

@@ -26,6 +26,8 @@ local on_attach = function()
   require'folding'.on_attach()
 end
 
+
+
 require'nvim_lsp'.bashls.setup {on_attach = on_attach}
 -- require'nvim_lsp'.ccls.setup {on_attach = on_attach}
 -- require'nvim_lsp'.cmake.setup {on_attach = on_attach}
@@ -52,23 +54,53 @@ require'nvim_lsp'.pyls.setup {
   }
 }
 -- require'nvim_lsp'.sql.setup {on_attach = on_attach}
--- require'nvim_lsp'.sumneko_lua.setup {
---   on_attach = on_attach,
---   settings = {
---     Lua = {
---       runtime = {version = "LuaJIT"},
---       diagnostics = {
---         enable = true,
---         globals = {"vim", "spoon", "hs"},
---       }
+require'nvim_lsp'.sumneko_lua.setup {
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      workspace = {
+        library = {
+          [vim.fn.expand('$VIMRUNTIME')] = true,
+          -- TODO: Add plugins?
+        },
+        maxPreload = 2000,
+        preloadFileSize = 1000,
+      },
+      runtime = {
+        version = 'LuaJIT',
+        path = { "?.lua", "?/init.lua", "?/?.lua" }
+      },
+      diagnostics = {
+        enable = true,
+        globals = {'use', 'vim'},
+      }
+    }
+  },
+--         "workspace": {
+--             "library": {
+--                 "/path/to/hammerspoon-completion/build/stubs": true,
+--                 "/path/to/neovim/runtime/lua": true
+--             },
+--             "maxPreload": 2000,
+--             "preloadFileSize": 1000
+--         },
+--         "runtime": {
+--             "version": "Lua 5.4"
+--         },
+--         "diagnostics": {
+--             "enable": true,
+--             "globals": ["hs", "vim", "it", "describe", "before_each", "after_each"],
+--             "disable": ["lowercase-global"]
+--         },
+--         "completion": {
+--             "keywordSnippet": "Disable"
+--         }
 --     }
---   },
---   cmd = {
---     vim.api.nvim_eval(
---       "expand('$PLUGGED/lua-language-server/bin/macOS/lua-language-server')"
---       )
---   },
--- }
+  cmd = {
+    -- TODO: Make work on other Linux as well
+    vim.fn.stdpath('cache') .. '/lua-language-server/bin/macOS/lua-language-server'
+  },
+}
 require'nvim_lsp'.tsserver.setup {on_attach = on_attach}
 require'nvim_lsp'.vimls.setup {
   on_attach = on_attach,
