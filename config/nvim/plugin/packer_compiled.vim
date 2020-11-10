@@ -7,7 +7,6 @@ endif
 lua << END
 local plugins = {
   ["diagnostic-nvim"] = {
-    config = { "\27LJ\1\2›\1\0\0\2\0\6\0\r4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0'\1\1\0:\1\3\0004\0\0\0007\0\1\0%\1\5\0:\1\4\0G\0\1\0\bïƒ™#diagnostic_virtual_text_prefix#diagnostic_enable_virtual_text\28diagnostic_insert_delay\6g\bvim\0" },
     loaded = false,
     only_sequence = true,
     only_setup = true,
@@ -162,13 +161,13 @@ end
 
 -- Pre-load configuration
 -- Setup for: diagnostic-nvim
-loadstring('\27LJ\1\2˜\3\0\0\3\0\v\0\0254\0\0\0007\0\1\0007\0\2\0%\1\3\0003\2\4\0>\0\3\0014\0\0\0007\0\1\0007\0\2\0%\1\5\0003\2\6\0>\0\3\0014\0\0\0007\0\1\0007\0\2\0%\1\a\0003\2\b\0>\0\3\0014\0\0\0007\0\1\0007\0\2\0%\1\t\0003\2\n\0>\0\3\1G\0\1\0\1\0\2\ttext\bâž¤\vtexthl\27LspDiagnosticsHintSign\27LspDiagnosticsHintSign\1\0\2\ttext\bïš\vtexthl"LspDiagnosticsInformationSign"LspDiagnosticsInformationSign\1\0\2\ttext\bïª\vtexthl\30LspDiagnosticsWarningSign\30LspDiagnosticsWarningSign\1\0\2\ttext\bï€\vtexthl\28LspDiagnosticsErrorSign\28LspDiagnosticsErrorSign\16sign_define\afn\bvim\0')()
+loadstring("\27LJ\1\2¤\4\0\0\3\0\16\0%4\0\0\0007\0\1\0007\0\2\0%\1\3\0003\2\4\0>\0\3\0014\0\0\0007\0\1\0007\0\2\0%\1\5\0003\2\6\0>\0\3\0014\0\0\0007\0\1\0007\0\2\0%\1\a\0003\2\b\0>\0\3\0014\0\0\0007\0\1\0007\0\2\0%\1\t\0003\2\n\0>\0\3\0014\0\0\0007\0\v\0'\1\1\0:\1\f\0004\0\0\0007\0\v\0'\1\1\0:\1\r\0004\0\0\0007\0\v\0%\1\15\0:\1\14\0G\0\1\0\bïƒ™#diagnostic_virtual_text_prefix#diagnostic_enable_virtual_text\28diagnostic_insert_delay\6g\1\0\2\ttext\bâž¤\vtexthl\27LspDiagnosticsHintSign\27LspDiagnosticsHintSign\1\0\2\ttext\bïš\vtexthl\"LspDiagnosticsInformationSign\"LspDiagnosticsInformationSign\1\0\2\ttext\bïª\vtexthl\30LspDiagnosticsWarningSign\30LspDiagnosticsWarningSign\1\0\2\ttext\bï€\vtexthl\28LspDiagnosticsErrorSign\28LspDiagnosticsErrorSign\16sign_define\afn\bvim\0")()
 vim.cmd("packadd diagnostic-nvim")
 -- Post-load configuration
 -- Config for: quick-scope
 loadstring("\27LJ\1\2B\0\0\2\0\4\0\0054\0\0\0007\0\1\0003\1\3\0:\1\2\0G\0\1\0\1\5\0\0\6f\6F\6t\6T\25qs_highlight_on_keys\6g\bvim\0")()
 -- Config for: vim-envelop
-loadstring("\27LJ\1\2ä\2\0\0\2\0\b\0\r4\0\0\0007\0\1\0003\1\3\0:\1\2\0004\0\0\0007\0\1\0003\1\5\0:\1\4\0004\0\0\0007\0\1\0003\1\a\0:\1\6\0G\0\1\0\1\r\0\0\nblack\vflake8\19flake8-bugbear\nisort\16pep8-naming\bpip\15pyls-black\15pyls-isort\vpynvim python-language-server[all]\rsqlparse\rvim-vint\29envelop_python3_packages\1\t\0\0\14bin/black\15bin/flake8\14bin/isort\rbin/pip3\rbin/pyls\16bin/python3\18bin/sqlformat\rbin/vint\25envelop_python3_link\1\2\0\0\fpython3\20envelop_enabled\6g\bvim\0")()
+loadstring("\27LJ\1\2€\4\0\0\2\0\f\0\0214\0\0\0007\0\1\0003\1\3\0:\1\2\0004\0\0\0007\0\1\0003\1\5\0:\1\4\0004\0\0\0007\0\1\0003\1\a\0:\1\6\0004\0\0\0007\0\1\0003\1\t\0:\1\b\0004\0\0\0007\0\1\0003\1\v\0:\1\n\0G\0\1\0\1\r\0\0\nblack\vflake8\19flake8-bugbear\nisort\16pep8-naming\bpip\15pyls-black\15pyls-isort\vpynvim python-language-server[all]\rsqlparse\rvim-vint\29envelop_python3_packages\1\t\0\0\14bin/black\15bin/flake8\14bin/isort\rbin/pip3\rbin/pyls\16bin/python3\18bin/sqlformat\rbin/vint\25envelop_python3_link\1\2\0\0\fpyright\26envelop_node_packages\1\3\0\0\30node_modules/.bin/pyright)node_modules/.bin/pyright-langserver\22envelop_node_link\1\3\0\0\tnode\fpython3\20envelop_enabled\6g\bvim\0")()
 -- Config for: gruvbox
 loadstring("\27LJ\1\2Ý\1\0\0\2\0\t\0\0214\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\5\0%\1\6\0>\0\2\0014\0\0\0007\0\5\0%\1\a\0>\0\2\0014\0\0\0007\0\5\0%\1\b\0>\0\2\1G\0\1\0&highlight! link FoldColumn LineNr\31highlight clear FoldColumn\24colorscheme gruvbox\bcmd\bbg0\24gruvbox_sign_column\19gruvbox_italic\6g\bvim\0")()
 -- Config for: indentLine

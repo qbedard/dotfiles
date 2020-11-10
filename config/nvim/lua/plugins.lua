@@ -23,7 +23,14 @@ require('packer').startup(function()
     branch = 'main',
     run = ':EnvCreate',
     config = function()
-      vim.g.envelop_enabled = {'python3'}
+      vim.g.envelop_enabled = {'node', 'python3'}
+      vim.g.envelop_node_link = {
+        'node_modules/.bin/pyright',
+        'node_modules/.bin/pyright-langserver',
+      }
+      vim.g.envelop_node_packages = {
+        'pyright',
+      }
       vim.g.envelop_python3_link = {
         'bin/black',
         'bin/flake8',
@@ -130,8 +137,6 @@ require('packer').startup(function()
           text = '➤',
           texthl = 'LspDiagnosticsHintSign',
         })
-    end,
-    config = function()
       vim.g.diagnostic_insert_delay = 1
       vim.g.diagnostic_enable_virtual_text = 1
       vim.g.diagnostic_virtual_text_prefix = ''

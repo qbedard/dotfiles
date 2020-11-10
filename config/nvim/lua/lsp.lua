@@ -1,7 +1,31 @@
---- sql-langauge-server config ---
--- local configs = require 'nvim_lsp/configs'
--- local util = require 'nvim_lsp/util'
+local configs = require 'nvim_lsp/configs'
+local util = require 'nvim_lsp/util'
 
+--- pyright config ---
+configs.pyright = {
+  default_config = {
+    cmd = {'pyright-langserver', '--stdio'},
+    filetypes = {'python'},
+    root_dir = util.root_pattern('.git', 'setup.py',  'setup.cfg', 'pyproject.toml', 'requirements.txt'),
+    settings = {
+      analysis = { autoSearchPaths= true; },
+      pyright = { useLibraryCodeForTypes = true; },
+    },
+    before_init = function(initialize_params)
+      initialize_params['workspaceFolders'] = {
+        { name = 'workspace', uri = initialize_params['rootUri'] }
+      }
+    end
+    },
+  docs = {
+    description = [[
+      https://github.com/microsoft/pyright
+      `pyright`, a static type checker and language server for python
+    ]];
+  }
+}
+
+--- sql-langauge-server config ---
 -- configs.sql = {
 --   default_config = {
 --     cmd = {'sql-language-server', 'up', '--method', 'stdio'},
@@ -16,7 +40,7 @@
 --     ]],
 --     default_config = {root_dir = "vim's starting directory"}
 --   }
--- };
+-- }
 
 -- TODO: terraform-ls
 
@@ -53,6 +77,7 @@ require'nvim_lsp'.pyls.setup {
     }
   }
 }
+-- require'nvim_lsp'.pyright.setup { on_attach = on_attach }
 -- require'nvim_lsp'.sql.setup {on_attach = on_attach}
 require'nvim_lsp'.sumneko_lua.setup {
   on_attach = on_attach,
