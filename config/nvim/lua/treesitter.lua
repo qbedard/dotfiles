@@ -6,10 +6,7 @@ require'nvim-treesitter.configs'.setup {
 
   -- TODO: Try switching from other tools to TS-based solutions
 
-  highlight = {
-    enable = true,
-    use_languagetree = false, -- Use this to enable language injection (this is very unstable)
-  },
+  highlight = { enable = true },
 
   -- incremental_selection = {
   --   enable = true,

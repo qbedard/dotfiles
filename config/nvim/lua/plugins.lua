@@ -303,12 +303,19 @@ require('packer').startup(function()
   }
   use 'rhysd/git-messenger.vim'
 
-  --- copied stragglers ---
   use 'andymass/vim-matchup'
   use{
     'tmsvg/pear-tree',
     config = function() vim.g.pear_tree_repeatable_expand = 0 end,
   }
-  -- use 'tpope/vim-apathy'
+
+  use {
+    'sheerun/vim-polyglot',
+    -- setup = function() vim.g.polyglot_disabled = {'helm'} end,
+    config = function()
+      vim.g.javascript_plugin_jsdoc = 1
+      vim.g.vim_markdown_new_list_item_indent = 2
+    end,
+  }
 
 end)
