@@ -207,6 +207,7 @@ require('packer').startup(function()
   }
   use 'romainl/vim-cool'
   use 'justinmk/vim-dirvish'
+  use 'sunaku/tmux-navigate'
   use {
     'junegunn/fzf.vim',
     config = function()
@@ -256,6 +257,11 @@ require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-abolish'
+
+  use 'wellle/targets.vim'
+  use 'michaeljsmith/vim-indent-object'
+  use 'kana/vim-textobj-user'
+  use 'kana/vim-textobj-line'
   use 'AndrewRadev/splitjoin.vim'
   use {
     'mhinz/vim-signify',
