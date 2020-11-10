@@ -1,5 +1,6 @@
-local configs = require 'nvim_lsp/configs'
-local util = require 'nvim_lsp/util'
+local nvim_lsp = require'nvim_lsp'
+local configs = require'nvim_lsp/configs'
+local util = require'nvim_lsp/util'
 
 --- pyright config ---
 configs.pyright = {
@@ -51,14 +52,23 @@ local on_attach = function()
 end
 
 
+-- simple setups --
+local servers = {
+  'bashls',
+  -- 'ccls',
+  -- 'cmake',
+  'cssls',
+  'dockerls',
+  'html',
+  'jsonls',
+  -- 'pyright',
+  -- 'sql',
+}
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup { on_attach = on_attach }
+end
 
-require'nvim_lsp'.bashls.setup {on_attach = on_attach}
--- require'nvim_lsp'.ccls.setup {on_attach = on_attach}
--- require'nvim_lsp'.cmake.setup {on_attach = on_attach}
-require'nvim_lsp'.cssls.setup {on_attach = on_attach}
-require'nvim_lsp'.dockerls.setup {on_attach = on_attach}
-require'nvim_lsp'.html.setup {on_attach = on_attach}
-require'nvim_lsp'.jsonls.setup {on_attach = on_attach}
+-- complex setups --
 require'nvim_lsp'.pyls.setup {
   on_attach = on_attach,
   settings = {
@@ -77,8 +87,6 @@ require'nvim_lsp'.pyls.setup {
     }
   }
 }
--- require'nvim_lsp'.pyright.setup { on_attach = on_attach }
--- require'nvim_lsp'.sql.setup {on_attach = on_attach}
 require'nvim_lsp'.sumneko_lua.setup {
   on_attach = on_attach,
   settings = {
