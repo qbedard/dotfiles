@@ -20,6 +20,7 @@ require('packer').startup(function()
 
   use {
     'timbedard/vim-envelop',
+    branch = 'main',
     run = ':EnvCreate',
     config = function()
       vim.g.envelop_enabled = {'python3'}
