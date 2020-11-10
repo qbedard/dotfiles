@@ -16,7 +16,39 @@ require('packer').startup(function()
   use { 'wbthomason/packer.nvim', opt = true }
   use 'svermeulen/vimpeccable'
 
-  -- use 'svermeulen/nvim-moonmaker'  -- TODO: This
+  -- use 'svermeulen/nvim-moonmaker'  -- TODO: Moonscript
+
+  use {
+    'timbedard/vim-envelop',
+    run = ':EnvCreate',
+    config = function()
+      vim.g.envelop_enabled = {'python3'}
+      vim.g.envelop_python3_link = {
+        'bin/black',
+        'bin/flake8',
+        'bin/isort',
+        'bin/pip3',
+        'bin/pyls',
+        'bin/python3',
+        'bin/sqlformat',
+        'bin/vint',
+      }
+      vim.g.envelop_python3_packages = {
+        'black',
+        'flake8',
+        'flake8-bugbear',
+        'isort',
+        'pep8-naming',
+        'pip',
+        'pyls-black',
+        'pyls-isort',
+        'pynvim',
+        'python-language-server[all]',
+        'sqlparse',
+        'vim-vint',
+      }
+    end,
+  }
 
   use {
     'neovim/nvim-lspconfig',
