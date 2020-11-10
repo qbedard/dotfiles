@@ -140,10 +140,10 @@ nnoremap H ^
 nnoremap L $
 
 " buffer switching similar to Vimium (Shift + j/k)
-nnoremap K :bn<CR>
-nnoremap J :bp<CR>
-xnoremap K :bn<CR>
-xnoremap J :bp<CR>
+nnoremap K :BufferNext<CR>
+nnoremap J :BufferPrevious<CR>
+xnoremap K :BufferNext<CR>
+xnoremap J :BufferPrevious<CR>
 
 " tab switching (Ctrl + Tab)
 noremap  <C-Tab>  :tabnext<CR>
