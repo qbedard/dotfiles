@@ -112,20 +112,29 @@ require('packer').startup(function()
   }
   use {
     'nvim-lua/diagnostic-nvim',
+    setup = function()
+      -- For some reason, these have to be in setup
+      vim.fn.sign_define('LspDiagnosticsErrorSign', {
+          text = '',
+          texthl = 'LspDiagnosticsErrorSign',
+        })
+      vim.fn.sign_define('LspDiagnosticsWarningSign', {
+          text = '',
+          texthl = 'LspDiagnosticsWarningSign',
+        })
+      vim.fn.sign_define('LspDiagnosticsInformationSign', {
+          text = '',
+          texthl = 'LspDiagnosticsInformationSign',
+        })
+      vim.fn.sign_define('LspDiagnosticsHintSign', {
+          text = '➤',
+          texthl = 'LspDiagnosticsHintSign',
+        })
+    end,
     config = function()
       vim.g.diagnostic_insert_delay = 1
       vim.g.diagnostic_enable_virtual_text = 1
       vim.g.diagnostic_virtual_text_prefix = ''
-      -- TODO: Convert to lua
-      vim.api.nvim_exec(
-        [[
-          sign define LspDiagnosticsErrorSign text=
-          sign define LspDiagnosticsWarningSign text=
-          sign define LspDiagnosticsInformationSign text=
-          sign define LspDiagnosticsHintSign text=➤
-        ]],
-        false
-      )
     end,
   }
   use 'pierreglaser/folding-nvim'
@@ -237,7 +246,7 @@ require('packer').startup(function()
   use { 'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()', cmd = 'MarkdownPreview' }
   use {
     'kshenoy/vim-signature',
-    config = function() vim.g.SignatureMarkTextHLDynamic = 1 end
+    config = function() vim.g.SignatureMarkTextHLDynamic = 1 end,
   }
   use 'tpope/vim-unimpaired'
   use {
