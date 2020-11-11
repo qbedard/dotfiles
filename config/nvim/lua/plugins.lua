@@ -207,7 +207,7 @@ require('packer').startup(function()
       -- vim.cmd('highlight! link TSPunctDelimiter GruvboxFg3')  -- '.', ','
       vim.cmd('highlight! link TSConstBuiltin Constant')  -- None
       vim.cmd('highlight! link TSKeywordOperator Keyword')  -- not, in
-      vim.cmd('highlight! link TSVariableBuiltin Constant')  -- self
+      -- vim.cmd('highlight! link TSVariableBuiltin Constant')  -- self
       vim.cmd('highlight! link TSOperator GruvboxRed')
       vim.cmd('highlight! link TSFunction GruvboxAqua')
       vim.cmd('highlight! link TSMethod GruvboxAqua')
