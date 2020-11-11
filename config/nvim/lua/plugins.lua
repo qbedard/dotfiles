@@ -198,6 +198,39 @@ require('packer').startup(function()
       -- must come after colorscheme gruvbox
       vim.cmd('highlight clear FoldColumn')
       vim.cmd('highlight! link FoldColumn LineNr')
+
+      -- treesitter highlights
+      vim.cmd('highlight! link TSPunctDelimiter GruvboxFg3')
+      vim.cmd('highlight! link TSPunctBracket GruvboxOrange')
+      vim.cmd('highlight! link TSPunctSpecial Special')
+      vim.cmd('highlight! link TSConstant Constant')
+      vim.cmd('highlight! link TSConstBuiltin GruvboxOrange')
+      vim.cmd('highlight! link TSConstMacro Constant')
+      vim.cmd('highlight! link TSString String')
+      vim.cmd('highlight! link TSStringRegex String')
+      vim.cmd('highlight! link TSStringEscape GruvboxAqua')
+      vim.cmd('highlight! link TSCharacter Character')
+      vim.cmd('highlight! link TSNumber Number')
+      vim.cmd('highlight! link TSBoolean Boolean')
+      vim.cmd('highlight! link TSFloat Float')
+      vim.cmd('highlight! link TSFunction GruvboxAqua')  -- not Function
+      vim.cmd('highlight! link TSFuncBuiltin GruvboxOrange')
+      vim.cmd('highlight! link TSFuncMacro Macro')
+      vim.cmd('highlight! link TSParameter GruvboxFg')
+      vim.cmd('highlight! link TSMethod GruvboxGreen')
+      vim.cmd('highlight! link TSField GruvboxGreen')
+      vim.cmd('highlight! link TSProperty GruvboxFg1')
+      vim.cmd('highlight! link TSConstructor GruvboxOrange')
+      vim.cmd('highlight! link TSConditional Conditional')
+      vim.cmd('highlight! link TSRepeat Repeat')
+      vim.cmd('highlight! link TSLabel Label')
+      vim.cmd('highlight! link TSOperator Operator')
+      vim.cmd('highlight! link TSKeyword Keyword')
+      vim.cmd('highlight! link TSException Exception')
+      vim.cmd('highlight! link TSType Type')
+      vim.cmd('highlight! link TSTypeBuiltin GruvboxOrange')
+      vim.cmd('highlight! link TSStructure Structure')
+      vim.cmd('highlight! link TSInclude GruvboxRed')  -- not Include
     end,
   }
   use {
@@ -334,3 +367,4 @@ require('packer').startup(function()
   }
 
 end)
+
