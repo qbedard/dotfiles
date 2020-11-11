@@ -178,12 +178,12 @@ loadstring("\27LJ\1\2}\0\1\5\0\a\0\22'\1\0\0\2\0\1\0T\1\17Ä4\1\0\0007\1\1\0017\1
 loadstring("\27LJ\1\2k\0\0\2\0\4\0\t4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0'\1\2\0:\1\3\0G\0\1\0&vim_markdown_new_list_item_indent\28javascript_plugin_jsdoc\6g\bvim\0")()
 -- Config for: fzf.vim
 loadstring("\27LJ\1\2˝\2\0\0\3\0\4\0\a4\0\0\0007\0\1\0007\0\2\0%\1\3\0)\2\1\0>\0\3\1G\0\1\0À\2          \" mappings\n          nnoremap <C-f> :BLines<CR>\n          nnoremap <C-b> :Buffers<CR>\n          nnoremap <C-c> :Commands<CR>\n\n          \" show files in a git project root (or current dir if not project)\n          command! ProjectFiles execute 'Files' FindGitRoot()\n          nnoremap <C-p> :ProjectFiles<CR>\n        \14nvim_exec\bapi\bvim\0")()
--- Config for: blamer.nvim
-loadstring("\27LJ\1\2Ñ\2\0\0\3\0\b\0\0154\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\5\0007\0\6\0%\1\a\0)\2\1\0>\0\3\1G\0\1\0k          nnoremap <Leader>b :BlamerToggle<CR>\n          vnoremap <Leader>b :BlamerToggle<CR>\n        \14nvim_exec\bapi-<author>, <committer-time> ‚Ä¢ <summary>\20blamer_template\17blamer_delay\6g\bvim\0")()
 -- Config for: nvim-treesitter
 loadstring("\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15treesitter\frequire\0")()
 -- Config for: vim-better-whitespace
 loadstring("\27LJ\1\2ï\1\0\0\2\0\6\0\r4\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0'\1\1\0:\1\3\0004\0\0\0007\0\4\0%\1\5\0>\0\2\1G\0\1\0\"command! Trim StripWhitespace\bcmd\28strip_whitelines_at_eof\30better_whitespace_enabled\6g\bvim\0")()
+-- Config for: blamer.nvim
+loadstring("\27LJ\1\2Ñ\2\0\0\3\0\b\0\0154\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\5\0007\0\6\0%\1\a\0)\2\1\0>\0\3\1G\0\1\0k          nnoremap <Leader>b :BlamerToggle<CR>\n          vnoremap <Leader>b :BlamerToggle<CR>\n        \14nvim_exec\bapi-<author>, <committer-time> ‚Ä¢ <summary>\20blamer_template\17blamer_delay\6g\bvim\0")()
 -- Config for: vim-signify
 loadstring("\27LJ\1\2Ÿ\4\0\0\3\0\r\0\0274\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\1\0%\1\6\0:\1\5\0004\0\0\0007\0\1\0%\1\6\0:\1\a\0004\0\0\0007\0\1\0%\1\t\0:\1\b\0004\0\0\0007\0\n\0007\0\v\0%\1\f\0)\2\1\0>\0\3\1G\0\1\0‡\2          set signcolumn=yes\n          highlight! link SignifySignChange GruvboxBlueSign\n\n          \" nifty hunk motions\n          omap ic <Plug>(signify-motion-inner-pending)\n          xmap ic <Plug>(signify-motion-inner-visual)\n          omap ac <Plug>(signify-motion-outer-pending)\n          xmap ac <Plug>(signify-motion-outer-visual)\n        \14nvim_exec\bapi\bÔëÑ\24signify_sign_change#signify_sign_delete_first_line\bÔíã\24signify_sign_delete\bÔëç\21signify_sign_add\21signify_priority\6g\bvim\0")()
 -- Config for: vim-airline

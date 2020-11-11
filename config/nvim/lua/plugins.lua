@@ -272,6 +272,7 @@ require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-abolish'
+  use 'tpope/vim-fugitive'
 
   use 'wellle/targets.vim'
   use 'michaeljsmith/vim-indent-object'
