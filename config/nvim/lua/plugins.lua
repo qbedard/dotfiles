@@ -1,17 +1,16 @@
--- TODO: Fix
-local packer_exists = pcall(vim.cmd, [[packadd packer.nvim]])
+local packer_exists = pcall(vim.cmd, 'packadd packer.nvim')
 if not packer_exists then
   local directory = vim.fn.stdpath('data') .. '/site/pack/packer/opt/'
   vim.fn.mkdir(directory, 'p')
-  vim.fn.system({
+  vim.fn.system {
     'git',
     'clone',
     'https://github.com/wbthomason/packer.nvim',
     directory .. '/packer.nvim',
-  })
+  }
 end
 
-require('packer').startup(function()
+require'packer'.startup(function()
 
   use { 'wbthomason/packer.nvim', opt = true }
   use 'svermeulen/vimpeccable'
@@ -387,7 +386,7 @@ require('packer').startup(function()
   use 'rhysd/git-messenger.vim'
 
   use 'andymass/vim-matchup'
-  use{
+  use {
     'tmsvg/pear-tree',
     config = function() vim.g.pear_tree_repeatable_expand = 0 end,
   }
