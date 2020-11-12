@@ -15,8 +15,6 @@ require'packer'.startup(function()
   use { 'wbthomason/packer.nvim', opt = true }
   use 'svermeulen/vimpeccable'
 
-  -- use 'svermeulen/nvim-moonmaker'  -- TODO: Moonscript
-
   use {
     'timbedard/vim-envelop',
     branch = 'main',
