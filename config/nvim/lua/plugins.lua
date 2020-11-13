@@ -98,6 +98,7 @@ require("packer").startup(
       requires = "vim-airline/vim-airline-themes",
       config = function()
         vim.g.airline_powerline_fonts = 1
+        vim.g["airline#extensions#nvimlsp#enabled"] = 0 -- TODO: Re-enable when updated
         vim.g.airline_symbols = {
           branch = "",
           readonly = ""
@@ -213,45 +214,7 @@ require("packer").startup(
         )
       end
     }
-    use {
-      "nvim-lua/diagnostic-nvim",
-      setup = function()
-        -- For some reason, these have to be in setup
-        vim.fn.sign_define(
-          "LspDiagnosticsErrorSign",
-          {
-            text = "",
-            texthl = "LspDiagnosticsErrorSign"
-          }
-        )
-        vim.fn.sign_define(
-          "LspDiagnosticsWarningSign",
-          {
-            text = "",
-            texthl = "LspDiagnosticsWarningSign"
-          }
-        )
-        vim.fn.sign_define(
-          "LspDiagnosticsInformationSign",
-          {
-            text = "",
-            texthl = "LspDiagnosticsInformationSign"
-          }
-        )
-        vim.fn.sign_define(
-          "LspDiagnosticsHintSign",
-          {
-            text = "➤",
-            texthl = "LspDiagnosticsHintSign"
-          }
-        )
-        vim.g.diagnostic_insert_delay = 1
-        vim.g.diagnostic_enable_virtual_text = 1
-        vim.g.diagnostic_virtual_text_prefix = ""
-      end
-    }
     use "pierreglaser/folding-nvim"
-    -- use {"weilbith/nvim-lsp-diamove", opt = true, cmd = {"Dabove", "Dbelow"}}
 
     use {
       "mhartington/formatter.nvim",

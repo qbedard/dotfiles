@@ -47,9 +47,47 @@ configs.pyright = {
 
 -- TODO: terraform-ls
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+  vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    update_in_insert = false,
+    virtual_text = {
+      prefix = ""
+    }
+  }
+)
+vim.fn.sign_define(
+  "LspDiagnosticsSignError",
+  {
+    text = "",
+    texthl = "LspDiagnosticsSignError"
+  }
+)
+vim.fn.sign_define(
+  "LspDiagnosticsSignWarning",
+  {
+    text = "",
+    texthl = "LspDiagnosticsSignWarning"
+  }
+)
+vim.fn.sign_define(
+  "LspDiagnosticsSignInformation",
+  {
+    text = "",
+    texthl = "LspDiagnosticsSignInformation"
+  }
+)
+vim.fn.sign_define(
+  "LspDiagnosticsSignHint",
+  {
+    text = "➤",
+    texthl = "LspDiagnosticsSignHint"
+  }
+)
+
 local on_attach = function()
   require("completion").on_attach()
-  require("diagnostic").on_attach()
   require("folding").on_attach()
 end
 

@@ -6,12 +6,6 @@ endif
 
 lua << END
 local plugins = {
-  ["diagnostic-nvim"] = {
-    loaded = false,
-    only_sequence = true,
-    only_setup = true,
-    path = "/Users/tim/.local/share/nvim/site/pack/packer/opt/diagnostic-nvim"
-  },
   ["markdown-preview.nvim"] = {
     commands = { "MarkdownPreview" },
     loaded = false,
@@ -153,9 +147,6 @@ end
 -- Runtimepath customization
 
 -- Pre-load configuration
--- Setup for: diagnostic-nvim
-loadstring("\27LJ\1\2¤\4\0\0\3\0\16\0%4\0\0\0007\0\1\0007\0\2\0%\1\3\0003\2\4\0>\0\3\0014\0\0\0007\0\1\0007\0\2\0%\1\5\0003\2\6\0>\0\3\0014\0\0\0007\0\1\0007\0\2\0%\1\a\0003\2\b\0>\0\3\0014\0\0\0007\0\1\0007\0\2\0%\1\t\0003\2\n\0>\0\3\0014\0\0\0007\0\v\0'\1\1\0:\1\f\0004\0\0\0007\0\v\0'\1\1\0:\1\r\0004\0\0\0007\0\v\0%\1\15\0:\1\14\0G\0\1\0\bïƒ™#diagnostic_virtual_text_prefix#diagnostic_enable_virtual_text\28diagnostic_insert_delay\6g\1\0\2\ttext\bâž¤\vtexthl\27LspDiagnosticsHintSign\27LspDiagnosticsHintSign\1\0\2\ttext\bïš\vtexthl\"LspDiagnosticsInformationSign\"LspDiagnosticsInformationSign\1\0\2\ttext\bïª\vtexthl\30LspDiagnosticsWarningSign\30LspDiagnosticsWarningSign\1\0\2\ttext\bï€\vtexthl\28LspDiagnosticsErrorSign\28LspDiagnosticsErrorSign\16sign_define\afn\bvim\0")()
-vim.cmd("packadd diagnostic-nvim")
 -- Post-load configuration
 -- Config for: formatter.nvim
 loadstring("\27LJ\1\2Š\1\0\0\4\0\6\0\n3\0\0\0003\1\1\0004\2\2\0007\2\3\0027\2\4\2'\3\0\0>\2\2\2;\2\2\1:\1\5\0H\0\2\0\targs\22nvim_buf_get_name\bapi\bvim\1\4\0\0\21--stdin-filepath\0\19--single-quote\1\0\2\nstdin\2\bexe\rprettierN\0\0\2\0\3\0\0043\0\0\0003\1\1\0:\1\2\0H\0\2\0\targs\1\4\0\0\19--indent-count\3\2\f--stdin\1\0\2\nstdin\2\bexe\vluafmt‚\1\1\0\4\0\f\0\0154\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\6\0003\2\4\0001\3\3\0:\3\5\2:\2\a\0013\2\t\0001\3\b\0:\3\n\2:\2\v\1>\0\2\1G\0\1\0\blua\vluafmt\1\0\0\0\15javascript\1\0\0\rprettier\1\0\0\0\nsetup\vformat\frequire\0")()
@@ -171,22 +162,22 @@ loadstring("\27LJ\1\2®\1\0\0\2\0\b\0\r4\0\0\0007\0\1\0%\1\3\0:\1\2\0004\0\0\0007
 loadstring("\27LJ\1\2\3\0\0\3\0\4\0\a4\0\0\0007\0\1\0007\0\2\0%\1\3\0)\2\1\0>\0\3\1G\0\1\0Û\2            \" mappings\n            nnoremap <C-f> :BLines<CR>\n            nnoremap <C-b> :Buffers<CR>\n            nnoremap <C-c> :Commands<CR>\n\n            \" show files in a git project root (or current dir if not project)\n            command! ProjectFiles execute 'Files' FindGitRoot()\n            nnoremap <C-p> :ProjectFiles<CR>\n          \14nvim_exec\bapi\bvim\0")()
 -- Config for: vim-polyglot
 loadstring("\27LJ\1\2k\0\0\2\0\4\0\t4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0'\1\2\0:\1\3\0G\0\1\0&vim_markdown_new_list_item_indent\28javascript_plugin_jsdoc\6g\bvim\0")()
--- Config for: nvim-lspconfig
-loadstring('\27LJ\1\2½\6\0\0\3\0\6\0\n4\0\0\0%\1\1\0>\0\2\0014\0\2\0007\0\3\0007\0\4\0%\1\5\0)\2\1\0>\0\3\1G\0\1\0ó\5            nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>\n            " nnoremap <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>\n            " nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>\n            " nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>\n            nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>\n            " nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>\n            nnoremap <silent> 1gD <cmd>lua vim.lsp.buf.type_definition()<CR>\n            nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>\n            " nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>\n            nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>\n          \14nvim_exec\bapi\bvim\blsp\frequire\0')()
+-- Config for: vim-envelop
+loadstring("\27LJ\1\2¡\4\0\0\2\0\f\0\0214\0\0\0007\0\1\0003\1\3\0:\1\2\0004\0\0\0007\0\1\0003\1\5\0:\1\4\0004\0\0\0007\0\1\0003\1\a\0:\1\6\0004\0\0\0007\0\1\0003\1\t\0:\1\b\0004\0\0\0007\0\1\0003\1\v\0:\1\n\0G\0\1\0\1\r\0\0\nblack\vflake8\19flake8-bugbear\nisort\16pep8-naming\bpip\15pyls-black\15pyls-isort\vpynvim python-language-server[all]\rsqlparse\rvim-vint\29envelop_python3_packages\1\t\0\0\14bin/black\15bin/flake8\14bin/isort\rbin/pip3\rbin/pyls\16bin/python3\18bin/sqlformat\rbin/vint\25envelop_python3_link\1\3\0\0\flua-fmt\fpyright\26envelop_node_packages\1\4\0\0\29node_modules/.bin/luafmt\30node_modules/.bin/pyright)node_modules/.bin/pyright-langserver\22envelop_node_link\1\3\0\0\tnode\fpython3\20envelop_enabled\6g\bvim\0")()
+-- Config for: vim-better-whitespace
+loadstring("\27LJ\1\2•\1\0\0\2\0\6\0\r4\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0'\1\1\0:\1\3\0004\0\0\0007\0\4\0%\1\5\0>\0\2\1G\0\1\0\"command! Trim StripWhitespace\bcmd\28strip_whitelines_at_eof\30better_whitespace_enabled\6g\bvim\0")()
 -- Config for: nvim-treesitter
 loadstring("\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15treesitter\frequire\0")()
 -- Config for: blamer.nvim
 loadstring("\27LJ\1\2Š\2\0\0\3\0\b\0\0154\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\5\0007\0\6\0%\1\a\0)\2\1\0>\0\3\1G\0\1\0q            nnoremap <Leader>b :BlamerToggle<CR>\n            vnoremap <Leader>b :BlamerToggle<CR>\n          \14nvim_exec\bapi-<author>, <committer-time> â€¢ <summary>\20blamer_template\17blamer_delay\6g\bvim\0")()
--- Config for: vim-better-whitespace
-loadstring("\27LJ\1\2•\1\0\0\2\0\6\0\r4\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0'\1\1\0:\1\3\0004\0\0\0007\0\4\0%\1\5\0>\0\2\1G\0\1\0\"command! Trim StripWhitespace\bcmd\28strip_whitelines_at_eof\30better_whitespace_enabled\6g\bvim\0")()
 -- Config for: vim-signify
 loadstring("\27LJ\1\2é\4\0\0\3\0\r\0\0274\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\1\0%\1\6\0:\1\5\0004\0\0\0007\0\1\0%\1\6\0:\1\a\0004\0\0\0007\0\1\0%\1\t\0:\1\b\0004\0\0\0007\0\n\0007\0\v\0%\1\f\0)\2\1\0>\0\3\1G\0\1\0ð\2            set signcolumn=yes\n            highlight! link SignifySignChange GruvboxBlueSign\n\n            \" nifty hunk motions\n            omap ic <Plug>(signify-motion-inner-pending)\n            xmap ic <Plug>(signify-motion-inner-visual)\n            omap ac <Plug>(signify-motion-outer-pending)\n            xmap ac <Plug>(signify-motion-outer-visual)\n          \14nvim_exec\bapi\bï‘„\24signify_sign_change#signify_sign_delete_first_line\bï’‹\24signify_sign_delete\bï‘\21signify_sign_add\21signify_priority\6g\bvim\0")()
 -- Config for: vim-airline
-loadstring("\27LJ\1\2t\0\0\2\0\5\0\t4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0003\1\4\0:\1\3\0G\0\1\0\1\0\2\rreadonly\bï€£\vbranch\bï˜\20airline_symbols\28airline_powerline_fonts\6g\bvim\0")()
+loadstring("\27LJ\1\2§\1\0\0\2\0\6\0\r4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0'\1\0\0:\1\3\0004\0\0\0007\0\1\0003\1\5\0:\1\4\0G\0\1\0\1\0\2\rreadonly\bï€£\vbranch\bï˜\20airline_symbols'airline#extensions#nvimlsp#enabled\28airline_powerline_fonts\6g\bvim\0")()
 -- Config for: pear-tree
 loadstring("\27LJ\1\2=\0\0\2\0\3\0\0054\0\0\0007\0\1\0'\1\0\0:\1\2\0G\0\1\0 pear_tree_repeatable_expand\6g\bvim\0")()
--- Config for: vim-envelop
-loadstring("\27LJ\1\2¡\4\0\0\2\0\f\0\0214\0\0\0007\0\1\0003\1\3\0:\1\2\0004\0\0\0007\0\1\0003\1\5\0:\1\4\0004\0\0\0007\0\1\0003\1\a\0:\1\6\0004\0\0\0007\0\1\0003\1\t\0:\1\b\0004\0\0\0007\0\1\0003\1\v\0:\1\n\0G\0\1\0\1\r\0\0\nblack\vflake8\19flake8-bugbear\nisort\16pep8-naming\bpip\15pyls-black\15pyls-isort\vpynvim python-language-server[all]\rsqlparse\rvim-vint\29envelop_python3_packages\1\t\0\0\14bin/black\15bin/flake8\14bin/isort\rbin/pip3\rbin/pyls\16bin/python3\18bin/sqlformat\rbin/vint\25envelop_python3_link\1\3\0\0\flua-fmt\fpyright\26envelop_node_packages\1\4\0\0\29node_modules/.bin/luafmt\30node_modules/.bin/pyright)node_modules/.bin/pyright-langserver\22envelop_node_link\1\3\0\0\tnode\fpython3\20envelop_enabled\6g\bvim\0")()
+-- Config for: nvim-lspconfig
+loadstring('\27LJ\1\2½\6\0\0\3\0\6\0\n4\0\0\0%\1\1\0>\0\2\0014\0\2\0007\0\3\0007\0\4\0%\1\5\0)\2\1\0>\0\3\1G\0\1\0ó\5            nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>\n            " nnoremap <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>\n            " nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>\n            " nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>\n            nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>\n            " nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>\n            nnoremap <silent> 1gD <cmd>lua vim.lsp.buf.type_definition()<CR>\n            nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>\n            " nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>\n            nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>\n          \14nvim_exec\bapi\bvim\blsp\frequire\0')()
 -- Config for: vim-signature
 loadstring("\27LJ\1\2<\0\0\2\0\3\0\0054\0\0\0007\0\1\0'\1\1\0:\1\2\0G\0\1\0\31SignatureMarkTextHLDynamic\6g\bvim\0")()
 -- Conditional loads
