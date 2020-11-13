@@ -115,7 +115,6 @@ require("packer").startup(
 
     use {
       "timbedard/vim-envelop",
-      branch = "main",
       run = ":EnvCreate",
       config = function()
         vim.g.envelop_enabled = {"node", "python3"}
@@ -444,5 +443,6 @@ require("packer").startup(
     }
 
     use "janko-m/vim-test"
+    use "hkupty/iron.nvim"
   end
 )
