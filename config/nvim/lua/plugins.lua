@@ -444,5 +444,7 @@ require("packer").startup(
       end,
       disable = true
     }
+
+    use 'janko-m/vim-test'
   end
 )
