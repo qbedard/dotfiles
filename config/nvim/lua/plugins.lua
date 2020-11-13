@@ -13,7 +13,105 @@ end
 require("packer").startup(
   function()
     use {"wbthomason/packer.nvim", opt = true}
-    use "svermeulen/vimpeccable"
+    -- use "svermeulen/vimpeccable"
+
+    use {
+      "gruvbox-community/gruvbox",
+      config = function()
+        vim.g.gruvbox_italic = 1
+        vim.g.gruvbox_sign_column = "bg0"
+        vim.cmd("colorscheme gruvbox") -- must come after gruvbox_italic
+        -- match the fold column colors to the line number column
+        -- must come after colorscheme gruvbox
+        vim.cmd("highlight clear FoldColumn")
+        vim.cmd("highlight! link FoldColumn LineNr")
+
+        -- treesitter highlights
+        vim.cmd("highlight! link TSConstBuiltin Constant") -- None
+        vim.cmd("highlight! link TSKeywordOperator Keyword") -- not, in
+        vim.cmd("highlight! link TSOperator GruvboxRed")
+        vim.cmd("highlight! link TSFunction GruvboxAqua")
+        vim.cmd("highlight! link TSMethod GruvboxAqua")
+
+        ----
+
+        -- vim.cmd("highlight! link TSPunctDelimiter Delimiter") -- , . etc
+        -- vim.cmd("highlight! link TSPunctBracket Delimiter")
+        -- vim.cmd("highlight! link TSPunctSpecial Delimiter")
+        -- vim.cmd("highlight! link TSConstant Constant")
+        -- vim.cmd("highlight! link TSConstBuiltin Special") -- None, etc
+        -- vim.cmd("highlight! link TSConstMacro Define")
+        -- vim.cmd("highlight! link TSString String")
+        -- vim.cmd("highlight! link TSStringRegex String")
+        -- vim.cmd("highlight! link TSStringEscape SpecialChar")
+        -- vim.cmd("highlight! link TSCharacter Character")
+        -- vim.cmd("highlight! link TSNumber Number")
+        -- vim.cmd("highlight! link TSBoolean Boolean")
+        -- vim.cmd("highlight! link TSFloat Float")
+
+        -- vim.cmd("highlight! link TSFunction Function")
+        -- vim.cmd("highlight! link TSFuncBuiltin Special") -- print()
+        -- vim.cmd("highlight! link TSFuncMacro Macro")
+        -- vim.cmd("highlight! link TSParameter Identifier")
+        -- vim.cmd("highlight! link TSParameterReference TSParameter")
+        -- vim.cmd("highlight! link TSMethod Function")
+        -- vim.cmd("highlight! link TSField Identifier")
+        -- vim.cmd("highlight! link TSProperty Identifier")
+        -- vim.cmd("highlight! link TSConstructor Special") -- __init__()
+        -- vim.cmd("highlight! link TSAnnotation PreProc")
+        -- vim.cmd("highlight! link TSAttribute PreProc")
+        -- vim.cmd("highlight! link TSNamespace Include")
+
+        -- vim.cmd("highlight! link TSConditional Conditional") -- if
+        -- vim.cmd("highlight! link TSRepeat Repeat") -- for, while
+        -- vim.cmd("highlight! link TSLabel Label")
+        -- vim.cmd("highlight! link TSOperator Operator")
+        -- vim.cmd("highlight! link TSKeyword Keyword")
+        -- vim.cmd("highlight! link TSKeywordFunction Keyword")
+        -- vim.cmd("highlight! link TSKeywordOperator Operator") -- not, in
+        -- vim.cmd("highlight! link TSException Exception")
+
+        -- vim.cmd("highlight! link TSType Type")
+        -- vim.cmd("highlight! link TSTypeBuiltin Type")
+        -- vim.cmd("highlight! link TSInclude Include")
+
+        -- vim.cmd("highlight! link TSVariableBuiltin Special") -- self
+
+        -- vim.cmd("highlight! link TSText TSNone")
+        -- vim.cmd("highlight! TSStrong term=bold cterm=bold gui=bold")
+        -- vim.cmd("highlight! TSEmphasis term=italic cterm=italic gui=italic")
+        -- vim.cmd("highlight! TSUnderline term=underline cterm=underline gui=underline")
+        -- vim.cmd("highlight! link TSTitle Title")
+        -- vim.cmd("highlight! link TSLiteral String")
+        -- vim.cmd("highlight! link TSURI Underlined")
+
+        -- vim.cmd("highlight! link TSTag Label")
+        -- vim.cmd("highlight! link TSTagDelimiter Delimiter")
+      end
+    }
+    use {
+      "romgrk/barbar.nvim",
+      requires = "kyazdani42/nvim-web-devicons"
+    }
+    use {
+      "vim-airline/vim-airline",
+      requires = "vim-airline/vim-airline-themes",
+      config = function()
+        vim.g.airline_powerline_fonts = 1
+        vim.g.airline_symbols = {
+          branch = "",
+          readonly = ""
+        }
+      end
+    }
+    use {
+      "Yggdroot/indentLine",
+      config = function()
+        vim.g.indentLine_char = "│"
+        vim.g.indentLine_bufTypeExclude = {"help", "terminal"}
+        vim.g.indentLine_fileTypeExclude = {"text", "markdown"}
+      end
+    }
 
     use {
       "timbedard/vim-envelop",
@@ -154,7 +252,7 @@ require("packer").startup(
       end
     }
     use "pierreglaser/folding-nvim"
-    use {"weilbith/nvim-lsp-diamove", opt = true, cmd = {"Dabove", "Dbelow"}}
+    -- use {"weilbith/nvim-lsp-diamove", opt = true, cmd = {"Dabove", "Dbelow"}}
 
     use {
       "mhartington/formatter.nvim",
@@ -197,20 +295,20 @@ require("packer").startup(
         -- )
       end
     }
-    use {
-      "romgrk/nvim-treesitter-context",
-      requires = "nvim-treesitter/nvim-treesitter"
-    }
+    -- use {  -- This is rad, but stupid slow right now.
+    --   "romgrk/nvim-treesitter-context",
+    --   requires = "nvim-treesitter/nvim-treesitter"
+    -- }
     use {
       "nvim-treesitter/nvim-treesitter-textobjects",
       requires = "nvim-treesitter/nvim-treesitter"
     }
     -- use "nvim-treesitter/nvim-treesitter-refactor"
     -- use {"nvim-treesitter/completion-treesitter", opt = true}
-    use {
-      "nvim-treesitter/playground",
-      requires = "nvim-treesitter/nvim-treesitter"
-    }
+    -- use {
+    --   "nvim-treesitter/playground",
+    --   requires = "nvim-treesitter/nvim-treesitter"
+    -- }
 
     -- TODO: Switch?
     -- use {
@@ -222,107 +320,8 @@ require("packer").startup(
     --   requires = {"kyazdani42/nvim-web-devicons", opt = true},
     --   disable = true
     -- }
-    use {
-      "romgrk/barbar.nvim",
-      requires = "kyazdani42/nvim-web-devicons"
-    }
     use {"norcalli/nvim-colorizer.lua", opt = true, ft = {"html", "css"}}
 
-    --- non-lua ---
-    use {
-      "gruvbox-community/gruvbox",
-      config = function()
-        vim.g.gruvbox_italic = 1
-        vim.g.gruvbox_sign_column = "bg0"
-        vim.cmd("colorscheme gruvbox") -- must come after gruvbox_italic
-        -- match the fold column colors to the line number column
-        -- must come after colorscheme gruvbox
-        vim.cmd("highlight clear FoldColumn")
-        vim.cmd("highlight! link FoldColumn LineNr")
-
-        -- treesitter highlights
-        vim.cmd("highlight! link TSConstBuiltin Constant") -- None
-        vim.cmd("highlight! link TSKeywordOperator Keyword") -- not, in
-        vim.cmd("highlight! link TSOperator GruvboxRed")
-        vim.cmd("highlight! link TSFunction GruvboxAqua")
-        vim.cmd("highlight! link TSMethod GruvboxAqua")
-
-        ----
-
-        -- vim.cmd("highlight! link TSPunctDelimiter Delimiter") -- , . etc
-        -- vim.cmd("highlight! link TSPunctBracket Delimiter")
-        -- vim.cmd("highlight! link TSPunctSpecial Delimiter")
-        -- vim.cmd("highlight! link TSConstant Constant")
-        -- vim.cmd("highlight! link TSConstBuiltin Special") -- None, etc
-        -- vim.cmd("highlight! link TSConstMacro Define")
-        -- vim.cmd("highlight! link TSString String")
-        -- vim.cmd("highlight! link TSStringRegex String")
-        -- vim.cmd("highlight! link TSStringEscape SpecialChar")
-        -- vim.cmd("highlight! link TSCharacter Character")
-        -- vim.cmd("highlight! link TSNumber Number")
-        -- vim.cmd("highlight! link TSBoolean Boolean")
-        -- vim.cmd("highlight! link TSFloat Float")
-
-        -- vim.cmd("highlight! link TSFunction Function")
-        -- vim.cmd("highlight! link TSFuncBuiltin Special") -- print()
-        -- vim.cmd("highlight! link TSFuncMacro Macro")
-        -- vim.cmd("highlight! link TSParameter Identifier")
-        -- vim.cmd("highlight! link TSParameterReference TSParameter")
-        -- vim.cmd("highlight! link TSMethod Function")
-        -- vim.cmd("highlight! link TSField Identifier")
-        -- vim.cmd("highlight! link TSProperty Identifier")
-        -- vim.cmd("highlight! link TSConstructor Special") -- __init__()
-        -- vim.cmd("highlight! link TSAnnotation PreProc")
-        -- vim.cmd("highlight! link TSAttribute PreProc")
-        -- vim.cmd("highlight! link TSNamespace Include")
-
-        -- vim.cmd("highlight! link TSConditional Conditional") -- if
-        -- vim.cmd("highlight! link TSRepeat Repeat") -- for, while
-        -- vim.cmd("highlight! link TSLabel Label")
-        -- vim.cmd("highlight! link TSOperator Operator")
-        -- vim.cmd("highlight! link TSKeyword Keyword")
-        -- vim.cmd("highlight! link TSKeywordFunction Keyword")
-        -- vim.cmd("highlight! link TSKeywordOperator Operator") -- not, in
-        -- vim.cmd("highlight! link TSException Exception")
-
-        -- vim.cmd("highlight! link TSType Type")
-        -- vim.cmd("highlight! link TSTypeBuiltin Type")
-        -- vim.cmd("highlight! link TSInclude Include")
-
-        -- vim.cmd("highlight! link TSVariableBuiltin Special") -- self
-
-        -- vim.cmd("highlight! link TSText TSNone")
-        -- vim.cmd("highlight! TSStrong term=bold cterm=bold gui=bold")
-        -- vim.cmd("highlight! TSEmphasis term=italic cterm=italic gui=italic")
-        -- vim.cmd("highlight! TSUnderline term=underline cterm=underline gui=underline")
-        -- vim.cmd("highlight! link TSTitle Title")
-        -- vim.cmd("highlight! link TSLiteral String")
-        -- vim.cmd("highlight! link TSURI Underlined")
-
-        -- vim.cmd("highlight! link TSTag Label")
-        -- vim.cmd("highlight! link TSTagDelimiter Delimiter")
-      end
-    }
-    use {
-      "vim-airline/vim-airline",
-      requires = "vim-airline/vim-airline-themes",
-      config = function()
-        vim.g.airline_powerline_fonts = 1
-        vim.g.airline_symbols = {
-          branch = "",
-          readonly = ""
-        }
-      end
-    }
-
-    use {
-      "Yggdroot/indentLine",
-      config = function()
-        vim.g.indentLine_char = "│"
-        vim.g.indentLine_bufTypeExclude = {"help", "terminal"}
-        vim.g.indentLine_fileTypeExclude = {"text", "markdown"}
-      end
-    }
     use "romainl/vim-cool"
     use "justinmk/vim-dirvish"
     use "sunaku/tmux-navigate"
@@ -441,10 +440,9 @@ require("packer").startup(
       config = function()
         vim.g.javascript_plugin_jsdoc = 1
         vim.g.vim_markdown_new_list_item_indent = 2
-      end,
-      disable = true
+      end
     }
 
-    use 'janko-m/vim-test'
+    use "janko-m/vim-test"
   end
 )
