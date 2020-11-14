@@ -130,21 +130,22 @@ nvim_lsp.sumneko_lua.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
-      workspace = {
-        library = {
-          [vim.fn.expand("$VIMRUNTIME")] = true
-          -- TODO: Add plugins?
-        },
-        maxPreload = 2000,
-        preloadFileSize = 1000
+      completion = {kewordSnippet = "Disable"},
+      diagnostics = {
+        enable = true,
+        globals = {"use", "vim"}
       },
       runtime = {
         version = "LuaJIT",
         path = {"?.lua", "?/init.lua", "?/?.lua"}
       },
-      diagnostics = {
-        enable = true,
-        globals = {"use", "vim"}
+      workspace = {
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true
+          -- TODO: Add plugins?
+        },
+        maxPreload = 2000,
+        preloadFileSize = 1000
       }
     }
   },
