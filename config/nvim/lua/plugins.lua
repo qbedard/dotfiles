@@ -272,21 +272,18 @@ require("packer").startup(
     --   requires = "nvim-treesitter/nvim-treesitter"
     -- }
 
-    -- TODO: Switch?
     -- use {
-    --   "glepnir/galaxyline.nvim",
-    --   branch = "main",
+    --   "nvim-telescope/telescope.nvim",
+    --   requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
     --   config = function()
-    --     require "statusline"
-    --   end, -- TODO: Configure
-    --   requires = {"kyazdani42/nvim-web-devicons", opt = true},
-    --   disable = true
+    --     vim.api.nvim_exec(
+    --       [[
+    --         nnoremap <C-p> <cmd>lua require'telescope.builtin'.git_files{}<CR>
+    --       ]],
+    --       false
+    --     )
+    --   end
     -- }
-    use {"norcalli/nvim-colorizer.lua", opt = true, ft = {"html", "css"}}
-
-    use "romainl/vim-cool"
-    use "justinmk/vim-dirvish"
-    use "sunaku/tmux-navigate"
     use {
       "junegunn/fzf.vim",
       config = function()
@@ -310,8 +307,26 @@ require("packer").startup(
       end,
       requires = "/usr/local/opt/fzf"
     }
+
+    -- TODO: Switch?
+    -- use {
+    --   "glepnir/galaxyline.nvim",
+    --   branch = "main",
+    --   config = function()
+    --     require "statusline"
+    --   end, -- TODO: Configure
+    --   requires = {"kyazdani42/nvim-web-devicons", opt = true},
+    --   disable = true
+    -- }
+    use {"norcalli/nvim-colorizer.lua", opt = true, ft = {"html", "css"}}
+
     -- use {"ludovicchabant/vim-gutentags", opt = true}
     -- use {"majutsushi/tagbar", opt = true, ft = {"c", "cpp", "typescript", "typescriptreact"}}
+
+    use "romainl/vim-cool"
+    use "justinmk/vim-dirvish"
+    use "sunaku/tmux-navigate"
+
     use {"iamcco/markdown-preview.nvim", run = ":call mkdp#util#install()", cmd = "MarkdownPreview"}
     use {
       "kshenoy/vim-signature",
