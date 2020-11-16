@@ -1,6 +1,6 @@
-local nvim_lsp = require("nvim_lsp")
-local configs = require("nvim_lsp/configs")
-local util = require("nvim_lsp/util")
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig/configs")
+local util = require("lspconfig/util")
 
 --- pyright config ---
 configs.pyright = {
@@ -104,11 +104,11 @@ local servers = {
   -- 'sql',
 }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {on_attach = on_attach}
+  lspconfig[lsp].setup {on_attach = on_attach}
 end
 
 -- complex setups --
-nvim_lsp.pyls.setup {
+lspconfig.pyls.setup {
   on_attach = on_attach,
   settings = {
     pyls = {
@@ -126,7 +126,7 @@ nvim_lsp.pyls.setup {
     }
   }
 }
-nvim_lsp.sumneko_lua.setup {
+lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
@@ -174,15 +174,15 @@ nvim_lsp.sumneko_lua.setup {
     vim.fn.stdpath("cache") .. "/lua-language-server/bin/macOS/lua-language-server"
   }
 }
-nvim_lsp.tsserver.setup {on_attach = on_attach}
-nvim_lsp.vimls.setup {
+lspconfig.tsserver.setup {on_attach = on_attach}
+lspconfig.vimls.setup {
   on_attach = on_attach,
   init_options = {
     runtimepath = vim.api.nvim_get_option("runtimepath"),
     indexes = {gap = 75, count = 5}
   }
 }
-nvim_lsp.yamlls.setup {
+lspconfig.yamlls.setup {
   on_attach = on_attach,
   settings = {
     yaml = {format = {enable = true, singleQuote = true}, validate = true}
