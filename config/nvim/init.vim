@@ -207,7 +207,6 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "------------------------------------ Lua ------------------------------------"
 lua require'init'
-let g:fzf_colors = {'bg+': ['bg', 'Normal']}
 
 function s:recompile_plugins()
   luafile %

@@ -8,9 +8,10 @@ if not packer_exists then
     "https://github.com/wbthomason/packer.nvim",
     directory .. "/packer.nvim"
   }
+  vim.cmd("packadd packer.nvim")
 end
 
-require("packer").startup(
+require("packer").startup {
   function()
     use {"wbthomason/packer.nvim", opt = true}
     -- use "svermeulen/vimpeccable"
@@ -286,10 +287,11 @@ require("packer").startup(
     -- }
     use {
       "junegunn/fzf.vim",
+      requires = "/usr/local/opt/fzf",
+      opt = true,
+      event = "VimEnter *",
       config = function()
-        -- TODO: Find out why this isn't working for floating fzf
-        -- don't highlight the current line and selection column
-        -- vim.g.fzf_colors = {["bg+"] = {"bg", "Normal"}}
+        vim.g.fzf_colors = {["bg+"] = {"bg", "Normal"}}
         -- TODO: Convert to lua?
         vim.api.nvim_exec(
           [[
@@ -304,8 +306,7 @@ require("packer").startup(
           ]],
           false
         )
-      end,
-      requires = "/usr/local/opt/fzf"
+      end
     }
 
     -- TODO: Switch?
@@ -392,9 +393,9 @@ require("packer").startup(
         vim.g.blamer_template = "<author>, <committer-time> • <summary>"
         vim.api.nvim_exec(
           [[
-            nnoremap <Leader>b :BlamerToggle<CR>
-            vnoremap <Leader>b :BlamerToggle<CR>
-          ]],
+                nnoremap <Leader>b :BlamerToggle<CR>
+                vnoremap <Leader>b :BlamerToggle<CR>
+                ]],
           false
         )
       end
@@ -411,10 +412,10 @@ require("packer").startup(
 
     use {
       "sheerun/vim-polyglot",
-      -- setup = function()
-      --   vim.g.polyglot_disabled = {"helm"}
-      -- end,
+      opt = true,
+      event = "VimEnter *",
       config = function()
+        vim.g.polyglot_disabled = {"helm", "javascript"}
         vim.g.javascript_plugin_jsdoc = 1
         vim.g.vim_markdown_new_list_item_indent = 2
       end
@@ -423,4 +424,4 @@ require("packer").startup(
     use "janko-m/vim-test"
     use "hkupty/iron.nvim"
   end
-)
+}
