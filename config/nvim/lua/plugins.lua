@@ -413,8 +413,10 @@ require("packer").startup {
       "sheerun/vim-polyglot",
       opt = true,
       event = "VimEnter *",
+      setup = function()
+        vim.g.polyglot_disabled = {"helm"}
+      end,
       config = function()
-        vim.g.polyglot_disabled = {"helm", "javascript"}
         vim.g.javascript_plugin_jsdoc = 1
         vim.g.vim_markdown_new_list_item_indent = 2
       end
