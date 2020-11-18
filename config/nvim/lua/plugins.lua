@@ -23,7 +23,7 @@ require("packer").startup {
         vim.g.gruvbox_sign_column = "bg0"
         vim.cmd("colorscheme gruvbox") -- must come after gruvbox_italic
         -- match the fold column colors to the line number column
-        -- must come after colorscheme gruvbox
+        -- Note: must come after colorscheme gruvbox
         vim.cmd("highlight clear FoldColumn")
         vim.cmd("highlight! link FoldColumn LineNr")
 
@@ -99,7 +99,6 @@ require("packer").startup {
       requires = "vim-airline/vim-airline-themes",
       config = function()
         vim.g.airline_powerline_fonts = 1
-        vim.g["airline#extensions#nvimlsp#enabled"] = 0 -- TODO: Re-enable when updated
         vim.g.airline_symbols = {
           branch = "",
           readonly = ""

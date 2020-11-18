@@ -193,7 +193,7 @@ loadstring("\27LJ\1\2˜\2\0\0\3\0\b\0\0154\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\00
 -- Config for: vim-signify
 loadstring("\27LJ\1\2é\4\0\0\3\0\r\0\0274\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\1\0%\1\6\0:\1\5\0004\0\0\0007\0\1\0%\1\6\0:\1\a\0004\0\0\0007\0\1\0%\1\t\0:\1\b\0004\0\0\0007\0\n\0007\0\v\0%\1\f\0)\2\1\0>\0\3\1G\0\1\0ğ\2            set signcolumn=yes\n            highlight! link SignifySignChange GruvboxBlueSign\n\n            \" nifty hunk motions\n            omap ic <Plug>(signify-motion-inner-pending)\n            xmap ic <Plug>(signify-motion-inner-visual)\n            omap ac <Plug>(signify-motion-outer-pending)\n            xmap ac <Plug>(signify-motion-outer-visual)\n          \14nvim_exec\bapi\bï‘„\24signify_sign_change#signify_sign_delete_first_line\bï’‹\24signify_sign_delete\bï‘\21signify_sign_add\21signify_priority\6g\bvim\0")()
 -- Config for: vim-airline
-loadstring("\27LJ\1\2§\1\0\0\2\0\6\0\r4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0'\1\0\0:\1\3\0004\0\0\0007\0\1\0003\1\5\0:\1\4\0G\0\1\0\1\0\2\rreadonly\bï€£\vbranch\bï˜\20airline_symbols'airline#extensions#nvimlsp#enabled\28airline_powerline_fonts\6g\bvim\0")()
+loadstring("\27LJ\1\2t\0\0\2\0\5\0\t4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0003\1\4\0:\1\3\0G\0\1\0\1\0\2\rreadonly\bï€£\vbranch\bï˜\20airline_symbols\28airline_powerline_fonts\6g\bvim\0")()
 -- Config for: pear-tree
 loadstring("\27LJ\1\2=\0\0\2\0\3\0\0054\0\0\0007\0\1\0'\1\0\0:\1\2\0G\0\1\0 pear_tree_repeatable_expand\6g\bvim\0")()
 -- Config for: nvim-lspconfig
