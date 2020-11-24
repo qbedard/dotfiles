@@ -30,7 +30,7 @@ update-tmux:
 
 update-vim:
 	@echo "Updating vim plugins..."
-	@nvim --headless +EnvUpdate +PackerSync +qall
+	@nvim --headless +EnvUpdate +PackerUpdate +qall
 	@echo "\nVim plugins updated!"
 
 update: update-brew update-omf update-tmux update-vim
