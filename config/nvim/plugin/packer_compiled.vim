@@ -175,7 +175,7 @@ end
 loadstring("\27LJ\1\2<\0\0\2\0\4\0\0054\0\0\0007\0\1\0003\1\3\0:\1\2\0G\0\1\0\1\2\0\0\thelm\22polyglot_disabled\6g\bvim\0")()
 -- Post-load configuration
 -- Config for: formatter.nvim
-loadstring("\27LJ\1\2Š\1\0\0\4\0\6\0\n3\0\0\0003\1\1\0004\2\2\0007\2\3\0027\2\4\2'\3\0\0>\2\2\2;\2\2\1:\1\5\0H\0\2\0\targs\22nvim_buf_get_name\bapi\bvim\1\4\0\0\21--stdin-filepath\0\19--single-quote\1\0\2\nstdin\2\bexe\rprettierN\0\0\2\0\3\0\0043\0\0\0003\1\1\0:\1\2\0H\0\2\0\targs\1\4\0\0\19--indent-count\3\2\f--stdin\1\0\2\nstdin\2\bexe\vluafmt‚\1\1\0\4\0\f\0\0154\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\6\0003\2\4\0001\3\3\0:\3\5\2:\2\a\0013\2\t\0001\3\b\0:\3\n\2:\2\v\1>\0\2\1G\0\1\0\blua\vluafmt\1\0\0\0\15javascript\1\0\0\rprettier\1\0\0\0\nsetup\vformat\frequire\0")()
+loadstring("\27LJ\1\2Š\1\0\0\4\0\6\0\n3\0\0\0003\1\1\0004\2\2\0007\2\3\0027\2\4\2'\3\0\0>\2\2\2;\2\2\1:\1\5\0H\0\2\0\targs\22nvim_buf_get_name\bapi\bvim\1\4\0\0\21--stdin-filepath\0\19--single-quote\1\0\2\nstdin\2\bexe\rprettierN\0\0\2\0\3\0\0043\0\0\0003\1\1\0:\1\2\0H\0\2\0\targs\1\4\0\0\19--indent-count\3\2\f--stdin\1\0\2\nstdin\2\bexe\vluafmtƒ\1\1\0\5\0\n\0\0174\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\b\0003\2\4\0002\3\3\0001\4\3\0;\4\1\3:\3\5\0022\3\3\0001\4\6\0;\4\1\3:\3\a\2:\2\t\1>\0\2\1G\0\1\0\rfiletype\1\0\0\blua\0\15javascript\1\0\0\0\nsetup\14formatter\frequire\0")()
 -- Config for: quick-scope
 loadstring("\27LJ\1\2B\0\0\2\0\4\0\0054\0\0\0007\0\1\0003\1\3\0:\1\2\0G\0\1\0\1\5\0\0\6f\6F\6t\6T\25qs_highlight_on_keys\6g\bvim\0")()
 -- Config for: completion-nvim
