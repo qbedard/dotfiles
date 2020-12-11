@@ -41,7 +41,7 @@ brew "zsh-syntax-highlighting"
 
 # --- Third Party Taps --- #
 tap "universal-ctags/universal-ctags"
-brew "universal-ctags/universal-ctags/universal-ctags", args: ['HEAD']
+brew "universal-ctags/universal-ctags/universal-ctags", args: ['HEAD', 'with-jansson']
 
 tap "github/gh"
 brew "github/gh/gh"

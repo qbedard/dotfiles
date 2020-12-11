@@ -324,6 +324,7 @@ require("packer").startup {
 
     -- use {"ludovicchabant/vim-gutentags", opt = true}
     -- use {"majutsushi/tagbar", opt = true, ft = {"c", "cpp", "typescript", "typescriptreact"}}
+    use "liuchengxu/vista.vim"
 
     use "romainl/vim-cool"
     use "justinmk/vim-dirvish"

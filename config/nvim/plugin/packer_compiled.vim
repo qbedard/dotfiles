@@ -189,12 +189,12 @@ loadstring("\27LJ\1\2Ò\3\0\0\2\0\14\0)4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007
 loadstring("\27LJ\1\2Æ\1\0\0\2\0\b\0\r4\0\0\0007\0\1\0%\1\3\0:\1\2\0004\0\0\0007\0\1\0003\1\5\0:\1\4\0004\0\0\0007\0\1\0003\1\a\0:\1\6\0G\0\1\0\1\3\0\0\ttext\rmarkdown\31indentLine_fileTypeExclude\1\3\0\0\thelp\rterminal\30indentLine_bufTypeExclude\b‚îÇ\20indentLine_char\6g\bvim\0")()
 -- Config for: vim-better-whitespace
 loadstring("\27LJ\1\2ï\1\0\0\2\0\6\0\r4\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0'\1\1\0:\1\3\0004\0\0\0007\0\4\0%\1\5\0>\0\2\1G\0\1\0\"command! Trim StripWhitespace\bcmd\28strip_whitelines_at_eof\30better_whitespace_enabled\6g\bvim\0")()
--- Config for: nvim-treesitter
-loadstring("\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15treesitter\frequire\0")()
 -- Config for: vim-envelop
 loadstring("\27LJ\1\2°\4\0\0\2\0\f\0\0214\0\0\0007\0\1\0003\1\3\0:\1\2\0004\0\0\0007\0\1\0003\1\5\0:\1\4\0004\0\0\0007\0\1\0003\1\a\0:\1\6\0004\0\0\0007\0\1\0003\1\t\0:\1\b\0004\0\0\0007\0\1\0003\1\v\0:\1\n\0G\0\1\0\1\r\0\0\nblack\vflake8\19flake8-bugbear\nisort\16pep8-naming\bpip\15pyls-black\15pyls-isort\vpynvim python-language-server[all]\rsqlparse\rvim-vint\29envelop_python3_packages\1\t\0\0\14bin/black\15bin/flake8\14bin/isort\rbin/pip3\rbin/pyls\16bin/python3\18bin/sqlformat\rbin/vint\25envelop_python3_link\1\3\0\0\flua-fmt\fpyright\26envelop_node_packages\1\4\0\0\29node_modules/.bin/luafmt\30node_modules/.bin/pyright)node_modules/.bin/pyright-langserver\22envelop_node_link\1\3\0\0\tnode\fpython3\20envelop_enabled\6g\bvim\0")()
 -- Config for: blamer.nvim
 loadstring("\27LJ\1\2ò\2\0\0\3\0\b\0\0154\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\5\0007\0\6\0%\1\a\0)\2\1\0>\0\3\1G\0\1\0                nnoremap <Leader>b :BlamerToggle<CR>\n                vnoremap <Leader>b :BlamerToggle<CR>\n                \14nvim_exec\bapi-<author>, <committer-time> ‚Ä¢ <summary>\20blamer_template\17blamer_delay\6g\bvim\0")()
+-- Config for: nvim-treesitter
+loadstring("\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15treesitter\frequire\0")()
 -- Config for: vim-signify
 loadstring("\27LJ\1\2È\4\0\0\3\0\r\0\0274\0\0\0007\0\1\0'\1\0\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\1\0%\1\6\0:\1\5\0004\0\0\0007\0\1\0%\1\6\0:\1\a\0004\0\0\0007\0\1\0%\1\t\0:\1\b\0004\0\0\0007\0\n\0007\0\v\0%\1\f\0)\2\1\0>\0\3\1G\0\1\0\2            set signcolumn=yes\n            highlight! link SignifySignChange GruvboxBlueSign\n\n            \" nifty hunk motions\n            omap ic <Plug>(signify-motion-inner-pending)\n            xmap ic <Plug>(signify-motion-inner-visual)\n            omap ac <Plug>(signify-motion-outer-pending)\n            xmap ac <Plug>(signify-motion-outer-visual)\n          \14nvim_exec\bapi\bÔëÑ\24signify_sign_change#signify_sign_delete_first_line\bÔíã\24signify_sign_delete\bÔëç\21signify_sign_add\21signify_priority\6g\bvim\0")()
 -- Config for: vim-airline
