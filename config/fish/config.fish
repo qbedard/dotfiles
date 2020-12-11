@@ -141,6 +141,11 @@ set -gx EDITOR "$VISUAL"
 # use bat as man pager
 set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
 
+# find missing python deps
+function rg-deps
+  rg -INoP '^\s*(import|from) \K(\w*)' | sort | uniq | awk '{if( system("echo \'import " $0 "\' | python >/dev/null 2>&1") ) {print $0}}'
+end
+
 # fzf
 if command -v bat > /dev/null
   set -gx FZF_FILE_PREVIEW_CMD "bat --line-range :100 --color=always"
