@@ -121,6 +121,7 @@ lspconfig.pyls.setup {
         mccabe = {enabled = false},
         pycodestyle = {enabled = false, maxLineLength = 88},
         pyflakes = {enabled = false},
+        pyls_mypy = {enabled = false, live_mode = true},
         yapf = {enabled = false}
       }
     }
