@@ -124,6 +124,8 @@ require("packer").startup {
           "node_modules/.bin/prettier",
           -- "node_modules/.bin/pyright",
           -- "node_modules/.bin/pyright-langserver",
+          "node_modules/.bin/css-languageserver",
+          "node_modules/.bin/html-languageserver",
           "node_modules/.bin/vscode-json-languageserver",
           "node_modules/.bin/yaml-language-server"
         }
@@ -131,6 +133,8 @@ require("packer").startup {
           "lua-fmt",
           "prettier",
           -- "pyright",
+          "vscode-css-languageserver-bin",
+          "vscode-html-languageserver-bin",
           "vscode-json-languageserver",
           "yaml-language-server"
         }
@@ -241,6 +245,7 @@ require("packer").startup {
         require("formatter").setup {
           filetype = {
             css = prettier,
+            html = prettier,
             javascript = prettier,
             json = prettier,
             lua = {
@@ -261,6 +266,7 @@ require("packer").startup {
           [[
             augroup format_map
               autocmd FileType css nnoremap <buffer> <silent> gf :Format<CR>
+              autocmd FileType html nnoremap <buffer> <silent> gf :Format<CR>
               autocmd FileType javascript nnoremap <buffer> <silent> gf :Format<CR>
               autocmd FileType json nnoremap <buffer> <silent> gf :Format<CR>
               autocmd FileType lua nnoremap <buffer> <silent> gf :Format<CR>
