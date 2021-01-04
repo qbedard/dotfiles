@@ -124,13 +124,15 @@ require("packer").startup {
           "node_modules/.bin/prettier",
           -- "node_modules/.bin/pyright",
           -- "node_modules/.bin/pyright-langserver",
-          "node_modules/.bin/vscode-json-languageserver"
+          "node_modules/.bin/vscode-json-languageserver",
+          "node_modules/.bin/yaml-language-server"
         }
         vim.g.envelop_node_packages = {
           "lua-fmt",
           "prettier",
           -- "pyright",
-          "vscode-json-languageserver"
+          "vscode-json-languageserver",
+          "yaml-language-server"
         }
         vim.g.envelop_python3_link = {
           "bin/black",
