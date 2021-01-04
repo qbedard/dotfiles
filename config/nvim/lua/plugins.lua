@@ -121,12 +121,16 @@ require("packer").startup {
         vim.g.envelop_enabled = {"node", "python3"}
         vim.g.envelop_node_link = {
           "node_modules/.bin/luafmt",
+          "node_modules/.bin/prettier",
           "node_modules/.bin/pyright",
-          "node_modules/.bin/pyright-langserver"
+          "node_modules/.bin/pyright-langserver",
+          "node_modules/.bin/vscode-json-languageserver"
         }
         vim.g.envelop_node_packages = {
           "lua-fmt",
-          "pyright"
+          "prettier",
+          "pyright",
+          "vscode-json-languageserver"
         }
         vim.g.envelop_python3_link = {
           "bin/black",
@@ -159,7 +163,6 @@ require("packer").startup {
 
     use {
       "neovim/nvim-lspconfig",
-      run = ":LspInstall sumneko_lua",
       config = function()
         require("lsp")
         vim.api.nvim_exec(
@@ -227,7 +230,16 @@ require("packer").startup {
               function()
                 return {
                   exe = "prettier",
-                  args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
+                  args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+                  stdin = true
+                }
+              end
+            },
+            json = {
+              function()
+                return {
+                  exe = "prettier",
+                  args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
                   stdin = true
                 }
               end
