@@ -134,7 +134,7 @@ lspconfig.sumneko_lua.setup {
       completion = {kewordSnippet = "Disable"},
       diagnostics = {
         enable = true,
-        globals = {"use", "vim"}
+        globals = {"renoise", "use", "vim"}
       },
       runtime = {
         version = "LuaJIT",
