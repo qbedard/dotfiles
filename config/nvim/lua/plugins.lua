@@ -240,6 +240,7 @@ require("packer").startup {
         }
         require("formatter").setup {
           filetype = {
+            css = prettier,
             javascript = prettier,
             json = prettier,
             lua = {
@@ -251,9 +252,24 @@ require("packer").startup {
                 }
               end
             },
+            markdown = prettier,
             yaml = prettier
           }
         }
+        -- TODO: Convert to lua?
+        vim.api.nvim_exec(
+          [[
+            augroup format_map
+              autocmd FileType css nnoremap <buffer> <silent> gf :Format<CR>
+              autocmd FileType javascript nnoremap <buffer> <silent> gf :Format<CR>
+              autocmd FileType json nnoremap <buffer> <silent> gf :Format<CR>
+              autocmd FileType lua nnoremap <buffer> <silent> gf :Format<CR>
+              autocmd FileType markdown nnoremap <buffer> <silent> gf :Format<CR>
+              autocmd FileType yaml nnoremap <buffer> <silent> gf :Format<CR>
+            augroup end
+          ]],
+          false
+        )
       end
     }
 
