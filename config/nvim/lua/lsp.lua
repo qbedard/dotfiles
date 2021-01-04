@@ -3,28 +3,32 @@ local configs = require("lspconfig/configs")
 local util = require("lspconfig/util")
 
 --- pyright config ---
-configs.pyright = {
-  default_config = {
-    cmd = {"pyright-langserver", "--stdio"},
-    filetypes = {"python"},
-    root_dir = util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt"),
-    settings = {
-      analysis = {autoSearchPaths = true},
-      pyright = {useLibraryCodeForTypes = true}
-    },
-    before_init = function(initialize_params)
-      initialize_params["workspaceFolders"] = {
-        {name = "workspace", uri = initialize_params["rootUri"]}
-      }
-    end
-  },
-  docs = {
-    description = [[
-      https://github.com/microsoft/pyright
-      `pyright`, a static type checker and language server for python
-    ]]
-  }
-}
+-- configs.pyright = {
+--   default_config = {
+--     cmd = {"pyright-langserver", "--stdio"},
+--     filetypes = {"python"},
+--     root_dir = util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt"),
+--     settings = {
+--       python = {
+--         analysis = {
+--           autoSearchPaths = true,
+--           useLibraryCodeForTypes = true
+--         }
+--       }
+--     },
+--     -- before_init = function(initialize_params)
+--     --   initialize_params["workspaceFolders"] = {
+--     --     {name = "workspace", uri = initialize_params["rootUri"]}
+--     --   }
+--     -- end
+--   },
+--   docs = {
+--     description = [[
+--       https://github.com/microsoft/pyright
+--       `pyright`, a static type checker and language server for python
+--     ]]
+--   }
+-- }
 
 --- sql-langauge-server config ---
 -- configs.sql = {
@@ -100,7 +104,7 @@ local servers = {
   "dockerls",
   "html",
   "jsonls"
-  -- 'pyright',
+  -- "pyright"
   -- 'sql',
 }
 for _, lsp in ipairs(servers) do
@@ -127,6 +131,15 @@ lspconfig.pyls.setup {
     }
   }
 }
+
+-- lspconfig.pyright.setup {
+--   on_attach = on_attach,
+--   root_dir = function(fname)
+--     return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or
+--       util.path.dirname(fname)
+--   end
+-- }
+
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   settings = {

@@ -122,14 +122,14 @@ require("packer").startup {
         vim.g.envelop_node_link = {
           "node_modules/.bin/luafmt",
           "node_modules/.bin/prettier",
-          "node_modules/.bin/pyright",
-          "node_modules/.bin/pyright-langserver",
+          -- "node_modules/.bin/pyright",
+          -- "node_modules/.bin/pyright-langserver",
           "node_modules/.bin/vscode-json-languageserver"
         }
         vim.g.envelop_node_packages = {
           "lua-fmt",
           "prettier",
-          "pyright",
+          -- "pyright",
           "vscode-json-languageserver"
         }
         vim.g.envelop_python3_link = {
@@ -147,6 +147,9 @@ require("packer").startup {
           "black",
           "flake8",
           "flake8-bugbear",
+          -- "flake8-builtins",
+          -- "flake8-pytest-style",
+          -- "flake8-simplify",
           "isort",
           "pep8-naming",
           "pip",
