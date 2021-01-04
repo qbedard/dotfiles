@@ -229,26 +229,19 @@ require("packer").startup {
     use {
       "mhartington/formatter.nvim",
       config = function()
+        local prettier = {
+          function()
+            return {
+              exe = "prettier",
+              args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+              stdin = true
+            }
+          end
+        }
         require("formatter").setup {
           filetype = {
-            javascript = {
-              function()
-                return {
-                  exe = "prettier",
-                  args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-                  stdin = true
-                }
-              end
-            },
-            json = {
-              function()
-                return {
-                  exe = "prettier",
-                  args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-                  stdin = true
-                }
-              end
-            },
+            javascript = prettier,
+            json = prettier,
             lua = {
               function()
                 return {
@@ -257,7 +250,8 @@ require("packer").startup {
                   stdin = true
                 }
               end
-            }
+            },
+            yaml = prettier
           }
         }
       end
