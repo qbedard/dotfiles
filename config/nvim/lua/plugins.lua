@@ -125,11 +125,13 @@ require("packer").startup {
           -- "node_modules/.bin/pyright",
           -- "node_modules/.bin/pyright-langserver",
           "node_modules/.bin/css-languageserver",
+          "node_modules/.bin/docker-langserver",
           "node_modules/.bin/html-languageserver",
           "node_modules/.bin/vscode-json-languageserver",
           "node_modules/.bin/yaml-language-server"
         }
         vim.g.envelop_node_packages = {
+          "dockerfile-language-server-nodejs",
           "lua-fmt",
           "prettier",
           -- "pyright",
