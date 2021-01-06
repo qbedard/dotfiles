@@ -127,6 +127,7 @@ require("packer").startup {
           "node_modules/.bin/css-languageserver",
           "node_modules/.bin/docker-langserver",
           "node_modules/.bin/html-languageserver",
+          "node_modules/.bin/typescript-language-server",
           "node_modules/.bin/vim-language-server",
           "node_modules/.bin/vscode-json-languageserver",
           "node_modules/.bin/yaml-language-server"
@@ -136,6 +137,8 @@ require("packer").startup {
           "lua-fmt",
           "prettier",
           -- "pyright",
+          "typescript",
+          "typescript-language-server",
           "vim-language-server",
           "vscode-css-languageserver-bin",
           "vscode-html-languageserver-bin",
