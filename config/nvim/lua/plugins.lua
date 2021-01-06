@@ -175,6 +175,29 @@ require("packer").startup {
     }
 
     use {
+      "sumneko/lua-language-server"
+      -- TODO: Get this working.
+      -- run = function(plugin)
+      --   vim.fn.system("cd" .. plugin.path .. " && git submodule update --init --recursive")
+      --   vim.fn.system(
+      --     "cd" .. plugin.path .. "/3rd/luamake && ninja -f" .. string.format("ninja/%s.ninja", string.lower(jit.os))
+      --   )
+      --   vim.fn.system("cd" .. plugin.path .. "./3rd/luamake/luamake rebuild")
+
+      --   -- local job = vim.fn.jobstart({"git", "submodule", "update", "--init", "--recursive"}, {cwd = plugin.path})
+      --   -- jobwait(job)
+      --   -- job =
+      --   --   vim.fn.jobstart(
+      --   --   {"ninja", "-f", string.format("ninja/%s.ninja", string.lower(jit.os))},
+      --   --   {cwd = plugin.path .. "/3rd/luamake"}
+      --   -- )
+      --   -- jobwait(job)
+      --   -- job = vim.fn.jobstart({"./3rd/luamake/luamake", "rebuild"}, {cwd = plugin.path})
+      --   -- jobwait(job)
+      -- end
+    }
+
+    use {
       "neovim/nvim-lspconfig",
       config = function()
         require("lsp")

@@ -139,7 +139,8 @@ lspconfig.pyls.setup {
 --       util.path.dirname(fname)
 --   end
 -- }
-
+local sumneko_root_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   settings = {
@@ -183,10 +184,8 @@ lspconfig.sumneko_lua.setup {
   --             "keywordSnippet": "Disable"
   --         }
   --     }
-  cmd = {
-    -- TODO: Make work on Linux as well
-    vim.fn.stdpath("cache") .. "/lua-language-server/bin/macOS/lua-language-server"
-  }
+  -- TODO: Make work on Linux as well
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"}
 }
 lspconfig.tsserver.setup {on_attach = on_attach}
 lspconfig.vimls.setup {
