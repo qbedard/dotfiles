@@ -33,4 +33,4 @@ update-vim:
 	@nvim --headless +EnvUpdate +PackerUpdate +qall
 	@echo "\nVim plugins updated!"
 
-update: update-brew update-omf update-tmux update-vim
+update: update-brew update-omf update-vim
