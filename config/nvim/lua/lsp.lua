@@ -49,8 +49,6 @@ local util = require("lspconfig/util")
 --   }
 -- }
 
--- TODO: terraform-ls
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
@@ -98,14 +96,15 @@ end
 -- simple setups --
 local servers = {
   "bashls",
-  -- 'ccls',
-  -- 'cmake',
+  -- "ccls",
+  -- "cmake",
   "cssls",
   "dockerls",
   "html",
-  "jsonls"
+  "jsonls",
   -- "pyright"
-  -- 'sql',
+  -- "sql",
+  -- "terraformls"
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {on_attach = on_attach}
