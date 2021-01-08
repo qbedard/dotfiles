@@ -207,6 +207,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "------------------------------------ Lua ------------------------------------"
 lua require'init'
+" lua require'minimal'
 
 function s:recompile_plugins()
   luafile %

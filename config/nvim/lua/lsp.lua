@@ -90,7 +90,7 @@ vim.fn.sign_define(
 
 local on_attach = function()
   require("completion").on_attach()
-  require("folding").on_attach()
+  -- require("folding").on_attach()
 end
 
 -- simple setups --

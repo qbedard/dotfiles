@@ -17,6 +17,36 @@ require("packer").startup {
     -- use "svermeulen/vimpeccable"
 
     use {
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSInstall all",
+      config = function()
+        require("treesitter")
+        -- TODO: Still a bit buggy
+        -- vim.api.nvim_exec(
+        --   [[
+        --     set foldmethod=expr
+        --     set foldexpr=nvim_treesitter#foldexpr()
+        --   ]],
+        --   false
+        -- )
+      end
+    }
+    -- use {  -- This is rad, but stupid slow right now.
+    --   "romgrk/nvim-treesitter-context",
+    --   requires = "nvim-treesitter/nvim-treesitter"
+    -- }
+    use {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      requires = "nvim-treesitter/nvim-treesitter"
+    }
+    -- use "nvim-treesitter/nvim-treesitter-refactor"
+    -- use {"nvim-treesitter/completion-treesitter", opt = true}
+    -- use {
+    --   "nvim-treesitter/playground",
+    --   requires = "nvim-treesitter/nvim-treesitter"
+    -- }
+
+    use {
       "gruvbox-community/gruvbox",
       config = function()
         vim.g.gruvbox_italic = 1
@@ -311,43 +341,24 @@ require("packer").startup {
       end
     }
 
-    use {
-      "nvim-treesitter/nvim-treesitter",
-      run = ":TSInstall all",
-      config = function()
-        require("treesitter")
-        -- TODO: Still a bit buggy
-        -- vim.api.nvim_exec(
-        --   [[
-        --     set foldmethod=expr
-        --     set foldexpr=nvim_treesitter#foldexpr()
-        --   ]],
-        --   false
-        -- )
-      end
-    }
-    -- use {  -- This is rad, but stupid slow right now.
-    --   "romgrk/nvim-treesitter-context",
-    --   requires = "nvim-treesitter/nvim-treesitter"
-    -- }
-    use {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      requires = "nvim-treesitter/nvim-treesitter"
-    }
-    -- use "nvim-treesitter/nvim-treesitter-refactor"
-    -- use {"nvim-treesitter/completion-treesitter", opt = true}
-    -- use {
-    --   "nvim-treesitter/playground",
-    --   requires = "nvim-treesitter/nvim-treesitter"
-    -- }
-
     -- use {
     --   "nvim-telescope/telescope.nvim",
-    --   requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
+    --   requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"},
     --   config = function()
+    --     local actions = require("telescope.actions")
+    --     require("telescope").setup {
+    --       defaults = {
+    --         mappings = {
+    --           i = {
+    --             ["<CR>"] = actions.goto_file_selection_edit + actions.center,
+    --             ["<esc>"] = actions.close
+    --           }
+    --         }
+    --       }
+    --     }
     --     vim.api.nvim_exec(
     --       [[
-    --         nnoremap <C-p> <cmd>lua require'telescope.builtin'.git_files{}<CR>
+    --         nnoremap <C-p> <cmd>lua require("telescope.builtin").git_files()<CR>
     --       ]],
     --       false
     --     )
@@ -475,6 +486,8 @@ require("packer").startup {
     use {
       "tmsvg/pear-tree",
       config = function()
+        -- pear-tree's imaps break telescope
+        vim.g.pear_tree_ft_disabled = {"TelescopePrompt"}
         vim.g.pear_tree_repeatable_expand = 0
       end
     }
