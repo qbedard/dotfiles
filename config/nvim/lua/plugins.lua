@@ -406,7 +406,7 @@ require("packer").startup {
 
     use "romainl/vim-cool"
     use "justinmk/vim-dirvish"
-    use "sunaku/tmux-navigate"
+    -- use "sunaku/tmux-navigate"
 
     use {"iamcco/markdown-preview.nvim", run = ":call mkdp#util#install()", cmd = "MarkdownPreview"}
     use {
