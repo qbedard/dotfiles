@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
-local configs = require("lspconfig/configs")
-local util = require("lspconfig/util")
+-- local configs = require("lspconfig/configs")
+-- local util = require("lspconfig/util")
 
 --- pyright config ---
 -- configs.pyright = {
@@ -101,7 +101,7 @@ local servers = {
   "cssls",
   "dockerls",
   "html",
-  "jsonls",
+  "jsonls"
   -- "pyright"
   -- "sql",
   -- "terraformls"
@@ -142,6 +142,8 @@ local sumneko_root_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/lua
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
+  -- TODO: Make work on Linux as well
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
   settings = {
     Lua = {
       completion = {kewordSnippet = "Disable"},
@@ -152,39 +154,20 @@ lspconfig.sumneko_lua.setup {
       runtime = {
         version = "LuaJIT",
         path = {"?.lua", "?/init.lua", "?/?.lua"}
+        -- path = vim.split(package.path, ";")
       },
       workspace = {
         library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true
-          -- TODO: Add plugins?
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+          [vim.fn.stdpath("config") .. "/lua"] = true,
+          [vim.fn.stdpath("data") .. "/site/pack"] = true
         },
         maxPreload = 2000,
         preloadFileSize = 1000
       }
     }
-  },
-  --         "workspace": {
-  --             "library": {
-  --                 "/path/to/hammerspoon-completion/build/stubs": true,
-  --                 "/path/to/neovim/runtime/lua": true
-  --             },
-  --             "maxPreload": 2000,
-  --             "preloadFileSize": 1000
-  --         },
-  --         "runtime": {
-  --             "version": "Lua 5.4"
-  --         },
-  --         "diagnostics": {
-  --             "enable": true,
-  --             "globals": ["hs", "vim", "it", "describe", "before_each", "after_each"],
-  --             "disable": ["lowercase-global"]
-  --         },
-  --         "completion": {
-  --             "keywordSnippet": "Disable"
-  --         }
-  --     }
-  -- TODO: Make work on Linux as well
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"}
+  }
 }
 lspconfig.tsserver.setup {on_attach = on_attach}
 lspconfig.vimls.setup {
