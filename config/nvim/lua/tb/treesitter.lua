@@ -2,9 +2,8 @@
 -- set foldmethod=expr
 -- set foldexpr=nvim_treesitter#foldexpr()
 
-require "nvim-treesitter.configs".setup {
-  -- TODO: Try switching from other tools to TS-based solutions
-
+require("nvim-treesitter.configs").setup {
+  ensure_installed = "all",
   highlight = {enable = true},
   -- incremental_selection = {
   --   enable = true,
@@ -81,4 +80,5 @@ require "nvim-treesitter.configs".setup {
       }
     }
   }
+
 }

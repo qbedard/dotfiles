@@ -18,9 +18,9 @@ require("packer").startup {
 
     use {
       "nvim-treesitter/nvim-treesitter",
-      run = ":TSInstall all",
+      run = ":TSUpdate",
       config = function()
-        require("treesitter")
+        require("tb.treesitter")
         -- TODO: Still a bit buggy
         -- vim.api.nvim_exec(
         --   [[
@@ -235,7 +235,7 @@ require("packer").startup {
     use {
       "neovim/nvim-lspconfig",
       config = function()
-        require("lsp")
+        require("tb.lsp")
         vim.api.nvim_exec(
           [[
             nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
@@ -341,52 +341,54 @@ require("packer").startup {
       end
     }
 
+    use {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        "nvim-lua/popup.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-fzy-native.nvim",
+        "nvim-telescope/telescope-github.nvim",
+        "nvim-telescope/telescope-packer.nvim"
+      },
+      config = function()
+        require("tb.telescope")
+        vim.api.nvim_set_keymap(
+          "n",
+          "<C-p>",
+          "<cmd>lua require('tb.telescope').project_files()<CR>",
+          {noremap = true, silent = true}
+        )
+        vim.api.nvim_set_keymap(
+          "n",
+          "<Leader><Leader>",
+          "<cmd>lua require('telescope.builtin').builtin()<CR>",
+          {noremap = true, silent = true}
+        )
+      end
+    }
     -- use {
-    --   "nvim-telescope/telescope.nvim",
-    --   requires = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"},
+    --   "junegunn/fzf.vim",
+    --   requires = "/usr/local/opt/fzf",
+    --   opt = true,
+    --   event = "VimEnter *",
     --   config = function()
-    --     local actions = require("telescope.actions")
-    --     require("telescope").setup {
-    --       defaults = {
-    --         mappings = {
-    --           i = {
-    --             ["<CR>"] = actions.goto_file_selection_edit + actions.center,
-    --             ["<esc>"] = actions.close
-    --           }
-    --         }
-    --       }
-    --     }
+    --     vim.g.fzf_colors = {["bg+"] = {"bg", "Normal"}}
+    --     -- TODO: Convert to lua?
     --     vim.api.nvim_exec(
     --       [[
-    --         nnoremap <C-p> <cmd>lua require("telescope.builtin").git_files()<CR>
+    --         " mappings
+    --         nnoremap <C-f> :BLines<CR>
+    --         nnoremap <C-b> :Buffers<CR>
+    --         nnoremap <C-c> :Commands<CR>
+
+    --         " show files in a git project root (or current dir if not project)
+    --         command! ProjectFiles execute 'Files' FindGitRoot()
+    --         nnoremap <C-p> :ProjectFiles<CR>
     --       ]],
     --       false
     --     )
     --   end
     -- }
-    use {
-      "junegunn/fzf.vim",
-      requires = "/usr/local/opt/fzf",
-      opt = true,
-      event = "VimEnter *",
-      config = function()
-        vim.g.fzf_colors = {["bg+"] = {"bg", "Normal"}}
-        -- TODO: Convert to lua?
-        vim.api.nvim_exec(
-          [[
-            " mappings
-            nnoremap <C-f> :BLines<CR>
-            nnoremap <C-b> :Buffers<CR>
-            nnoremap <C-c> :Commands<CR>
-
-            " show files in a git project root (or current dir if not project)
-            command! ProjectFiles execute 'Files' FindGitRoot()
-            nnoremap <C-p> :ProjectFiles<CR>
-          ]],
-          false
-        )
-      end
-    }
 
     -- TODO: Switch?
     -- use {
