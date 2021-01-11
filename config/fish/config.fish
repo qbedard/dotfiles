@@ -132,21 +132,7 @@ abbr -a vd "vagrant destroy"
 abbr -a vh "vagrant halt"
 abbr -a vss "vagrant ssh"
 
-# ----- Misc ----- #
-# vim
-set -gx VISUAL nvim
-set -gx EDITOR "$VISUAL"
-
-# bat
-# use bat as man pager
-set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
-
-# find missing python deps
-function rg-deps
-  rg -INoP '^\s*(import|from) \K(\w*)' | sort | uniq | awk '{if( system("echo \'import " $0 "\' | python >/dev/null 2>&1") ) {print $0}}'
-end
-
-# fzf
+# ----- fzf -----#
 if command -v bat > /dev/null
   set -gx FZF_FILE_PREVIEW_CMD "bat --line-range :100 --color=always"
 else
@@ -178,7 +164,7 @@ end
 if command -v rg > /dev/null
   set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
 end
-if command -v rg > /dev/null
+if command -v fd > /dev/null
   set -gx FZF_CTRL_T_COMMAND '\
     fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv" --exclude ".pytest_cache" --exclude ".venv"'
   set -gx FZF_ALT_C_COMMAND '\
@@ -209,6 +195,36 @@ bind \cg\cs __fzf_git_stash
 function fco -d "Fuzzy-find and checkout a branch"
   git branch --all | grep -v HEAD | string trim | \
     fzf | read -l result; and git checkout "$result"
+end
+
+# --- sk --- #
+# if command -v rg > /dev/null
+#   set -gx SKIM_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+# end
+# if command -v fd > /dev/null
+#   set -gx SKIM_CTRL_T_COMMAND '\
+#     fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv" --exclude ".pytest_cache" --exclude ".venv"'
+#   set -gx SKIM_ALT_C_COMMAND '\
+#     fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
+# end
+
+# set -gx SKIM_CTRL_T_OPTS '--preview "__fzf_either_preview {}"'
+# set -gx SKIM_ALT_C_OPTS '--preview "__fzf_dir_preview {}"'
+# set -gx SKIM_OPEN_COMMAND $FZF_DEFAULT_COMMAND
+# set -gx SKIM_OPEN_OPTS '--height 40% --reverse --preview "__fzf_file_preview {}"'
+
+# ----- Misc ----- #
+# vim
+set -gx VISUAL nvim
+set -gx EDITOR "$VISUAL"
+
+# bat
+# use bat as man pager
+set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
+
+# find missing python deps
+function rg-deps
+  rg -INoP '^\s*(import|from) \K(\w*)' | sort | uniq | awk '{if( system("echo \'import " $0 "\' | python >/dev/null 2>&1") ) {print $0}}'
 end
 
 # --- python ---
