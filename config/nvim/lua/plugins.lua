@@ -13,7 +13,7 @@ end
 
 require("packer").startup {
   function()
-    use "wbthomason/packer.nvim"
+    use {"wbthomason/packer.nvim", opt = true}
     -- use "svermeulen/vimpeccable"
 
     use {
