@@ -407,7 +407,12 @@ require("packer").startup {
     use "liuchengxu/vista.vim"
 
     use "romainl/vim-cool"
-    use "justinmk/vim-dirvish"
+    use {
+      "justinmk/vim-dirvish",
+      config = function()
+        vim.g.loaded_netrwPlugin = 1
+      end
+    }
     -- use "sunaku/tmux-navigate"
 
     use {"iamcco/markdown-preview.nvim", run = ":call mkdp#util#install()", cmd = "MarkdownPreview"}
