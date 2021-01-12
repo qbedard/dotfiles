@@ -1,17 +1,15 @@
-local packer_exists = pcall(vim.cmd, "packadd packer.nvim")
-if not packer_exists then
-  local directory = vim.fn.stdpath("data") .. "/site/pack/packer/opt/"
-  vim.fn.mkdir(directory, "p")
+local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+if vim.fn.empty(vim.fn.glob(packer_path)) then
   vim.fn.system {
     "git",
     "clone",
     "https://github.com/wbthomason/packer.nvim",
-    directory .. "/packer.nvim"
+    packer_path
   }
   vim.cmd("packadd packer.nvim")
 end
 
-require("packer").startup {
+return require("packer").startup {
   function()
     use {"wbthomason/packer.nvim", opt = true}
     -- use "svermeulen/vimpeccable"
