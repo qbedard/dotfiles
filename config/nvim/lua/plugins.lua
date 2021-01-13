@@ -341,7 +341,9 @@ return require("packer").startup {
                 }
               end
             },
-            yaml = prettier
+            yaml = prettier,
+            -- TODO: formatter.nvim PR to support filetype patterns
+            ["yaml.docker-compose"] = prettier
           }
         }
         -- Create autocmd for gf map
