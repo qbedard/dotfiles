@@ -14,4 +14,8 @@ git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 git submodule update --init --recursive "${PLUGIN_DIR}"
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" --plugin-dir "${PLUGIN_DIR}/dotbot-stow" "${@}"
+python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+  -d "${BASEDIR}" \
+  -c "${CONFIG}" \
+  --plugin-dir "${PLUGIN_DIR}/dotbot-stow" \
+  "${@}"
