@@ -7,7 +7,13 @@ local lspconfig = require("lspconfig")
 --   default_config = {
 --     cmd = {"pyright-langserver", "--stdio"},
 --     filetypes = {"python"},
---     root_dir = util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt"),
+--     root_dir = util.root_pattern(
+--       ".git",
+--       "setup.py",
+--       "setup.cfg",
+--       "pyproject.toml",
+--       "requirements.txt"
+--     ),
 --     settings = {
 --       python = {
 --         analysis = {
@@ -15,7 +21,7 @@ local lspconfig = require("lspconfig")
 --           useLibraryCodeForTypes = true
 --         }
 --       }
---     },
+--     }
 --     -- before_init = function(initialize_params)
 --     --   initialize_params["workspaceFolders"] = {
 --     --     {name = "workspace", uri = initialize_params["rootUri"]}
@@ -134,11 +140,17 @@ lspconfig.pyls.setup {
 -- lspconfig.pyright.setup {
 --   on_attach = on_attach,
 --   root_dir = function(fname)
---     return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or
---       util.path.dirname(fname)
+--     return util.root_pattern(
+--       ".git",
+--       "setup.py",
+--       "setup.cfg",
+--       "pyproject.toml",
+--       "requirements.txt"
+--     )(fname) or util.path.dirname(fname)
 --   end
 -- }
-local sumneko_root_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/lua-language-server"
+local sumneko_root_path =
+  vim.fn.stdpath("data") .. "/site/pack/packer/start/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,

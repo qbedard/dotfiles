@@ -1,4 +1,5 @@
-local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+local packer_path =
+  vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 if vim.fn.empty(vim.fn.glob(packer_path)) then
   vim.fn.system {
     "git",
@@ -211,22 +212,35 @@ return require("packer").startup {
       "sumneko/lua-language-server"
       -- TODO: Get this working.
       -- run = function(plugin)
-      --   vim.fn.system("cd" .. plugin.path .. " && git submodule update --init --recursive")
       --   vim.fn.system(
-      --     "cd" .. plugin.path .. "/3rd/luamake && ninja -f" .. string.format("ninja/%s.ninja", string.lower(jit.os))
+      --     "cd" .. plugin.path .. " && git submodule update --init --recursive"
+      --   )
+      --   vim.fn.system(
+      --     "cd" ..
+      --       plugin.path ..
+      --         "/3rd/luamake && ninja -f" ..
+      --           string.format("ninja/%s.ninja", string.lower(jit.os))
       --   )
       --   vim.fn.system("cd" .. plugin.path .. "./3rd/luamake/luamake rebuild")
 
-      --   -- local job = vim.fn.jobstart({"git", "submodule", "update", "--init", "--recursive"}, {cwd = plugin.path})
-      --   -- jobwait(job)
+      --   -- local job =
+      --   --   vim.fn.jobstart(
+      --   --   {"git", "submodule", "update", "--init", "--recursive"},
+      --   --   {cwd = plugin.path}
+      --   -- )
+      --   -- vim.fn.jobwait(job)
       --   -- job =
       --   --   vim.fn.jobstart(
       --   --   {"ninja", "-f", string.format("ninja/%s.ninja", string.lower(jit.os))},
       --   --   {cwd = plugin.path .. "/3rd/luamake"}
       --   -- )
-      --   -- jobwait(job)
-      --   -- job = vim.fn.jobstart({"./3rd/luamake/luamake", "rebuild"}, {cwd = plugin.path})
-      --   -- jobwait(job)
+      --   -- vim.fn.jobwait(job)
+      --   -- job =
+      --   --   vim.fn.jobstart(
+      --   --   {"./3rd/luamake/luamake", "rebuild"},
+      --   --   {cwd = plugin.path}
+      --   -- )
+      --   -- vim.fn.jobwait(job)
       -- end
     }
 
@@ -312,30 +326,46 @@ return require("packer").startup {
               function()
                 return {
                   exe = "luafmt",
-                  args = {"--indent-count", 2, "--stdin"},
+                  args = {"--indent-count", 2, "--line-width", 80, "--stdin"},
                   stdin = true
                 }
               end
             },
             markdown = prettier,
+            sh = {
+              function()
+                return {
+                  exe = "shfmt",
+                  args = {"-i", 2},
+                  stdin = true
+                }
+              end
+            },
             yaml = prettier
           }
         }
-        -- TODO: Convert to lua?
-        vim.api.nvim_exec(
-          [[
-            augroup format_map
-              autocmd FileType css nnoremap <buffer> <silent> gf :Format<CR>
-              autocmd FileType html nnoremap <buffer> <silent> gf :Format<CR>
-              autocmd FileType javascript nnoremap <buffer> <silent> gf :Format<CR>
-              autocmd FileType json nnoremap <buffer> <silent> gf :Format<CR>
-              autocmd FileType lua nnoremap <buffer> <silent> gf :Format<CR>
-              autocmd FileType markdown nnoremap <buffer> <silent> gf :Format<CR>
-              autocmd FileType yaml nnoremap <buffer> <silent> gf :Format<CR>
-            augroup end
-          ]],
-          false
+        -- Create autocmd for gf map
+        local filetypes =
+          table.concat(
+          {
+            "css",
+            "html",
+            "javascript",
+            "json",
+            "lua",
+            "markdown",
+            "sh",
+            "yaml"
+          },
+          ","
         )
+        vim.api.nvim_command("augroup format_map")
+        vim.api.nvim_command("autocmd!")
+        vim.api.nvim_command(
+          "autocmd FileType " ..
+            filetypes .. " nnoremap <buffer> <silent> gf :Format<CR>"
+        )
+        vim.api.nvim_command("augroup end")
       end
     }
 
@@ -401,7 +431,11 @@ return require("packer").startup {
     use {"norcalli/nvim-colorizer.lua", opt = true, ft = {"css", "html"}}
 
     -- use {"ludovicchabant/vim-gutentags", opt = true}
-    -- use {"majutsushi/tagbar", opt = true, ft = {"c", "cpp", "typescript", "typescriptreact"}}
+    -- use {
+    --   "majutsushi/tagbar",
+    --   opt = true,
+    --   ft = {"c", "cpp", "typescript", "typescriptreact"}
+    -- }
     use "liuchengxu/vista.vim"
 
     use "romainl/vim-cool"
@@ -413,7 +447,11 @@ return require("packer").startup {
     }
     -- use "sunaku/tmux-navigate"
 
-    use {"iamcco/markdown-preview.nvim", run = ":call mkdp#util#install()", cmd = "MarkdownPreview"}
+    use {
+      "iamcco/markdown-preview.nvim",
+      run = ":call mkdp#util#install()",
+      cmd = "MarkdownPreview"
+    }
     use {
       "kshenoy/vim-signature",
       config = function()
