@@ -452,7 +452,7 @@ return require("packer").startup {
     use {
       "iamcco/markdown-preview.nvim",
       run = ":call mkdp#util#install()",
-      cmd = "MarkdownPreview"
+      ft = "markdown"
     }
     use {
       "kshenoy/vim-signature",
