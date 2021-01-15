@@ -215,7 +215,7 @@ return require("packer").startup {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-fzy-native.nvim",
         "nvim-telescope/telescope-github.nvim",
-        "nvim-telescope/telescope-packer.nvim"
+        -- "nvim-telescope/telescope-packer.nvim"  -- currently breaking packer
       },
       config = function()
         require("tb.telescope")
