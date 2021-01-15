@@ -48,75 +48,7 @@ return require("packer").startup {
     use {
       "gruvbox-community/gruvbox",
       config = function()
-        vim.g.gruvbox_italic = 1
-        vim.g.gruvbox_sign_column = "bg0"
-        vim.cmd("colorscheme gruvbox") -- must come after gruvbox_italic
-        -- match the fold column colors to the line number column
-        -- Note: must come after colorscheme gruvbox
-        vim.cmd("highlight clear FoldColumn")
-        vim.cmd("highlight! link FoldColumn LineNr")
-
-        -- treesitter highlights
-        vim.cmd("highlight! link TSConstBuiltin Constant") -- None
-        vim.cmd("highlight! link TSKeywordOperator Keyword") -- not, in
-        vim.cmd("highlight! link TSOperator GruvboxRed")
-        vim.cmd("highlight! link TSFunction GruvboxAqua")
-        vim.cmd("highlight! link TSMethod GruvboxAqua")
-
-        ----
-
-        -- vim.cmd("highlight! link TSPunctDelimiter Delimiter") -- , . etc
-        -- vim.cmd("highlight! link TSPunctBracket Delimiter")
-        -- vim.cmd("highlight! link TSPunctSpecial Delimiter")
-        -- vim.cmd("highlight! link TSConstant Constant")
-        -- vim.cmd("highlight! link TSConstBuiltin Special") -- None, etc
-        -- vim.cmd("highlight! link TSConstMacro Define")
-        -- vim.cmd("highlight! link TSString String")
-        -- vim.cmd("highlight! link TSStringRegex String")
-        -- vim.cmd("highlight! link TSStringEscape SpecialChar")
-        -- vim.cmd("highlight! link TSCharacter Character")
-        -- vim.cmd("highlight! link TSNumber Number")
-        -- vim.cmd("highlight! link TSBoolean Boolean")
-        -- vim.cmd("highlight! link TSFloat Float")
-
-        -- vim.cmd("highlight! link TSFunction Function")
-        -- vim.cmd("highlight! link TSFuncBuiltin Special") -- print()
-        -- vim.cmd("highlight! link TSFuncMacro Macro")
-        -- vim.cmd("highlight! link TSParameter Identifier")
-        -- vim.cmd("highlight! link TSParameterReference TSParameter")
-        -- vim.cmd("highlight! link TSMethod Function")
-        -- vim.cmd("highlight! link TSField Identifier")
-        -- vim.cmd("highlight! link TSProperty Identifier")
-        -- vim.cmd("highlight! link TSConstructor Special") -- __init__()
-        -- vim.cmd("highlight! link TSAnnotation PreProc")
-        -- vim.cmd("highlight! link TSAttribute PreProc")
-        -- vim.cmd("highlight! link TSNamespace Include")
-
-        -- vim.cmd("highlight! link TSConditional Conditional") -- if
-        -- vim.cmd("highlight! link TSRepeat Repeat") -- for, while
-        -- vim.cmd("highlight! link TSLabel Label")
-        -- vim.cmd("highlight! link TSOperator Operator")
-        -- vim.cmd("highlight! link TSKeyword Keyword")
-        -- vim.cmd("highlight! link TSKeywordFunction Keyword")
-        -- vim.cmd("highlight! link TSKeywordOperator Operator") -- not, in
-        -- vim.cmd("highlight! link TSException Exception")
-
-        -- vim.cmd("highlight! link TSType Type")
-        -- vim.cmd("highlight! link TSTypeBuiltin Type")
-        -- vim.cmd("highlight! link TSInclude Include")
-
-        -- vim.cmd("highlight! link TSVariableBuiltin Special") -- self
-
-        -- vim.cmd("highlight! link TSText TSNone")
-        -- vim.cmd("highlight! TSStrong term=bold cterm=bold gui=bold")
-        -- vim.cmd("highlight! TSEmphasis term=italic cterm=italic gui=italic")
-        -- vim.cmd("highlight! TSUnderline term=underline cterm=underline gui=underline")
-        -- vim.cmd("highlight! link TSTitle Title")
-        -- vim.cmd("highlight! link TSLiteral String")
-        -- vim.cmd("highlight! link TSURI Underlined")
-
-        -- vim.cmd("highlight! link TSTag Label")
-        -- vim.cmd("highlight! link TSTagDelimiter Delimiter")
+        require("tb.gruvbox")
       end
     }
     use {
@@ -147,64 +79,7 @@ return require("packer").startup {
       "timbedard/vim-envelop",
       run = ":EnvCreate",
       config = function()
-        vim.g.envelop_enabled = {"node", "python3"}
-        vim.g.envelop_node_link = {
-          "node_modules/.bin/luafmt",
-          "node_modules/.bin/prettier",
-          "node_modules/.bin/bash-language-server",
-          "node_modules/.bin/css-languageserver",
-          "node_modules/.bin/docker-langserver",
-          "node_modules/.bin/html-languageserver",
-          -- "node_modules/.bin/pyright",
-          -- "node_modules/.bin/pyright-langserver",
-          "node_modules/.bin/typescript-language-server",
-          "node_modules/.bin/vim-language-server",
-          "node_modules/.bin/vscode-json-languageserver",
-          "node_modules/.bin/yaml-language-server"
-        }
-        vim.g.envelop_node_packages = {
-          "bash-language-server",
-          "dockerfile-language-server-nodejs",
-          "lua-fmt",
-          "prettier",
-          -- "pyright",
-          "typescript",
-          "typescript-language-server",
-          "vim-language-server",
-          "vscode-css-languageserver-bin",
-          "vscode-html-languageserver-bin",
-          "vscode-json-languageserver",
-          "yaml-language-server"
-        }
-        vim.g.envelop_python3_link = {
-          "bin/black",
-          "bin/flake8",
-          "bin/isort",
-          "bin/mypy",
-          "bin/pip3",
-          "bin/pyls",
-          "bin/python3",
-          "bin/sqlformat",
-          "bin/vint"
-        }
-        vim.g.envelop_python3_packages = {
-          "black",
-          "flake8",
-          "flake8-bugbear",
-          -- "flake8-builtins",
-          -- "flake8-pytest-style",
-          -- "flake8-simplify",
-          "isort",
-          "pep8-naming",
-          "pip",
-          "pyls-black",
-          "pyls-isort",
-          "git+https://github.com/tomv564/pyls-mypy.git@master#egg=pyls_mypy",
-          "pynvim",
-          "python-language-server[all]",
-          "sqlparse",
-          "vim-vint"
-        }
+        require("tb.envelop")
       end
     }
 
@@ -307,45 +182,7 @@ return require("packer").startup {
     use {
       "mhartington/formatter.nvim",
       config = function()
-        local prettier = {
-          function()
-            return {
-              exe = "prettier",
-              args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-              stdin = true
-            }
-          end
-        }
-        require("formatter").setup {
-          filetype = {
-            css = prettier,
-            html = prettier,
-            javascript = prettier,
-            json = prettier,
-            lua = {
-              function()
-                return {
-                  exe = "luafmt",
-                  args = {"--indent-count", 2, "--line-width", 80, "--stdin"},
-                  stdin = true
-                }
-              end
-            },
-            markdown = prettier,
-            sh = {
-              function()
-                return {
-                  exe = "shfmt",
-                  args = {"-i", 2},
-                  stdin = true
-                }
-              end
-            },
-            yaml = prettier,
-            -- TODO: formatter.nvim PR to support filetype patterns
-            ["yaml.docker-compose"] = prettier
-          }
-        }
+        require("tb.formatter")
         -- Create autocmd for gf map
         local filetypes =
           table.concat(
@@ -357,7 +194,7 @@ return require("packer").startup {
             "lua",
             "markdown",
             "sh",
-            "yaml"
+            "yaml*"
           },
           ","
         )
@@ -518,9 +355,9 @@ return require("packer").startup {
         vim.g.blamer_template = "<author>, <committer-time> • <summary>"
         vim.api.nvim_exec(
           [[
-                nnoremap <Leader>b :BlamerToggle<CR>
-                vnoremap <Leader>b :BlamerToggle<CR>
-                ]],
+            nnoremap <Leader>b :BlamerToggle<CR>
+            vnoremap <Leader>b :BlamerToggle<CR>
+          ]],
           false
         )
       end
