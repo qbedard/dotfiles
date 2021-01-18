@@ -192,6 +192,38 @@ lspconfig.vimls.setup {
 lspconfig.yamlls.setup {
   on_attach = on_attach,
   settings = {
-    yaml = {format = {enable = true, singleQuote = true}, validate = true}
+    yaml = {
+      customTags = {
+        "!And",
+        "!Base64",
+        "!Cidr",
+        "!Equals sequence",
+        "!FindInMap sequence",
+        "!GetAZs",
+        "!GetAtt",
+        "!If sequence",
+        "!ImportValue",
+        "!Join sequence",
+        "!Not",
+        "!Or",
+        "!Ref",
+        "!Select",
+        "!Split",
+        "!Sub",
+        "!fn"
+      },
+      format = {enable = true, singleQuote = true},
+      schemaStore = {enable = true},
+      schemas = {
+        -- ["https://raw.githubusercontent.com/awslabs/goformation/master/schema/sam.schema.json"] = "*api*/template.y*ml"
+        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.y*ml",
+        ["https://json.schemastore.org/eslintrc"] = "*eslintc*",
+        ["https://json.schemastore.org/github-workflow"] = "*.github/workflows/*",
+        ["https://json.schemastore.org/jekyll"] = "_config.y*ml",
+        ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v3.0/schema.json"] = "openapi.y*ml",
+        ["https://json.schemastore.org/pre-commit-config"] = ".pre-commit-config.y*ml"
+      },
+      validate = true
+    }
   }
 }
