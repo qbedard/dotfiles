@@ -21,8 +21,8 @@ return require("packer").startup {
       config = function()
         require("tb.treesitter")
         -- TODO: Still a bit buggy
-        vim.wo.foldmethod = "expr"
-        vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+        -- vim.wo.foldmethod = "expr"
+        -- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
       end
     }
     -- use {  -- This is rad, but stupid slow right now.
@@ -151,11 +151,11 @@ return require("packer").startup {
           {mode = "<c-n>"}
         }
         function _G.check_behind()
-          local col = vim.fn.col(".") - 1
+          local pos_col = vim.fn.col(".") - 1
           local is_empty = function(col)
             return col <= 0 or vim.fn.getline("."):sub(col, col):match("%s")
           end
-          return is_empty(col) and is_empty(col - 1) and true or false
+          return is_empty(pos_col) and is_empty(pos_col - 1) and true or false
         end
         -- TODO: Convert to lua
         vim.api.nvim_exec(
