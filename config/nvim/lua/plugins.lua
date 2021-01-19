@@ -21,13 +21,8 @@ return require("packer").startup {
       config = function()
         require("tb.treesitter")
         -- TODO: Still a bit buggy
-        -- vim.api.nvim_exec(
-        --   [[
-        --     set foldmethod=expr
-        --     set foldexpr=nvim_treesitter#foldexpr()
-        --   ]],
-        --   false
-        -- )
+        vim.wo.foldmethod = "expr"
+        vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
       end
     }
     -- use {  -- This is rad, but stupid slow right now.

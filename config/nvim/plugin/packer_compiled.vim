@@ -168,38 +168,38 @@ end
 -- Setup for: vim-polyglot
 loadstring("\27LJ\2\n<\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\thelm\22polyglot_disabled\6g\bvim\0")()
 -- Post-load configuration
--- Config for: quick-scope
-loadstring("\27LJ\2\nB\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\5\0\0\6f\6F\6t\6T\25qs_highlight_on_keys\6g\bvim\0")()
+-- Config for: vim-dirvish
+loadstring("\27LJ\2\n4\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\23loaded_netrwPlugin\6g\bvim\0")()
+-- Config for: vim-envelop
+loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15tb.envelop\frequire\0")()
+-- Config for: pear-tree
+loadstring("\27LJ\2\nw\0\0\2\0\5\0\t6\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\4\0K\0\1\0 pear_tree_repeatable_expand\1\2\0\0\20TelescopePrompt\26pear_tree_ft_disabled\6g\bvim\0")()
+-- Config for: blamer.nvim
+loadstring("\27LJ\2\nä\2\0\0\4\0\b\0\0156\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0006\0\0\0009\0\5\0009\0\6\0'\2\a\0+\3\1\0B\0\3\1K\0\1\0q            nnoremap <Leader>b :BlamerToggle<CR>\n            vnoremap <Leader>b :BlamerToggle<CR>\n          \14nvim_exec\bapi-<author>, <committer-time> ‚Ä¢ <summary>\20blamer_template\17blamer_delay\6g\bvim\0")()
+-- Config for: vim-signify
+loadstring("\27LJ\2\nÈ\4\0\0\4\0\r\0\0276\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0006\0\0\0009\0\1\0'\1\6\0=\1\5\0006\0\0\0009\0\1\0'\1\6\0=\1\a\0006\0\0\0009\0\1\0'\1\t\0=\1\b\0006\0\0\0009\0\n\0009\0\v\0'\2\f\0+\3\1\0B\0\3\1K\0\1\0\2            set signcolumn=yes\n            highlight! link SignifySignChange GruvboxBlueSign\n\n            \" nifty hunk motions\n            omap ic <Plug>(signify-motion-inner-pending)\n            xmap ic <Plug>(signify-motion-inner-visual)\n            omap ac <Plug>(signify-motion-outer-pending)\n            xmap ac <Plug>(signify-motion-outer-visual)\n          \14nvim_exec\bapi\bÔëÑ\24signify_sign_change#signify_sign_delete_first_line\bÔíã\24signify_sign_delete\bÔëç\21signify_sign_add\21signify_priority\6g\bvim\0")()
+-- Config for: gruvbox
+loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15tb.gruvbox\frequire\0")()
+-- Config for: vim-signature
+loadstring("\27LJ\2\n<\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\31SignatureMarkTextHLDynamic\6g\bvim\0")()
+-- Config for: nvim-lspconfig
+loadstring("\27LJ\2\n \6\0\0\4\0\6\0\n6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0'\2\5\0+\3\1\0B\0\3\1K\0\1\0˝\5            nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>\n            \" nnoremap <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>\n            \" nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>\n            nnoremap <silent> <leader>k <cmd>lua vim.lsp.buf.hover()<CR>\n            \" nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>\n            \" nnoremap <silent> <leader>K <cmd>lua vim.lsp.buf.signature_help()<CR>\n            nnoremap <silent> 1gD <cmd>lua vim.lsp.buf.type_definition()<CR>\n            nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>\n            nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>\n            nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>\n          \14nvim_exec\bapi\bvim\vtb.lsp\frequire\0")()
 -- Config for: completion-nvim
 loadstring("\27LJ\2\n}\0\1\6\0\a\0\22)\1\0\0\2\0\1\0X\1\17Ä6\1\0\0009\1\1\0019\1\2\1'\3\3\0B\1\2\2\18\3\1\0009\1\4\1\18\4\0\0\18\5\0\0B\1\4\2\18\3\1\0009\1\5\1'\4\6\0B\1\3\2X\2\3Ä+\1\1\0X\2\1Ä+\1\2\0L\1\2\0\a%s\nmatch\bsub\6.\fgetline\afn\bvimn\1\0\5\0\5\1\0226\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\2\23\0\0\0003\1\4\0\18\2\1\0\18\4\0\0B\2\2\2\15\0\2\0X\3\aÄ\18\2\1\0\23\4\0\0B\2\2\2\15\0\2\0X\3\2Ä+\2\2\0X\3\1Ä+\2\1\0002\0\0ÄL\2\2\0\0\6.\bcol\afn\bvim\2Ï\5\1\0\4\0\15\0\0266\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0004\1\4\0005\2\5\0005\3\4\0=\3\6\2>\2\1\0015\2\a\0>\2\2\0015\2\b\0>\2\3\1=\1\3\0006\0\t\0003\1\v\0=\1\n\0006\0\0\0009\0\f\0009\0\r\0'\2\14\0+\3\1\0B\0\3\1K\0\1\0Â\3            \" <TAB>/<S-TAB> through completeopts\n            inoremap <silent><expr> <TAB> pumvisible() ? \"\\<C-n>\" : v:lua.check_behind() ? \"\\<TAB>\" : completion#trigger_completion()\n            inoremap <expr><S-TAB> pumvisible() ? \"\\<C-p>\" : \"\\<C-h>\"\n\n            \" prevent completion-nvim from conflicting with auto-pairs\n            let g:completion_confirm_key = \"\"\n            inoremap <expr> <CR> pumvisible() ? \"\\<Plug>(completion_confirm_completion)\" : \"\\<CR>\"\n          \14nvim_exec\bapi\0\17check_behind\a_G\1\0\1\tmode\n<c-n>\1\0\1\tmode\n<c-p>\19complete_items\1\0\0\1\2\0\0\blsp#completion_chain_complete_list%completion_enable_auto_signature\6g\bvim\0")()
 -- Config for: formatter.nvim
 loadstring("\27LJ\2\nÿ\2\0\0\6\0\14\0 6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0005\2\4\0'\3\5\0B\0\3\0026\1\6\0009\1\a\0019\1\b\1'\3\t\0B\1\2\0016\1\6\0009\1\a\0019\1\b\1'\3\n\0B\1\2\0016\1\6\0009\1\a\0019\1\b\1'\3\v\0\18\4\0\0'\5\f\0&\3\5\3B\1\2\0016\1\6\0009\1\a\0019\1\b\1'\3\r\0B\1\2\1K\0\1\0\16augroup end/ nnoremap <buffer> <silent> gf :Format<CR>\22autocmd FileType \rautocmd!\23augroup format_map\17nvim_command\bapi\bvim\6,\1\t\0\0\bcss\thtml\15javascript\tjson\blua\rmarkdown\ash\nyaml*\vconcat\ntable\17tb.formatter\frequire\0")()
--- Config for: telescope.nvim
-loadstring("\27LJ\2\nÆ\2\0\0\6\0\f\0\0206\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0'\2\5\0'\3\6\0'\4\a\0005\5\b\0B\0\5\0016\0\2\0009\0\3\0009\0\4\0'\2\5\0'\3\t\0'\4\n\0005\5\v\0B\0\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\0028<cmd>lua require('telescope.builtin').builtin()<CR>\21<Leader><Leader>\1\0\2\fnoremap\2\vsilent\0029<cmd>lua require('tb.telescope').project_files()<CR>\n<C-p>\6n\20nvim_set_keymap\bapi\bvim\17tb.telescope\frequire\0")()
--- Config for: vim-envelop
-loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15tb.envelop\frequire\0")()
--- Config for: vim-airline
-loadstring("\27LJ\2\nt\0\0\2\0\5\0\t6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0005\1\4\0=\1\3\0K\0\1\0\1\0\2\rreadonly\bÔÄ£\vbranch\bÔêò\20airline_symbols\28airline_powerline_fonts\6g\bvim\0")()
--- Config for: nvim-treesitter
-loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18tb.treesitter\frequire\0")()
--- Config for: pear-tree
-loadstring("\27LJ\2\nw\0\0\2\0\5\0\t6\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\4\0K\0\1\0 pear_tree_repeatable_expand\1\2\0\0\20TelescopePrompt\26pear_tree_ft_disabled\6g\bvim\0")()
--- Config for: vim-dirvish
-loadstring("\27LJ\2\n4\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\23loaded_netrwPlugin\6g\bvim\0")()
--- Config for: vim-signify
-loadstring("\27LJ\2\nÈ\4\0\0\4\0\r\0\0276\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0006\0\0\0009\0\1\0'\1\6\0=\1\5\0006\0\0\0009\0\1\0'\1\6\0=\1\a\0006\0\0\0009\0\1\0'\1\t\0=\1\b\0006\0\0\0009\0\n\0009\0\v\0'\2\f\0+\3\1\0B\0\3\1K\0\1\0\2            set signcolumn=yes\n            highlight! link SignifySignChange GruvboxBlueSign\n\n            \" nifty hunk motions\n            omap ic <Plug>(signify-motion-inner-pending)\n            xmap ic <Plug>(signify-motion-inner-visual)\n            omap ac <Plug>(signify-motion-outer-pending)\n            xmap ac <Plug>(signify-motion-outer-visual)\n          \14nvim_exec\bapi\bÔëÑ\24signify_sign_change#signify_sign_delete_first_line\bÔíã\24signify_sign_delete\bÔëç\21signify_sign_add\21signify_priority\6g\bvim\0")()
--- Config for: indentLine
-loadstring("\27LJ\2\nÆ\1\0\0\2\0\b\0\r6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0005\1\5\0=\1\4\0006\0\0\0009\0\1\0005\1\a\0=\1\6\0K\0\1\0\1\3\0\0\ttext\rmarkdown\31indentLine_fileTypeExclude\1\3\0\0\thelp\rterminal\30indentLine_bufTypeExclude\b‚îÇ\20indentLine_char\6g\bvim\0")()
--- Config for: gruvbox
-loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15tb.gruvbox\frequire\0")()
--- Config for: blamer.nvim
-loadstring("\27LJ\2\nä\2\0\0\4\0\b\0\0156\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0006\0\0\0009\0\5\0009\0\6\0'\2\a\0+\3\1\0B\0\3\1K\0\1\0q            nnoremap <Leader>b :BlamerToggle<CR>\n            vnoremap <Leader>b :BlamerToggle<CR>\n          \14nvim_exec\bapi-<author>, <committer-time> ‚Ä¢ <summary>\20blamer_template\17blamer_delay\6g\bvim\0")()
 -- Config for: vim-better-whitespace
 loadstring("\27LJ\2\nï\1\0\0\3\0\6\0\r6\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\0\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\"command! Trim StripWhitespace\bcmd\28strip_whitelines_at_eof\30better_whitespace_enabled\6g\bvim\0")()
--- Config for: nvim-lspconfig
-loadstring("\27LJ\2\n \6\0\0\4\0\6\0\n6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0'\2\5\0+\3\1\0B\0\3\1K\0\1\0˝\5            nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>\n            \" nnoremap <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>\n            \" nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>\n            nnoremap <silent> <leader>k <cmd>lua vim.lsp.buf.hover()<CR>\n            \" nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>\n            \" nnoremap <silent> <leader>K <cmd>lua vim.lsp.buf.signature_help()<CR>\n            nnoremap <silent> 1gD <cmd>lua vim.lsp.buf.type_definition()<CR>\n            nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>\n            nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>\n            nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>\n          \14nvim_exec\bapi\bvim\vtb.lsp\frequire\0")()
--- Config for: vim-signature
-loadstring("\27LJ\2\n<\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\31SignatureMarkTextHLDynamic\6g\bvim\0")()
+-- Config for: indentLine
+loadstring("\27LJ\2\nÆ\1\0\0\2\0\b\0\r6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0005\1\5\0=\1\4\0006\0\0\0009\0\1\0005\1\a\0=\1\6\0K\0\1\0\1\3\0\0\ttext\rmarkdown\31indentLine_fileTypeExclude\1\3\0\0\thelp\rterminal\30indentLine_bufTypeExclude\b‚îÇ\20indentLine_char\6g\bvim\0")()
+-- Config for: telescope.nvim
+loadstring("\27LJ\2\nÆ\2\0\0\6\0\f\0\0206\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0'\2\5\0'\3\6\0'\4\a\0005\5\b\0B\0\5\0016\0\2\0009\0\3\0009\0\4\0'\2\5\0'\3\t\0'\4\n\0005\5\v\0B\0\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\0028<cmd>lua require('telescope.builtin').builtin()<CR>\21<Leader><Leader>\1\0\2\fnoremap\2\vsilent\0029<cmd>lua require('tb.telescope').project_files()<CR>\n<C-p>\6n\20nvim_set_keymap\bapi\bvim\17tb.telescope\frequire\0")()
+-- Config for: quick-scope
+loadstring("\27LJ\2\nB\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\5\0\0\6f\6F\6t\6T\25qs_highlight_on_keys\6g\bvim\0")()
+-- Config for: nvim-treesitter
+loadstring("\27LJ\2\nà\1\0\0\3\0\b\0\f6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0'\1\5\0=\1\4\0006\0\2\0009\0\3\0'\1\a\0=\1\6\0K\0\1\0\31nvim_treesitter#foldexpr()\rfoldexpr\texpr\15foldmethod\awo\bvim\18tb.treesitter\frequire\0")()
+-- Config for: vim-airline
+loadstring("\27LJ\2\nt\0\0\2\0\5\0\t6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0005\1\4\0=\1\3\0K\0\1\0\1\0\2\rreadonly\bÔÄ£\vbranch\bÔêò\20airline_symbols\28airline_powerline_fonts\6g\bvim\0")()
 -- Conditional loads
 -- Load plugins in order defined by `after`
 END
@@ -217,8 +217,8 @@ augroup packer_load_aucmds
   au!
   " Filetype lazy-loads
   au FileType html ++once call s:load(['nvim-colorizer.lua'], { "ft": "html" })
-  au FileType css ++once call s:load(['nvim-colorizer.lua'], { "ft": "css" })
   au FileType markdown ++once call s:load(['markdown-preview.nvim'], { "ft": "markdown" })
+  au FileType css ++once call s:load(['nvim-colorizer.lua'], { "ft": "css" })
   " Event lazy-loads
   au VimEnter * ++once call s:load(['vim-polyglot'], { "event": "VimEnter *" })
   " Function lazy-loads
