@@ -4,8 +4,6 @@ brew "cmake"
 brew "coreutils"  # GNU coreutils (macOS utils are a little different)
 brew "diff-so-fancy"  # fancy git diff
 brew "direnv"
-brew "docker-completion"
-brew "docker-compose-completion"
 brew "exa", args: ['HEAD']  # ls replacement
 brew "fd"  # find replacement
 brew "fish"  # shell
