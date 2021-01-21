@@ -216,14 +216,20 @@ return require("packer").startup {
         require("tb.telescope")
         vim.api.nvim_set_keymap(
           "n",
+          "<Leader><Leader>",
+          "<cmd>lua require('telescope.builtin').builtin()<CR>",
+          {noremap = true, silent = true}
+        )
+        vim.api.nvim_set_keymap(
+          "n",
           "<C-p>",
           "<cmd>lua require('tb.telescope').project_files()<CR>",
           {noremap = true, silent = true}
         )
         vim.api.nvim_set_keymap(
           "n",
-          "<Leader><Leader>",
-          "<cmd>lua require('telescope.builtin').builtin()<CR>",
+          "<C-b>",
+          "<cmd>lua require('telescope.builtin').buffers()<CR>",
           {noremap = true, silent = true}
         )
       end
