@@ -21,6 +21,7 @@ brew "neovim", args: ['HEAD']
 brew "node"
 brew "poetry"
 brew "procs"  # ps replacement
+brew "pyenv"
 brew "python"
 brew "reattach-to-user-namespace"  # fix tmux pasteboard mac issues
 brew "ripgrep"  # awesome grep
