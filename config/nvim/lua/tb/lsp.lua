@@ -153,7 +153,11 @@ local sumneko_root_path =
   vim.fn.stdpath("data") .. "/site/pack/packer/start/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 lspconfig.sumneko_lua.setup {
-  on_attach = on_attach,
+  on_attach = function()
+    require("completion").on_attach()
+    -- TODO: Find out why folding is borked for lua
+    -- require("folding").on_attach()
+  end,
   -- TODO: Make work on Linux as well
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
   settings = {

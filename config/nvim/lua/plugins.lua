@@ -55,10 +55,11 @@ return require("packer").startup {
       requires = "vim-airline/vim-airline-themes",
       config = function()
         vim.g.airline_powerline_fonts = 1
-        vim.g.airline_symbols = {
-          branch = "",
-          readonly = ""
-        }
+        -- TODO: Find out wtf is going on with airline
+        -- vim.g.airline_symbols = {
+        --   branch = "",
+        --   readonly = ""
+        -- }
       end
     }
     use {
@@ -116,20 +117,37 @@ return require("packer").startup {
 
     use {
       "neovim/nvim-lspconfig",
+      requires = {"glepnir/lspsaga.nvim"},
       config = function()
         require("tb.lsp")
+
+        require("lspsaga").init_lsp_saga {
+          error_sign = "",
+          warn_sign = "",
+          infor_sign = "",
+          hint_sign = "➤"
+        }
+
         vim.api.nvim_exec(
           [[
-            nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-            " nnoremap <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>
-            " nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+            nnoremap <silent> gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
+            nnoremap <silent> gD <cmd>lua vim.lsp.buf.definition()<CR>
             nnoremap <silent> <leader>k <cmd>lua vim.lsp.buf.hover()<CR>
-            " nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
-            " nnoremap <silent> <leader>K <cmd>lua vim.lsp.buf.signature_help()<CR>
             nnoremap <silent> 1gD <cmd>lua vim.lsp.buf.type_definition()<CR>
             nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
             nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
             nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>
+            nnoremap <silent> [d <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
+            nnoremap <silent> ]d <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
+
+            " TODO: Get working
+            nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
+
+            " nnoremap <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>
+            " nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
+            " nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+            " nnoremap <silent> <leader>K <cmd>lua vim.lsp.buf.signature_help()<CR>
+            " nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
           ]],
           false
         )
@@ -209,7 +227,7 @@ return require("packer").startup {
         "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-fzy-native.nvim",
-        "nvim-telescope/telescope-github.nvim",
+        "nvim-telescope/telescope-github.nvim"
         -- "nvim-telescope/telescope-packer.nvim"  -- currently breaking packer
       },
       config = function()
