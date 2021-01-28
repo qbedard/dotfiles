@@ -190,6 +190,42 @@ return require("packer").startup {
         )
       end
     }
+    -- TODO: Compare to completion-nvim more
+    -- use {
+    --   "hrsh7th/nvim-compe",
+    --   config = function()
+    --     require("compe").setup {
+    --       enabled = true,
+    --       min_length = 0,
+    --       source = {
+    --         -- path = true,
+    --         -- buffer = true,
+    --         nvim_lsp = true,
+    --         -- nvim_lua = true
+    --       }
+    --     }
+    --     function _G.check_behind()
+    --       local pos_col = vim.fn.col(".") - 1
+    --       local is_empty = function(col)
+    --         return col <= 0 or vim.fn.getline("."):sub(col, col):match("%s")
+    --       end
+    --       return is_empty(pos_col) and is_empty(pos_col - 1) and true or false
+    --     end
+    --     -- TODO: Convert to lua
+    --     vim.api.nvim_exec(
+    --       [[
+    --         " <TAB>/<S-TAB> through completeopts
+    --         inoremap <silent><expr> <C-Space> compe#complete()
+    --         " inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : v:lua.check_behind() ? "\<TAB>" : compe#complete()
+    --         " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    --         " prevent nvim-compe from conflicting with auto-pairs
+    --         " inoremap <expr> <CR> pumvisible() ? compe#complete() : "\<CR>"
+    --       ]],
+    --       false
+    --     )
+    --   end
+    -- }
     use "pierreglaser/folding-nvim"
 
     use {
