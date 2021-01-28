@@ -40,8 +40,13 @@ alias vim "nvim"
 if command -v exa > /dev/null
   alias ls "exa --group-directories-first --icons"
 end
+
 if command -v bat > /dev/null
   alias cat "bat"
+end
+
+if command -v procs > /dev/null
+  alias ps "procs"
 end
 
 # TODO: maybe move this to a ripgreprc (pointed at by setting RIPGREP_CONFIG_PATH)
