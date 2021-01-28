@@ -6,7 +6,7 @@ layout_poetry() {
   fi
 
   if [[ ! $(poetry env info -p) ]]; then
-    poetry env use python3
+    poetry env use $(which python)
   fi
 
   local VENV=$(dirname $(poetry run which python))
