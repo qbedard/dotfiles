@@ -179,12 +179,12 @@ return require("packer").startup {
         vim.api.nvim_exec(
           [[
             " <TAB>/<S-TAB> through completeopts
-            inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : v:lua.check_behind() ? "\<TAB>" : completion#trigger_completion()
-            inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+            inoremap <silent> <expr> <TAB> pumvisible() ? "\<C-n>" : v:lua.check_behind() ? "\<TAB>" : completion#trigger_completion()
+            " inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
-            " prevent completion-nvim from conflicting with auto-pairs
+            " prevent completion-nvim from conflicting with auto-pairs plugins
             let g:completion_confirm_key = ""
-            inoremap <expr> <CR> pumvisible() ? "\<Plug>(completion_confirm_completion)" : "\<CR>"
+            inoremap <expr> <CR> pumvisible() ? complete_info()["selected"] != "-1" ? "\<Plug>(completion_confirm_completion)" : "\<c-e>\<CR>" : "\<CR>"
           ]],
           false
         )
@@ -420,12 +420,19 @@ return require("packer").startup {
     use "rhysd/git-messenger.vim"
 
     use "andymass/vim-matchup"
+    -- use {
+    --   "tmsvg/pear-tree",
+    --   config = function()
+    --     -- pear-tree's imaps break telescope
+    --     vim.g.pear_tree_ft_disabled = {"TelescopePrompt"}
+    --     vim.g.pear_tree_repeatable_expand = 0
+    --   end
+    -- }
     use {
-      "tmsvg/pear-tree",
+      "cohama/lexima.vim",
       config = function()
-        -- pear-tree's imaps break telescope
-        vim.g.pear_tree_ft_disabled = {"TelescopePrompt"}
-        vim.g.pear_tree_repeatable_expand = 0
+        -- lexima's <Esc> mapping breaks telescope
+        vim.g.lexima_map_escape = ""
       end
     }
 
