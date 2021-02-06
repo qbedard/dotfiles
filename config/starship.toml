@@ -68,3 +68,6 @@ symbol = " "
 format = "[$symbol$version]($style) "
 symbol = " "
 disabled = true
+
+[vagrant]
+format = "[$symbol$version]($style)"
