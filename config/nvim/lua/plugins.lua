@@ -180,7 +180,7 @@ return require("packer").startup {
           [[
             " <TAB>/<S-TAB> through completeopts
             inoremap <silent> <expr> <TAB> pumvisible() ? "\<C-n>" : v:lua.check_behind() ? "\<TAB>" : completion#trigger_completion()
-            " inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+            inoremap <silent> <expr> <S-TAB> pumvisible() ? "\<C-p>" : v:lua.check_behind() ? "\<S-TAB>" : completion#trigger_completion()
 
             " prevent completion-nvim from conflicting with auto-pairs plugins
             let g:completion_confirm_key = ""
