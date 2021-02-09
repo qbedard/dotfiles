@@ -37,6 +37,10 @@ alias v "nvim"
 alias vi "nvim"
 alias vim "nvim"
 
+# if command -v pyenv > /dev/null
+#   alias brew 'env PATH=<SOMETHING> brew'
+# end
+
 if command -v exa > /dev/null
   alias ls "exa --group-directories-first --icons"
 end
