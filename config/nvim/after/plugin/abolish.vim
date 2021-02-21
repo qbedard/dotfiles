@@ -4,6 +4,7 @@ endif
 
 Abolish con{tain,atin,tani,atni}er{,s,ize,ization}  con{tain}er{}
 Abolish hgih{,s}  high{}
+Abolish {,is}i{sn}tance{,s} {}i{ns}tance{}
 Abolish langauge{,s}  language{}
 Abolish m{od,do}{le,dle,del}{,s}  m{od}{el}{}
 Abolish oc{cu,u}r{,ence,rence}{,ing,ring}  oc{cu}r{,rence,rence}{,ring,ring}
