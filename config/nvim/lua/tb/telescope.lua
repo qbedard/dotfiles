@@ -11,7 +11,7 @@ telescope.setup {
     results_height = 1,
     mappings = {
       i = {
-        ["<CR>"] = actions.goto_file_selection_edit + actions.center,
+        ["<CR>"] = actions.select_default + actions.center,
         ["<esc>"] = actions.close,
         ["<tab>"] = actions.add_selection
       }
