@@ -437,6 +437,12 @@ return require("packer").startup {
     }
 
     use {
+      "Glench/Vim-Jinja2-Syntax",
+      opt = true,
+      ft = {"html", "jinja"}
+    }
+
+    use {
       "sheerun/vim-polyglot",
       opt = true,
       event = "VimEnter *",
