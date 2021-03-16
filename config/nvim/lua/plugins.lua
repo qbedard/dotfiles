@@ -419,7 +419,12 @@ return require("packer").startup {
     }
     use "rhysd/git-messenger.vim"
 
-    use "andymass/vim-matchup"
+    use {
+      "andymass/vim-matchup",
+      config = function()
+        vim.g.matchup_matchparen_offscreen = {method = "popup"}
+      end
+    }
     -- use {
     --   "tmsvg/pear-tree",
     --   config = function()
