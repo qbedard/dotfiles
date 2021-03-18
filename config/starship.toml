@@ -11,7 +11,7 @@ format = "[ $duration]($style) "
 disabled = true
 
 [directory]
-read_only_symbol = ""
+read_only = " "
 
 [docker]
 symbol = " "
