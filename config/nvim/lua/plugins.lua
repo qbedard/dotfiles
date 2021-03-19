@@ -21,8 +21,8 @@ return require("packer").startup {
       config = function()
         require("tb.treesitter")
         -- TODO: Still a bit buggy
-        -- vim.wo.foldmethod = "expr"
-        -- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+        vim.wo.foldmethod = "expr"
+        vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
       end
     }
     -- use {  -- This is rad, but stupid slow right now.
@@ -35,10 +35,7 @@ return require("packer").startup {
     }
     -- use "nvim-treesitter/nvim-treesitter-refactor"
     -- use {"nvim-treesitter/completion-treesitter", opt = true}
-    -- use {
-    --   "nvim-treesitter/playground",
-    --   requires = "nvim-treesitter/nvim-treesitter"
-    -- }
+    -- use "nvim-treesitter/playground"
 
     use {
       "gruvbox-community/gruvbox",
@@ -121,10 +118,12 @@ return require("packer").startup {
       config = function()
         require("tb.lsp")
         require("lspsaga").init_lsp_saga {
-          error_sign = "",
-          warn_sign = "",
-          infor_sign = "",
-          hint_sign = "➤"
+          -- use_saga_diagnostic_sign = false,
+          -- error_sign = "",
+          -- warn_sign = "",
+          -- infor_sign = "",
+          -- hint_sign = "",
+          code_action_prompt = {enable = false}
         }
 
         vim.api.nvim_exec(

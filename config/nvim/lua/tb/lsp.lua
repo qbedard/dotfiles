@@ -89,7 +89,7 @@ vim.fn.sign_define(
 vim.fn.sign_define(
   "LspDiagnosticsSignHint",
   {
-    text = "➤",
+    text = "",
     texthl = "LspDiagnosticsSignHint"
   }
 )
