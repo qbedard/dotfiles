@@ -117,10 +117,9 @@ return require("packer").startup {
 
     use {
       "neovim/nvim-lspconfig",
-      requires = {"glepnir/lspsaga.nvim"},
+      requires = "glepnir/lspsaga.nvim",
       config = function()
         require("tb.lsp")
-
         require("lspsaga").init_lsp_saga {
           error_sign = "",
           warn_sign = "",
@@ -155,6 +154,7 @@ return require("packer").startup {
     }
     use {
       "nvim-lua/completion-nvim",
+      requires = "onsails/lspkind-nvim",
       config = function()
         vim.g.completion_enable_auto_signature = 0 -- crazy slow
         vim.g.completion_chain_complete_list = {
@@ -167,6 +167,36 @@ return require("packer").startup {
           },
           {mode = "<c-p>"},
           {mode = "<c-n>"}
+        }
+        -- TODO: Improve
+        require("lspkind").init {
+          symbol_map = {
+            Class = "",
+            Color = "",
+            Constant = "",
+            Constructor = "",
+            Enum = "",
+            EnumMember = "",
+            Event = "",
+            Field = "𝒙",
+            File = "",
+            Folder = "",
+            Function = "",
+            Interface = "⧲",
+            Keyword = "",
+            Method = "",
+            Module = "",
+            Operator = "+",
+            Property = "",
+            Reference = "漏",
+            Snippet = "…",
+            Struct = "⚎",
+            Text = "",
+            TypeParameter = "",
+            Unit = "塞",
+            Value = "",
+            Variable = "𝒙"
+          }
         }
         function _G.check_behind()
           local pos_col = vim.fn.col(".") - 1
