@@ -380,27 +380,59 @@ return require("packer").startup {
     use "kana/vim-textobj-user"
     use "kana/vim-textobj-line"
     use "AndrewRadev/splitjoin.vim"
-    use {
-      "mhinz/vim-signify",
-      config = function()
-        vim.g.signify_priority = 0
-        vim.g.signify_sign_add = ""
-        vim.g.signify_sign_delete = ""
-        vim.g.signify_sign_delete_first_line = ""
-        vim.g.signify_sign_change = ""
-        vim.api.nvim_exec(
-          [[
-            set signcolumn=yes
-            highlight! link SignifySignChange GruvboxBlueSign
+    -- use {
+    --   "mhinz/vim-signify",
+    --   config = function()
+    --     vim.g.signify_priority = 0
+    --     vim.g.signify_sign_add = ""
+    --     vim.g.signify_sign_delete = ""
+    --     vim.g.signify_sign_delete_first_line = ""
+    --     vim.g.signify_sign_change = ""
+    --     vim.api.nvim_exec(
+    --       [[
+    --         set signcolumn=yes
+    --         highlight! link SignifySignChange GruvboxBlueSign
 
-            " nifty hunk motions
-            omap ic <Plug>(signify-motion-inner-pending)
-            xmap ic <Plug>(signify-motion-inner-visual)
-            omap ac <Plug>(signify-motion-outer-pending)
-            xmap ac <Plug>(signify-motion-outer-visual)
-          ]],
-          false
-        )
+    --         " nifty hunk motions
+    --         omap ic <Plug>(signify-motion-inner-pending)
+    --         xmap ic <Plug>(signify-motion-inner-visual)
+    --         omap ac <Plug>(signify-motion-outer-pending)
+    --         xmap ac <Plug>(signify-motion-outer-visual)
+    --       ]],
+    --       false
+    --     )
+    --   end
+    -- }
+    use {
+      "lewis6991/gitsigns.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+        require("gitsigns").setup {
+          signs = {
+            add = {
+              hl = "GruvboxGreenSign",
+              text = "│"
+            },
+            change = {
+              hl = "GruvboxBlueSign",
+              text = "│"
+            },
+            delete = {
+              hl = "GruvboxRedSign",
+              text = "_"
+            },
+            topdelete = {
+              hl = "GruvboxRedSign",
+              text = "‾"
+            },
+            changedelete = {
+              hl = "GruvboxOrangeSign",
+              text = "~"
+            }
+          }
+        }
+
+        vim.wo.signcolumn = "yes"
       end
     }
     use {
