@@ -60,9 +60,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.diagnostic.on_publish_diagnostics,
   {
     update_in_insert = false,
-    virtual_text = {
-      prefix = ""
-    }
+    virtual_text = {prefix = ""}
   }
 )
 vim.fn.sign_define(

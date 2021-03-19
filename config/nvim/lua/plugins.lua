@@ -17,26 +17,20 @@ return require("packer").startup {
 
     use {
       "nvim-treesitter/nvim-treesitter",
+      requires = {
+        -- "nvim-treesitter/completion-treesitter",
+        -- "romgrk/nvim-treesitter-context", -- This is rad, but stupid slow right now.
+        -- "nvim-treesitter/playground",
+        -- "nvim-treesitter/nvim-treesitter-refactor",
+        "nvim-treesitter/nvim-treesitter-textobjects"
+      },
       run = ":TSUpdate",
       config = function()
         require("tb.treesitter")
-        -- TODO: Still a bit buggy
         vim.wo.foldmethod = "expr"
         vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
       end
     }
-    -- use {  -- This is rad, but stupid slow right now.
-    --   "romgrk/nvim-treesitter-context",
-    --   requires = "nvim-treesitter/nvim-treesitter"
-    -- }
-    use {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      requires = "nvim-treesitter/nvim-treesitter"
-    }
-    -- use "nvim-treesitter/nvim-treesitter-refactor"
-    -- use {"nvim-treesitter/completion-treesitter", opt = true}
-    -- use "nvim-treesitter/playground"
-
     use {
       "gruvbox-community/gruvbox",
       config = function()
@@ -47,6 +41,7 @@ return require("packer").startup {
       "romgrk/barbar.nvim",
       requires = "kyazdani42/nvim-web-devicons"
     }
+    -- TODO: Replace
     use {
       "vim-airline/vim-airline",
       requires = "vim-airline/vim-airline-themes",
@@ -118,7 +113,7 @@ return require("packer").startup {
       config = function()
         require("tb.lsp")
         require("lspsaga").init_lsp_saga {
-          -- use_saga_diagnostic_sign = false,
+          use_saga_diagnostic_sign = false,
           -- error_sign = "",
           -- warn_sign = "",
           -- infor_sign = "",
@@ -138,7 +133,6 @@ return require("packer").startup {
             nnoremap <silent> [d <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
             nnoremap <silent> ]d <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
 
-            " TODO: Get working
             nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 
             " nnoremap <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -167,7 +161,7 @@ return require("packer").startup {
           {mode = "<c-p>"},
           {mode = "<c-n>"}
         }
-        -- TODO: Improve
+        -- TODO: Improve symbols
         require("lspkind").init {
           symbol_map = {
             Class = "",
@@ -204,7 +198,6 @@ return require("packer").startup {
           end
           return is_empty(pos_col) and is_empty(pos_col - 1) and true or false
         end
-        -- TODO: Convert to lua
         vim.api.nvim_exec(
           [[
             " <TAB>/<S-TAB> through completeopts
@@ -219,7 +212,7 @@ return require("packer").startup {
         )
       end
     }
-    -- TODO: Compare to completion-nvim more
+    -- TODO: Compare to completion-nvim more?
     -- use {
     --   "hrsh7th/nvim-compe",
     --   config = function()
@@ -240,7 +233,6 @@ return require("packer").startup {
     --       end
     --       return is_empty(pos_col) and is_empty(pos_col - 1) and true or false
     --     end
-    --     -- TODO: Convert to lua
     --     vim.api.nvim_exec(
     --       [[
     --         " <TAB>/<S-TAB> through completeopts
@@ -317,48 +309,9 @@ return require("packer").startup {
         )
       end
     }
-    -- use {
-    --   "junegunn/fzf.vim",
-    --   requires = "/usr/local/opt/fzf",
-    --   opt = true,
-    --   event = "VimEnter *",
-    --   config = function()
-    --     vim.g.fzf_colors = {["bg+"] = {"bg", "Normal"}}
-    --     -- TODO: Convert to lua?
-    --     vim.api.nvim_exec(
-    --       [[
-    --         " mappings
-    --         nnoremap <C-f> :BLines<CR>
-    --         nnoremap <C-b> :Buffers<CR>
-    --         nnoremap <C-c> :Commands<CR>
 
-    --         " show files in a git project root (or current dir if not project)
-    --         command! ProjectFiles execute 'Files' FindGitRoot()
-    --         nnoremap <C-p> :ProjectFiles<CR>
-    --       ]],
-    --       false
-    --     )
-    --   end
-    -- }
-
-    -- TODO: Switch?
-    -- use {
-    --   "glepnir/galaxyline.nvim",
-    --   branch = "main",
-    --   config = function()
-    --     require "statusline"
-    --   end, -- TODO: Configure
-    --   requires = {"kyazdani42/nvim-web-devicons", opt = true},
-    --   disable = true
-    -- }
     use {"norcalli/nvim-colorizer.lua", opt = true, ft = {"css", "html"}}
 
-    -- use {"ludovicchabant/vim-gutentags", opt = true}
-    -- use {
-    --   "majutsushi/tagbar",
-    --   opt = true,
-    --   ft = {"c", "cpp", "typescript", "typescriptreact"}
-    -- }
     use "liuchengxu/vista.vim"
 
     use "romainl/vim-cool"
@@ -368,7 +321,6 @@ return require("packer").startup {
         vim.g.loaded_netrwPlugin = 1
       end
     }
-    -- use "sunaku/tmux-navigate"
 
     use {
       "iamcco/markdown-preview.nvim",
@@ -381,7 +333,6 @@ return require("packer").startup {
         vim.g.SignatureMarkTextHLDynamic = 1
       end
     }
-    use "tpope/vim-unimpaired"
     use {
       "unblevable/quick-scope",
       config = function()
@@ -403,35 +354,14 @@ return require("packer").startup {
     use "tpope/vim-eunuch"
     use "tpope/vim-abolish"
     use "tpope/vim-fugitive"
+    use "tpope/vim-unimpaired"
 
     use "wellle/targets.vim"
     use "michaeljsmith/vim-indent-object"
     use "kana/vim-textobj-user"
     use "kana/vim-textobj-line"
     use "AndrewRadev/splitjoin.vim"
-    -- use {
-    --   "mhinz/vim-signify",
-    --   config = function()
-    --     vim.g.signify_priority = 0
-    --     vim.g.signify_sign_add = ""
-    --     vim.g.signify_sign_delete = ""
-    --     vim.g.signify_sign_delete_first_line = ""
-    --     vim.g.signify_sign_change = ""
-    --     vim.api.nvim_exec(
-    --       [[
-    --         set signcolumn=yes
-    --         highlight! link SignifySignChange GruvboxBlueSign
 
-    --         " nifty hunk motions
-    --         omap ic <Plug>(signify-motion-inner-pending)
-    --         xmap ic <Plug>(signify-motion-inner-visual)
-    --         omap ac <Plug>(signify-motion-outer-pending)
-    --         xmap ac <Plug>(signify-motion-outer-visual)
-    --       ]],
-    --       false
-    --     )
-    --   end
-    -- }
     use {
       "lewis6991/gitsigns.nvim",
       requires = "nvim-lua/plenary.nvim",
@@ -458,7 +388,8 @@ return require("packer").startup {
               hl = "GruvboxOrangeSign",
               text = "~"
             }
-          }
+          },
+          sign_priority = 0
         }
 
         vim.wo.signcolumn = "yes"

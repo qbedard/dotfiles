@@ -23,6 +23,7 @@ telescope.setup {
   }
 }
 
+-- TODO: Reduce preview ratio
 -- Override flex layout
 local layout_strategies = require("telescope.pickers.layout_strategies")
 local config = require("telescope.config")
