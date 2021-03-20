@@ -192,24 +192,48 @@ return require("packer").startup {
             Variable = "𝒙"
           }
         }
-        function _G.check_behind()
-          local pos_col = vim.fn.col(".") - 1
+
+        local check_behind = function()
           local is_empty = function(col)
             return col <= 0 or vim.fn.getline("."):sub(col, col):match("%s")
           end
+          local pos_col = vim.fn.col(".") - 1
           return is_empty(pos_col) and is_empty(pos_col - 1) and true or false
         end
-        vim.api.nvim_exec(
-          [[
-            " <TAB>/<S-TAB> through completeopts
-            inoremap <silent> <expr> <TAB> pumvisible() ? "\<C-n>" : v:lua.check_behind() ? "\<TAB>" : completion#trigger_completion()
-            inoremap <silent> <expr> <S-TAB> pumvisible() ? "\<C-p>" : v:lua.check_behind() ? "\<S-TAB>" : completion#trigger_completion()
 
-            " prevent completion-nvim from conflicting with auto-pairs plugins
-            let g:completion_confirm_key = ""
-            inoremap <expr> <CR> pumvisible() ? complete_info()["selected"] != "-1" ? "\<Plug>(completion_confirm_completion)" : "\<c-e>\<CR>" : "\<CR>"
-          ]],
-          false
+        _G.complete = function(pum, empty)
+          if vim.fn.pumvisible() == 1 then
+            return vim.api.nvim_replace_termcodes(pum, true, true, true)
+          elseif check_behind() then
+            return vim.api.nvim_replace_termcodes(empty, true, true, true)
+          else
+            return vim.fn["completion#trigger_completion"]()
+          end
+        end
+
+        vim.api.nvim_set_keymap(
+          "i",
+          "<Tab>",
+          "v:lua.complete('<C-n>', '<Tab>')",
+          {expr = true, silent = true}
+        )
+        vim.api.nvim_set_keymap(
+          "s",
+          "<Tab>",
+          "v:lua.complete('<C-n>', '<Tab>')",
+          {expr = true, silent = true}
+        )
+        vim.api.nvim_set_keymap(
+          "i",
+          "<S-Tab>",
+          "v:lua.complete('<C-p>', '<C-h>')",
+          {expr = true, silent = true}
+        )
+        vim.api.nvim_set_keymap(
+          "s",
+          "<S-Tab>",
+          "v:lua.complete('<C-p>', '<C-h>')",
+          {expr = true, silent = true}
         )
       end
     }
@@ -217,13 +241,14 @@ return require("packer").startup {
     -- use {
     --   "hrsh7th/nvim-compe",
     --   config = function()
+    --     vim.o.completeopt = "menuone,noselect"
     --     require("compe").setup {
     --       enabled = true,
     --       min_length = 0,
     --       source = {
     --         -- path = true,
     --         -- buffer = true,
-    --         nvim_lsp = true,
+    --         nvim_lsp = true
     --         -- nvim_lua = true
     --       }
     --     }
@@ -313,7 +338,38 @@ return require("packer").startup {
 
     use {"norcalli/nvim-colorizer.lua", opt = true, ft = {"css", "html"}}
 
-    use "liuchengxu/vista.vim"
+    use {
+      "liuchengxu/vista.vim",
+      config = function()
+        vim.g["vista#renderer#icons"] = {
+          class = "",
+          color = "",
+          constant = "",
+          constructor = "",
+          enum = "",
+          enummember = "",
+          event = "",
+          field = "𝒙",
+          file = "",
+          folder = " ﱮ ",
+          ["function"] = "",
+          interface = "⧲",
+          keyword = "",
+          method = "",
+          module = "",
+          operator = "+",
+          property = "",
+          reference = "漏",
+          snippet = "…",
+          struct = "⚎",
+          text = "",
+          typeparameter = "",
+          unit = "塞",
+          value = "",
+          variable = "𝒙"
+        }
+      end
+    }
 
     use "romainl/vim-cool"
     use {
