@@ -147,21 +147,8 @@ return require("packer").startup {
       end
     }
     use {
-      "nvim-lua/completion-nvim",
-      requires = "onsails/lspkind-nvim",
+      "onsails/lspkind-nvim",
       config = function()
-        vim.g.completion_enable_auto_signature = 0 -- crazy slow
-        vim.g.completion_chain_complete_list = {
-          {
-            complete_items = {
-              "lsp"
-              -- "snippet",
-              -- "path"
-            }
-          },
-          {mode = "<c-p>"},
-          {mode = "<c-n>"}
-        }
         -- TODO: Improve symbols
         require("lspkind").init {
           symbol_map = {
@@ -192,6 +179,111 @@ return require("packer").startup {
             Variable = "𝒙"
           }
         }
+      end
+    }
+    -- use {
+    --   "nvim-lua/completion-nvim",
+    --   config = function()
+    --     vim.g.completion_enable_auto_signature = 0 -- crazy slow
+    --     vim.g.completion_chain_complete_list = {
+    --       {
+    --         complete_items = {
+    --           "lsp"
+    --           -- "snippet",
+    --           -- "path"
+    --         }
+    --       },
+    --       {mode = "<c-p>"},
+    --       {mode = "<c-n>"}
+    --     }
+    --     local term_codes = function(s)
+    --       return vim.api.nvim_replace_termcodes(s, true, true, true)
+    --     end
+
+    --     local check_behind = function()
+    --       local is_empty = function(col)
+    --         return col <= 0 or vim.fn.getline("."):sub(col, col):match("%s")
+    --       end
+    --       local pos_col = vim.fn.col(".") - 1
+    --       return is_empty(pos_col) and is_empty(pos_col - 1) and true or false
+    --     end
+
+    --     _G.complete = function(pum, empty)
+    --       if vim.fn.pumvisible() == 1 then
+    --         return term_codes(pum)
+    --       elseif check_behind() then
+    --         return term_codes(empty)
+    --       else
+    --         return vim.fn["completion#trigger_completion"]()
+    --       end
+    --     end
+
+    --     vim.api.nvim_set_keymap(
+    --       "i",
+    --       "<Tab>",
+    --       "v:lua.complete('<C-n>', '<Tab>')",
+    --       {expr = true, noremap = true, silent = true}
+    --     )
+    --     vim.api.nvim_set_keymap(
+    --       "s",
+    --       "<Tab>",
+    --       "v:lua.complete('<C-n>', '<Tab>')",
+    --       {expr = true, noremap = true, silent = true}
+    --     )
+    --     vim.api.nvim_set_keymap(
+    --       "i",
+    --       "<S-Tab>",
+    --       "v:lua.complete('<C-p>', '<C-h>')",
+    --       {expr = true, noremap = true, silent = true}
+    --     )
+    --     vim.api.nvim_set_keymap(
+    --       "s",
+    --       "<S-Tab>",
+    --       "v:lua.complete('<C-p>', '<C-h>')",
+    --       {expr = true, noremap = true, silent = true}
+    --     )
+
+    --     -- prevent completion from conflicting with pairing plugin
+    --     vim.g.completion_confirm_key = ""
+    --     vim.api.nvim_exec(
+    --       [[
+    --         inoremap <expr> <CR> pumvisible() ? complete_info()["selected"] != "-1" ? "\<Plug>(completion_confirm_completion)" : "\<c-e>\<CR>" : "\<CR>"
+    --       ]],
+    --       false
+    --     )
+    --     -- _G.confirm_complete = function()
+    --     --   if vim.fn.pumvisible() ~= 1 then
+    --     --     return term_codes("<CR>")
+    --     --   elseif vim.fn["complete_info"]()["selected"] == -1 then
+    --     --     return term_codes("<C-e><CR>")
+    --     --   else
+    --     --     return vim.fn["completion#completion_confirm"]()
+    --     --   end
+    --     -- end
+    --     -- vim.api.nvim_set_keymap(
+    --     --   "i",
+    --     --   "<CR>",
+    --     --   "v:lua.confirm_complete()",
+    --     --   {expr = true, noremap = true, silent = true}
+    --     -- )
+    --   end
+    -- }
+    use {
+      "hrsh7th/nvim-compe",
+      config = function()
+        require("compe").setup {
+          min_length = 0, -- allow for `from package import _` in Python
+          source = {
+            -- path = true,
+            -- buffer = true,
+            nvim_lsp = true
+            -- nvim_lua = true -- TODO: wtf is this?
+          }
+        }
+
+        local term_codes = function(s)
+          return vim.api.nvim_replace_termcodes(s, true, true, true)
+        end
 
         local check_behind = function()
           local is_empty = function(col)
@@ -203,11 +295,11 @@ return require("packer").startup {
 
         _G.complete = function(pum, empty)
           if vim.fn.pumvisible() == 1 then
-            return vim.api.nvim_replace_termcodes(pum, true, true, true)
+            return term_codes(pum)
           elseif check_behind() then
-            return vim.api.nvim_replace_termcodes(empty, true, true, true)
+            return term_codes(empty)
           else
-            return vim.fn["completion#trigger_completion"]()
+            return vim.fn["compe#complete"]()
           end
         end
 
@@ -215,64 +307,37 @@ return require("packer").startup {
           "i",
           "<Tab>",
           "v:lua.complete('<C-n>', '<Tab>')",
-          {expr = true, silent = true}
+          {expr = true, noremap = true, silent = true}
         )
         vim.api.nvim_set_keymap(
           "s",
           "<Tab>",
           "v:lua.complete('<C-n>', '<Tab>')",
-          {expr = true, silent = true}
+          {expr = true, noremap = true, silent = true}
         )
         vim.api.nvim_set_keymap(
           "i",
           "<S-Tab>",
           "v:lua.complete('<C-p>', '<C-h>')",
-          {expr = true, silent = true}
+          {expr = true, noremap = true, silent = true}
         )
         vim.api.nvim_set_keymap(
           "s",
           "<S-Tab>",
           "v:lua.complete('<C-p>', '<C-h>')",
-          {expr = true, silent = true}
+          {expr = true, noremap = true, silent = true}
+        )
+
+        -- prevent nvim-compe from conflicting with auto-pairs
+        vim.api.nvim_set_keymap(
+          "i",
+          "<CR>",
+          "compe#confirm(lexima#expand('<LT>CR>', 'i'))",
+          {expr = true, noremap = true, silent = true}
         )
       end
     }
-    -- TODO: Compare to completion-nvim more?
-    -- use {
-    --   "hrsh7th/nvim-compe",
-    --   config = function()
-    --     vim.o.completeopt = "menuone,noselect"
-    --     require("compe").setup {
-    --       enabled = true,
-    --       min_length = 0,
-    --       source = {
-    --         -- path = true,
-    --         -- buffer = true,
-    --         nvim_lsp = true
-    --         -- nvim_lua = true
-    --       }
-    --     }
-    --     function _G.check_behind()
-    --       local pos_col = vim.fn.col(".") - 1
-    --       local is_empty = function(col)
-    --         return col <= 0 or vim.fn.getline("."):sub(col, col):match("%s")
-    --       end
-    --       return is_empty(pos_col) and is_empty(pos_col - 1) and true or false
-    --     end
-    --     vim.api.nvim_exec(
-    --       [[
-    --         " <TAB>/<S-TAB> through completeopts
-    --         inoremap <silent><expr> <C-Space> compe#complete()
-    --         " inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : v:lua.check_behind() ? "\<TAB>" : compe#complete()
-    --         " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-    --         " prevent nvim-compe from conflicting with auto-pairs
-    --         " inoremap <expr> <CR> pumvisible() ? compe#complete() : "\<CR>"
-    --       ]],
-    --       false
-    --     )
-    --   end
-    -- }
     use "pierreglaser/folding-nvim"
 
     use {

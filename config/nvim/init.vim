@@ -106,7 +106,3 @@ xnoremap <silent> <M-h> <gv
 xnoremap <silent> <M-l> >gv
 xnoremap < <gv
 xnoremap > >gv
-
-"-------------------------------- Completion ---------------------------------"
-" <CR> to select completion (must be double quotes!)
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
