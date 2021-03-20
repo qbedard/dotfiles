@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup {
-  -- ensure_installed = "all",
+  ensure_installed = "maintained",
   highlight = {enable = true},
   -- incremental_selection = {
   --   enable = true,
@@ -75,5 +75,10 @@ require("nvim-treesitter.configs").setup {
         ["<leader>h"] = "@parameter.inner"
       }
     }
+  },
+  --- nvim-ts-autotag ---
+  autotag = {
+    enable = true,
+    filetypes = {"html", "javascriptreact", "xml"}
   }
 }

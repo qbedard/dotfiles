@@ -22,7 +22,8 @@ return require("packer").startup {
         -- "romgrk/nvim-treesitter-context", -- This is rad, but stupid slow right now.
         -- "nvim-treesitter/playground",
         -- "nvim-treesitter/nvim-treesitter-refactor",
-        "nvim-treesitter/nvim-treesitter-textobjects"
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "windwp/nvim-ts-autotag"
       },
       run = ":TSUpdate",
       config = function()
@@ -117,7 +118,7 @@ return require("packer").startup {
           -- error_sign = "",
           -- warn_sign = "",
           -- infor_sign = "",
-          -- hint_sign = "",
+          -- hint_sign = "➤",
           code_action_prompt = {enable = false}
         }
 
@@ -164,7 +165,7 @@ return require("packer").startup {
         -- TODO: Improve symbols
         require("lspkind").init {
           symbol_map = {
-            Class = "",
+            Class = "",
             Color = "",
             Constant = "",
             Constructor = "",
@@ -173,12 +174,12 @@ return require("packer").startup {
             Event = "",
             Field = "𝒙",
             File = "",
-            Folder = "",
+            Folder = " ﱮ ",
             Function = "",
             Interface = "⧲",
             Keyword = "",
             Method = "",
-            Module = "",
+            Module = "",
             Operator = "+",
             Property = "",
             Reference = "漏",
@@ -369,44 +370,36 @@ return require("packer").startup {
         require("gitsigns").setup {
           signs = {
             add = {
-              hl = "GruvboxGreenSign",
-              text = "│"
+              hl = "GruvboxGreenSign"
+              -- text = "▎"
             },
             change = {
-              hl = "GruvboxBlueSign",
-              text = "│"
+              hl = "GruvboxBlueSign"
+              -- text = "▎"
             },
             delete = {
-              hl = "GruvboxRedSign",
-              text = "_"
+              hl = "GruvboxRedSign"
+              -- text = "_"
             },
             topdelete = {
-              hl = "GruvboxRedSign",
-              text = "‾"
+              hl = "GruvboxRedSign"
+              -- text = "‾"
             },
             changedelete = {
               hl = "GruvboxOrangeSign",
-              text = "~"
+              text = "│"
             }
           },
           sign_priority = 0
         }
-
         vim.wo.signcolumn = "yes"
       end
     }
     use {
-      "APZelos/blamer.nvim",
-      config = function()
-        vim.g.blamer_delay = 0
-        vim.g.blamer_template = "<author>, <committer-time> • <summary>"
-        vim.api.nvim_exec(
-          [[
-            nnoremap <Leader>b :BlamerToggle<CR>
-            vnoremap <Leader>b :BlamerToggle<CR>
-          ]],
-          false
-        )
+      "f-person/git-blame.nvim",
+      setup = function()
+        vim.g.gitblame_enabled = 0 -- must be set before loading
+        vim.g.gitblame_date_format = "%a %b %d %Y"
       end
     }
     use "rhysd/git-messenger.vim"
