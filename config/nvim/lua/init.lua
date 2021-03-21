@@ -45,7 +45,8 @@ end
 vim.bo.expandtab = true -- tabs insert spaces
 vim.bo.smartindent = true
 vim.o.joinspaces = false -- only insert one space after punction when joining lines
-vim.o.listchars = "tab:→ ,extends:›,precedes:‹,nbsp:·,trail:·"
+vim.o.listchars = "extends:›,precedes:‹,nbsp:·,tab:→ ,trail:·"
+-- vim.o.listchars = "eol:↴,extends:›,precedes:‹,nbsp:·,tab:→ ,trail:·"
 vim.wo.foldlevel = 99
 vim.wo.linebreak = true -- wrap line if too long
 vim.wo.list = true -- show listchars
@@ -71,7 +72,6 @@ vim.o.sidescrolloff = 5 -- start scrolling when near the last col
 vim.o.termguicolors = true -- true color support
 vim.wo.cursorline = true -- highlight the line the cursor is on
 vim.wo.number = true
--- vim.wo.relativenumber = true
 
 --------------------------------- Completion ----------------------------------
 vim.cmd("set shortmess+=c")
