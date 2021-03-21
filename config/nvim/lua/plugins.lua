@@ -280,10 +280,7 @@ return require("packer").startup {
             -- nvim_lua = true -- TODO: wtf is this?
           }
         }
-
-        local term_codes = function(s)
-          return vim.api.nvim_replace_termcodes(s, true, true, true)
-        end
+        local utils = require("tb.utils")
 
         local check_behind = function()
           local is_empty = function(col)
@@ -295,46 +292,22 @@ return require("packer").startup {
 
         _G.complete = function(pum, empty)
           if vim.fn.pumvisible() == 1 then
-            return term_codes(pum)
+            return utils.term_codes(pum)
           elseif check_behind() then
-            return term_codes(empty)
+            return utils.term_codes(empty)
           else
             return vim.fn["compe#complete"]()
           end
         end
 
-        vim.api.nvim_set_keymap(
-          "i",
-          "<Tab>",
-          "v:lua.complete('<C-n>', '<Tab>')",
-          {expr = true, noremap = true, silent = true}
-        )
-        vim.api.nvim_set_keymap(
-          "s",
-          "<Tab>",
-          "v:lua.complete('<C-n>', '<Tab>')",
-          {expr = true, noremap = true, silent = true}
-        )
-        vim.api.nvim_set_keymap(
-          "i",
-          "<S-Tab>",
-          "v:lua.complete('<C-p>', '<C-h>')",
-          {expr = true, noremap = true, silent = true}
-        )
-        vim.api.nvim_set_keymap(
-          "s",
-          "<S-Tab>",
-          "v:lua.complete('<C-p>', '<C-h>')",
-          {expr = true, noremap = true, silent = true}
-        )
+        utils.mapx("is", "<Tab>", "v:lua.complete('<C-n>', '<Tab>')")
+        utils.mapx("is", "<S-Tab>", "v:lua.complete('<C-p>', '<C-h>')")
+        utils.mapx("is", "<C-e>", "compe#close('<C-e>')")
 
-        -- prevent nvim-compe from conflicting with auto-pairs
-        vim.api.nvim_set_keymap(
-          "i",
-          "<CR>",
-          "compe#confirm(lexima#expand('<LT>CR>', 'i'))",
-          {expr = true, noremap = true, silent = true}
-        )
+        -- prevent nvim-compe from conflicting with lexima
+        vim.g.lexima_no_default_rules = true
+        vim.fn["lexima#set_default_rules"]()
+        utils.mapx("i", "<CR>", "compe#confirm(lexima#expand('<CR>', 'i'))")
       end
     }
 
