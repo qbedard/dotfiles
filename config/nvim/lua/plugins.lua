@@ -55,12 +55,14 @@ return require("packer").startup {
         -- }
       end
     }
+
     use {
-      "Yggdroot/indentLine",
+      "lukas-reineke/indent-blankline.nvim",
+      branch = "lua",
       config = function()
-        vim.g.indentLine_char = "│"
-        vim.g.indentLine_bufTypeExclude = {"help", "terminal"}
-        vim.g.indentLine_fileTypeExclude = {"text", "markdown"}
+        vim.g.indent_blankline_char = "│"
+        vim.g.indent_blankline_buftype_exclude = {"help", "terminal"}
+        vim.g.indent_blankline_filetype_exclude = {"text", "markdown"}
       end
     }
 

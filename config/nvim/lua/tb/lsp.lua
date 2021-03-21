@@ -105,7 +105,7 @@ local servers = {
   "cssls",
   "dockerls",
   "html",
-  "jsonls"
+  "jsonls",
   -- "pyright"
   -- "sql",
   -- "terraformls"

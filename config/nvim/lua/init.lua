@@ -115,3 +115,4 @@ map("x", "<", "<gv") -- outdent selection
 vim.g.netrw_dirhistmax = 0 -- no netrwhist
 
 require("plugins")
+-- require("minimal")

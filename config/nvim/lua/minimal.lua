@@ -1,6 +1,18 @@
+local packer_path =
+  vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+if vim.fn.empty(vim.fn.glob(packer_path)) then
+  vim.fn.system {
+    "git",
+    "clone",
+    "https://github.com/wbthomason/packer.nvim",
+    packer_path
+  }
+  vim.cmd("packadd packer.nvim")
+end
+
 require("packer").startup {
   function()
-    use "wbthomason/packer.nvim"
+    use {"wbthomason/packer.nvim", opt = true}
     use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
