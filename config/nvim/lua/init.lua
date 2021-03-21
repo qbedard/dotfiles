@@ -77,16 +77,41 @@ vim.wo.number = true
 vim.cmd("set shortmess+=c")
 vim.o.completeopt = "menuone,noinsert,noselect"
 
+-------------------------------------------------------------------------------
+--                                  Mappings                                 --
+-------------------------------------------------------------------------------
+local map = require("tb.utils").map
+
+---------------------------------- Navigation ---------------------------------
+map("i", "jj", "<Esc>", {noremap = false}) -- exit insert mode (-noremap for abbrevs)
+map("t", "kk", "<C-\\><C-n>", {noremap = false}) -- exit terminal mode
+map("nx", ";", ":") -- faster command entry
+map("n", "H", "^") -- beginning of line
+map("n", "L", "$") -- end of line
+map("nx", "K", ":BufferNext<CR>")
+map("nx", "J", ":BufferPrevious<CR>")
+
+----------------------------------- Editing -----------------------------------
+map("n", "U", "<C-R>") -- redo
+map("i", "<C-u>", "<C-g>u<C-u>") -- allow undo of <C-u>
+map("i", "<C-w>", "<C-g>u<C-w>") -- allow undo of <C-w>
+-- TODO: make repeatable
+map("n", "<leader>i", "i<Space><Esc>r") -- insert single character before
+map("n", "<leader>a", "a<Space><Esc>r") -- insert single character after
+
+--- some brilliant line movement mappings from junegunn ---
+map("n", "<M-k>", ":move-2<CR>") -- move line up
+map("n", "<M-j>", ":move+<CR>") -- move line down
+map("n", "<M-l>", ">>") -- indent line
+map("n", "<M-h>", "<<") -- outdent line
+map("x", "<M-k>", ":move-2<CR>gv") -- move selection up
+map("x", "<M-j>", ":move'>+<CR>gv") -- move selection up
+map("x", "<M-l>", ">gv") -- indent selection
+map("x", "<M-h>", "<gv") -- outdent selection
+map("x", ">", ">gv") -- indent selection
+map("x", "<", "<gv") -- outdent selection
+
 ----------------------------------- Plugins -----------------------------------
--- Go away, netrw!
 vim.g.netrw_dirhistmax = 0 -- no netrwhist
--- vim.api.nvim_exec(
---   [[
---     augroup hide_netrw
---       autocmd FileType netrw setl bufhidden=wipe
---     augroup END
---   ]],
---   false
--- )
 
 require("plugins")
