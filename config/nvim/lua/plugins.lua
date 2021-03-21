@@ -120,30 +120,6 @@ return require("packer").startup {
         -- utils.map("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", o)
         utils.map("n", "g0", "<Cmd>lua vim.lsp.buf.document_symbol()<CR>", o)
         utils.map("n", "gf", "<Cmd>lua vim.lsp.buf.formatting()<CR>", o)
-
-
-        -- vim.api.nvim_exec(
-        --   [[
-        --     nnoremap <silent> gd <Cmd>lua require'lspsaga.provider'.preview_definition()<CR>
-        --     nnoremap <silent> gD <Cmd>lua vim.lsp.buf.definition()<CR>
-        --     nnoremap <silent> <leader>k <Cmd>lua vim.lsp.buf.hover()<CR>
-        --     nnoremap <silent> 1gD <Cmd>lua vim.lsp.buf.type_definition()<CR>
-        --     nnoremap <silent> gr <Cmd>lua vim.lsp.buf.references()<CR>
-        --     nnoremap <silent> g0 <Cmd>lua vim.lsp.buf.document_symbol()<CR>
-        --     nnoremap <silent> gf <Cmd>lua vim.lsp.buf.formatting()<CR>
-        --     nnoremap <silent> [d <Cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
-        --     nnoremap <silent> ]d <Cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
-
-        --     nnoremap <silent> gh <Cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
-
-        --     " nnoremap <silent> gd <Cmd>lua vim.lsp.buf.declaration()<CR>
-        --     " nnoremap <silent> gD <Cmd>lua vim.lsp.buf.implementation()<CR>
-        --     " nnoremap <silent> <c-]> <Cmd>lua vim.lsp.buf.definition()<CR>
-        --     " nnoremap <silent> <leader>K <Cmd>lua vim.lsp.buf.signature_help()<CR>
-        --     " nnoremap <silent> gr <Cmd>lua vim.lsp.buf.references()<CR>
-        --   ]],
-        --   false
-        -- )
       end
     }
     use {
@@ -158,24 +134,33 @@ return require("packer").startup {
           code_action_prompt = {enable = false}
         }
 
-        vim.cmd("highlight! link DiagnosticTruncateLine GruvboxBg3")
-        vim.cmd("highlight! link LspSagaAutoPreview GruvboxYellow")
-        vim.cmd("highlight! link LspSagaBorderTitle GruvboxOrange")
-        vim.cmd("highlight! link LspSagaCodeActionBorder GruvboxBlue")
-        vim.cmd("highlight! link LspSagaCodeActionContent GruvboxAqua")
-        vim.cmd("highlight! link LspSagaCodeActionTitle GruvboxOrange")
-        vim.cmd("highlight! link LspSagaCodeActionTruncateLine GruvboxBg3")
-        vim.cmd("highlight! link LspSagaDefPreviewBorder GruvboxBlue")
-        vim.cmd("highlight! link LspSagaDiagnosticTruncateLine GruvboxBg3")
-        vim.cmd("highlight! link LspSagaDocTruncateLine GruvboxBg3")
-        vim.cmd("highlight! link LspSagaFinderSelection GruvboxGreen")
+        vim.cmd("highlight! link DiagnosticHint GruvboxAqua")
+        vim.cmd("highlight! link DiagnosticInformation GruvboxBlue")
+        vim.cmd("highlight! link DiagnosticTruncateLine GruvboxGray")
+        vim.cmd("highlight! link LspDiagnosticsFloatingError Error")
+        vim.cmd("highlight! link LspDiagnosticsFloatingWarn WarningMsg")
+        vim.cmd("highlight! link LspDiagnosticsFloatingInfor GruvboxBlue")
+        vim.cmd("highlight! link LspDiagnosticsFloatingHint GruvboxAqua")
+        vim.cmd("highlight! link LspSagaAutoPreview GruvboxFg3")
+        vim.cmd("highlight! link LspSagaBorderTitle GruvboxOrangeBold")
+        vim.cmd("highlight! link LspSagaCodeActionBorder GruvboxFg2")
+        vim.cmd("highlight! link LspSagaCodeActionContent GruvboxAquaBold")
+        vim.cmd("highlight! link LspSagaCodeActionTitle GruvboxOrangeBold")
+        vim.cmd("highlight! link LspSagaCodeActionTruncateLine GruvboxGray")
+        vim.cmd("highlight! link LspSagaDefPreviewBorder GruvboxFg2")
+        vim.cmd("highlight! link LspSagaDiagnosticBorder GruvboxPurple")
+        vim.cmd("highlight! link LspSagaDiagnosticHeader GruvboxFg3")
+        vim.cmd("highlight! link LspSagaDiagnosticTruncateLine GruvboxPurple")
+        vim.cmd("highlight! link LspSagaDocTruncateLine GruvboxGray")
+        vim.cmd("highlight! link LspSagaFinderSelection GruvboxGreenBold")
         vim.cmd("highlight! link LspSagaHoverBorder GruvboxBlue")
         vim.cmd("highlight! link LspSagaLspFinderBorder GruvboxBlue")
         vim.cmd("highlight! link LspSagaRenameBorder GruvboxBlue")
         vim.cmd("highlight! link LspSagaRenamePromptPrefix GruvboxAqua")
-        vim.cmd("highlight! link LspSagaShTruncateLine GruvboxBg3")
+        vim.cmd("highlight! link LspSagaShTruncateLine GruvboxGray")
         vim.cmd("highlight! link LspSagaSignatureHelpBorder GruvboxAqua")
-        vim.cmd("highlight! link ProviderTruncateLine GruvboxBg3")
+        vim.cmd("highlight! link ProviderTruncateLine GruvboxGray")
+        vim.cmd("highlight! link SagaShadow GruvboxBg1")
         vim.cmd("highlight! link TargetWord GruvboxRed")
 
         local utils = require("tb.utils")
