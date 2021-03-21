@@ -110,9 +110,45 @@ return require("packer").startup {
 
     use {
       "neovim/nvim-lspconfig",
-      requires = "glepnir/lspsaga.nvim",
       config = function()
         require("tb.lsp")
+        local utils = require("tb.utils")
+        local o = {silent = true}
+        utils.map("n", "<leader>k", "<Cmd>lua vim.lsp.buf.hover()<CR>", o)
+        utils.map("n", "gD", "<Cmd>lua vim.lsp.buf.definition()<CR>", o)
+        utils.map("n", "1gD", "<Cmd>lua vim.lsp.buf.type_definition()<CR>", o)
+        -- utils.map("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", o)
+        utils.map("n", "g0", "<Cmd>lua vim.lsp.buf.document_symbol()<CR>", o)
+        utils.map("n", "gf", "<Cmd>lua vim.lsp.buf.formatting()<CR>", o)
+
+
+        -- vim.api.nvim_exec(
+        --   [[
+        --     nnoremap <silent> gd <Cmd>lua require'lspsaga.provider'.preview_definition()<CR>
+        --     nnoremap <silent> gD <Cmd>lua vim.lsp.buf.definition()<CR>
+        --     nnoremap <silent> <leader>k <Cmd>lua vim.lsp.buf.hover()<CR>
+        --     nnoremap <silent> 1gD <Cmd>lua vim.lsp.buf.type_definition()<CR>
+        --     nnoremap <silent> gr <Cmd>lua vim.lsp.buf.references()<CR>
+        --     nnoremap <silent> g0 <Cmd>lua vim.lsp.buf.document_symbol()<CR>
+        --     nnoremap <silent> gf <Cmd>lua vim.lsp.buf.formatting()<CR>
+        --     nnoremap <silent> [d <Cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
+        --     nnoremap <silent> ]d <Cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
+
+        --     nnoremap <silent> gh <Cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
+
+        --     " nnoremap <silent> gd <Cmd>lua vim.lsp.buf.declaration()<CR>
+        --     " nnoremap <silent> gD <Cmd>lua vim.lsp.buf.implementation()<CR>
+        --     " nnoremap <silent> <c-]> <Cmd>lua vim.lsp.buf.definition()<CR>
+        --     " nnoremap <silent> <leader>K <Cmd>lua vim.lsp.buf.signature_help()<CR>
+        --     " nnoremap <silent> gr <Cmd>lua vim.lsp.buf.references()<CR>
+        --   ]],
+        --   false
+        -- )
+      end
+    }
+    use {
+      "glepnir/lspsaga.nvim",
+      config = function()
         require("lspsaga").init_lsp_saga {
           use_saga_diagnostic_sign = false,
           -- error_sign = "",
@@ -122,28 +158,37 @@ return require("packer").startup {
           code_action_prompt = {enable = false}
         }
 
-        vim.api.nvim_exec(
-          [[
-            nnoremap <silent> gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
-            nnoremap <silent> gD <cmd>lua vim.lsp.buf.definition()<CR>
-            nnoremap <silent> <leader>k <cmd>lua vim.lsp.buf.hover()<CR>
-            nnoremap <silent> 1gD <cmd>lua vim.lsp.buf.type_definition()<CR>
-            nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-            nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
-            nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>
-            nnoremap <silent> [d <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
-            nnoremap <silent> ]d <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
+        vim.cmd("highlight! link DiagnosticTruncateLine GruvboxBg3")
+        vim.cmd("highlight! link LspSagaAutoPreview GruvboxYellow")
+        vim.cmd("highlight! link LspSagaBorderTitle GruvboxOrange")
+        vim.cmd("highlight! link LspSagaCodeActionBorder GruvboxBlue")
+        vim.cmd("highlight! link LspSagaCodeActionContent GruvboxAqua")
+        vim.cmd("highlight! link LspSagaCodeActionTitle GruvboxOrange")
+        vim.cmd("highlight! link LspSagaCodeActionTruncateLine GruvboxBg3")
+        vim.cmd("highlight! link LspSagaDefPreviewBorder GruvboxBlue")
+        vim.cmd("highlight! link LspSagaDiagnosticTruncateLine GruvboxBg3")
+        vim.cmd("highlight! link LspSagaDocTruncateLine GruvboxBg3")
+        vim.cmd("highlight! link LspSagaFinderSelection GruvboxGreen")
+        vim.cmd("highlight! link LspSagaHoverBorder GruvboxBlue")
+        vim.cmd("highlight! link LspSagaLspFinderBorder GruvboxBlue")
+        vim.cmd("highlight! link LspSagaRenameBorder GruvboxBlue")
+        vim.cmd("highlight! link LspSagaRenamePromptPrefix GruvboxAqua")
+        vim.cmd("highlight! link LspSagaShTruncateLine GruvboxBg3")
+        vim.cmd("highlight! link LspSagaSignatureHelpBorder GruvboxAqua")
+        vim.cmd("highlight! link ProviderTruncateLine GruvboxBg3")
+        vim.cmd("highlight! link TargetWord GruvboxRed")
 
-            nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
-
-            " nnoremap <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>
-            " nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
-            " nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-            " nnoremap <silent> <leader>K <cmd>lua vim.lsp.buf.signature_help()<CR>
-            " nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-          ]],
-          false
-        )
+        local utils = require("tb.utils")
+        local o = {silent = true}
+        utils.map("n", "gh", ":Lspsaga lsp_finder<CR>", o)
+        utils.map("n", "<leader>ca", ":Lspsaga code_action<CR>", o)
+        -- utils.map("n", "<leader>k", ":Lspsaga hover_doc<CR>", o)
+        utils.map("n", "gs", ":Lspsaga signature_help<CR>", o)
+        utils.map("n", "gr", ":Lspsaga rename<CR>", o)
+        utils.map("n", "gd", ":Lspsaga preview_definition<CR>", o)
+        utils.map("n", "<leader>cd", ":Lspsaga show_line_diagnostics<CR>", o)
+        utils.map("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>", o)
+        utils.map("n", "]d", ":Lspsaga diagnostic_jump_next<CR>", o)
       end
     }
     use {
