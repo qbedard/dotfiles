@@ -1,40 +1,6 @@
 local lspconfig = require("lspconfig")
--- local configs = require("lspconfig/configs")
--- local util = require("lspconfig/util")
-
---- pyright config ---
--- configs.pyright = {
---   default_config = {
---     cmd = {"pyright-langserver", "--stdio"},
---     filetypes = {"python"},
---     root_dir = util.root_pattern(
---       ".git",
---       "setup.py",
---       "setup.cfg",
---       "pyproject.toml",
---       "requirements.txt"
---     ),
---     settings = {
---       python = {
---         analysis = {
---           autoSearchPaths = true,
---           useLibraryCodeForTypes = true
---         }
---       }
---     }
---     -- before_init = function(initialize_params)
---     --   initialize_params["workspaceFolders"] = {
---     --     {name = "workspace", uri = initialize_params["rootUri"]}
---     --   }
---     -- end
---   },
---   docs = {
---     description = [[
---       https://github.com/microsoft/pyright
---       `pyright`, a static type checker and language server for python
---     ]]
---   }
--- }
+-- local configs = require("lspconfig.configs")
+local util = require("lspconfig.util")
 
 --- sql-langauge-server config ---
 -- configs.sql = {
@@ -105,7 +71,7 @@ local servers = {
   "cssls",
   "dockerls",
   "html",
-  "jsonls",
+  "jsonls"
   -- "pyright"
   -- "sql",
   -- "terraformls"
@@ -115,38 +81,117 @@ for _, lsp in ipairs(servers) do
 end
 
 -- complex setups --
-lspconfig.pyls.setup {
-  on_attach = on_attach,
+local efm_prettier = {
+  formatCommand = "prettier --stdin-filepath ${INPUT}",
+  formatStdin = true
+}
+
+-- local efm_eslint = {
+--   lintCommand = "eslint -f unix --stdin --stdin-filename ${INPUT}",
+--   lintIgnoreExitCode = true,
+--   lintStdin = true,
+--   lintFormats = {"%f:%l:%c: %m"},
+--   formatCommand = "eslint --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+--   formatStdin = true
+-- }
+
+lspconfig.efm.setup {
+  init_options = {codeAction = false, documentFormatting = true},
+  filetypes = {
+    "css",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "lua",
+    "markdown",
+    "python",
+    "sh",
+    "yaml"
+  },
   settings = {
-    pyls = {
-      configurationSources = {"flake8"},
-      plugins = {
-        autopep8 = {enabled = false},
-        black = {enabled = true},
-        flake8 = {enabled = true},
-        -- jedi_signature_help = {enabled = false}, -- stupid slow
-        mccabe = {enabled = false},
-        pycodestyle = {enabled = false, maxLineLength = 88},
-        pyflakes = {enabled = false},
-        pyls_mypy = {enabled = false, live_mode = true},
-        yapf = {enabled = false}
-      }
+    rootMarkers = {".git/"},
+    languages = {
+      css = {efm_prettier},
+      html = {efm_prettier},
+      javascript = {efm_prettier},
+      javascriptreact = {efm_prettier},
+      json = {efm_prettier},
+      lua = {
+        -- {
+        --   formatCommand = "lua-format -i --no-keep-simple-function-one-line --column-limit=80",
+        --   formatStdin = true
+        -- }
+        {
+          formatCommand = "luafmt --indent-count 2 --line-width 80 --stdin",
+          formatStdin = true
+        }
+      },
+      markdown = {efm_prettier},
+      python = {
+        {formatCommand = "black --quiet -", formatStdin = true},
+        {
+          -- lintCommand = "flake8 --stdin-display-name ${INPUT} -",
+          lintCommand = "flake8 --format 'W %(path)s:%(row)d:%(col)d: %(code)s %(text)s' --stdin-display-name ${INPUT} -",
+          lintStdin = true,
+          lintFormats = {
+            "%t %f:%l:%c: %m"
+          }
+        },
+        {formatCommand = "isort --quiet -", formatStdin = true}
+      },
+      sh = {
+        {
+          lintCommand = "shellcheck -f gcc -x",
+          lintFormats = {
+            "%f:%l:%c: %trror: %m",
+            "%f:%l:%c: %tarning: %m",
+            "%f:%l:%c: %tote: %m"
+          }
+        },
+        {
+          formatCommand = "shfmt -bn -ci -i 2 -s",
+          formatStdin = true
+        }
+      },
+      yaml = {efm_prettier},
+      ["yaml.docker-compose"] = {efm_prettier}
     }
   }
 }
 
--- lspconfig.pyright.setup {
+-- lspconfig.pyls.setup {
 --   on_attach = on_attach,
---   root_dir = function(fname)
---     return util.root_pattern(
---       ".git",
---       "setup.py",
---       "setup.cfg",
---       "pyproject.toml",
---       "requirements.txt"
---     )(fname) or util.path.dirname(fname)
---   end
+--   settings = {
+--     pyls = {
+--       configurationSources = {"flake8"},
+--       plugins = {
+--         autopep8 = {enabled = false},
+--         black = {enabled = true},
+--         flake8 = {enabled = true},
+--         -- jedi_signature_help = {enabled = false}, -- stupid slow
+--         mccabe = {enabled = false},
+--         pycodestyle = {enabled = false, maxLineLength = 88},
+--         pyflakes = {enabled = false},
+--         pyls_mypy = {enabled = false, live_mode = true},
+--         yapf = {enabled = false}
+--       }
+--     }
+--   }
 -- }
+
+local python = "python"
+if vim.env.VIRTUAL_ENV then
+  python = vim.env.VIRTUAL_ENV .. "/bin/python"
+end
+lspconfig.pyright.setup {
+  settings = {
+    python = {
+      pythonPath = python
+    }
+  }
+}
+
 local sumneko_root_path =
   vim.fn.stdpath("data") .. "/site/pack/packer/start/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
@@ -183,7 +228,11 @@ lspconfig.sumneko_lua.setup {
     }
   }
 }
-lspconfig.tsserver.setup {on_attach = on_attach}
+lspconfig.tsserver.setup {
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = false
+  end
+}
 lspconfig.vimls.setup {
   on_attach = on_attach,
   init_options = {

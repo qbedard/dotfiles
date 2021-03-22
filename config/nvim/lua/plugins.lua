@@ -355,34 +355,34 @@ return require("packer").startup {
 
     use "pierreglaser/folding-nvim"
 
-    use {
-      "mhartington/formatter.nvim",
-      config = function()
-        require("tb.formatter")
-        -- Create autocmd for gf map
-        local filetypes =
-          table.concat(
-          {
-            "css",
-            "html",
-            "javascript",
-            "json",
-            "lua",
-            "markdown",
-            "sh",
-            "yaml*"
-          },
-          ","
-        )
-        vim.api.nvim_command("augroup format_map")
-        vim.api.nvim_command("autocmd!")
-        vim.api.nvim_command(
-          "autocmd FileType " ..
-            filetypes .. " nnoremap <buffer> <silent> gf :Format<CR>"
-        )
-        vim.api.nvim_command("augroup end")
-      end
-    }
+    -- use {
+    --   "mhartington/formatter.nvim",
+    --   config = function()
+    --     require("tb.formatter")
+    --     -- Create autocmd for gf map
+    --     local filetypes =
+    --       table.concat(
+    --       {
+    --         "css",
+    --         "html",
+    --         "javascript",
+    --         "json",
+    --         "lua",
+    --         "markdown",
+    --         "sh",
+    --         "yaml*"
+    --       },
+    --       ","
+    --     )
+    --     vim.api.nvim_command("augroup format_map")
+    --     vim.api.nvim_command("autocmd!")
+    --     vim.api.nvim_command(
+    --       "autocmd FileType " ..
+    --         filetypes .. " nnoremap <buffer> <silent> gf :Format<CR>"
+    --     )
+    --     vim.api.nvim_command("augroup end")
+    --   end
+    -- }
 
     use {
       "nvim-telescope/telescope.nvim",

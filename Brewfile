@@ -4,6 +4,7 @@ brew "cmake"
 brew "coreutils"  # GNU coreutils (macOS utils are a little different)
 brew "diff-so-fancy"  # fancy git diff
 brew "direnv"
+brew "efm-langserver" # generic language server
 brew "exa", args: ['HEAD']  # ls replacement
 brew "fd"  # find replacement
 brew "fish"  # shell
@@ -25,6 +26,7 @@ brew "pyenv"
 brew "python"
 brew "reattach-to-user-namespace"  # fix tmux pasteboard mac issues
 brew "ripgrep"  # awesome grep
+brew "shellcheck"
 brew "shfmt"
 brew "starship"  # shell prompt
 brew "stow"
