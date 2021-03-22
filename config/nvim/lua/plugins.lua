@@ -349,7 +349,7 @@ return require("packer").startup {
         -- prevent nvim-compe from conflicting with lexima
         vim.g.lexima_no_default_rules = true
         vim.fn["lexima#set_default_rules"]()
-        utils.mapx("i", "<CR>", "compe#confirm(lexima#expand('<CR>', 'i'))")
+        utils.mapx("i", "<CR>", "compe#confirm(lexima#expand('<lt>CR>', 'i'))")
       end
     }
 
