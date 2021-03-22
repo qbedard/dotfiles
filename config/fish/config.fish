@@ -14,12 +14,10 @@ set -g theme_date_timezone America/Chicago
 function fish_greeting; end
 
 # ----- PATH ----- #
-set -gp fish_user_paths "$HOME/bin"  # custom binarys
-# set -gp fish_user_paths "$HOME/Library/Python/3.7/bin"  # python3
-set -gp fish_user_paths "$HOME/.poetry/bin"  # poetry
-set -gp fish_user_paths "/usr/local/opt/ruby/bin"  # ruby
-set -gp fish_user_paths "/usr/local/lib/ruby/gems/2.7.0/bin"  # ruby gems
-set -gp fish_user_paths "$HOME/.cargo/bin"  # rust
+fish_add_path "$HOME/bin"  # custom binaries
+fish_add_path "$HOME/.cargo/bin"  # rust
+fish_add_path "/usr/local/opt/ruby/bin"  # ruby
+fish_add_path "/usr/local/lib/ruby/gems/2.7.0/bin"  # ruby gems
 
 # add openssl for compilers
 set -gx LDFLAGS "-L/usr/local/opt/openssl/lib"
