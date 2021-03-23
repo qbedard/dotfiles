@@ -34,10 +34,6 @@ brew "tmux"
 brew "tokei"
 brew "zoxide"  # fast dir nav
 
-# --- Third Party Taps --- #
-tap "universal-ctags/universal-ctags"
-brew "universal-ctags/universal-ctags/universal-ctags", args: ['HEAD', 'with-jansson']
-
 # --- Casks --- #
 tap "homebrew/cask"
 cask "alfred"
