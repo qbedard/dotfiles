@@ -1,6 +1,6 @@
 # --- Packages --- #
 brew "bat"  # cat replacement
-brew "cmake"
+# brew "cmake"
 brew "coreutils"  # GNU coreutils (macOS utils are a little different)
 brew "diff-so-fancy"  # fancy git diff
 brew "direnv"

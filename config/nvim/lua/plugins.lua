@@ -55,6 +55,12 @@ return require("packer").startup {
         -- }
       end
     }
+    -- use {
+    --   "tjdevries/express_line.nvim",
+    --   config = function()
+    --   end
+    -- }
+
     use {
       "Yggdroot/indentLine",
       config = function()
@@ -122,6 +128,8 @@ return require("packer").startup {
 
     use {
       "neovim/nvim-lspconfig",
+      -- TODO: Get this working
+      -- rocks = {"luaformatter", server = "https://luarocks.org/dev"},
       config = function()
         require("tb.lsp")
         local utils = require("tb.utils")
@@ -583,5 +591,8 @@ return require("packer").startup {
 
     use "janko-m/vim-test"
     -- use "hkupty/iron.nvim"
-  end
+  end,
+  config = {
+    python_cmd = "python3"
+  }
 }
