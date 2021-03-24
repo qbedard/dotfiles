@@ -29,6 +29,10 @@ source $ZSH/oh-my-zsh.sh
 # TODO: Find a way to make this dynamic
 source "$HOME/.common.sh"
 
+# --- fzf ---
+[ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
+
 # --- direnv ---
 if hash direnv 2>/dev/null; then
   eval "$(direnv hook zsh)"
@@ -41,5 +45,5 @@ fi
 
 # starship prompt
 if command -v starship > /dev/null; then
-  starship init fish | source
+  eval "$(starship init zsh)"
 fi

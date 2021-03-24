@@ -13,5 +13,5 @@ fi
 
 # starship prompt
 if command -v starship > /dev/null; then
-  starship init fish | source
+  eval "$(starship init bash)"
 fi

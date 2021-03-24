@@ -16,6 +16,7 @@
 
 - link:
     ~/.bashrc:
+    ~/.common.sh:
     ~/.eslintrc.yml:
     ~/.ggitignore:
     ~/.ideavimrc:

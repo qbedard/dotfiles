@@ -100,7 +100,7 @@ export EDITOR=nvim
 export KEYTIMEOUT=1
 
 # --- gruvbox Colors --- #
-. "$HOME/.local/share/nvim/site/plugged/gruvbox/gruvbox_256palette.sh"
+# . "$HOME/.local/share/nvim/site/plugged/gruvbox/gruvbox_256palette.sh"
 
 # --- Base16 Theme ---
 # BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -140,10 +140,6 @@ unset fasd_cache
 alias j='fasd_cd -d'
 alias v='f -e vim'
 alias o='a -e open'
-
-# --- fzf ---
-[ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
-[ -f /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
 
 # use rg with fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
