@@ -10,3 +10,8 @@ fi
 if command -v hub > /dev/null; then
   eval "$(hub alias -s bash)"
 fi
+
+# starship prompt
+if command -v starship > /dev/null; then
+  starship init fish | source
+fi

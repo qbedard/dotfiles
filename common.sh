@@ -7,24 +7,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export LDFLAGS="-L/usr/local/opt/openssl/lib"
   export CPPFLAGS="-I/usr/local/opt/openssl/include"
 
-  # add python 2 to path
-  export PATH="/usr/local/opt/python@2/bin:$PATH"
-
-  export PATH="$HOME/.poetry/bin:$PATH"
-
   # add ruby bins to path
-  export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
-
-  # go root
-  export GOROOT="$(brew --prefix golang)/libexec"
+  export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 fi
+
+export PATH="$HOME/bin:$PATH"  # custom binaries
 
 # add cargo binaries to path
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# add go binaries to path
-export GOPATH="$HOME/.go"
-export PATH="${GOPATH}/bin:${GOROOT}/bin:$PATH"
 
 # add yarn binaries and modules to path
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
