@@ -64,6 +64,11 @@ symbol = " "
 format = "[$symbol$version]($style) "
 symbol = " "
 
+[shlvl]
+format = "[$symbol]($style)"
+symbol = "↳"
+disabled = false
+
 [terraform]
 format = "[$symbol$version]($style) "
 symbol = " "
