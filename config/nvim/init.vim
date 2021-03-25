@@ -29,6 +29,7 @@ endfunction
 
 "------------------------------- Autocommands --------------------------------"
 augroup recompile_plugins
+  autocmd!
   autocmd BufWritePost plugins.lua call <SID>recompile_plugins()
 augroup END
 
@@ -46,6 +47,7 @@ augroup END
 
 " Go away, netrw!
 augroup hide_netrw
+  autocmd!
   autocmd FileType netrw setl bufhidden=wipe
 augroup END
 
