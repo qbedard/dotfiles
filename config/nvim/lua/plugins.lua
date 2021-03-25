@@ -42,17 +42,34 @@ return require("packer").startup {
       "romgrk/barbar.nvim",
       requires = "kyazdani42/nvim-web-devicons"
     }
-    -- TODO: Replace
     use {
-      "vim-airline/vim-airline",
-      requires = "vim-airline/vim-airline-themes",
+      "hoob3rt/lualine.nvim",
+      requires = {"kyazdani42/nvim-web-devicons"},
+      after = {"gruvbox"},
       config = function()
-        vim.g.airline_powerline_fonts = 1
-        -- TODO: Find out wtf is going on with airline
-        -- vim.g.airline_symbols = {
-        --   branch = "",
-        --   readonly = ""
-        -- }
+        require("lualine").setup {
+          theme = "gruvbox",
+          sections = {
+            lualine_a = {"mode"},
+            lualine_b = {{"branch", icon = ""}, "diff"},
+            lualine_c = {"filename"},
+            lualine_x = {
+              {
+                "diagnostics",
+                sources = {"nvim_lsp"},
+                color_error = "#fb4934",
+                color_warn = "#fabd2f",
+                color_info = "#83a398"
+              },
+              "encoding",
+              "fileformat",
+              "filetype"
+            },
+            lualine_y = {"progress"},
+            lualine_z = {"location"}
+          },
+          extensions = {"fugitive"}
+        }
       end
     }
 
