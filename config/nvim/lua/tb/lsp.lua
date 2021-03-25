@@ -59,7 +59,6 @@ vim.fn.sign_define(
 )
 
 local on_attach = function()
-  -- require("completion").on_attach()
   require("folding").on_attach()
 end
 
@@ -197,7 +196,6 @@ local sumneko_root_path =
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 lspconfig.sumneko_lua.setup {
   on_attach = function()
-    -- require("completion").on_attach()
     -- TODO: Find out why folding is borked for lua
     -- require("folding").on_attach()
   end,

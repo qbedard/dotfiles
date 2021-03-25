@@ -236,93 +236,6 @@ return require("packer").startup {
         }
       end
     }
-    -- use {
-    --   "nvim-lua/completion-nvim",
-    --   config = function()
-    --     vim.g.completion_enable_auto_signature = 0 -- crazy slow
-    --     vim.g.completion_chain_complete_list = {
-    --       {
-    --         complete_items = {
-    --           "lsp"
-    --           -- "snippet",
-    --           -- "path"
-    --         }
-    --       },
-    --       {mode = "<c-p>"},
-    --       {mode = "<c-n>"}
-    --     }
-    --     local term_codes = function(s)
-    --       return vim.api.nvim_replace_termcodes(s, true, true, true)
-    --     end
-
-    --     local check_behind = function()
-    --       local is_empty = function(col)
-    --         return col <= 0 or vim.fn.getline("."):sub(col, col):match("%s")
-    --       end
-    --       local pos_col = vim.fn.col(".") - 1
-    --       return is_empty(pos_col) and is_empty(pos_col - 1) and true or false
-    --     end
-
-    --     _G.complete = function(pum, empty)
-    --       if vim.fn.pumvisible() == 1 then
-    --         return term_codes(pum)
-    --       elseif check_behind() then
-    --         return term_codes(empty)
-    --       else
-    --         return vim.fn["completion#trigger_completion"]()
-    --       end
-    --     end
-
-    --     vim.api.nvim_set_keymap(
-    --       "i",
-    --       "<Tab>",
-    --       "v:lua.complete('<C-n>', '<Tab>')",
-    --       {expr = true, noremap = true, silent = true}
-    --     )
-    --     vim.api.nvim_set_keymap(
-    --       "s",
-    --       "<Tab>",
-    --       "v:lua.complete('<C-n>', '<Tab>')",
-    --       {expr = true, noremap = true, silent = true}
-    --     )
-    --     vim.api.nvim_set_keymap(
-    --       "i",
-    --       "<S-Tab>",
-    --       "v:lua.complete('<C-p>', '<C-h>')",
-    --       {expr = true, noremap = true, silent = true}
-    --     )
-    --     vim.api.nvim_set_keymap(
-    --       "s",
-    --       "<S-Tab>",
-    --       "v:lua.complete('<C-p>', '<C-h>')",
-    --       {expr = true, noremap = true, silent = true}
-    --     )
-
-    --     -- prevent completion from conflicting with pairing plugin
-    --     vim.g.completion_confirm_key = ""
-    --     vim.api.nvim_exec(
-    --       [[
-    --         inoremap <expr> <CR> pumvisible() ? complete_info()["selected"] != "-1" ? "\<Plug>(completion_confirm_completion)" : "\<c-e>\<CR>" : "\<CR>"
-    --       ]],
-    --       false
-    --     )
-    --     -- _G.confirm_complete = function()
-    --     --   if vim.fn.pumvisible() ~= 1 then
-    --     --     return term_codes("<CR>")
-    --     --   elseif vim.fn["complete_info"]()["selected"] == -1 then
-    --     --     return term_codes("<C-e><CR>")
-    --     --   else
-    --     --     return vim.fn["completion#completion_confirm"]()
-    --     --   end
-    --     -- end
-    --     -- vim.api.nvim_set_keymap(
-    --     --   "i",
-    --     --   "<CR>",
-    --     --   "v:lua.confirm_complete()",
-    --     --   {expr = true, noremap = true, silent = true}
-    --     -- )
-    --   end
-    -- }
     use {
       "hrsh7th/nvim-compe",
       config = function()
@@ -367,35 +280,6 @@ return require("packer").startup {
     }
 
     use "pierreglaser/folding-nvim"
-
-    -- use {
-    --   "mhartington/formatter.nvim",
-    --   config = function()
-    --     require("tb.formatter")
-    --     -- Create autocmd for gf map
-    --     local filetypes =
-    --       table.concat(
-    --       {
-    --         "css",
-    --         "html",
-    --         "javascript",
-    --         "json",
-    --         "lua",
-    --         "markdown",
-    --         "sh",
-    --         "yaml*"
-    --       },
-    --       ","
-    --     )
-    --     vim.api.nvim_command("augroup format_map")
-    --     vim.api.nvim_command("autocmd!")
-    --     vim.api.nvim_command(
-    --       "autocmd FileType " ..
-    --         filetypes .. " nnoremap <buffer> <silent> gf :Format<CR>"
-    --     )
-    --     vim.api.nvim_command("augroup end")
-    --   end
-    -- }
 
     use {
       "nvim-telescope/telescope.nvim",
