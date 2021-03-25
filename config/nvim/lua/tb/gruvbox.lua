@@ -1,6 +1,3 @@
-vim.g.gruvbox_italic = 1
-vim.g.gruvbox_sign_column = "bg0"
-vim.cmd("colorscheme gruvbox") -- must come after gruvbox_italic
 -- match the fold column colors to the line number column
 -- Note: must come after colorscheme gruvbox
 vim.cmd("highlight clear FoldColumn")
