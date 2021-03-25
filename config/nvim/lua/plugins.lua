@@ -35,9 +35,21 @@ return require("packer").startup {
     use {
       "gruvbox-community/gruvbox",
       config = function()
+        vim.g.gruvbox_italic = 1
+        vim.g.gruvbox_sign_column = "bg0"
+        vim.cmd("colorscheme gruvbox") -- must come after gruvbox_italic
         require("tb.gruvbox")
       end
     }
+    -- use {
+    --   "npxbr/gruvbox.nvim",
+    --   requires = "rktjmp/lush.nvim",
+    --   config = function()
+    --     vim.g.gruvbox_sign_column = "bg0"
+    --     vim.cmd("colorscheme gruvbox")
+    --     -- require("tb.gruvbox")
+    --   end
+    -- }
     use {
       "romgrk/barbar.nvim",
       requires = "kyazdani42/nvim-web-devicons"
@@ -46,6 +58,7 @@ return require("packer").startup {
       "hoob3rt/lualine.nvim",
       requires = {"kyazdani42/nvim-web-devicons"},
       after = {"gruvbox"},
+      -- after = {"gruvbox.nvim"},
       config = function()
         require("lualine").setup {
           theme = "gruvbox",
