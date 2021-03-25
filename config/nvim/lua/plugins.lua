@@ -55,32 +55,20 @@ return require("packer").startup {
         -- }
       end
     }
-    -- use {
-    --   "tjdevries/express_line.nvim",
-    --   config = function()
-    --   end
-    -- }
 
     use {
-      "Yggdroot/indentLine",
+      "lukas-reineke/indent-blankline.nvim",
+      branch = "lua",
       config = function()
-        vim.g.indentLine_char = "│"
-        vim.g.indentLine_bufTypeExclude = {"help", "terminal"}
-        vim.g.indentLine_fileTypeExclude = {"text", "markdown"}
+        vim.wo.colorcolumn = "80" -- highlight bug hack fix
+        vim.g.indent_blankline_char = "│"
+        vim.g.indent_blankline_buftype_exclude = {"help", "terminal"}
+        vim.g.indent_blankline_filetype_exclude = {"text", "markdown"}
+        -- vim.g.indent_blankline_show_end_of_line = true
+        vim.g.indent_blankline_show_first_indent_level = false
+        vim.g.indent_blankline_show_trailing_blankline_indent = false
       end
     }
-    -- use {
-    --   "lukas-reineke/indent-blankline.nvim",
-    --   branch = "lua",
-    --   config = function()
-    --     vim.g.indent_blankline_char = "│"
-    --     vim.g.indent_blankline_buftype_exclude = {"help", "terminal"}
-    --     vim.g.indent_blankline_filetype_exclude = {"text", "markdown"}
-    --     -- vim.g.indent_blankline_show_end_of_line = true
-    --     vim.g.indent_blankline_show_first_indent_level = false
-    --     vim.g.indent_blankline_show_trailing_blankline_indent = false
-    --   end
-    -- }
 
     use {
       "timbedard/vim-envelop",
