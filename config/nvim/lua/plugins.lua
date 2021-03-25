@@ -59,7 +59,7 @@ return require("packer").startup {
                 sources = {"nvim_lsp"},
                 color_error = "#fb4934",
                 color_warn = "#fabd2f",
-                color_info = "#83a398"
+                color_info = "#83a598"
               },
               "encoding",
               "fileformat",
