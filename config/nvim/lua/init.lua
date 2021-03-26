@@ -46,7 +46,6 @@ vim.bo.expandtab = true -- tabs insert spaces
 vim.bo.smartindent = true
 vim.o.joinspaces = false -- only insert one space after punction when joining lines
 vim.o.listchars = "extends:›,precedes:‹,nbsp:·,tab:→ ,trail:·"
--- vim.o.listchars = "eol:↴,extends:›,precedes:‹,nbsp:·,tab:→ ,trail:·"
 vim.wo.foldlevel = 99
 vim.wo.linebreak = true -- wrap line if too long
 vim.wo.list = true -- show listchars
