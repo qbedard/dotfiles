@@ -45,7 +45,7 @@ return require("packer").startup {
     --   "npxbr/gruvbox.nvim",
     --   requires = "rktjmp/lush.nvim",
     --   config = function()
-    --     vim.g.gruvbox_sign_column = "bg0"
+    --     vim.g.gruvbox_sign_column = "dark0"
     --     vim.cmd("colorscheme gruvbox")
     --     -- require("tb.gruvbox")
     --   end
@@ -55,13 +55,15 @@ return require("packer").startup {
       requires = "kyazdani42/nvim-web-devicons"
     }
     use {
-      "hoob3rt/lualine.nvim",
+      -- "hoob3rt/lualine.nvim",
+      -- temporary fix branch
+      "shadmansaleh/lualine.nvim",
+      branch = "BugFix_diagnostics_highlight",
       requires = {"kyazdani42/nvim-web-devicons"},
       after = {"gruvbox"},
       -- after = {"gruvbox.nvim"},
       config = function()
         require("lualine").setup {
-          theme = "gruvbox",
           sections = {
             lualine_a = {"mode"},
             lualine_b = {{"branch", icon = ""}, "diff"},
@@ -70,8 +72,6 @@ return require("packer").startup {
               {
                 "diagnostics",
                 sources = {"nvim_lsp"},
-                color_error = "#fb4934",
-                color_warn = "#fabd2f",
                 color_info = "#83a598"
               },
               "encoding",
@@ -415,26 +415,11 @@ return require("packer").startup {
       config = function()
         require("gitsigns").setup {
           signs = {
-            add = {
-              hl = "GruvboxGreenSign"
-              -- text = "▎"
-            },
-            change = {
-              hl = "GruvboxBlueSign"
-              -- text = "▎"
-            },
-            delete = {
-              hl = "GruvboxRedSign"
-              -- text = "_"
-            },
-            topdelete = {
-              hl = "GruvboxRedSign"
-              -- text = "‾"
-            },
-            changedelete = {
-              hl = "GruvboxOrangeSign",
-              text = "│"
-            }
+            add = {hl = "GruvboxGreenSign"},
+            change = {hl = "GruvboxBlueSign"},
+            delete = {hl = "GruvboxRedSign"},
+            topdelete = {hl = "GruvboxRedSign"},
+            changedelete = {hl = "GruvboxOrangeSign", text = "│"}
           },
           sign_priority = 0
         }
