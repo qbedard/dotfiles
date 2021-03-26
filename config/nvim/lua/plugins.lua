@@ -55,10 +55,7 @@ return require("packer").startup {
       requires = "kyazdani42/nvim-web-devicons"
     }
     use {
-      -- "hoob3rt/lualine.nvim",
-      -- temporary fix branch
-      "shadmansaleh/lualine.nvim",
-      branch = "BugFix_diagnostics_highlight",
+      "hoob3rt/lualine.nvim",
       requires = {"kyazdani42/nvim-web-devicons"},
       after = {"gruvbox"},
       -- after = {"gruvbox.nvim"},
