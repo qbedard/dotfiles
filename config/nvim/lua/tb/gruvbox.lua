@@ -1,7 +1,7 @@
 -- match the fold column colors to the line number column
 -- Note: must come after colorscheme gruvbox
-vim.cmd("highlight clear FoldColumn")
-vim.cmd("highlight! link FoldColumn LineNr")
+-- vim.cmd("highlight clear FoldColumn")
+-- vim.cmd("highlight! link FoldColumn LineNr")
 
 -- treesitter highlights
 vim.cmd("highlight! link TSConstBuiltin Constant") -- None
@@ -9,6 +9,7 @@ vim.cmd("highlight! link TSKeywordOperator Keyword") -- not, in
 vim.cmd("highlight! link TSOperator GruvboxRed")
 vim.cmd("highlight! link TSFunction GruvboxAqua")
 vim.cmd("highlight! link TSMethod GruvboxAqua")
+vim.cmd("highlight! clear TSError")
 
 ----
 

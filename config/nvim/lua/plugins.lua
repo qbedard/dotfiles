@@ -19,7 +19,7 @@ return require("packer").startup {
       "nvim-treesitter/nvim-treesitter",
       requires = {
         -- "romgrk/nvim-treesitter-context", -- This is rad, but stupid slow right now.
-        -- "nvim-treesitter/playground",
+        "nvim-treesitter/playground",
         -- "nvim-treesitter/nvim-treesitter-refactor",
         "nvim-treesitter/nvim-treesitter-textobjects",
         "windwp/nvim-ts-autotag"
@@ -31,24 +31,24 @@ return require("packer").startup {
         vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
       end
     }
+    -- use {
+    --   "gruvbox-community/gruvbox",
+    --   config = function()
+    --     vim.g.gruvbox_italic = 1
+    --     vim.g.gruvbox_sign_column = "bg0"
+    --     vim.cmd("colorscheme gruvbox") -- must come after gruvbox_italic
+    --     require("tb.gruvbox")
+    --   end
+    -- }
     use {
-      "gruvbox-community/gruvbox",
+      "npxbr/gruvbox.nvim",
+      requires = "rktjmp/lush.nvim",
       config = function()
-        vim.g.gruvbox_italic = 1
         vim.g.gruvbox_sign_column = "bg0"
-        vim.cmd("colorscheme gruvbox") -- must come after gruvbox_italic
+        vim.cmd("colorscheme gruvbox")
         require("tb.gruvbox")
       end
     }
-    -- use {
-    --   "npxbr/gruvbox.nvim",
-    --   requires = "rktjmp/lush.nvim",
-    --   config = function()
-    --     vim.g.gruvbox_sign_column = "dark0"
-    --     vim.cmd("colorscheme gruvbox")
-    --     -- require("tb.gruvbox")
-    --   end
-    -- }
     use {
       "romgrk/barbar.nvim",
       requires = "kyazdani42/nvim-web-devicons"
@@ -56,8 +56,8 @@ return require("packer").startup {
     use {
       "hoob3rt/lualine.nvim",
       requires = {"kyazdani42/nvim-web-devicons"},
-      after = {"gruvbox"},
-      -- after = {"gruvbox.nvim"},
+      -- after = {"gruvbox"},
+      after = {"gruvbox.nvim"},
       config = function()
         require("lualine").setup {
           sections = {
@@ -158,7 +158,8 @@ return require("packer").startup {
     }
     use {
       "glepnir/lspsaga.nvim",
-      after = "gruvbox",
+      -- after = "gruvbox",
+      after = "gruvbox.nvim",
       config = function()
         require("tb.lspsaga")
 
