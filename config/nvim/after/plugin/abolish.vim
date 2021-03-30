@@ -12,3 +12,4 @@ Abolish repitition{,s}  repetition{}
 Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or}  {despe,sepa}rat{}
 Abolish temp{al}te temp{la}te
 Abolish wh{ci,cic,icc}h{,c}  wh{ic}h
+Abolish {co,oc}u{nt,tn} {co}u{nt}
