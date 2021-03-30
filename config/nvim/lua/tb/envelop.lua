@@ -18,6 +18,7 @@ vim.g.envelop_node_packages = {
   "dockerfile-language-server-nodejs",
   "lua-fmt",
   "prettier",
+  -- "prettier-plugin-toml",
   "pyright",
   "typescript",
   "typescript-language-server",
@@ -33,7 +34,6 @@ vim.g.envelop_python3_link = {
   "bin/isort",
   -- "bin/mypy",
   "bin/pip3",
-  -- "bin/pyls",
   "bin/python3",
   "bin/sqlformat",
   "bin/vint"
@@ -46,13 +46,10 @@ vim.g.envelop_python3_packages = {
   -- "flake8-pytest-style",
   -- "flake8-simplify",
   "isort",
+  -- "mypy",
   "pep8-naming",
   "pip",
-  -- "pyls-black",
-  -- "pyls-isort",
-  -- "git+https://github.com/tomv564/pyls-mypy.git@master#egg=pyls_mypy",
   "pynvim",
-  -- "python-language-server[all]",
   "sqlparse",
   "vim-vint"
 }

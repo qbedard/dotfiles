@@ -158,6 +158,7 @@ return require("packer").startup {
     }
     use {
       "glepnir/lspsaga.nvim",
+      after = "gruvbox",
       config = function()
         require("tb.lspsaga")
 
@@ -404,6 +405,7 @@ return require("packer").startup {
     use {
       "cohama/lexima.vim",
       config = function()
+        -- TODO: Fix repeating with .
         -- lexima's <Esc> mapping breaks telescope
         vim.g.lexima_map_escape = ""
       end

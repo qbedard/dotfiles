@@ -106,6 +106,7 @@ lspconfig.efm.setup {
     "markdown",
     "python",
     "sh",
+    "toml",
     "yaml"
   },
   settings = {
@@ -138,6 +139,14 @@ lspconfig.efm.setup {
           }
         },
         {formatCommand = "isort --quiet -", formatStdin = true}
+        -- {
+        --   lintCommand = "mypy --show-column-numbers",
+        --   lintFormats = {
+        --     "%f:%l:%c: %trror: %m",
+        --     "%f:%l:%c: %tarning: %m",
+        --     "%f:%l:%c: %tote: %m"
+        --   }
+        -- }
       },
       sh = {
         {
@@ -153,6 +162,7 @@ lspconfig.efm.setup {
           formatStdin = true
         }
       },
+      -- toml = {efm_prettier},
       yaml = {efm_prettier},
       ["yaml.docker-compose"] = {efm_prettier}
     }
@@ -186,6 +196,17 @@ end
 lspconfig.pyright.setup {
   settings = {
     python = {
+      analysis = {
+        diagnosticSeverityOverrides = {
+          -- reportMissingTypeStubs = true,
+          -- reportUnknownArgumentType = "warning",
+          -- reportUnknownLambdaType = "warning",
+          -- reportUnknownMemberType = "warning",
+          -- reportUnknownParameterType = "warning",
+          -- reportUnknownVariableType = "warning"
+        }
+        -- typeCheckingMode = "strict"
+      },
       pythonPath = python
     }
   }
