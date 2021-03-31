@@ -246,7 +246,7 @@ end
 if status is-interactive
 and not set -q TMUX
   # TODO: Find out why the hell this borks fzf when not inside this conditional
-  bash "$HOME/.local/share/nvim/site/pack/packer/start/gruvbox/gruvbox_256palette.sh"
+  # bash "$HOME/.local/share/nvim/site/pack/packer/start/gruvbox/gruvbox_256palette.sh"
   # attach to session "main" if it exists, otherwise create it
   # TODO: Attach only if none attached
   # exec tmux new-session -A -s main
