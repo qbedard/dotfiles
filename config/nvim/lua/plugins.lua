@@ -363,6 +363,7 @@ return require("packer").startup {
     use "tpope/vim-eunuch"
     use "tpope/vim-abolish"
     use "tpope/vim-fugitive"
+    use "tpope/vim-rhubarb"
     use "tpope/vim-unimpaired"
 
     use "wellle/targets.vim"
