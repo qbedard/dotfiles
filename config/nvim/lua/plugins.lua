@@ -19,7 +19,7 @@ return require("packer").startup {
       "nvim-treesitter/nvim-treesitter",
       requires = {
         -- "romgrk/nvim-treesitter-context", -- This is rad, but stupid slow right now.
-        "nvim-treesitter/playground",
+        -- "nvim-treesitter/playground",
         -- "nvim-treesitter/nvim-treesitter-refactor",
         "nvim-treesitter/nvim-treesitter-textobjects",
         "windwp/nvim-ts-autotag"
