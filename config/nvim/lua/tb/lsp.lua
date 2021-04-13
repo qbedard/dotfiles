@@ -32,7 +32,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 vim.fn.sign_define(
   "LspDiagnosticsSignError",
   {
-    text = "",
+    text = "",
     texthl = "LspDiagnosticsSignError"
   }
 )
@@ -71,7 +71,6 @@ local servers = {
   "dockerls",
   "html",
   "jsonls"
-  -- "pyright"
   -- "sql",
   -- "terraformls"
 }

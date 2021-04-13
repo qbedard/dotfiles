@@ -11,6 +11,10 @@ vim.cmd("highlight! link TSFunction GruvboxAqua")
 vim.cmd("highlight! link TSMethod GruvboxAqua")
 vim.cmd("highlight! clear TSError")
 
+-- misc
+vim.cmd("highlight! link DiffChange GruvboxBlue")
+-- vim.cmd("highlight! link GitGutterChange GruvboxBlue") -- for gitsigns
+
 ----
 
 -- vim.cmd("highlight! link TSPunctDelimiter Delimiter") -- , . etc

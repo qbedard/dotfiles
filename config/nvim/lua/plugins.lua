@@ -62,13 +62,20 @@ return require("packer").startup {
         require("lualine").setup {
           sections = {
             lualine_a = {"mode"},
-            lualine_b = {{"branch", icon = ""}, "diff"},
+            lualine_b = {
+              {"branch", icon = ""},
+              {
+                "diff",
+                symbols = {added = " ", modified = " ", removed = " "}
+              }
+            },
             lualine_c = {"filename"},
             lualine_x = {
               {
                 "diagnostics",
                 sources = {"nvim_lsp"},
-                color_info = "#83a598"
+                color_info = "#83a598",
+                symbols = {error = " ", warn = " ", info = " "}
               },
               "encoding",
               "fileformat",
@@ -378,11 +385,11 @@ return require("packer").startup {
       config = function()
         require("gitsigns").setup {
           signs = {
-            add = {hl = "GruvboxGreenSign"},
-            change = {hl = "GruvboxBlueSign"},
-            delete = {hl = "GruvboxRedSign"},
-            topdelete = {hl = "GruvboxRedSign"},
-            changedelete = {hl = "GruvboxOrangeSign", text = "│"}
+            add = {hl = "DiffAdd", text = "┃"},
+            change = {hl = "DiffChange", text = "┃"},
+            changedelete = {hl = "GruvboxOrange", text = "┃"},
+            delete = {hl = "DiffDelete"},
+            topdelete = {hl = "DiffDelete"}
           },
           sign_priority = 0
         }
