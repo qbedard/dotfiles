@@ -63,13 +63,15 @@ return require("packer").startup {
           sections = {
             lualine_a = {"mode"},
             lualine_b = {
-              {"branch", icon = ""},
+              {"branch", icon = ""}
+            },
+            lualine_c = {
               {
                 "diff",
                 symbols = {added = " ", modified = " ", removed = " "}
-              }
+              },
+              "filename"
             },
-            lualine_c = {"filename"},
             lualine_x = {
               {
                 "diagnostics",
@@ -77,8 +79,8 @@ return require("packer").startup {
                 color_info = "#83a598",
                 symbols = {error = " ", warn = " ", info = " "}
               },
-              "encoding",
-              "fileformat",
+              -- "encoding",
+              -- "fileformat",
               "filetype"
             },
             lualine_y = {"progress"},
