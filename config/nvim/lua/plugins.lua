@@ -70,7 +70,7 @@ return require("packer").startup {
                 "diff",
                 symbols = {added = " ", modified = " ", removed = " "}
               },
-              "filename"
+              {"filename", symbols = {modified = " ", readonly = " "}}
             },
             lualine_x = {
               {
