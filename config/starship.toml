@@ -45,6 +45,9 @@ symbol = " "
 [line_break]
 disabled = true
 
+[lua]
+symbol = " "
+
 [nodejs]
 format = "[$symbol$version]($style) "
 
