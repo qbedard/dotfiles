@@ -13,7 +13,7 @@ disabled = true
 [directory]
 read_only = " "
 
-[docker]
+[docker_context]
 symbol = " "
 
 [git_branch]
