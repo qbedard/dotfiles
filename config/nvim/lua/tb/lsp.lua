@@ -93,6 +93,12 @@ local efm_prettier = {
 --   formatStdin = true
 -- }
 
+local efm_sqlformat = {
+  -- TODO: Find something that works better
+  formatCommand = "sqlformat -k upper --wrap_after 80 -",
+  formatStdin = true
+}
+
 lspconfig.efm.setup {
   init_options = {codeAction = false, documentFormatting = true},
   filetypes = {
@@ -103,8 +109,10 @@ lspconfig.efm.setup {
     "json",
     "lua",
     "markdown",
+    "mysql",
     "python",
     "sh",
+    "sql",
     "toml",
     "yaml"
   },
@@ -127,6 +135,7 @@ lspconfig.efm.setup {
         }
       },
       markdown = {efm_prettier},
+      mysql = {efm_sqlformat},
       python = {
         {formatCommand = "black --quiet -", formatStdin = true},
         {
@@ -161,6 +170,7 @@ lspconfig.efm.setup {
           formatStdin = true
         }
       },
+      sql = {efm_sqlformat},
       -- toml = {efm_prettier},
       yaml = {efm_prettier},
       ["yaml.docker-compose"] = {efm_prettier}
