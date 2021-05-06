@@ -71,7 +71,6 @@ local servers = {
   "dockerls",
   "html",
   "jsonls"
-  -- "sql",
   -- "terraformls"
 }
 for _, lsp in ipairs(servers) do
@@ -205,20 +204,25 @@ end
 lspconfig.pyright.setup {
   settings = {
     python = {
-      analysis = {
-        diagnosticSeverityOverrides = {
-          -- reportMissingTypeStubs = true,
-          -- reportUnknownArgumentType = "warning",
-          -- reportUnknownLambdaType = "warning",
-          -- reportUnknownMemberType = "warning",
-          -- reportUnknownParameterType = "warning",
-          -- reportUnknownVariableType = "warning"
-        }
-        -- typeCheckingMode = "strict"
-      },
+      -- analysis = {
+      --   diagnosticSeverityOverrides = {
+      --     reportMissingTypeStubs = true,
+      --     reportUnknownArgumentType = "warning",
+      --     reportUnknownLambdaType = "warning",
+      --     reportUnknownMemberType = "warning",
+      --     reportUnknownParameterType = "warning",
+      --     reportUnknownVariableType = "warning"
+      --   }
+      --   typeCheckingMode = "strict"
+      -- },
       pythonPath = python
     }
   }
+}
+
+lspconfig.sqls.setup {
+  -- cmd = {"sqls", "-config" "path/to/config.yml"}
+  cmd = {"sqls"}
 }
 
 local sumneko_root_path =
@@ -256,11 +260,13 @@ lspconfig.sumneko_lua.setup {
     }
   }
 }
+
 lspconfig.tsserver.setup {
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
   end
 }
+
 lspconfig.vimls.setup {
   on_attach = on_attach,
   init_options = {
@@ -268,6 +274,7 @@ lspconfig.vimls.setup {
     indexes = {gap = 75, count = 5}
   }
 }
+
 lspconfig.yamlls.setup {
   on_attach = on_attach,
   settings = {
