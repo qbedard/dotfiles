@@ -220,10 +220,20 @@ lspconfig.pyright.setup {
   }
 }
 
-lspconfig.sqls.setup {
-  -- cmd = {"sqls", "-config" "path/to/config.yml"}
-  cmd = {"sqls"}
-}
+lspconfig.sqls.setup {}
+-- TODO: Figure out why this doesn't work.
+-- settings = {
+--   sqls = {
+--     connections = {
+--       {
+--         alias = "mysql",
+--         driver = "mysql",
+--         dataSourceName = "root:root@tcp(127.0.0.1:3306)/customerportal"
+--       }
+--     }
+--   }
+-- }
+-- }
 
 local sumneko_root_path =
   vim.fn.stdpath("data") .. "/site/pack/packer/start/lua-language-server"
