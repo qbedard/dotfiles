@@ -27,8 +27,8 @@ return require("packer").startup {
       run = ":TSUpdate",
       config = function()
         require("tb.treesitter")
-        vim.wo.foldmethod = "expr"
-        vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+        -- vim.wo.foldmethod = "expr"
+        -- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
       end
     }
     -- use {
@@ -348,7 +348,8 @@ return require("packer").startup {
     use {
       "kshenoy/vim-signature",
       config = function()
-        vim.g.SignatureMarkTextHLDynamic = 1
+        -- only supports vim-gitgutter
+        -- vim.g.SignatureMarkTextHLDynamic = 1
       end
     }
     use {
@@ -410,7 +411,7 @@ return require("packer").startup {
     use {
       "andymass/vim-matchup",
       config = function()
-        vim.g.matchup_matchparen_offscreen = {method = "popup"}
+        vim.g.matchup_matchparen_offscreen = {}
       end
     }
     use {
@@ -428,19 +429,19 @@ return require("packer").startup {
       ft = {"html", "jinja"}
     }
 
-    use {
-      "sheerun/vim-polyglot",
-      opt = true,
-      event = "VimEnter *",
-      setup = function()
-        vim.g.polyglot_disabled = {"helm"}
-      end,
-      config = function()
-        vim.g.javascript_plugin_jsdoc = 1
-        vim.g.vim_markdown_frontmatter = 1
-        vim.g.vim_markdown_new_list_item_indent = 2
-      end
-    }
+    -- use {
+    --   "sheerun/vim-polyglot",
+    --   opt = true,
+    --   event = "VimEnter *",
+    --   setup = function()
+    --     vim.g.polyglot_disabled = {"helm", "python"}
+    --   end,
+    --   config = function()
+    --     vim.g.javascript_plugin_jsdoc = 1
+    --     vim.g.vim_markdown_frontmatter = 1
+    --     vim.g.vim_markdown_new_list_item_indent = 2
+    --   end
+    -- }
 
     use "janko-m/vim-test"
     -- use "hkupty/iron.nvim"
