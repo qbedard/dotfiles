@@ -59,6 +59,8 @@ return require("packer").startup {
       -- after = {"gruvbox"},
       after = {"gruvbox.nvim"},
       config = function()
+        local i = require("tb.icons")
+
         require("lualine").setup {
           sections = {
             lualine_a = {"mode"},
@@ -68,16 +70,28 @@ return require("packer").startup {
             lualine_c = {
               {
                 "diff",
-                symbols = {added = " ", modified = " ", removed = " "}
+                symbols = {
+                  added = i.diff.add_,
+                  modified = i.diff.mod_,
+                  removed = i.diff.del_
+                }
               },
-              {"filename", symbols = {modified = " ", readonly = " "}}
+              {
+                "filename",
+                symbols = {modified = i.file._mod, readonly = i.file._lock}
+              }
             },
             lualine_x = {
               {
                 "diagnostics",
                 sources = {"nvim_lsp"},
                 color_info = "#83a598",
-                symbols = {error = " ", warn = " ", info = " "}
+                symbols = {
+                  error = i.diag.error_,
+                  warn = i.diag.warn_,
+                  info = i.diag.info_,
+                  hint = i.diag.hint_
+                }
               },
               -- "encoding",
               -- "fileformat",
@@ -95,8 +109,10 @@ return require("packer").startup {
       "lukas-reineke/indent-blankline.nvim",
       branch = "lua",
       config = function()
+        local i = require("tb.icons")
+
         vim.wo.colorcolumn = "80" -- highlight bug hack fix
-        vim.g.indent_blankline_char = "│"
+        vim.g.indent_blankline_char = i.bar.thin
         vim.g.indent_blankline_buftype_exclude = {"help", "terminal"}
         vim.g.indent_blankline_filetype_exclude = {"text", "markdown"}
         -- vim.g.indent_blankline_show_end_of_line = true
@@ -188,34 +204,35 @@ return require("packer").startup {
     use {
       "onsails/lspkind-nvim",
       config = function()
-        -- TODO: Improve symbols
+        local i = require("tb.icons")
+
         require("lspkind").init {
           symbol_map = {
-            Class = "",
-            Color = "",
-            Constant = "",
-            Constructor = "",
-            Enum = "",
-            EnumMember = "",
-            Event = "",
-            Field = "𝒙",
-            File = "",
-            Folder = " ﱮ ",
-            Function = "",
-            Interface = "⧲",
-            Keyword = "",
-            Method = "",
-            Module = "",
-            Operator = "+",
-            Property = "",
-            Reference = "漏",
-            Snippet = "…",
-            Struct = "⚎",
-            Text = "",
-            TypeParameter = "",
-            Unit = "塞",
-            Value = "",
-            Variable = "𝒙"
+            Class = i.lang.class,
+            Color = i.lang.color,
+            Constant = i.lang.constant,
+            Constructor = i.lang.constructor,
+            Enum = i.lang.enum,
+            EnumMember = i.lang.enummember,
+            Event = i.lang.event,
+            Field = i.lang.field,
+            File = i.lang.file,
+            Folder = i.lang.folder,
+            Function = i.lang["function"],
+            Interface = i.lang.interface,
+            Keyword = i.lang.keyword,
+            Method = i.lang.method,
+            Module = i.lang.module,
+            Operator = i.lang.operator,
+            Property = i.lang.property,
+            Reference = i.lang.reference,
+            Snippet = i.lang.snippet,
+            Struct = i.lang.struct,
+            Text = i.lang.text,
+            TypeParameter = i.lang.typeparameter,
+            Unit = i.lang.unit,
+            Value = i.lang.value,
+            Variable = i.lang.variable
           }
         }
       end
@@ -262,6 +279,23 @@ return require("packer").startup {
         utils.mapx("i", "<CR>", "compe#confirm(lexima#expand('<lt>CR>', 'i'))")
       end
     }
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        local i = require("tb.icons")
+
+        require("trouble").setup {
+          signs = {
+            error = i.diag.error,
+            warning = i.diag.warn,
+            hint = i.diag.hint,
+            information = i.diag.info,
+            other = i.diag.pass
+          }
+        }
+      end
+    }
 
     use "pierreglaser/folding-nvim"
 
@@ -302,32 +336,34 @@ return require("packer").startup {
     use {
       "liuchengxu/vista.vim",
       config = function()
+        local i = require("tb.icons")
+
         vim.g["vista#renderer#icons"] = {
-          class = "",
-          color = "",
-          constant = "",
-          constructor = "",
-          enum = "",
-          enummember = "",
-          event = "",
-          field = "𝒙",
-          file = "",
-          folder = " ﱮ ",
-          ["function"] = "",
-          interface = "⧲",
-          keyword = "",
-          method = "",
-          module = "",
-          operator = "+",
-          property = "",
-          reference = "漏",
-          snippet = "…",
-          struct = "⚎",
-          text = "",
-          typeparameter = "",
-          unit = "塞",
-          value = "",
-          variable = "𝒙"
+          class = i.lang.class,
+          color = i.lang.color,
+          constant = i.lang.constant,
+          constructor = i.lang.constructor,
+          enum = i.lang.enum,
+          enummember = i.lang.enummember,
+          event = i.lang.event,
+          field = i.lang.field,
+          file = i.lang.file,
+          folder = i.lang.folder,
+          ["function"] = i.lang["function"],
+          interface = i.lang.interface,
+          keyword = i.lang.keyword,
+          method = i.lang.method,
+          module = i.lang.module,
+          operator = i.lang.operator,
+          property = i.lang.property,
+          reference = i.lang.reference,
+          snippet = i.lang.snippet,
+          struct = i.lang.struct,
+          text = i.lang.text,
+          typeparameter = i.lang.typeparameter,
+          unit = i.lang.unit,
+          value = i.lang.value,
+          variable = i.lang.variable
         }
       end
     }
@@ -386,11 +422,13 @@ return require("packer").startup {
       "lewis6991/gitsigns.nvim",
       requires = "nvim-lua/plenary.nvim",
       config = function()
+        local i = require("tb.icons")
+
         require("gitsigns").setup {
           signs = {
-            add = {hl = "DiffAdd", text = "┃"},
-            change = {hl = "DiffChange", text = "┃"},
-            changedelete = {hl = "GruvboxOrange", text = "┃"},
+            add = {hl = "DiffAdd", text = i.bar.thick},
+            change = {hl = "DiffChange", text = i.bar.thick},
+            changedelete = {hl = "GruvboxOrange", text = i.bar.thick},
             delete = {hl = "DiffDelete"},
             topdelete = {hl = "DiffDelete"}
           },

@@ -21,39 +21,42 @@ local util = require("lspconfig.util")
 --   }
 -- }
 
+local i = require("tb.icons")
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
   {
     update_in_insert = false,
-    virtual_text = {prefix = ""}
+    virtual_text = {prefix = i.diag.virtual}
   }
 )
+
 vim.fn.sign_define(
   "LspDiagnosticsSignError",
   {
-    text = "",
+    text = i.diag.error,
     texthl = "LspDiagnosticsSignError"
   }
 )
 vim.fn.sign_define(
   "LspDiagnosticsSignWarning",
   {
-    text = "",
+    text = i.diag.warn,
     texthl = "LspDiagnosticsSignWarning"
   }
 )
 vim.fn.sign_define(
   "LspDiagnosticsSignInformation",
   {
-    text = "",
+    text = i.diag.info,
     texthl = "LspDiagnosticsSignInformation"
   }
 )
 vim.fn.sign_define(
   "LspDiagnosticsSignHint",
   {
-    text = "➤",
+    text = i.diag.hint,
     texthl = "LspDiagnosticsSignHint"
   }
 )
