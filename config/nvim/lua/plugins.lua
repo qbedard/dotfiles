@@ -31,15 +31,6 @@ return require("packer").startup {
         -- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
       end
     }
-    -- use {
-    --   "gruvbox-community/gruvbox",
-    --   config = function()
-    --     vim.g.gruvbox_italic = 1
-    --     vim.g.gruvbox_sign_column = "bg0"
-    --     vim.cmd("colorscheme gruvbox") -- must come after gruvbox_italic
-    --     require("tb.gruvbox")
-    --   end
-    -- }
     use {
       "npxbr/gruvbox.nvim",
       requires = "rktjmp/lush.nvim",
@@ -56,7 +47,6 @@ return require("packer").startup {
     use {
       "hoob3rt/lualine.nvim",
       requires = {"kyazdani42/nvim-web-devicons"},
-      -- after = {"gruvbox"},
       after = {"gruvbox.nvim"},
       config = function()
         local i = require("tb.icons")
@@ -183,7 +173,6 @@ return require("packer").startup {
     }
     use {
       "glepnir/lspsaga.nvim",
-      -- after = "gruvbox",
       after = "gruvbox.nvim",
       config = function()
         require("tb.lspsaga")
@@ -466,6 +455,8 @@ return require("packer").startup {
       opt = true,
       ft = {"html", "jinja"}
     }
+
+    use "Vimjas/vim-python-pep8-indent"
 
     -- use {
     --   "sheerun/vim-polyglot",
