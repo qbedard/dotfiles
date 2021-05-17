@@ -457,6 +457,7 @@ return require("packer").startup {
     }
 
     use "Vimjas/vim-python-pep8-indent"
+    use "sophacles/vim-bundle-mako"
 
     -- use {
     --   "sheerun/vim-polyglot",
