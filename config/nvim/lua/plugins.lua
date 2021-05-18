@@ -114,6 +114,21 @@ return require("packer").startup {
     }
 
     use {
+      "edluffy/specs.nvim",
+      config = function()
+        -- vim.cmd("highlight SpecsWinHl guibg=#1D2021")
+        require("specs").setup {
+          popup = {
+            inc_ms = 4,
+            blend = 50,
+            winhl = "PMenuThumb"
+            -- winhl = "SpecsWinHl"
+          }
+        }
+      end
+    }
+
+    use {
       "timbedard/vim-envelop",
       run = ":EnvCreate",
       config = function()
