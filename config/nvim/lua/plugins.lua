@@ -45,7 +45,9 @@ return require("packer").startup {
       requires = "kyazdani42/nvim-web-devicons"
     }
     use {
-      "hoob3rt/lualine.nvim",
+      -- "hoob3rt/lualine.nvim",
+      "timbedard/lualine.nvim",
+      branch = "show-diagnostic-hint",
       requires = {"kyazdani42/nvim-web-devicons"},
       after = {"gruvbox.nvim"},
       config = function()
