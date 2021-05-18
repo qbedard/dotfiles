@@ -119,7 +119,7 @@ return require("packer").startup {
         -- vim.cmd("highlight SpecsWinHl guibg=#1D2021")
         require("specs").setup {
           popup = {
-            inc_ms = 4,
+            inc_ms = 5,
             blend = 50,
             winhl = "PMenuThumb"
             -- winhl = "SpecsWinHl"
