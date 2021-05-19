@@ -118,6 +118,7 @@ return require("packer").startup {
       config = function()
         -- vim.cmd("highlight SpecsWinHl guibg=#1D2021")
         require("specs").setup {
+          min_jump = 20,
           popup = {
             inc_ms = 5,
             blend = 50,
