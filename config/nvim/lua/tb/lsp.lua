@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
 -- local configs = require("lspconfig.configs")
-local util = require("lspconfig.util")
+-- local util = require("lspconfig.util")
 
 --- sql-langauge-server config ---
 -- configs.sql = {
@@ -73,7 +73,9 @@ local servers = {
   "cssls",
   "dockerls",
   "html",
-  "jsonls"
+  "jsonls",
+  "sqls"
+  -- "solargraph" -- ruby
   -- "terraformls"
 }
 for _, lsp in ipairs(servers) do
@@ -113,6 +115,7 @@ lspconfig.efm.setup {
     "markdown",
     "mysql",
     "python",
+    "ruby",
     "sh",
     "sql",
     "toml",
@@ -157,6 +160,22 @@ lspconfig.efm.setup {
         --     "%f:%l:%c: %tote: %m"
         --   }
         -- }
+      },
+      ruby = {
+        -- TODO: Find out why this is broken
+        {
+          formatCommand = "rubocop --fix-layout --force-exclusion --stderr --stdin ${INPUT}",
+          formatStdin = true
+        },
+        -- {formatCommand = "rubocop --auto-correct --force-exclusion ${INPUT}"},
+        {
+          lintCommand = "rubocop --format clang --no-display-cop-names --stdin ${INPUT}",
+          lintFormats = {
+            "%f:%l:%c: %t: %m"
+          },
+          lintStdin = true
+        }
+        -- {lintCommand = "ruby -T1 -c -w"}
       },
       sh = {
         {
@@ -223,19 +242,19 @@ lspconfig.pyright.setup {
   }
 }
 
-lspconfig.sqls.setup {}
 -- TODO: Figure out why this doesn't work.
--- settings = {
---   sqls = {
---     connections = {
---       {
---         alias = "mysql",
---         driver = "mysql",
---         dataSourceName = "root:root@tcp(127.0.0.1:3306)/customerportal"
+-- lspconfig.sqls.setup {
+--   settings = {
+--     sqls = {
+--       connections = {
+--         {
+--           alias = "mysql",
+--           driver = "mysql",
+--           dataSourceName = "root:root@tcp(127.0.0.1:3306)/customerportal"
+--         }
 --       }
 --     }
 --   }
--- }
 -- }
 
 local sumneko_root_path =
