@@ -72,6 +72,7 @@ local servers = {
   -- "cmake",
   "cssls",
   "dockerls",
+  "gopls",
   "html",
   "jsonls",
   "sqls"
