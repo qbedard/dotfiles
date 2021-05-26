@@ -1,3 +1,1 @@
-set formatoptions-=o
-
-let b:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '`':'`'}
+setlocal formatoptions-=o
