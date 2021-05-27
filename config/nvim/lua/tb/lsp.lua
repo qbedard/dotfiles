@@ -1,26 +1,6 @@
 local lspconfig = require("lspconfig")
--- local configs = require("lspconfig.configs")
--- local util = require("lspconfig.util")
 
---- sql-langauge-server config ---
--- configs.sql = {
---   default_config = {
---     cmd = {"sql-language-server", "up", "--method", "stdio"},
---     filetypes = {"sql"},
---     root_dir = function(fname)
---       return util.path.dirname(fname)
---     end
---   },
---   docs = {
---     package_json = "https://raw.githubusercontent.com/joe-re/sql-language-server/master/package.json",
---     description = [[
---       https://github.com/joe-re/sql-language-server
---       `sql-language-server`, a language server for SQL.
---     ]],
---     default_config = {root_dir = "vim's starting directory"}
---   }
--- }
-
+------------------------------------ Signs -------------------------------------
 local i = require("tb.icons")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
@@ -62,10 +42,10 @@ vim.fn.sign_define(
 )
 
 local on_attach = function()
-  require("folding").on_attach()
+  -- require("folding").on_attach()
 end
 
--- simple setups --
+-------------------------------- Simple Configs --------------------------------
 local servers = {
   "bashls",
   -- "ccls",
@@ -83,7 +63,7 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {on_attach = on_attach}
 end
 
--- complex setups --
+--------------------- General Lint/Format (efm-langserver) ---------------------
 local efm_prettier = {
   formatCommand = "prettier --stdin-filepath ${INPUT}",
   formatStdin = true
@@ -200,26 +180,7 @@ lspconfig.efm.setup {
   }
 }
 
--- lspconfig.pyls.setup {
---   on_attach = on_attach,
---   settings = {
---     pyls = {
---       configurationSources = {"flake8"},
---       plugins = {
---         autopep8 = {enabled = false},
---         black = {enabled = true},
---         flake8 = {enabled = true},
---         -- jedi_signature_help = {enabled = false}, -- stupid slow
---         mccabe = {enabled = false},
---         pycodestyle = {enabled = false, maxLineLength = 88},
---         pyflakes = {enabled = false},
---         pyls_mypy = {enabled = false, live_mode = true},
---         yapf = {enabled = false}
---       }
---     }
---   }
--- }
-
+------------------------------------ Python ------------------------------------
 local python = "python"
 if vim.env.VIRTUAL_ENV then
   python = vim.env.VIRTUAL_ENV .. "/bin/python"
@@ -243,6 +204,7 @@ lspconfig.pyright.setup {
   }
 }
 
+------------------------------------- SQL --------------------------------------
 -- TODO: Figure out why this doesn't work.
 -- lspconfig.sqls.setup {
 --   settings = {
@@ -258,6 +220,7 @@ lspconfig.pyright.setup {
 --   }
 -- }
 
+------------------------------------- Lua --------------------------------------
 local sumneko_root_path =
   vim.fn.stdpath("data") .. "/site/pack/packer/start/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
@@ -294,12 +257,14 @@ lspconfig.sumneko_lua.setup {
   }
 }
 
+---------------------------------- JavaScript ----------------------------------
 lspconfig.tsserver.setup {
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
   end
 }
 
+---------------------------------- Vimscript -----------------------------------
 lspconfig.vimls.setup {
   on_attach = on_attach,
   init_options = {
@@ -308,6 +273,7 @@ lspconfig.vimls.setup {
   }
 }
 
+------------------------------------- YAML -------------------------------------
 lspconfig.yamlls.setup {
   on_attach = on_attach,
   settings = {
