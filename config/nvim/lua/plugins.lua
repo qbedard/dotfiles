@@ -442,14 +442,6 @@ return require("packer").startup {
         vim.wo.signcolumn = "yes"
       end
     }
-    use {
-      "f-person/git-blame.nvim",
-      setup = function()
-        vim.g.gitblame_enabled = 0 -- must be set before loading
-        vim.g.gitblame_date_format = "%a %b %d %Y"
-      end
-    }
-    use "rhysd/git-messenger.vim"
 
     use {
       "andymass/vim-matchup",
