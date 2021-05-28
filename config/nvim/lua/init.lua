@@ -21,60 +21,76 @@
 --                                  General                                  --
 -------------------------------------------------------------------------------
 ----------------------------------- Python ------------------------------------
-vim.o.pyxversion = 3
+vim.opt.pyxversion = 3
 
 --------------------------------- The Basics ----------------------------------
-vim.bo.undofile = true -- persistent undo
-vim.cmd("set completeopt-=preview") -- preview in a buffer?! No.
-vim.cmd("set viewoptions-=options") -- keep from saving cur dir in view
 vim.g.mapleader = " "
-vim.o.clipboard = "unnamed" -- yank to system clipboard
-vim.o.hidden = true -- switch buffers without saving
-vim.o.mouse = "a" -- let the mouse wheel scroll page, etc
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.ttimeout = true -- prevent delay when changing modes
-vim.o.ttimeoutlen = 50
-vim.o.updatetime = 100 -- speed up screen updating
+
+vim.opt.clipboard = "unnamed" -- yank to system clipboard
+vim.opt.completeopt:remove {"preview"} -- preview in a buffer?! No.
+vim.opt.hidden = true -- switch buffers without saving
+vim.opt.mouse = "a" -- let the mouse wheel scroll page, etc
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.ttimeout = true -- prevent delay when changing modes
+vim.opt.ttimeoutlen = 50
+vim.opt.updatetime = 100 -- speed up screen updating
+vim.opt.undofile = true -- persistent undo
+vim.opt.viewoptions:remove {"options"} -- keep from saving cur dir in view
 
 if vim.fn.executable("fish") then
-  vim.o.shell = "fish"
+  vim.opt.shell = "fish"
 end
 
 ----------------------------- Tabs & Indentation ------------------------------
-vim.bo.expandtab = true -- tabs insert spaces
-vim.bo.smartindent = true
-vim.o.joinspaces = false -- only insert one space after punction when joining lines
-vim.o.listchars = "extends:›,precedes:‹,nbsp:·,tab:→ ,trail:·"
-vim.wo.foldlevel = 99
-vim.wo.linebreak = true -- wrap line if too long
-vim.wo.list = true -- show listchars
+vim.opt.expandtab = true -- tabs insert spaces
+vim.opt.foldlevel = 99
+vim.opt.joinspaces = false -- only insert one space after punction when joining lines
+vim.opt.linebreak = true -- wrap line if too long
+vim.opt.list = true -- show listchars
+vim.opt.listchars = {
+  extends = "›",
+  precedes = "‹",
+  nbsp = "·",
+  tab = "→ ",
+  trail = "·"
+}
+vim.opt.smartindent = true
 
 ---------------------------------- Searching ----------------------------------
-vim.cmd("set path+=**") -- add current file location to path
-vim.cmd("set wildignore+=*/tmp/*,/var/*,*.so,*.swp,*.zip,*.tar,*.pyc")
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.wildmode = "longest:full,full"
+vim.opt.ignorecase = true
+vim.opt.path:append {"**"} -- add current file location to path
+vim.opt.smartcase = true
+vim.opt.wildignore:append {
+  "*/tmp/*",
+  "/var/*",
+  "*.so",
+  "*.swp",
+  "*.zip",
+  "*.tar",
+  "*.pyc"
+}
+vim.opt.wildmode = {longest = {"full", "full"}}
 
 -- use rg instead of grep if available
 if vim.fn.executable("rg") then
-  vim.o.grepprg = "rg --vimgrep --no-heading --smart-case"
+  vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 end
 
 --------------------------------- Appearance ----------------------------------
 vim.env.NVIM_TERM = 1 -- TODO: Why?
-vim.o.background = "dark"
-vim.o.scrolloff = 1 -- start scrolling when near the last line
-vim.o.showmode = false
-vim.o.sidescrolloff = 5 -- start scrolling when near the last col
-vim.o.termguicolors = true -- true color support
-vim.wo.cursorline = true -- highlight the line the cursor is on
-vim.wo.number = true
+
+vim.opt.background = "dark"
+vim.opt.cursorline = true -- highlight the line the cursor is on
+vim.opt.number = true
+vim.opt.scrolloff = 1 -- start scrolling when near the last line
+vim.opt.showmode = false
+vim.opt.sidescrolloff = 5 -- start scrolling when near the last col
+vim.opt.termguicolors = true -- true color support
 
 --------------------------------- Completion ----------------------------------
-vim.cmd("set shortmess+=c")
-vim.o.completeopt = "menuone,noinsert,noselect"
+vim.opt.completeopt = {"menuone", "noinsert", "noselect"}
+vim.opt.shortmess:append("c")
 
 -------------------------------------------------------------------------------
 --                                  Mappings                                 --

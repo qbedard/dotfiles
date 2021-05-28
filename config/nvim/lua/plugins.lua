@@ -27,8 +27,8 @@ return require("packer").startup {
       run = ":TSUpdate",
       config = function()
         require("tb.treesitter")
-        -- vim.wo.foldmethod = "expr"
-        -- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+        -- vim.opt.foldmethod = "expr"
+        -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
       end
     }
     use {
@@ -101,7 +101,7 @@ return require("packer").startup {
       config = function()
         local i = require("tb.icons")
 
-        vim.wo.colorcolumn = "80" -- highlight bug hack fix
+        vim.opt.colorcolumn = "80" -- highlight bug hack fix
         vim.g.indent_blankline_char = i.bar.thin
         vim.g.indent_blankline_buftype_exclude = {"help", "terminal"}
         vim.g.indent_blankline_filetype_exclude = {"text", "markdown"}
@@ -439,7 +439,7 @@ return require("packer").startup {
           },
           sign_priority = 0
         }
-        vim.wo.signcolumn = "yes"
+        vim.opt.signcolumn = "yes"
       end
     }
 
