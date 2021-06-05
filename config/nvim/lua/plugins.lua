@@ -427,16 +427,17 @@ return require("packer").startup {
       "lewis6991/gitsigns.nvim",
       requires = "nvim-lua/plenary.nvim",
       config = function()
-        local i = require("tb.icons")
+        -- local i = require("tb.icons")
 
         require("gitsigns").setup {
-          signs = {
-            add = {hl = "DiffAdd", text = i.bar.thick},
-            change = {hl = "DiffChange", text = i.bar.thick},
-            changedelete = {hl = "GruvboxOrange", text = i.bar.thick},
-            delete = {hl = "DiffDelete"},
-            topdelete = {hl = "DiffDelete"}
-          },
+          -- TODO: maybe change this now that gruvbox.nvim highlights have changed
+          -- signs = {
+          --   add = {hl = "DiffAdd", text = i.bar.thick},
+          --   change = {hl = "DiffChange", text = i.bar.thick},
+          --   changedelete = {hl = "GruvboxOrange", text = i.bar.thick},
+          --   delete = {hl = "DiffDelete"},
+          --   topdelete = {hl = "DiffDelete"}
+          -- },
           sign_priority = 0
         }
         vim.opt.signcolumn = "yes"
@@ -449,6 +450,7 @@ return require("packer").startup {
         vim.g.matchup_matchparen_offscreen = {}
       end
     }
+
     use {
       "cohama/lexima.vim",
       config = function()
@@ -457,6 +459,38 @@ return require("packer").startup {
         vim.g.lexima_map_escape = ""
       end
     }
+    -- TODO: maybe get this working
+    -- use {
+    --   "windwp/nvim-autopairs",
+    --   config = function()
+    --     local npairs = require("nvim-autopairs")
+
+    --     npairs.setup {
+    --       check_ts = true,
+    --       disable_filetype = {"TelescopePrompt"}
+    --     }
+
+    --     -- prevent nvim-compe from conflicted in nvim-autopairs
+    --     vim.g.completion_confirm_key = ""
+    --     _G.completion_confirm = function()
+    --       if vim.fn.pumvisible() ~= 0 then
+    --         if vim.fn.complete_info()["selected"] ~= -1 then
+    --           return vim.fn["compe#confirm"](npairs.esc("<cr>"))
+    --         else
+    --           return npairs.esc("<cr>")
+    --         end
+    --       else
+    --         return npairs.autopairs_cr()
+    --       end
+    --     end
+
+    --     require("tb.utils").mapx("i", "<CR>", "v:lua.completion_confirm()")
+
+    --     require("nvim-treesitter.configs").setup {
+    --       autopairs = {enable = true}
+    --     }
+    --   end
+    -- }
 
     use {
       "Glench/Vim-Jinja2-Syntax",
