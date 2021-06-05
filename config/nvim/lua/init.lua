@@ -27,7 +27,6 @@ vim.opt.pyxversion = 3
 vim.g.mapleader = " "
 
 vim.opt.clipboard = "unnamed" -- yank to system clipboard
-vim.opt.completeopt:remove {"preview"} -- preview in a buffer?! No.
 vim.opt.hidden = true -- switch buffers without saving
 vim.opt.mouse = "a" -- let the mouse wheel scroll page, etc
 vim.opt.splitbelow = true
@@ -70,7 +69,7 @@ vim.opt.wildignore:append {
   "*.tar",
   "*.pyc"
 }
-vim.opt.wildmode = {longest = {"full", "full"}}
+vim.opt.wildmode = {"longest:full","full"}
 
 -- use rg instead of grep if available
 if vim.fn.executable("rg") then
