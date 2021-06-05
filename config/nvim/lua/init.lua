@@ -45,7 +45,7 @@ end
 ----------------------------- Tabs & Indentation ------------------------------
 vim.opt.expandtab = true -- tabs insert spaces
 vim.opt.foldlevel = 99
-vim.opt.joinspaces = false -- only insert one space after punction when joining lines
+vim.opt.joinspaces = false -- only one space after punction when joining lines
 vim.opt.linebreak = true -- wrap line if too long
 vim.opt.list = true -- show listchars
 vim.opt.listchars = {
@@ -98,7 +98,7 @@ vim.opt.shortmess:append("c")
 local map = require("tb.utils").map
 
 ---------------------------------- Navigation ---------------------------------
-map("i", "jj", "<Esc>", {noremap = false}) -- exit insert mode (-noremap for abbrevs)
+map("i", "jj", "<Esc>", {noremap = false}) -- exit insert (-noremap for abbrevs)
 map("t", "kk", "<C-\\><C-n>", {noremap = false}) -- exit terminal mode
 map("nx", ";", ":") -- faster command entry
 map("n", "H", "^") -- beginning of line
