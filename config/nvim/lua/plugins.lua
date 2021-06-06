@@ -244,6 +244,7 @@ return require("packer").startup {
     }
     use {
       "hrsh7th/nvim-compe",
+      after = "lexima.vim",
       config = function()
         require("compe").setup {
           min_length = 0, -- allow for `from package import _` in Python
@@ -278,9 +279,6 @@ return require("packer").startup {
         utils.mapx("is", "<S-Tab>", "v:lua.complete('<C-p>', '<C-h>')")
         utils.mapx("is", "<C-e>", "compe#close('<C-e>')")
 
-        -- prevent nvim-compe from conflicting with lexima
-        vim.g.lexima_no_default_rules = true
-        vim.fn["lexima#set_default_rules"]()
         utils.mapx("i", "<CR>", "compe#confirm(lexima#expand('<lt>CR>', 'i'))")
       end
     }
@@ -333,6 +331,13 @@ return require("packer").startup {
           "<cmd>lua require('telescope.builtin').buffers()<CR>",
           {noremap = true, silent = true}
         )
+      end
+    }
+
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup {}
       end
     }
 
@@ -457,6 +462,11 @@ return require("packer").startup {
         -- TODO: Fix repeating with .
         -- lexima's <Esc> mapping breaks telescope
         vim.g.lexima_map_escape = ""
+        -- vim.cmd("autocmd FileType TelescopePrompt let b:lexima_disabled = 1")
+
+        -- prevent nvim-compe from conflicting with lexima
+        vim.g.lexima_no_default_rules = true
+        vim.fn["lexima#set_default_rules"]()
       end
     }
     -- TODO: maybe get this working
@@ -470,14 +480,12 @@ return require("packer").startup {
     --       disable_filetype = {"TelescopePrompt"}
     --     }
 
-    --     -- prevent nvim-compe from conflicted in nvim-autopairs
+    --     -- prevent nvim-compe from conflicting with nvim-autopairs
     --     vim.g.completion_confirm_key = ""
     --     _G.completion_confirm = function()
     --       if vim.fn.pumvisible() ~= 0 then
     --         if vim.fn.complete_info()["selected"] ~= -1 then
-    --           return vim.fn["compe#confirm"](npairs.esc("<cr>"))
-    --         else
-    --           return npairs.esc("<cr>")
+    --           return vim.fn["compe#confirm"]("<CR>")
     --         end
     --       else
     --         return npairs.autopairs_cr()
@@ -485,10 +493,6 @@ return require("packer").startup {
     --     end
 
     --     require("tb.utils").mapx("i", "<CR>", "v:lua.completion_confirm()")
-
-    --     require("nvim-treesitter.configs").setup {
-    --       autopairs = {enable = true}
-    --     }
     --   end
     -- }
 
