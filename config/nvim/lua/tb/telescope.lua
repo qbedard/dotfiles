@@ -6,9 +6,11 @@ local previewers = require("telescope.previewers")
 telescope.setup {
   defaults = {
     layout_strategy = "flex",
-    -- layout_defaults = {flip_columns = 160},
-    preview_cutoff = 10,
-    results_height = 1,
+    -- layout_config = {
+    --   -- flip_columns = 160,
+    --   height = 1,
+    --   preview_cutoff = 10,
+    -- },
     mappings = {
       i = {
         ["<CR>"] = actions.select_default + actions.center,
@@ -45,7 +47,7 @@ end
 
 -- Extensions
 telescope.load_extension("fzy_native")
-telescope.load_extension("gh")
+-- telescope.load_extension("gh")
 -- telescope.load_extension("packer")  -- currently breaking packer
 
 local M = {}
