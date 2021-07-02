@@ -29,6 +29,7 @@ require("nvim-treesitter.configs").setup {
   -- },
 
   --- nvim-treesitter-textobjects ---
+  -- TODO: Replace other textobject plugins with this
   textobjects = {
     move = {
       enable = true,
