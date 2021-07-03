@@ -97,7 +97,6 @@ return require("packer").startup {
 
     use {
       "lukas-reineke/indent-blankline.nvim",
-      branch = "lua",
       config = function()
         local i = require("tb.icons")
 
