@@ -243,7 +243,7 @@ return require("packer").startup {
     }
     use {
       "hrsh7th/nvim-compe",
-      after = "lexima.vim",
+      -- after = "lexima.vim",
       config = function()
         require("compe").setup {
           min_length = 0, -- allow for `from package import _` in Python
@@ -278,7 +278,7 @@ return require("packer").startup {
         utils.mapx("is", "<S-Tab>", "v:lua.complete('<C-p>', '<C-h>')")
         utils.mapx("is", "<C-e>", "compe#close('<C-e>')")
 
-        utils.mapx("i", "<CR>", "compe#confirm(lexima#expand('<lt>CR>', 'i'))")
+        -- utils.mapx("i", "<CR>", "compe#confirm(lexima#expand('<lt>CR>', 'i'))")
       end
     }
     use {
@@ -455,45 +455,49 @@ return require("packer").startup {
       end
     }
 
-    use {
-      "cohama/lexima.vim",
-      config = function()
-        -- TODO: Fix repeating with .
-        -- lexima's <Esc> mapping breaks telescope
-        vim.g.lexima_map_escape = ""
-        -- vim.cmd("autocmd FileType TelescopePrompt let b:lexima_disabled = 1")
-
-        -- prevent nvim-compe from conflicting with lexima
-        vim.g.lexima_no_default_rules = true
-        vim.fn["lexima#set_default_rules"]()
-      end
-    }
-    -- TODO: maybe get this working
     -- use {
-    --   "windwp/nvim-autopairs",
+    --   "cohama/lexima.vim",
     --   config = function()
-    --     local npairs = require("nvim-autopairs")
+    --     -- TODO: Fix repeating with .
+    --     -- lexima's <Esc> mapping breaks telescope
+    --     vim.g.lexima_map_escape = ""
+    --     -- vim.cmd("autocmd FileType TelescopePrompt let b:lexima_disabled = 1")
 
-    --     npairs.setup {
-    --       check_ts = true,
-    --       disable_filetype = {"TelescopePrompt"}
-    --     }
-
-    --     -- prevent nvim-compe from conflicting with nvim-autopairs
-    --     vim.g.completion_confirm_key = ""
-    --     _G.completion_confirm = function()
-    --       if vim.fn.pumvisible() ~= 0 then
-    --         if vim.fn.complete_info()["selected"] ~= -1 then
-    --           return vim.fn["compe#confirm"]("<CR>")
-    --         end
-    --       else
-    --         return npairs.autopairs_cr()
-    --       end
-    --     end
-
-    --     require("tb.utils").mapx("i", "<CR>", "v:lua.completion_confirm()")
+    --     -- prevent nvim-compe from conflicting with lexima
+    --     vim.g.lexima_no_default_rules = true
+    --     vim.fn["lexima#set_default_rules"]()
     --   end
     -- }
+    -- TODO: maybe get this working
+    use {
+      "windwp/nvim-autopairs",
+      after = "nvim-compe",
+      config = function()
+        local npairs = require("nvim-autopairs")
+
+        npairs.setup()
+
+        -- prevent nvim-compe from conflicting with nvim-autopairs
+        require("nvim-autopairs.completion.compe").setup(
+          {
+            map_cr = true, --  map <CR> on insert mode
+            map_complete = true -- insert `(` when function/method is completed
+          }
+        )
+        -- vim.g.completion_confirm_key = ""
+        -- _G.completion_confirm = function()
+        --   if vim.fn.pumvisible() ~= 0 then
+        --     if vim.fn.complete_info()["selected"] ~= -1 then
+        --       return vim.fn["compe#confirm"]("<CR>")
+        --     end
+        --   else
+        --     return npairs.autopairs_cr()
+        --   end
+        -- end
+
+        -- require("tb.utils").mapx("i", "<CR>", "v:lua.completion_confirm()")
+      end
+    }
 
     use {
       "Glench/Vim-Jinja2-Syntax",
