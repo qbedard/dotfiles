@@ -422,9 +422,8 @@ return require("packer").startup {
     use "tpope/vim-unimpaired"
 
     use "wellle/targets.vim"
+    use {"kana/vim-textobj-line", requires = "kana/vim-textobj-user"}
     use "michaeljsmith/vim-indent-object"
-    use "kana/vim-textobj-user"
-    use "kana/vim-textobj-line"
     use "AndrewRadev/splitjoin.vim"
 
     use {
