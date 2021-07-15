@@ -8,7 +8,7 @@ select = C,E,F,W,B,N,B950
 # E203 = spaces around ':' for slices
 # E501 = line length (handled by B950 instead)
 # W503 = line break before binary operator
-ignore = E203, E501, W503
+ignore = E203, E501, F841, W503
 
 # Ignore unused import warnings for __init__.py files,
 # as we use them for namespace management.
