@@ -15,6 +15,7 @@ function fish_greeting; end
 
 # ----- PATH ----- #
 fish_add_path "$HOME/bin"  # custom binaries
+fish_add_path "$HOME/.local/bin"  # local binaries
 fish_add_path "$HOME/.cargo/bin"  # rust
 fish_add_path "$HOME/go/bin"  # go
 fish_add_path "/usr/local/opt/ruby/bin"  # ruby

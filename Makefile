@@ -4,10 +4,6 @@ install:
 link:
 	./install --only clean link stow
 
-update-brew-head:
-	@echo "Updating homebrew head packages..."
-	@brew upgrade --fetch-HEAD
-
 update-brew:
 	@echo "Updating homebrew packages..."
 	@brew upgrade
@@ -19,18 +15,27 @@ update-brew:
 	# @brew cleanup
 	# @echo "Cleaned!"
 
+update-brew-head:
+	@echo "Updating homebrew head packages..."
+	@brew upgrade --fetch-HEAD
+
 update-omf:
 	@echo "Updating omf..."
 	@fish -c "omf update"
 
-update-tmux:
-	@echo "Updating tmux plugins..."
-	@bash $$HOME/.tmux/plugins/tpm/scripts/update_plugin.sh update all
-	@echo "Tmux plugins updated!"
+update-pipx:
+	@echo "Updating pipx packages..."
+	@pipx upgrade-all
+	@echo "pipx packages updated!"
 
-update-vim:
-	@echo "Updating vim plugins..."
+update-tldr:
+	@echo "Updating Tealdeer cache..."
+	@tldr --update
+	@echo "Tealdeer cache updated!"
+
+update-nvim:
+	@echo "Updating Neovim plugins..."
 	@nvim --headless +EnvUpdate +PackerUpdate +qall
-	@echo "\nVim plugins updated!"
+	@echo "\nNeovim plugins updated!"
 
-update: update-brew update-omf update-vim
+update: update-brew update-brew-head update-omf update-pipx update-tldr update-nvim

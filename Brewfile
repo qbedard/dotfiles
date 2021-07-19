@@ -20,7 +20,8 @@ brew "lazydocker"  # docker term UI
 brew "luajit", args: ['HEAD']  # neovim HEAD dep
 brew "neovim", args: ['HEAD']
 brew "node"
-brew "poetry"
+brew "pipx"
+# brew "poetry"
 brew "procs"  # ps replacement
 brew "pyenv"
 brew "python"
@@ -30,6 +31,7 @@ brew "shellcheck"
 brew "shfmt"
 brew "starship"  # shell prompt
 brew "stow"
+brew "tealdeer"  # Rust tldr pages client
 # brew "tmux"
 brew "tokei"
 brew "zoxide"  # fast dir nav
