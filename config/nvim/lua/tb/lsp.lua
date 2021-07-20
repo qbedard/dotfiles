@@ -99,6 +99,7 @@ lspconfig.efm.setup {
     "ruby",
     "sh",
     "sql",
+    "terraform",
     "toml",
     "yaml"
   },
@@ -173,6 +174,10 @@ lspconfig.efm.setup {
         }
       },
       sql = {efm_sqlformat},
+      -- TODO: Get this working.
+      terraform = {
+        {formatCommand = "terraform fmt -", formatStdin = true}
+      },
       -- toml = {efm_prettier},
       yaml = {efm_prettier},
       ["yaml.docker-compose"] = {efm_prettier}
