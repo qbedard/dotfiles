@@ -243,13 +243,16 @@ lspconfig.sumneko_lua.setup {
         path = {"?.lua", "?/init.lua", "?/?.lua"}
         -- path = vim.split(package.path, ";")
       },
+      telemetry = {enable = false},
       workspace = {
-        library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-          [vim.fn.stdpath("config") .. "/lua"] = true,
-          [vim.fn.stdpath("data") .. "/site/pack"] = true
-        },
+        checkThirdParty = false,
+        library = vim.api.nvim_get_runtime_file("", true),
+        -- library = {
+        --   [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+        --   [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+        --   [vim.fn.stdpath("config") .. "/lua"] = true,
+        --   [vim.fn.stdpath("data") .. "/site/pack"] = true
+        -- },
         maxPreload = 2000,
         preloadFileSize = 1000
       }
