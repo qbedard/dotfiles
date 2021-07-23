@@ -19,6 +19,11 @@ update-brew-head:
 	@echo "Updating homebrew head packages..."
 	@brew upgrade --fetch-HEAD
 
+update-npm:
+	@echo "Updating npm -g..."
+	@fish -c "npm update -g"
+	@echo "npm packages updated!"
+
 update-omf:
 	@echo "Updating omf..."
 	@fish -c "omf update"
@@ -38,4 +43,4 @@ update-nvim:
 	@nvim --headless +EnvUpdate +PackerUpdate +qall
 	@echo "\nNeovim plugins updated!"
 
-update: update-brew update-brew-head update-omf update-pipx update-tldr update-nvim
+update: update-brew update-brew-head update-npm update-omf update-pipx update-tldr update-nvim
