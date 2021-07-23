@@ -65,16 +65,16 @@ end
 
 --------------------- General Lint/Format (efm-langserver) ---------------------
 local efm_prettier = {
-  formatCommand = "prettier --stdin-filepath ${INPUT}",
+  formatCommand = "prettier --stdin-filepath '${INPUT}'",
   formatStdin = true
 }
 
 -- local efm_eslint = {
---   lintCommand = "eslint -f unix --stdin --stdin-filename ${INPUT}",
+--   lintCommand = "eslint -f unix --stdin --stdin-filename '${INPUT}'",
 --   lintIgnoreExitCode = true,
 --   lintStdin = true,
 --   lintFormats = {"%f:%l:%c: %m"},
---   formatCommand = "eslint --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+--   formatCommand = "eslint --fix-to-stdout --stdin --stdin-filename '${INPUT}'",
 --   formatStdin = true
 -- }
 
@@ -85,6 +85,13 @@ local efm_sqlformat = {
 }
 
 lspconfig.efm.setup {
+  cmd = {
+    "efm-langserver",
+    "-logfile",
+    vim.fn.stdpath("cache") .. "/efm.log",
+    "-loglevel",
+    "5"
+  },
   init_options = {codeAction = false, documentFormatting = true},
   filetypes = {
     "css",
@@ -126,8 +133,8 @@ lspconfig.efm.setup {
       python = {
         {formatCommand = "black --quiet -", formatStdin = true},
         {
-          -- lintCommand = "flake8 --stdin-display-name ${INPUT} -",
-          lintCommand = "flake8 --format 'W %(path)s:%(row)d:%(col)d: %(code)s %(text)s' --stdin-display-name ${INPUT} -",
+          -- lintCommand = "flake8 --stdin-display-name '${INPUT}' -",
+          lintCommand = "flake8 --format 'W %(path)s:%(row)d:%(col)d: %(code)s %(text)s' --stdin-display-name '${INPUT}' -",
           lintStdin = true,
           lintFormats = {
             "%t %f:%l:%c: %m"
@@ -146,12 +153,12 @@ lspconfig.efm.setup {
       ruby = {
         -- TODO: Find out why this is broken
         {
-          formatCommand = "rubocop --fix-layout --force-exclusion --stderr --stdin ${INPUT}",
+          formatCommand = "rubocop --fix-layout --force-exclusion --stderr --stdin '${INPUT}'",
           formatStdin = true
         },
-        -- {formatCommand = "rubocop --auto-correct --force-exclusion ${INPUT}"},
+        -- {formatCommand = "rubocop --auto-correct --force-exclusion '${INPUT}'"},
         {
-          lintCommand = "rubocop --format clang --no-display-cop-names --stdin ${INPUT}",
+          lintCommand = "rubocop --format clang --no-display-cop-names --stdin '${INPUT}'",
           lintFormats = {
             "%f:%l:%c: %t: %m"
           },
@@ -266,11 +273,11 @@ lspconfig.sumneko_lua.setup {
 }
 
 ---------------------------------- JavaScript ----------------------------------
-lspconfig.tsserver.setup {
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
-  end
-}
+-- lspconfig.tsserver.setup {
+--   on_attach = function(client)
+--     client.resolved_capabilities.document_formatting = false
+--   end
+-- }
 
 ---------------------------------- Vimscript -----------------------------------
 lspconfig.vimls.setup {
