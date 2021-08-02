@@ -40,7 +40,7 @@ update-tldr:
 
 update-nvim:
 	@echo "Updating Neovim plugins..."
-	@nvim --headless +EnvUpdate +PackerUpdate +qall
+	@nvim --headless +PackerUpdate +qall
 	@echo "\nNeovim plugins updated!"
 
 update: update-brew update-brew-head update-npm update-omf update-pipx update-tldr update-nvim
