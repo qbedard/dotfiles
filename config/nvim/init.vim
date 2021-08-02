@@ -22,15 +22,10 @@
 "------------------------------------ Lua ------------------------------------"
 lua require("init")
 
-function s:recompile_plugins()
-  luafile %
-  PackerCompile
-endfunction
-
 "------------------------------- Autocommands --------------------------------"
 augroup recompile_plugins
   autocmd!
-  autocmd BufWritePost plugins.lua call <SID>recompile_plugins()
+  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup END
 
 augroup number_toggle
