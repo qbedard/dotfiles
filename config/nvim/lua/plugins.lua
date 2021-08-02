@@ -37,7 +37,27 @@ return require("packer").startup {
       config = function()
         vim.g.gruvbox_sign_column = "bg0"
         vim.cmd("colorscheme gruvbox")
-        require("tb.gruvbox")
+
+        -- require("tb.gruvbox")  -- for ref, but inline works on PackerCompile
+
+        -- treesitter highlights
+        vim.cmd("highlight! link TSConstBuiltin Constant") -- None
+        vim.cmd("highlight! link TSKeywordOperator Keyword") -- not, in
+        vim.cmd("highlight! link TSOperator GruvboxRed")
+        vim.cmd("highlight! link TSFunction GruvboxAqua")
+        vim.cmd("highlight! link TSMethod GruvboxAqua")
+        vim.cmd("highlight! clear TSError")
+
+        -- misc
+        vim.cmd("highlight! link DiffChange GruvboxBlue") -- for gitsigns
+      end
+    }
+    use {
+      "Murtaza-Udaipurwala/gruvqueen",
+      config = function()
+        vim.g.gruvqueen_style = "original"
+        vim.g.gruvqueen_transparent_background = true
+        -- vim.cmd("colorscheme gruvqueen")
       end
     }
     use {
@@ -47,7 +67,7 @@ return require("packer").startup {
     use {
       "hoob3rt/lualine.nvim",
       requires = {"kyazdani42/nvim-web-devicons"},
-      after = {"gruvbox.nvim"},
+      after = {"gruvbox.nvim", "gruvqueen"},
       config = function()
         local i = require("tb.icons")
 
@@ -95,6 +115,8 @@ return require("packer").startup {
       end
     }
 
+    -- TODO: Find out wtf is going on with the lines (and barbar) colors
+    --       changing on autocmd to PackerCompile.
     use {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
@@ -188,7 +210,7 @@ return require("packer").startup {
     }
     use {
       "glepnir/lspsaga.nvim",
-      after = "gruvbox.nvim",
+      after = {"gruvbox.nvim", "gruvqueen"},
       config = function()
         require("tb.lspsaga")
 
