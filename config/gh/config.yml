@@ -1,4 +1,26 @@
 aliases:
+  open-prs: |-
+    !gh api graphql -f query="
+      query {
+        viewer {
+          pullRequests(first: 100, states: [OPEN]) {
+            nodes {
+              author {
+                login
+              }
+              headRefName
+              isDraft
+              number
+              permalink
+              repository {
+                name
+              }
+              title
+            }
+          }
+        }
+      }
+    "
   repos: |-
     !gh api graphql -f query="
       query {
