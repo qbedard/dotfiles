@@ -55,8 +55,18 @@ return require("packer").startup {
     use {
       "Murtaza-Udaipurwala/gruvqueen",
       config = function()
-        vim.g.gruvqueen_style = "original"
-        vim.g.gruvqueen_transparent_background = true
+        -- require("gruvqueen").setup {
+        --   config = {
+        --     invert_selection = true,
+        --     style = "original",
+        --     -- transparent_background = true
+        --   },
+        --   palette = {
+        --     bg1 = "#282828",
+        --     grey0 = "#7c6f64"
+        --   }
+        -- }
+
         -- vim.cmd("colorscheme gruvqueen")
       end
     }
