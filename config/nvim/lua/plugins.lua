@@ -66,13 +66,60 @@ return require("packer").startup {
         --     grey0 = "#7c6f64"
         --   }
         -- }
-
         -- vim.cmd("colorscheme gruvqueen")
       end
     }
+    -- use { "romgrk/barbar.nvim",
+    --   requires = "kyazdani42/nvim-web-devicons",
+    --   config = function()
+    --     local map = require("tb.utils").map
+    --     map("nx", "K", ":BufferNext<CR>")
+    --     map("nx", "J", ":BufferPrevious<CR>")
+    --   end
+    -- }
     use {
-      "romgrk/barbar.nvim",
-      requires = "kyazdani42/nvim-web-devicons"
+      "akinsho/nvim-bufferline.lua",
+      requires = "kyazdani42/nvim-web-devicons",
+      after = {"gruvbox.nvim", "gruvqueen"},
+      config = function()
+        local colors = require("bufferline.colors")
+        local hex = colors.get_hex
+        local shade = colors.shade_color
+
+        local normal_bg = hex({name = "Normal", attribute = "bg"})
+        local separator_background_color = shade(normal_bg, -27)
+        local background_color = shade(normal_bg, -18)
+
+        require("bufferline").setup {
+          highlights = {
+            buffer_selected = {gui = "bold"},
+            background = {guibg = background_color},
+            fill = {guibg = separator_background_color},
+            indicator_selected = {
+              guifg = {attribute = "fg", highlight = "GruvboxBlue"}
+            },
+            separator = {
+              guifg = separator_background_color,
+              guibg = background_color,
+            },
+            tab = {guibg = background_color},
+            tab_close = {guibg = background_color},
+            close_button = {guibg = background_color},
+            modified = {guibg = background_color},
+          },
+          options = {
+            always_show_bufferline = false,
+            enforce_regular_tabs = true,
+            -- modified_icon = require("tb.icons").file.mod,
+            show_buffer_close_icons = false,
+            show_close_icon = false
+          }
+        }
+
+        local map = require("tb.utils").map
+        map("nx", "K", ":BufferLineCycleNext<CR>", {silent = true})
+        map("nx", "J", ":BufferLineCyclePrev<CR>", {silent = true})
+      end
     }
     use {
       "hoob3rt/lualine.nvim",

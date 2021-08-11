@@ -102,8 +102,6 @@ map("t", "kk", "<C-\\><C-n>", {noremap = false}) -- exit terminal mode
 map("nx", ";", ":") -- faster command entry
 map("n", "H", "^") -- beginning of line
 map("n", "L", "$") -- end of line
-map("nx", "K", ":BufferNext<CR>")
-map("nx", "J", ":BufferPrevious<CR>")
 
 ----------------------------------- Editing -----------------------------------
 map("n", "U", "<C-R>") -- redo
