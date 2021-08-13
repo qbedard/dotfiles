@@ -100,12 +100,12 @@ return require("packer").startup {
             },
             separator = {
               guifg = separator_background_color,
-              guibg = background_color,
+              guibg = background_color
             },
             tab = {guibg = background_color},
             tab_close = {guibg = background_color},
             close_button = {guibg = background_color},
-            modified = {guibg = background_color},
+            modified = {guibg = background_color}
           },
           options = {
             always_show_bufferline = false,
@@ -320,44 +320,77 @@ return require("packer").startup {
         }
       end
     }
+    -- use {
+    --   "hrsh7th/nvim-compe",
+    --   -- after = "lexima.vim",
+    --   config = function()
+    --     require("compe").setup {
+    --       min_length = 0, -- allow for `from package import _` in Python
+    --       source = {
+    --         -- path = true,
+    --         -- buffer = true,
+    --         nvim_lsp = true,
+    --         -- nvim_lua = true -- TODO: wtf is this?
+    --       }
+    --     }
+    --     local utils = require("tb.utils")
+
+    --     local check_behind = function()
+    --       local is_empty = function(col)
+    --         return col <= 0 or vim.fn.getline("."):sub(col, col):match("%s")
+    --       end
+    --       local pos_col = vim.fn.col(".") - 1
+    --       return is_empty(pos_col) and is_empty(pos_col - 1) and true or false
+    --     end
+
+    --     _G.complete = function(pum, empty)
+    --       if vim.fn.pumvisible() == 1 then
+    --         return utils.term_codes(pum)
+    --       elseif check_behind() then
+    --         return utils.term_codes(empty)
+    --       else
+    --         return vim.fn["compe#complete"]()
+    --       end
+    --     end
+
+    --     utils.mapx("is", "<Tab>", "v:lua.complete('<C-n>', '<Tab>')")
+    --     utils.mapx("is", "<S-Tab>", "v:lua.complete('<C-p>', '<C-h>')")
+    --     utils.mapx("is", "<C-e>", "compe#close('<C-e>')")
+
+    --     -- utils.mapx("i", "<CR>", "compe#confirm(lexima#expand('<lt>CR>', 'i'))")
+    --   end
+    -- }
     use {
-      "hrsh7th/nvim-compe",
-      -- after = "lexima.vim",
+      "hrsh7th/nvim-cmp",
+      requires = "hrsh7th/cmp-nvim-lsp",
       config = function()
-        require("compe").setup {
+        require("cmp_nvim_lsp").setup()
+        local cmp = require("cmp")
+        cmp.setup {
           min_length = 0, -- allow for `from package import _` in Python
-          source = {
-            -- path = true,
-            -- buffer = true,
-            nvim_lsp = true,
-            nvim_lua = true -- TODO: wtf is this?
+          mapping = {
+            ["<S-Tab>"] = cmp.mapping.prev_item(),
+            ["<Tab>"] = cmp.mapping.next_item(),
+            ["<C-p>"] = cmp.mapping.prev_item(),
+            ["<C-n>"] = cmp.mapping.next_item(),
+            ["<C-d>"] = cmp.mapping.scroll(-4),
+            ["<C-f>"] = cmp.mapping.scroll(4),
+            ["<C-Space>"] = cmp.mapping.complete(),
+            ["<C-e>"] = cmp.mapping.close(),
+            ["<CR>"] = cmp.mapping.confirm(
+              {
+                behavior = cmp.ConfirmBehavior.Replace,
+                select = true
+              }
+            )
+          },
+          sources = {
+            {name = "nvim_lsp"}
           }
         }
-        local utils = require("tb.utils")
-
-        local check_behind = function()
-          local is_empty = function(col)
-            return col <= 0 or vim.fn.getline("."):sub(col, col):match("%s")
-          end
-          local pos_col = vim.fn.col(".") - 1
-          return is_empty(pos_col) and is_empty(pos_col - 1) and true or false
+        for index, value in ipairs(vim.lsp.protocol.CompletionItemKind) do
+          cmp.lsp.CompletionItemKind[index] = value
         end
-
-        _G.complete = function(pum, empty)
-          if vim.fn.pumvisible() == 1 then
-            return utils.term_codes(pum)
-          elseif check_behind() then
-            return utils.term_codes(empty)
-          else
-            return vim.fn["compe#complete"]()
-          end
-        end
-
-        utils.mapx("is", "<Tab>", "v:lua.complete('<C-n>', '<Tab>')")
-        utils.mapx("is", "<S-Tab>", "v:lua.complete('<C-p>', '<C-h>')")
-        utils.mapx("is", "<C-e>", "compe#close('<C-e>')")
-
-        -- utils.mapx("i", "<CR>", "compe#confirm(lexima#expand('<lt>CR>', 'i'))")
       end
     }
     use {
@@ -545,22 +578,22 @@ return require("packer").startup {
     --     vim.fn["lexima#set_default_rules"]()
     --   end
     -- }
-    -- TODO: maybe get this working
     use {
       "windwp/nvim-autopairs",
-      after = "nvim-compe",
+      -- after = "nvim-compe",
+      after = "nvim-cmp",
       config = function()
         local npairs = require("nvim-autopairs")
 
-        npairs.setup()
+        npairs.setup {}
 
         -- prevent nvim-compe from conflicting with nvim-autopairs
-        require("nvim-autopairs.completion.compe").setup(
-          {
-            map_cr = true, --  map <CR> on insert mode
-            map_complete = true -- insert `(` when function/method is completed
-          }
-        )
+        -- require("nvim-autopairs.completion.compe").setup {
+        require("nvim-autopairs.completion.cmp").setup {
+          map_cr = true, --  map <CR> on insert mode
+          map_complete = true -- insert `(` when function/method is completed
+        }
+
         -- vim.g.completion_confirm_key = ""
         -- _G.completion_confirm = function()
         --   if vim.fn.pumvisible() ~= 0 then

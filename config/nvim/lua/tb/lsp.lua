@@ -252,13 +252,13 @@ lspconfig.sumneko_lua.setup {
       },
       runtime = {
         version = "LuaJIT",
-        path = {"?.lua", "?/init.lua", "?/?.lua"}
+        path = {"?.lua", "?/init.lua", "lua/?.lua"}
         -- path = vim.split(package.path, ";")
       },
       telemetry = {enable = false},
       workspace = {
         checkThirdParty = false,
-        library = vim.api.nvim_get_runtime_file("", true),
+        -- library = vim.api.nvim_get_runtime_file("", true),
         -- library = {
         --   [vim.fn.expand("$VIMRUNTIME/lua")] = true,
         --   [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
