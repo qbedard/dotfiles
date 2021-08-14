@@ -583,9 +583,7 @@ return require("packer").startup {
       -- after = "nvim-compe",
       after = "nvim-cmp",
       config = function()
-        local npairs = require("nvim-autopairs")
-
-        npairs.setup {}
+        require("nvim-autopairs").setup {}
 
         -- prevent nvim-compe from conflicting with nvim-autopairs
         -- require("nvim-autopairs.completion.compe").setup {
@@ -593,19 +591,6 @@ return require("packer").startup {
           map_cr = true, --  map <CR> on insert mode
           map_complete = true -- insert `(` when function/method is completed
         }
-
-        -- vim.g.completion_confirm_key = ""
-        -- _G.completion_confirm = function()
-        --   if vim.fn.pumvisible() ~= 0 then
-        --     if vim.fn.complete_info()["selected"] ~= -1 then
-        --       return vim.fn["compe#confirm"]("<CR>")
-        --     end
-        --   else
-        --     return npairs.autopairs_cr()
-        --   end
-        -- end
-
-        -- require("tb.utils").mapx("i", "<CR>", "v:lua.completion_confirm()")
       end
     }
 
