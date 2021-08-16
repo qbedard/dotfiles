@@ -363,10 +363,18 @@ return require("packer").startup {
     use {
       "hrsh7th/nvim-cmp",
       requires = "hrsh7th/cmp-nvim-lsp",
+      after = "lspkind-nvim",
       config = function()
         require("cmp_nvim_lsp").setup()
         local cmp = require("cmp")
+        local lspkind = require("lspkind")
         cmp.setup {
+          formatting = {
+            format = function(entry, vim_item)
+              vim_item.kind = lspkind.presets.default[vim_item.kind]
+              return vim_item
+            end
+          },
           min_length = 0, -- allow for `from package import _` in Python
           mapping = {
             ["<S-Tab>"] = cmp.mapping.prev_item(),
@@ -388,9 +396,6 @@ return require("packer").startup {
             {name = "nvim_lsp"}
           }
         }
-        for index, value in ipairs(vim.lsp.protocol.CompletionItemKind) do
-          cmp.lsp.CompletionItemKind[index] = value
-        end
       end
     }
     use {
