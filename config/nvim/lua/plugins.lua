@@ -27,8 +27,8 @@ return require("packer").startup {
       run = ":TSUpdate",
       config = function()
         require("tb.treesitter")
-        -- vim.opt.foldmethod = "expr"
-        -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+        vim.opt.foldmethod = "expr"
+        vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
       end
     }
     use {
@@ -251,6 +251,7 @@ return require("packer").startup {
 
     use {
       "neovim/nvim-lspconfig",
+      -- requires = "pierreglaser/folding-nvim",
       -- TODO: Get this working
       -- rocks = {"luaformatter", server = "https://luarocks.org/dev"},
       config = function()
@@ -372,8 +373,6 @@ return require("packer").startup {
         }
       end
     }
-
-    use "pierreglaser/folding-nvim"
 
     use {
       "nvim-telescope/telescope.nvim",
