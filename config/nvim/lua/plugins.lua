@@ -13,7 +13,6 @@ end
 return require("packer").startup {
   function()
     use {"wbthomason/packer.nvim", opt = true}
-    -- use "svermeulen/vimpeccable"
 
     use {
       "nvim-treesitter/nvim-treesitter",
@@ -31,6 +30,7 @@ return require("packer").startup {
         vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
       end
     }
+
     use {
       "npxbr/gruvbox.nvim",
       requires = "rktjmp/lush.nvim",
@@ -69,6 +69,7 @@ return require("packer").startup {
         -- vim.cmd("colorscheme gruvqueen")
       end
     }
+
     -- use { "romgrk/barbar.nvim",
     --   requires = "kyazdani42/nvim-web-devicons",
     --   config = function()
@@ -121,6 +122,7 @@ return require("packer").startup {
         map("nx", "J", ":BufferLineCyclePrev<CR>", {silent = true})
       end
     }
+
     use {
       "hoob3rt/lualine.nvim",
       requires = {"kyazdani42/nvim-web-devicons"},
@@ -224,7 +226,6 @@ return require("packer").startup {
 
     use {
       "neovim/nvim-lspconfig",
-      -- requires = "pierreglaser/folding-nvim",
       -- TODO: Get this working
       -- rocks = {"luaformatter", server = "https://luarocks.org/dev"},
       config = function()
@@ -239,6 +240,7 @@ return require("packer").startup {
         utils.map("n", "gf", "<Cmd>lua vim.lsp.buf.formatting()<CR>", o)
       end
     }
+
     use {
       "glepnir/lspsaga.nvim",
       after = {"gruvbox.nvim", "gruvqueen"},
@@ -258,6 +260,7 @@ return require("packer").startup {
         utils.map("n", "]d", ":Lspsaga diagnostic_jump_next<CR>", o)
       end
     }
+
     use {
       "onsails/lspkind-nvim",
       config = function()
@@ -294,6 +297,7 @@ return require("packer").startup {
         }
       end
     }
+
     use {
       "hrsh7th/nvim-cmp",
       requires = "hrsh7th/cmp-nvim-lsp",
@@ -329,6 +333,7 @@ return require("packer").startup {
         }
       end
     }
+
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
@@ -422,7 +427,6 @@ return require("packer").startup {
       end
     }
 
-    use "romainl/vim-cool"
     use {
       "justinmk/vim-dirvish",
       config = function()
@@ -435,6 +439,7 @@ return require("packer").startup {
       run = ":call mkdp#util#install()",
       ft = "markdown"
     }
+
     use {
       "kshenoy/vim-signature",
       config = function()
@@ -442,12 +447,14 @@ return require("packer").startup {
         -- vim.g.SignatureMarkTextHLDynamic = 1
       end
     }
+
     use {
       "unblevable/quick-scope",
       config = function()
         vim.g.qs_highlight_on_keys = {"f", "F", "t", "T"}
       end
     }
+
     use {
       "ntpeters/vim-better-whitespace",
       config = function()
@@ -456,20 +463,6 @@ return require("packer").startup {
         vim.cmd("command! Trim StripWhitespace")
       end
     }
-    use "farmergreg/vim-lastplace"
-    use "tpope/vim-commentary"
-    use "tpope/vim-surround"
-    use "tpope/vim-repeat"
-    use "tpope/vim-eunuch"
-    use "tpope/vim-abolish"
-    use "tpope/vim-fugitive"
-    use "tpope/vim-rhubarb"
-    use "tpope/vim-unimpaired"
-
-    use "wellle/targets.vim"
-    use {"kana/vim-textobj-line", requires = "kana/vim-textobj-user"}
-    use "michaeljsmith/vim-indent-object"
-    use "AndrewRadev/splitjoin.vim"
 
     use {
       "lewis6991/gitsigns.nvim",
@@ -518,6 +511,24 @@ return require("packer").startup {
       opt = true,
       ft = {"html", "jinja"}
     }
+
+    use "romainl/vim-cool"
+    use "farmergreg/vim-lastplace"
+
+    use "tpope/vim-commentary"
+    use "tpope/vim-surround"
+    use "tpope/vim-repeat"
+    use "tpope/vim-eunuch"
+    use "tpope/vim-abolish"
+    use "tpope/vim-fugitive"
+    use "tpope/vim-rhubarb"
+    use "tpope/vim-unimpaired"
+
+    use "wellle/targets.vim"
+    use {"kana/vim-textobj-line", requires = "kana/vim-textobj-user"}
+    use "michaeljsmith/vim-indent-object"
+    use "AndrewRadev/splitjoin.vim"
+
 
     use "Vimjas/vim-python-pep8-indent"
     use "sophacles/vim-bundle-mako"
