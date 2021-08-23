@@ -21,6 +21,7 @@ fish_add_path "$HOME/go/bin"  # go
 fish_add_path "/usr/local/opt/ruby/bin"  # ruby
 fish_add_path "/usr/local/lib/ruby/gems/2.7.0/bin"  # ruby gems
 fish_add_path "/usr/local/lib/ruby/gems/3.0.0/bin"  # ruby gems
+# fish_add_path (brew --prefix llvm)/bin
 
 # add openssl for compilers
 set -gx LDFLAGS "-L/usr/local/opt/openssl/lib"
