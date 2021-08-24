@@ -315,10 +315,10 @@ return require("packer").startup {
           },
           min_length = 0, -- allow for `from package import _` in Python
           mapping = {
-            ["<S-Tab>"] = cmp.mapping.prev_item(),
-            ["<Tab>"] = cmp.mapping.next_item(),
-            ["<C-p>"] = cmp.mapping.prev_item(),
-            ["<C-n>"] = cmp.mapping.next_item(),
+            ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+            ["<Tab>"] = cmp.mapping.select_next_item(),
+            ["<C-p>"] = cmp.mapping.select_prev_item(),
+            ["<C-n>"] = cmp.mapping.select_next_item(),
             ["<C-Space>"] = cmp.mapping.complete(),
             ["<C-e>"] = cmp.mapping.close()
             -- This is handled by nvim-autopairs.
