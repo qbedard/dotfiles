@@ -1,6 +1,5 @@
 # --- Packages --- #
 brew "bat"  # cat replacement
-# brew "cmake"
 brew "coreutils"  # GNU coreutils (macOS utils are a little different)
 brew "diff-so-fancy"  # fancy git diff
 brew "direnv"
@@ -21,18 +20,15 @@ brew "luajit", args: ['HEAD']  # neovim HEAD dep
 brew "neovim", args: ['HEAD']
 brew "node"
 brew "pipx"
-# brew "poetry"
 brew "procs"  # ps replacement
 brew "pyenv"
 brew "python"
-# brew "reattach-to-user-namespace"  # fix tmux pasteboard mac issues
 brew "ripgrep"  # awesome grep
 brew "shellcheck"
 brew "shfmt"
 brew "starship"  # shell prompt
 brew "stow"
 brew "tealdeer"  # Rust tldr pages client
-# brew "tmux"
 brew "tokei"
 brew "zoxide"  # fast dir nav
 
