@@ -1,5 +1,6 @@
 format = "$all"
 add_newline = false
+command_timeout = 750
 
 [aws]
 symbol = " "
