@@ -529,7 +529,6 @@ return require("packer").startup {
     use "michaeljsmith/vim-indent-object"
     use "AndrewRadev/splitjoin.vim"
 
-
     use "Vimjas/vim-python-pep8-indent"
     use "sophacles/vim-bundle-mako"
 
