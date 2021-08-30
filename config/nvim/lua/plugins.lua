@@ -300,7 +300,7 @@ return require("packer").startup {
 
     use {
       "hrsh7th/nvim-cmp",
-      requires = "hrsh7th/cmp-nvim-lsp",
+      requires = {"hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-nvim-lua"},
       after = "lspkind-nvim",
       config = function()
         require("cmp_nvim_lsp").setup()
@@ -328,7 +328,8 @@ return require("packer").startup {
             -- }
           },
           sources = {
-            {name = "nvim_lsp"}
+            {name = "nvim_lsp"},
+            {name = "nvim_lua"}
           }
         }
       end
