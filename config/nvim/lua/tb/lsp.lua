@@ -41,9 +41,10 @@ vim.fn.sign_define(
   }
 )
 
-local on_attach = function()
-  -- require("folding").on_attach()
-end
+local capabilities =
+  require("cmp_nvim_lsp").update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
 
 -------------------------------- Simple Configs --------------------------------
 local servers = {
@@ -61,7 +62,7 @@ local servers = {
   -- "terraformls"
 }
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {on_attach = on_attach}
+  lspconfig[lsp].setup {capabilities = capabilities}
 end
 
 --------------------- General Lint/Format (efm-langserver) ---------------------
@@ -86,6 +87,7 @@ local efm_sqlformat = {
 }
 
 lspconfig.efm.setup {
+  capabilities = capabilities,
   cmd = {
     "efm-langserver",
     "-logfile",
@@ -199,6 +201,7 @@ if vim.env.VIRTUAL_ENV then
   python = vim.env.VIRTUAL_ENV .. "/bin/python"
 end
 lspconfig.pyright.setup {
+  capabilities = capabilities,
   settings = {
     python = {
       -- analysis = {
@@ -220,6 +223,7 @@ lspconfig.pyright.setup {
 ------------------------------------- SQL --------------------------------------
 -- TODO: Figure out why this doesn't work.
 -- lspconfig.sqls.setup {
+--   capabilities = capabilities,
 --   settings = {
 --     sqls = {
 --       connections = {
@@ -238,10 +242,7 @@ local sumneko_root_path =
   vim.fn.stdpath("data") .. "/site/pack/packer/start/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 lspconfig.sumneko_lua.setup {
-  on_attach = function()
-    -- TODO: Find out why folding is borked for lua
-    -- require("folding").on_attach()
-  end,
+  capabilities = capabilities,
   -- TODO: Make work on Linux as well
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
   settings = {
@@ -275,6 +276,7 @@ lspconfig.sumneko_lua.setup {
 
 ---------------------------------- JavaScript ----------------------------------
 -- lspconfig.tsserver.setup {
+--   capabilities = capabilities,
 --   on_attach = function(client)
 --     client.resolved_capabilities.document_formatting = false
 --   end
@@ -282,7 +284,7 @@ lspconfig.sumneko_lua.setup {
 
 ---------------------------------- Vimscript -----------------------------------
 lspconfig.vimls.setup {
-  on_attach = on_attach,
+  capabilities = capabilities,
   init_options = {
     runtimepath = vim.api.nvim_get_option("runtimepath"),
     indexes = {gap = 75, count = 5}
@@ -291,7 +293,7 @@ lspconfig.vimls.setup {
 
 ------------------------------------- YAML -------------------------------------
 -- lspconfig.yamlls.setup {
---   on_attach = on_attach,
+--   capabilities = capabilities,
 --   settings = {
 --     yaml = {
 --       customTags = {
