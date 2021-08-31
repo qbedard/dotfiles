@@ -300,7 +300,12 @@ return require("packer").startup {
 
     use {
       "hrsh7th/nvim-cmp",
-      requires = {"hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-nvim-lua"},
+      requires = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip"
+      },
       after = "lspkind-nvim",
       config = function()
         require("cmp_nvim_lsp").setup()
@@ -330,6 +335,11 @@ return require("packer").startup {
           sources = {
             {name = "nvim_lsp"},
             {name = "nvim_lua"}
+          },
+          snippet = {
+            expand = function(args)
+              require("luasnip").lsp_expand(args.body)
+            end
           }
         }
       end
@@ -498,12 +508,18 @@ return require("packer").startup {
       after = "nvim-cmp",
       config = function()
         require("nvim-autopairs").setup {}
-
         -- handle <CR> mapping with nvim-cmp
         require("nvim-autopairs.completion.cmp").setup {
           map_cr = true, --  map <CR> on insert mode
           map_complete = true -- insert `(` when function/method is completed
         }
+      end
+    }
+
+    use {
+      "abecodes/tabout.nvim",
+      config = function()
+        require("tabout").setup()
       end
     }
 
