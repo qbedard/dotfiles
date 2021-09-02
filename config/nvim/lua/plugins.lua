@@ -442,13 +442,6 @@ return require("packer").startup {
     }
 
     use {
-      "justinmk/vim-dirvish",
-      config = function()
-        vim.g.loaded_netrwPlugin = 1
-      end
-    }
-
-    use {
       "iamcco/markdown-preview.nvim",
       run = ":call mkdp#util#install()",
       ft = "markdown"
@@ -532,6 +525,7 @@ return require("packer").startup {
       ft = {"html", "jinja"}
     }
 
+    use "justinmk/vim-dirvish"
     use "romainl/vim-cool"
     use "farmergreg/vim-lastplace"
 
