@@ -45,8 +45,8 @@ local servers = {
   "html",
   "jsonls",
   "sqls",
-  -- "solargraph" -- ruby
-  -- "terraformls"
+  -- "solargraph", -- ruby
+  -- "terraformls",
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({ capabilities = capabilities })
@@ -62,9 +62,9 @@ local efm_prettier = {
 --   lintCommand = "eslint -f unix --stdin --stdin-filename '${INPUT}'",
 --   lintIgnoreExitCode = true,
 --   lintStdin = true,
---   lintFormats = {"%f:%l:%c: %m"},
+--   lintFormats = { "%f:%l:%c: %m" },
 --   formatCommand = "eslint --fix-to-stdout --stdin --stdin-filename '${INPUT}'",
---   formatStdin = true
+--   formatStdin = true,
 -- }
 
 local efm_sqlformat = {
@@ -111,12 +111,12 @@ lspconfig.efm.setup({
       lua = {
         -- {
         --   formatCommand = "lua-format -i",
-        --   formatStdin = true
-        -- }
+        --   formatStdin = true,
+        -- },
         -- {
         --   formatCommand = "luafmt --indent-count 2 --line-width 88 --stdin",
-        --   formatStdin = true
-        -- }
+        --   formatStdin = true,
+        -- },
         {
           formatCommand = "stylua -s --stdin-filepath '${INPUT}' -",
           formatStdin = true,
@@ -140,9 +140,9 @@ lspconfig.efm.setup({
         --   lintFormats = {
         --     "%f:%l:%c: %trror: %m",
         --     "%f:%l:%c: %tarning: %m",
-        --     "%f:%l:%c: %tote: %m"
-        --   }
-        -- }
+        --     "%f:%l:%c: %tote: %m",
+        --   },
+        -- },
       },
       ruby = {
         -- TODO: Find out why this is broken
@@ -150,7 +150,7 @@ lspconfig.efm.setup({
           formatCommand = "rubocop --fix-layout --force-exclusion --stderr --stdin '${INPUT}'",
           formatStdin = true,
         },
-        -- {formatCommand = "rubocop --auto-correct --force-exclusion '${INPUT}'"},
+        -- { formatCommand = "rubocop --auto-correct --force-exclusion '${INPUT}'" },
         {
           lintCommand = "rubocop --format clang --no-display-cop-names --stdin '${INPUT}'",
           lintFormats = {
@@ -158,7 +158,7 @@ lspconfig.efm.setup({
           },
           lintStdin = true,
         },
-        -- {lintCommand = "ruby -T1 -c -w"}
+        -- { lintCommand = "ruby -T1 -c -w" },
       },
       sh = {
         {
@@ -179,7 +179,7 @@ lspconfig.efm.setup({
       terraform = {
         { formatCommand = "terraform fmt -", formatStdin = true },
       },
-      -- toml = {efm_prettier},
+      -- toml = { efm_prettier },
       yaml = { efm_prettier },
       ["yaml.docker-compose"] = { efm_prettier },
     },
@@ -202,9 +202,9 @@ lspconfig.pyright.setup({
       --     reportUnknownLambdaType = "warning",
       --     reportUnknownMemberType = "warning",
       --     reportUnknownParameterType = "warning",
-      --     reportUnknownVariableType = "warning"
-      --   }
-      --   typeCheckingMode = "strict"
+      --     reportUnknownVariableType = "warning",
+      --   },
+      --   typeCheckingMode = "strict",
       -- },
       pythonPath = python,
     },
@@ -213,7 +213,7 @@ lspconfig.pyright.setup({
 
 ------------------------------------- SQL --------------------------------------
 -- TODO: Figure out why this doesn't work.
--- lspconfig.sqls.setup {
+-- lspconfig.sqls.setup({
 --   capabilities = capabilities,
 --   settings = {
 --     sqls = {
@@ -221,12 +221,12 @@ lspconfig.pyright.setup({
 --         {
 --           alias = "mysql",
 --           driver = "mysql",
---           dataSourceName = "root:root@tcp(127.0.0.1:3306)/customerportal"
---         }
---       }
---     }
---   }
--- }
+--           dataSourceName = "root:root@tcp(127.0.0.1:3306)/customerportal",
+--         },
+--       },
+--     },
+--   },
+-- })
 
 ------------------------------------- Lua --------------------------------------
 local sumneko_root_path = vim.fn.stdpath("data")
@@ -251,13 +251,7 @@ lspconfig.sumneko_lua.setup({
       telemetry = { enable = false },
       workspace = {
         checkThirdParty = false,
-        -- library = vim.api.nvim_get_runtime_file("", true),
-        -- library = {
-        --   [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-        --   [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-        --   [vim.fn.stdpath("config") .. "/lua"] = true,
-        --   [vim.fn.stdpath("data") .. "/site/pack"] = true
-        -- },
+        library = vim.api.nvim_get_runtime_file("**/lua/", true),
         maxPreload = 2000,
         preloadFileSize = 1000,
       },
@@ -266,12 +260,12 @@ lspconfig.sumneko_lua.setup({
 })
 
 ---------------------------------- JavaScript ----------------------------------
--- lspconfig.tsserver.setup {
+-- lspconfig.tsserver.setup({
 --   capabilities = capabilities,
 --   on_attach = function(client)
 --     client.resolved_capabilities.document_formatting = false
---   end
--- }
+--   end,
+-- })
 
 ---------------------------------- Vimscript -----------------------------------
 lspconfig.vimls.setup({
@@ -283,7 +277,7 @@ lspconfig.vimls.setup({
 })
 
 ------------------------------------- YAML -------------------------------------
--- lspconfig.yamlls.setup {
+-- lspconfig.yamlls.setup({
 --   capabilities = capabilities,
 --   settings = {
 --     yaml = {
@@ -304,10 +298,10 @@ lspconfig.vimls.setup({
 --         "!Select",
 --         "!Split",
 --         "!Sub",
---         "!fn"
+--         "!fn",
 --       },
---       format = {enable = true, singleQuote = true},
---       schemaStore = {enable = true},
+--       format = { enable = true, singleQuote = true },
+--       schemaStore = { enable = true },
 --       schemas = {
 --         -- ["https://raw.githubusercontent.com/awslabs/goformation/master/schema/sam.schema.json"] = "*api*/template.y*ml"
 --         ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.y*ml",
@@ -315,9 +309,9 @@ lspconfig.vimls.setup({
 --         ["https://json.schemastore.org/github-workflow"] = "*.github/workflows/*",
 --         ["https://json.schemastore.org/jekyll"] = "_config.y*ml",
 --         ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v3.0/schema.json"] = "openapi.y*ml",
---         ["https://json.schemastore.org/pre-commit-config"] = ".pre-commit-config.y*ml"
+--         ["https://json.schemastore.org/pre-commit-config"] = ".pre-commit-config.y*ml",
 --       },
---       validate = true
---     }
---   }
--- }
+--       validate = true,
+--     },
+--   },
+-- })
