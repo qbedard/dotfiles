@@ -1,37 +1,36 @@
-local packer_path =
-  vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 if vim.fn.empty(vim.fn.glob(packer_path)) then
-  vim.fn.system {
+  vim.fn.system({
     "git",
     "clone",
     "https://github.com/wbthomason/packer.nvim",
-    packer_path
-  }
+    packer_path,
+  })
   vim.cmd("packadd packer.nvim")
 end
 
-return require("packer").startup {
+return require("packer").startup({
   function()
-    use {"wbthomason/packer.nvim", opt = true}
+    use({ "wbthomason/packer.nvim", opt = true })
 
-    use {
+    use({
       "nvim-treesitter/nvim-treesitter",
       requires = {
         -- "romgrk/nvim-treesitter-context", -- This is rad, but stupid slow right now.
         -- "nvim-treesitter/playground",
         -- "nvim-treesitter/nvim-treesitter-refactor",
         "nvim-treesitter/nvim-treesitter-textobjects",
-        "windwp/nvim-ts-autotag"
+        "windwp/nvim-ts-autotag",
       },
       run = ":TSUpdate",
       config = function()
         require("tb.treesitter")
         vim.opt.foldmethod = "expr"
         vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "npxbr/gruvbox.nvim",
       requires = "rktjmp/lush.nvim",
       config = function()
@@ -50,9 +49,9 @@ return require("packer").startup {
 
         -- misc
         vim.cmd("highlight! link DiffChange GruvboxBlue") -- for gitsigns
-      end
-    }
-    use {
+      end,
+    })
+    use({
       "Murtaza-Udaipurwala/gruvqueen",
       config = function()
         -- require("gruvqueen").setup {
@@ -67,8 +66,8 @@ return require("packer").startup {
         --   }
         -- }
         -- vim.cmd("colorscheme gruvqueen")
-      end
-    }
+      end,
+    })
 
     -- use { "romgrk/barbar.nvim",
     --   requires = "kyazdani42/nvim-web-devicons",
@@ -78,63 +77,63 @@ return require("packer").startup {
     --     map("nx", "J", ":BufferPrevious<CR>")
     --   end
     -- }
-    use {
+    use({
       "akinsho/nvim-bufferline.lua",
       requires = "kyazdani42/nvim-web-devicons",
-      after = {"gruvbox.nvim", "gruvqueen"},
+      after = { "gruvbox.nvim", "gruvqueen" },
       config = function()
         local colors = require("bufferline.colors")
         local hex = colors.get_hex
         local shade = colors.shade_color
 
-        local normal_bg = hex({name = "Normal", attribute = "bg"})
+        local normal_bg = hex({ name = "Normal", attribute = "bg" })
         local separator_background_color = shade(normal_bg, -27)
         local background_color = shade(normal_bg, -18)
 
-        require("bufferline").setup {
+        require("bufferline").setup({
           highlights = {
-            buffer_selected = {gui = "bold"},
-            background = {guibg = background_color},
-            fill = {guibg = separator_background_color},
+            buffer_selected = { gui = "bold" },
+            background = { guibg = background_color },
+            fill = { guibg = separator_background_color },
             indicator_selected = {
-              guifg = {attribute = "fg", highlight = "GruvboxBlue"}
+              guifg = { attribute = "fg", highlight = "GruvboxBlue" },
             },
             separator = {
               guifg = separator_background_color,
-              guibg = background_color
+              guibg = background_color,
             },
-            tab = {guibg = background_color},
-            tab_close = {guibg = background_color},
-            close_button = {guibg = background_color},
-            modified = {guibg = background_color}
+            tab = { guibg = background_color },
+            tab_close = { guibg = background_color },
+            close_button = { guibg = background_color },
+            modified = { guibg = background_color },
           },
           options = {
             always_show_bufferline = false,
             enforce_regular_tabs = true,
             -- modified_icon = require("tb.icons").file.mod,
             show_buffer_close_icons = false,
-            show_close_icon = false
-          }
-        }
+            show_close_icon = false,
+          },
+        })
 
         local map = require("tb.utils").map
-        map("nx", "K", ":BufferLineCycleNext<CR>", {silent = true})
-        map("nx", "J", ":BufferLineCyclePrev<CR>", {silent = true})
-      end
-    }
+        map("nx", "K", ":BufferLineCycleNext<CR>", { silent = true })
+        map("nx", "J", ":BufferLineCyclePrev<CR>", { silent = true })
+      end,
+    })
 
-    use {
+    use({
       "hoob3rt/lualine.nvim",
-      requires = {"kyazdani42/nvim-web-devicons"},
-      after = {"gruvbox.nvim", "gruvqueen"},
+      requires = { "kyazdani42/nvim-web-devicons" },
+      after = { "gruvbox.nvim", "gruvqueen" },
       config = function()
         local i = require("tb.icons")
 
-        require("lualine").setup {
+        require("lualine").setup({
           sections = {
-            lualine_a = {"mode"},
+            lualine_a = { "mode" },
             lualine_b = {
-              {"branch", icon = ""}
+              { "branch", icon = "" },
             },
             lualine_c = {
               {
@@ -142,116 +141,116 @@ return require("packer").startup {
                 symbols = {
                   added = i.diff.add_,
                   modified = i.diff.mod_,
-                  removed = i.diff.del_
-                }
+                  removed = i.diff.del_,
+                },
               },
               {
                 "filename",
-                symbols = {modified = i.file._mod, readonly = i.file._lock}
-              }
+                symbols = { modified = i.file._mod, readonly = i.file._lock },
+              },
             },
             lualine_x = {
               {
                 "diagnostics",
-                sources = {"nvim_lsp"},
+                sources = { "nvim_lsp" },
                 color_info = "#83a598",
                 symbols = {
                   error = i.diag.error_,
                   warn = i.diag.warn_,
                   info = i.diag.info_,
-                  hint = i.diag.hint_
-                }
+                  hint = i.diag.hint_,
+                },
               },
               -- "encoding",
               -- "fileformat",
-              "filetype"
+              "filetype",
             },
-            lualine_y = {"progress"},
-            lualine_z = {"location"}
+            lualine_y = { "progress" },
+            lualine_z = { "location" },
           },
-          extensions = {"fugitive"}
-        }
-      end
-    }
+          extensions = { "fugitive" },
+        })
+      end,
+    })
 
     -- TODO: Find out wtf is going on with the lines (and barbar) colors
     --       changing on autocmd to PackerCompile.
-    use {
+    use({
       "lukas-reineke/indent-blankline.nvim",
       config = function()
         local i = require("tb.icons")
         vim.opt.colorcolumn = "80" -- highlight bug hack fix
-        require("indent_blankline").setup {
+        require("indent_blankline").setup({
           char = i.bar.thin,
-          char_highlight_list = {"GruvboxBg1", "GruvboxBg2"},
-          context_highlight_list = {"GruvboxAqua"},
-          buftype_exclude = {"help", "terminal"},
-          filetype_exclude = {"text", "markdown"},
+          char_highlight_list = { "GruvboxBg1", "GruvboxBg2" },
+          context_highlight_list = { "GruvboxAqua" },
+          buftype_exclude = { "help", "terminal" },
+          filetype_exclude = { "text", "markdown" },
           show_current_context = true,
           show_first_indent_level = false,
-          show_trailing_blankline_indent = false
-        }
-      end
-    }
+          show_trailing_blankline_indent = false,
+        })
+      end,
+    })
 
-    use {
+    use({
       "edluffy/specs.nvim",
       config = function()
         -- vim.cmd("highlight SpecsWinHl guibg=#1D2021")
-        require("specs").setup {
+        require("specs").setup({
           min_jump = 20,
           popup = {
             inc_ms = 5,
             blend = 50,
-            winhl = "PMenuThumb"
+            winhl = "PMenuThumb",
             -- winhl = "SpecsWinHl"
-          }
-        }
-      end
-    }
+          },
+        })
+      end,
+    })
 
-    use {
+    use({
       "timbedard/vim-envelop",
       run = ":EnvCreate",
       config = function()
         require("tb.envelop")
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "sumneko/lua-language-server",
       run = {
-        "cd 3rd/luamake && ./compile/install.sh && cd ../../ && 3rd/luamake/luamake rebuild"
+        "cd 3rd/luamake && ./compile/install.sh && cd ../../ && 3rd/luamake/luamake rebuild",
         -- "cd 3rd/luamake && ./compile/install.sh",
         -- "3rd/luamake/luamake rebuild"
-      }
-    }
+      },
+    })
 
-    use {
+    use({
       "neovim/nvim-lspconfig",
       -- TODO: Get this working
       -- rocks = {"luaformatter", server = "https://luarocks.org/dev"},
       config = function()
         require("tb.lsp")
         local utils = require("tb.utils")
-        local o = {silent = true}
+        local o = { silent = true }
         utils.map("n", "<leader>k", "<Cmd>lua vim.lsp.buf.hover()<CR>", o)
         utils.map("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", o)
         utils.map("n", "1gd", "<Cmd>lua vim.lsp.buf.type_definition()<CR>", o)
         -- utils.map("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", o)
         utils.map("n", "g0", "<Cmd>lua vim.lsp.buf.document_symbol()<CR>", o)
         utils.map("n", "gf", "<Cmd>lua vim.lsp.buf.formatting()<CR>", o)
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "glepnir/lspsaga.nvim",
-      after = {"gruvbox.nvim", "gruvqueen"},
+      after = { "gruvbox.nvim", "gruvqueen" },
       config = function()
         require("tb.lspsaga")
 
         local utils = require("tb.utils")
-        local o = {silent = true}
+        local o = { silent = true }
         utils.map("n", "gh", ":Lspsaga lsp_finder<CR>", o)
         utils.map("n", "<leader>ca", ":Lspsaga code_action<CR>", o)
         -- utils.map("n", "<leader>k", ":Lspsaga hover_doc<CR>", o)
@@ -261,15 +260,15 @@ return require("packer").startup {
         utils.map("n", "<leader>cd", ":Lspsaga show_line_diagnostics<CR>", o)
         utils.map("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>", o)
         utils.map("n", "]d", ":Lspsaga diagnostic_jump_next<CR>", o)
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "onsails/lspkind-nvim",
       config = function()
         local i = require("tb.icons")
 
-        require("lspkind").init {
+        require("lspkind").init({
           symbol_map = {
             Class = i.lang.class,
             Color = i.lang.color,
@@ -295,31 +294,31 @@ return require("packer").startup {
             TypeParameter = i.lang.typeparameter,
             Unit = i.lang.unit,
             Value = i.lang.value,
-            Variable = i.lang.variable
-          }
-        }
-      end
-    }
+            Variable = i.lang.variable,
+          },
+        })
+      end,
+    })
 
-    use {
+    use({
       "hrsh7th/nvim-cmp",
       requires = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lua",
         "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip"
+        "saadparwaiz1/cmp_luasnip",
       },
       after = "lspkind-nvim",
       config = function()
         require("cmp_nvim_lsp").setup()
         local cmp = require("cmp")
         local lspkind = require("lspkind")
-        cmp.setup {
+        cmp.setup({
           formatting = {
             format = function(entry, vim_item)
               vim_item.kind = lspkind.presets.default[vim_item.kind]
               return vim_item
-            end
+            end,
           },
           min_length = 0, -- allow for `from package import _` in Python
           mapping = {
@@ -328,7 +327,7 @@ return require("packer").startup {
             ["<C-p>"] = cmp.mapping.select_prev_item(),
             ["<C-n>"] = cmp.mapping.select_next_item(),
             ["<C-Space>"] = cmp.mapping.complete(),
-            ["<C-e>"] = cmp.mapping.close()
+            ["<C-e>"] = cmp.mapping.close(),
             -- This is handled by nvim-autopairs.
             -- ["<CR>"] = cmp.mapping.confirm {
             --   behavior = cmp.ConfirmBehavior.Replace,
@@ -336,42 +335,42 @@ return require("packer").startup {
             -- }
           },
           sources = {
-            {name = "nvim_lsp"},
-            {name = "nvim_lua"}
+            { name = "nvim_lsp" },
+            { name = "nvim_lua" },
           },
           snippet = {
             expand = function(args)
               require("luasnip").lsp_expand(args.body)
-            end
-          }
-        }
-      end
-    }
+            end,
+          },
+        })
+      end,
+    })
 
-    use {
+    use({
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
         local i = require("tb.icons")
 
-        require("trouble").setup {
+        require("trouble").setup({
           signs = {
             error = i.diag.error,
             warning = i.diag.warn,
             hint = i.diag.hint,
             information = i.diag.info,
-            other = i.diag.pass
-          }
-        }
-      end
-    }
+            other = i.diag.pass,
+          },
+        })
+      end,
+    })
 
-    use {
+    use({
       "nvim-telescope/telescope.nvim",
       requires = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-fzy-native.nvim",
-        "nvim-telescope/telescope-github.nvim"
+        "nvim-telescope/telescope-github.nvim",
         -- "nvim-telescope/telescope-packer.nvim"  -- currently breaking packer
       },
       config = function()
@@ -380,33 +379,33 @@ return require("packer").startup {
           "n",
           "<Leader><Leader>",
           "<cmd>lua require('telescope.builtin').builtin()<CR>",
-          {noremap = true, silent = true}
+          { noremap = true, silent = true }
         )
         vim.api.nvim_set_keymap(
           "n",
           "<C-p>",
           "<cmd>lua require('tb.telescope').project_files()<CR>",
-          {noremap = true, silent = true}
+          { noremap = true, silent = true }
         )
         vim.api.nvim_set_keymap(
           "n",
           "<C-b>",
           "<cmd>lua require('telescope.builtin').buffers()<CR>",
-          {noremap = true, silent = true}
+          { noremap = true, silent = true }
         )
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "folke/which-key.nvim",
       config = function()
-        require("which-key").setup {}
-      end
-    }
+        require("which-key").setup({})
+      end,
+    })
 
-    use {"norcalli/nvim-colorizer.lua", opt = true, ft = {"css", "html"}}
+    use({ "norcalli/nvim-colorizer.lua", opt = true, ft = { "css", "html" } })
 
-    use {
+    use({
       "liuchengxu/vista.vim",
       config = function()
         local i = require("tb.icons")
@@ -436,48 +435,48 @@ return require("packer").startup {
           typeparameter = i.lang.typeparameter,
           unit = i.lang.unit,
           value = i.lang.value,
-          variable = i.lang.variable
+          variable = i.lang.variable,
         }
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "iamcco/markdown-preview.nvim",
       run = ":call mkdp#util#install()",
-      ft = "markdown"
-    }
+      ft = "markdown",
+    })
 
-    use {
+    use({
       "kshenoy/vim-signature",
       config = function()
         -- only supports vim-gitgutter
         -- vim.g.SignatureMarkTextHLDynamic = 1
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "unblevable/quick-scope",
       config = function()
-        vim.g.qs_highlight_on_keys = {"f", "F", "t", "T"}
-      end
-    }
+        vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
+      end,
+    })
 
-    use {
+    use({
       "ntpeters/vim-better-whitespace",
       config = function()
         vim.g.better_whitespace_enabled = 0
         vim.g.strip_whitelines_at_eof = 1
         vim.cmd("command! Trim StripWhitespace")
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "lewis6991/gitsigns.nvim",
       requires = "nvim-lua/plenary.nvim",
       config = function()
         -- local i = require("tb.icons")
 
-        require("gitsigns").setup {
+        require("gitsigns").setup({
           -- TODO: maybe change this now that gruvbox.nvim highlights have changed
           -- signs = {
           --   add = {hl = "DiffAdd", text = i.bar.thick},
@@ -486,65 +485,65 @@ return require("packer").startup {
           --   delete = {hl = "DiffDelete"},
           --   topdelete = {hl = "DiffDelete"}
           -- },
-          sign_priority = 0
-        }
+          sign_priority = 0,
+        })
         vim.opt.signcolumn = "yes"
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "andymass/vim-matchup",
       config = function()
         vim.g.matchup_matchparen_offscreen = {}
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "windwp/nvim-autopairs",
       after = "nvim-cmp",
       config = function()
-        require("nvim-autopairs").setup {}
+        require("nvim-autopairs").setup({})
         -- handle <CR> mapping with nvim-cmp
-        require("nvim-autopairs.completion.cmp").setup {
+        require("nvim-autopairs.completion.cmp").setup({
           map_cr = true, --  map <CR> on insert mode
-          map_complete = true -- insert `(` when function/method is completed
-        }
-      end
-    }
+          map_complete = true, -- insert `(` when function/method is completed
+        })
+      end,
+    })
 
-    use {
+    use({
       "abecodes/tabout.nvim",
       config = function()
         require("tabout").setup()
-      end
-    }
+      end,
+    })
 
-    use {
+    use({
       "Glench/Vim-Jinja2-Syntax",
       opt = true,
-      ft = {"html", "jinja"}
-    }
+      ft = { "html", "jinja" },
+    })
 
-    use "justinmk/vim-dirvish"
-    use "romainl/vim-cool"
-    use "farmergreg/vim-lastplace"
+    use("justinmk/vim-dirvish")
+    use("romainl/vim-cool")
+    use("farmergreg/vim-lastplace")
 
-    use "tpope/vim-commentary"
-    use "tpope/vim-surround"
-    use "tpope/vim-repeat"
-    use "tpope/vim-eunuch"
-    use "tpope/vim-abolish"
-    use "tpope/vim-fugitive"
-    use "tpope/vim-rhubarb"
-    use "tpope/vim-unimpaired"
+    use("tpope/vim-commentary")
+    use("tpope/vim-surround")
+    use("tpope/vim-repeat")
+    use("tpope/vim-eunuch")
+    use("tpope/vim-abolish")
+    use("tpope/vim-fugitive")
+    use("tpope/vim-rhubarb")
+    use("tpope/vim-unimpaired")
 
-    use "wellle/targets.vim"
-    use {"kana/vim-textobj-line", requires = "kana/vim-textobj-user"}
-    use "michaeljsmith/vim-indent-object"
-    use "AndrewRadev/splitjoin.vim"
+    use("wellle/targets.vim")
+    use({ "kana/vim-textobj-line", requires = "kana/vim-textobj-user" })
+    use("michaeljsmith/vim-indent-object")
+    use("AndrewRadev/splitjoin.vim")
 
-    use "Vimjas/vim-python-pep8-indent"
-    use "sophacles/vim-bundle-mako"
+    use("Vimjas/vim-python-pep8-indent")
+    use("sophacles/vim-bundle-mako")
 
     -- use {
     --   "sheerun/vim-polyglot",
@@ -560,10 +559,10 @@ return require("packer").startup {
     --   end
     -- }
 
-    use "janko-m/vim-test"
+    use("janko-m/vim-test")
     -- use "hkupty/iron.nvim"
   end,
   config = {
-    python_cmd = "python3"
-  }
-}
+    python_cmd = "python3",
+  },
+})

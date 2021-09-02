@@ -3,7 +3,7 @@ local actions = require("telescope.actions")
 local previewers = require("telescope.previewers")
 
 -- Setup
-telescope.setup {
+telescope.setup({
   defaults = {
     layout_strategy = "flex",
     -- layout_config = {
@@ -15,15 +15,15 @@ telescope.setup {
       i = {
         ["<CR>"] = actions.select_default + actions.center,
         ["<esc>"] = actions.close,
-        ["<tab>"] = actions.add_selection
-      }
+        ["<tab>"] = actions.add_selection,
+      },
     },
     color_devicons = true,
     file_previewer = previewers.vim_buffer_cat.new,
     grep_previewer = previewers.vim_buffer_vimgrep.new,
-    qflist_previewer = previewers.vim_buffer_qflist.new
-  }
-}
+    qflist_previewer = previewers.vim_buffer_qflist.new,
+  },
+})
 
 -- TODO: Reduce preview ratio
 -- Override flex layout
@@ -54,9 +54,9 @@ local M = {}
 
 -- Pickers
 M.project_files = function()
-  require("telescope.builtin").find_files {
-    cwd = require("lspconfig.util").root_pattern(".git")(vim.fn.expand("%:p"))
-  }
+  require("telescope.builtin").find_files({
+    cwd = require("lspconfig.util").root_pattern(".git")(vim.fn.expand("%:p")),
+  })
 end
 
 return M

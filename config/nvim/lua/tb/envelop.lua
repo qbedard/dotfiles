@@ -1,4 +1,4 @@
-vim.g.envelop_enabled = {"node", "python3"}
+vim.g.envelop_enabled = { "node", "python3" }
 vim.g.envelop_node_link = {
   "node_modules/.bin/luafmt",
   "node_modules/.bin/prettier",
@@ -12,7 +12,7 @@ vim.g.envelop_node_link = {
   "node_modules/.bin/vscode-css-language-server",
   "node_modules/.bin/vscode-html-language-server",
   "node_modules/.bin/vscode-json-language-server",
-  "node_modules/.bin/yaml-language-server"
+  "node_modules/.bin/yaml-language-server",
 }
 vim.g.envelop_node_packages = {
   "bash-language-server",
@@ -26,7 +26,7 @@ vim.g.envelop_node_packages = {
   "typescript-language-server",
   "vim-language-server",
   "vscode-langservers-extracted",
-  "yaml-language-server"
+  "yaml-language-server",
 }
 vim.g.envelop_python3_link = {
   "bin/black",
@@ -36,7 +36,7 @@ vim.g.envelop_python3_link = {
   "bin/pip3",
   "bin/python3",
   "bin/sqlformat",
-  "bin/vint"
+  "bin/vint",
 }
 vim.g.envelop_python3_packages = {
   "black",
@@ -51,5 +51,5 @@ vim.g.envelop_python3_packages = {
   "pip",
   "pynvim",
   "sqlparse",
-  "vim-vint"
+  "vim-vint",
 }

@@ -1,7 +1,7 @@
 local _icons = {
   bar = {
     thick = "┃",
-    thin = "│"
+    thin = "│",
   },
   diag = {
     error = "",
@@ -11,19 +11,19 @@ local _icons = {
     info = "",
     pass = "",
     -- virtual = ""
-    virtual = "•"
+    virtual = "•",
   },
   diff = {
     add = "",
     mod = "",
-    del = ""
+    del = "",
   },
   file = {
     mod = "",
-    lock = ""
+    lock = "",
   },
   git = {
-    branch = ""
+    branch = "",
   },
   lang = {
     -- class = "",
@@ -60,8 +60,8 @@ local _icons = {
     unit = "塞",
     value = "",
     -- variable = "𝒙",
-    variable = ""
-  }
+    variable = "",
+  },
 }
 
 local icons = vim.tbl_extend("force", {}, _icons)

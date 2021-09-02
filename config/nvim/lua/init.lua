@@ -35,7 +35,7 @@ vim.opt.ttimeout = true -- prevent delay when changing modes
 vim.opt.ttimeoutlen = 50
 vim.opt.updatetime = 100 -- speed up screen updating
 vim.opt.undofile = true -- persistent undo
-vim.opt.viewoptions:remove {"options"} -- keep from saving cur dir in view
+vim.opt.viewoptions:remove({ "options" }) -- keep from saving cur dir in view
 
 if vim.fn.executable("fish") then
   vim.opt.shell = "fish"
@@ -52,24 +52,24 @@ vim.opt.listchars = {
   precedes = "",
   nbsp = "·",
   tab = " ",
-  trail = "·"
+  trail = "·",
 }
 vim.opt.smartindent = true
 
 ---------------------------------- Searching ----------------------------------
 vim.opt.ignorecase = true
-vim.opt.path:append {"**"} -- add current file location to path
+vim.opt.path:append({ "**" }) -- add current file location to path
 vim.opt.smartcase = true
-vim.opt.wildignore:append {
+vim.opt.wildignore:append({
   "*/tmp/*",
   "/var/*",
   "*.so",
   "*.swp",
   "*.zip",
   "*.tar",
-  "*.pyc"
-}
-vim.opt.wildmode = {"longest:full","full"}
+  "*.pyc",
+})
+vim.opt.wildmode = { "longest:full", "full" }
 
 -- use rg instead of grep if available
 if vim.fn.executable("rg") then
@@ -88,7 +88,7 @@ vim.opt.sidescrolloff = 5 -- start scrolling when near the last col
 vim.opt.termguicolors = true -- true color support
 
 --------------------------------- Completion ----------------------------------
-vim.opt.completeopt = {"menuone", "noinsert", "noselect"}
+vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.shortmess:append("c")
 
 -------------------------------------------------------------------------------
@@ -97,8 +97,8 @@ vim.opt.shortmess:append("c")
 local map = require("tb.utils").map
 
 ---------------------------------- Navigation ---------------------------------
-map("i", "jj", "<Esc>", {noremap = false}) -- exit insert (-noremap for abbrevs)
-map("t", "kk", "<C-\\><C-n>", {noremap = false}) -- exit terminal mode
+map("i", "jj", "<Esc>", { noremap = false }) -- exit insert (-noremap for abbrevs)
+map("t", "kk", "<C-\\><C-n>", { noremap = false }) -- exit terminal mode
 map("nx", ";", ":") -- faster command entry
 map("n", "H", "^") -- beginning of line
 map("n", "L", "$") -- end of line

@@ -1,6 +1,6 @@
-require("nvim-treesitter.configs").setup {
+require("nvim-treesitter.configs").setup({
   ensure_installed = "maintained",
-  highlight = {enable = true},
+  highlight = { enable = true },
   -- incremental_selection = {
   --   enable = true,
   --   keymaps = {
@@ -35,20 +35,20 @@ require("nvim-treesitter.configs").setup {
       enable = true,
       goto_next_start = {
         ["]m"] = "@function.outer",
-        ["]]"] = "@class.outer"
+        ["]]"] = "@class.outer",
       },
       goto_next_end = {
         ["]M"] = "@function.outer",
-        ["]["] = "@class.outer"
+        ["]["] = "@class.outer",
       },
       goto_previous_start = {
         ["[m"] = "@function.outer",
-        ["[["] = "@class.outer"
+        ["[["] = "@class.outer",
       },
       goto_previous_end = {
         ["[M"] = "@function.outer",
-        ["[]"] = "@class.outer"
-      }
+        ["[]"] = "@class.outer",
+      },
     },
     select = {
       enable = true,
@@ -63,26 +63,26 @@ require("nvim-treesitter.configs").setup {
           python = "(function_definition) @function",
           cpp = "(function_definition) @function",
           c = "(function_definition) @function",
-          java = "(method_declaration) @function"
-        }
-      }
+          java = "(method_declaration) @function",
+        },
+      },
     },
     swap = {
       enable = true,
       swap_next = {
-        ["<leader>l"] = "@parameter.inner"
+        ["<leader>l"] = "@parameter.inner",
       },
       swap_previous = {
-        ["<leader>h"] = "@parameter.inner"
-      }
-    }
+        ["<leader>h"] = "@parameter.inner",
+      },
+    },
   },
   --- nvim-ts-autotag ---
   autotag = {
     enable = true,
-    filetypes = {"html", "javascriptreact", "xml"}
-  }
-}
+    filetypes = { "html", "javascriptreact", "xml" },
+  },
+})
 
 if require("nvim-treesitter.parsers").has_parser("python") then
   require("vim.treesitter.query").set_query(

@@ -3,46 +3,32 @@ local lspconfig = require("lspconfig")
 ------------------------------------ Signs -------------------------------------
 local i = require("tb.icons")
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
   {
     update_in_insert = false,
-    virtual_text = {prefix = i.diag.virtual}
+    virtual_text = { prefix = i.diag.virtual },
   }
 )
 
-vim.fn.sign_define(
-  "LspDiagnosticsSignError",
-  {
-    text = i.diag.error,
-    texthl = "LspDiagnosticsSignError"
-  }
-)
-vim.fn.sign_define(
-  "LspDiagnosticsSignWarning",
-  {
-    text = i.diag.warn,
-    texthl = "LspDiagnosticsSignWarning"
-  }
-)
-vim.fn.sign_define(
-  "LspDiagnosticsSignInformation",
-  {
-    text = i.diag.info,
-    texthl = "LspDiagnosticsSignInformation"
-  }
-)
-vim.fn.sign_define(
-  "LspDiagnosticsSignHint",
-  {
-    text = i.diag.hint,
-    texthl = "LspDiagnosticsSignHint"
-  }
-)
+vim.fn.sign_define("LspDiagnosticsSignError", {
+  text = i.diag.error,
+  texthl = "LspDiagnosticsSignError",
+})
+vim.fn.sign_define("LspDiagnosticsSignWarning", {
+  text = i.diag.warn,
+  texthl = "LspDiagnosticsSignWarning",
+})
+vim.fn.sign_define("LspDiagnosticsSignInformation", {
+  text = i.diag.info,
+  texthl = "LspDiagnosticsSignInformation",
+})
+vim.fn.sign_define("LspDiagnosticsSignHint", {
+  text = i.diag.hint,
+  texthl = "LspDiagnosticsSignHint",
+})
 
-local capabilities =
-  require("cmp_nvim_lsp").update_capabilities(
+local capabilities = require("cmp_nvim_lsp").update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 capabilities.textDocument.completion.snippetSupport = false
@@ -58,18 +44,18 @@ local servers = {
   "gopls",
   "html",
   "jsonls",
-  "sqls"
+  "sqls",
   -- "solargraph" -- ruby
   -- "terraformls"
 }
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {capabilities = capabilities}
+  lspconfig[lsp].setup({ capabilities = capabilities })
 end
 
 --------------------- General Lint/Format (efm-langserver) ---------------------
 local efm_prettier = {
   formatCommand = "prettier --stdin-filepath '${INPUT}'",
-  formatStdin = true
+  formatStdin = true,
 }
 
 -- local efm_eslint = {
@@ -84,19 +70,19 @@ local efm_prettier = {
 local efm_sqlformat = {
   -- TODO: Find something that works better
   formatCommand = "sqlformat -k upper --wrap_after 80 -",
-  formatStdin = true
+  formatStdin = true,
 }
 
-lspconfig.efm.setup {
+lspconfig.efm.setup({
   capabilities = capabilities,
   cmd = {
     "efm-langserver",
     "-logfile",
     vim.fn.stdpath("cache") .. "/efm.log",
     "-loglevel",
-    "5"
+    "5",
   },
-  init_options = {codeAction = false, documentFormatting = true},
+  init_options = { codeAction = false, documentFormatting = true },
   filetypes = {
     "css",
     "html",
@@ -112,16 +98,16 @@ lspconfig.efm.setup {
     "sql",
     "terraform",
     "toml",
-    "yaml"
+    "yaml",
   },
   settings = {
-    rootMarkers = {".git/"},
+    rootMarkers = { ".git/" },
     languages = {
-      css = {efm_prettier},
-      html = {efm_prettier},
-      javascript = {efm_prettier},
-      javascriptreact = {efm_prettier},
-      json = {efm_prettier},
+      css = { efm_prettier },
+      html = { efm_prettier },
+      javascript = { efm_prettier },
+      javascriptreact = { efm_prettier },
+      json = { efm_prettier },
       lua = {
         -- {
         --   formatCommand = "lua-format -i",
@@ -133,22 +119,22 @@ lspconfig.efm.setup {
         -- }
         {
           formatCommand = "stylua -s --stdin-filepath '${INPUT}' -",
-          formatStdin = true
-        }
+          formatStdin = true,
+        },
       },
-      markdown = {efm_prettier},
-      mysql = {efm_sqlformat},
+      markdown = { efm_prettier },
+      mysql = { efm_sqlformat },
       python = {
-        {formatCommand = "black --quiet -", formatStdin = true},
+        { formatCommand = "black --quiet -", formatStdin = true },
         {
           -- lintCommand = "flake8 --stdin-display-name '${INPUT}' -",
           lintCommand = "flake8 --format 'W %(path)s:%(row)d:%(col)d: %(code)s %(text)s' --stdin-display-name '${INPUT}' -",
           lintStdin = true,
           lintFormats = {
-            "%t %f:%l:%c: %m"
-          }
+            "%t %f:%l:%c: %m",
+          },
         },
-        {formatCommand = "isort --quiet -", formatStdin = true}
+        { formatCommand = "isort --quiet -", formatStdin = true },
         -- {
         --   lintCommand = "mypy --show-column-numbers",
         --   lintFormats = {
@@ -162,16 +148,16 @@ lspconfig.efm.setup {
         -- TODO: Find out why this is broken
         {
           formatCommand = "rubocop --fix-layout --force-exclusion --stderr --stdin '${INPUT}'",
-          formatStdin = true
+          formatStdin = true,
         },
         -- {formatCommand = "rubocop --auto-correct --force-exclusion '${INPUT}'"},
         {
           lintCommand = "rubocop --format clang --no-display-cop-names --stdin '${INPUT}'",
           lintFormats = {
-            "%f:%l:%c: %t: %m"
+            "%f:%l:%c: %t: %m",
           },
-          lintStdin = true
-        }
+          lintStdin = true,
+        },
         -- {lintCommand = "ruby -T1 -c -w"}
       },
       sh = {
@@ -180,32 +166,32 @@ lspconfig.efm.setup {
           lintFormats = {
             "%f:%l:%c: %trror: %m",
             "%f:%l:%c: %tarning: %m",
-            "%f:%l:%c: %tote: %m"
-          }
+            "%f:%l:%c: %tote: %m",
+          },
         },
         {
           formatCommand = "shfmt -bn -ci -i 2 -s",
-          formatStdin = true
-        }
+          formatStdin = true,
+        },
       },
-      sql = {efm_sqlformat},
+      sql = { efm_sqlformat },
       -- TODO: Get this working.
       terraform = {
-        {formatCommand = "terraform fmt -", formatStdin = true}
+        { formatCommand = "terraform fmt -", formatStdin = true },
       },
       -- toml = {efm_prettier},
-      yaml = {efm_prettier},
-      ["yaml.docker-compose"] = {efm_prettier}
-    }
-  }
-}
+      yaml = { efm_prettier },
+      ["yaml.docker-compose"] = { efm_prettier },
+    },
+  },
+})
 
 ------------------------------------ Python ------------------------------------
 local python = "python"
 if vim.env.VIRTUAL_ENV then
   python = vim.env.VIRTUAL_ENV .. "/bin/python"
 end
-lspconfig.pyright.setup {
+lspconfig.pyright.setup({
   capabilities = capabilities,
   settings = {
     python = {
@@ -220,10 +206,10 @@ lspconfig.pyright.setup {
       --   }
       --   typeCheckingMode = "strict"
       -- },
-      pythonPath = python
-    }
-  }
-}
+      pythonPath = python,
+    },
+  },
+})
 
 ------------------------------------- SQL --------------------------------------
 -- TODO: Figure out why this doesn't work.
@@ -243,26 +229,26 @@ lspconfig.pyright.setup {
 -- }
 
 ------------------------------------- Lua --------------------------------------
-local sumneko_root_path =
-  vim.fn.stdpath("data") .. "/site/pack/packer/start/lua-language-server"
+local sumneko_root_path = vim.fn.stdpath("data")
+  .. "/site/pack/packer/start/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
-lspconfig.sumneko_lua.setup {
+lspconfig.sumneko_lua.setup({
   capabilities = capabilities,
   -- TODO: Make work on Linux as well
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+  cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
   settings = {
     Lua = {
-      completion = {kewordSnippet = "Disable"},
+      completion = { kewordSnippet = "Disable" },
       diagnostics = {
         enable = true,
-        globals = {"renoise", "use", "vim"}
+        globals = { "renoise", "use", "vim" },
       },
       runtime = {
         version = "LuaJIT",
-        path = {"?.lua", "?/init.lua", "lua/?.lua"}
+        path = { "?.lua", "?/init.lua", "lua/?.lua" },
         -- path = vim.split(package.path, ";")
       },
-      telemetry = {enable = false},
+      telemetry = { enable = false },
       workspace = {
         checkThirdParty = false,
         -- library = vim.api.nvim_get_runtime_file("", true),
@@ -273,11 +259,11 @@ lspconfig.sumneko_lua.setup {
         --   [vim.fn.stdpath("data") .. "/site/pack"] = true
         -- },
         maxPreload = 2000,
-        preloadFileSize = 1000
-      }
-    }
-  }
-}
+        preloadFileSize = 1000,
+      },
+    },
+  },
+})
 
 ---------------------------------- JavaScript ----------------------------------
 -- lspconfig.tsserver.setup {
@@ -288,13 +274,13 @@ lspconfig.sumneko_lua.setup {
 -- }
 
 ---------------------------------- Vimscript -----------------------------------
-lspconfig.vimls.setup {
+lspconfig.vimls.setup({
   capabilities = capabilities,
   init_options = {
     runtimepath = vim.api.nvim_get_option("runtimepath"),
-    indexes = {gap = 75, count = 5}
-  }
-}
+    indexes = { gap = 75, count = 5 },
+  },
+})
 
 ------------------------------------- YAML -------------------------------------
 -- lspconfig.yamlls.setup {

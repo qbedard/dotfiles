@@ -1,29 +1,28 @@
-local packer_path =
-  vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 if vim.fn.empty(vim.fn.glob(packer_path)) then
-  vim.fn.system {
+  vim.fn.system({
     "git",
     "clone",
     "https://github.com/wbthomason/packer.nvim",
-    packer_path
-  }
+    packer_path,
+  })
   vim.cmd("packadd packer.nvim")
 end
 
-return require("packer").startup {
+return require("packer").startup({
   function()
-    use {"wbthomason/packer.nvim", opt = true}
-    use {
+    use({ "wbthomason/packer.nvim", opt = true })
+    use({
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
       config = function()
-        require("nvim-treesitter.configs").setup {
+        require("nvim-treesitter.configs").setup({
           ensure_installed = "maintained",
-          highlight = {enable = true}
-        }
-      end
-    }
-    use {
+          highlight = { enable = true },
+        })
+      end,
+    })
+    use({
       "npxbr/gruvbox.nvim",
       requires = "rktjmp/lush.nvim",
       config = function()
@@ -36,10 +35,10 @@ return require("packer").startup {
         vim.cmd("highlight! link TSMethod GruvboxAqua")
         vim.cmd("highlight! clear TSError")
         vim.cmd("highlight! link DiffChange GruvboxBlue")
-      end
-    }
-    use "sumneko/lua-language-server"
-    use "tpope/vim-commentary"
-    use "tpope/vim-surround"
-  end
-}
+      end,
+    })
+    use("sumneko/lua-language-server")
+    use("tpope/vim-commentary")
+    use("tpope/vim-surround")
+  end,
+})
