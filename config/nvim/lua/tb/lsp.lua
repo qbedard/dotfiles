@@ -124,11 +124,15 @@ lspconfig.efm.setup {
       json = {efm_prettier},
       lua = {
         -- {
-        --   formatCommand = "lua-format -i --no-keep-simple-function-one-line --column-limit=80",
+        --   formatCommand = "lua-format -i",
+        --   formatStdin = true
+        -- }
+        -- {
+        --   formatCommand = "luafmt --indent-count 2 --line-width 88 --stdin",
         --   formatStdin = true
         -- }
         {
-          formatCommand = "luafmt --indent-count 2 --line-width 80 --stdin",
+          formatCommand = "stylua -s --stdin-filepath '${INPUT}' -",
           formatStdin = true
         }
       },
