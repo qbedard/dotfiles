@@ -180,14 +180,17 @@ return require("packer").startup {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
         local i = require("tb.icons")
-
         vim.opt.colorcolumn = "80" -- highlight bug hack fix
-        vim.g.indent_blankline_char = i.bar.thin
-        vim.g.indent_blankline_buftype_exclude = {"help", "terminal"}
-        vim.g.indent_blankline_filetype_exclude = {"text", "markdown"}
-        -- vim.g.indent_blankline_show_end_of_line = true
-        vim.g.indent_blankline_show_first_indent_level = false
-        vim.g.indent_blankline_show_trailing_blankline_indent = false
+        require("indent_blankline").setup {
+          char = i.bar.thin,
+          char_highlight_list = {"GruvboxBg1", "GruvboxBg2"},
+          context_highlight_list = {"GruvboxAqua"},
+          buftype_exclude = {"help", "terminal"},
+          filetype_exclude = {"text", "markdown"},
+          show_current_context = true,
+          show_first_indent_level = false,
+          show_trailing_blankline_indent = false
+        }
       end
     }
 

@@ -48,10 +48,10 @@ vim.opt.joinspaces = false -- only one space after punction when joining lines
 vim.opt.linebreak = true -- wrap line if too long
 vim.opt.list = true -- show listchars
 vim.opt.listchars = {
-  extends = "›",
-  precedes = "‹",
+  extends = "",
+  precedes = "",
   nbsp = "·",
-  tab = "→ ",
+  tab = " ",
   trail = "·"
 }
 vim.opt.smartindent = true
