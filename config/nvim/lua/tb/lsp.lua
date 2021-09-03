@@ -44,6 +44,7 @@ local servers = {
   "gopls",
   "html",
   "jsonls",
+  "rnix",
   "sqls",
   -- "solargraph", -- ruby
   -- "terraformls",
