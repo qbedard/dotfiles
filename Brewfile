@@ -11,6 +11,7 @@ brew "fzf"  # fuzzy
 brew "gh"  # GitHub CLI
 brew "ghq"  # repo organization
 brew "git"
+brew "git-delta"  # fancy git diff
 brew "gnupg"  # GPG tools
 brew "hub"  # GitHub tools
 brew "ipython"  # better python shell
