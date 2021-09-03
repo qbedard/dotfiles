@@ -69,14 +69,6 @@ return require("packer").startup({
       end,
     })
 
-    -- use { "romgrk/barbar.nvim",
-    --   requires = "kyazdani42/nvim-web-devicons",
-    --   config = function()
-    --     local map = require("tb.utils").map
-    --     map("nx", "K", ":BufferNext<CR>")
-    --     map("nx", "J", ":BufferPrevious<CR>")
-    --   end
-    -- }
     use({
       "akinsho/nvim-bufferline.lua",
       requires = "kyazdani42/nvim-web-devicons",
@@ -117,8 +109,8 @@ return require("packer").startup({
         })
 
         local map = require("tb.utils").map
-        map("nx", "K", ":BufferLineCycleNext<CR>", { silent = true })
-        map("nx", "J", ":BufferLineCyclePrev<CR>", { silent = true })
+        map("nx", "K", ":BufferLineCycleNext<CR>")
+        map("nx", "J", ":BufferLineCyclePrev<CR>")
       end,
     })
 
@@ -232,14 +224,13 @@ return require("packer").startup({
       -- rocks = {"luaformatter", server = "https://luarocks.org/dev"},
       config = function()
         require("tb.lsp")
-        local utils = require("tb.utils")
-        local o = { silent = true }
-        utils.map("n", "<leader>k", "<Cmd>lua vim.lsp.buf.hover()<CR>", o)
-        utils.map("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", o)
-        utils.map("n", "1gd", "<Cmd>lua vim.lsp.buf.type_definition()<CR>", o)
-        -- utils.map("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", o)
-        utils.map("n", "g0", "<Cmd>lua vim.lsp.buf.document_symbol()<CR>", o)
-        utils.map("n", "gf", "<Cmd>lua vim.lsp.buf.formatting()<CR>", o)
+        local map = require("tb.utils").map
+        map("n", "<leader>k", "<Cmd>lua vim.lsp.buf.hover()<CR>")
+        map("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
+        map("n", "1gd", "<Cmd>lua vim.lsp.buf.type_definition()<CR>")
+        -- map("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>")
+        map("n", "g0", "<Cmd>lua vim.lsp.buf.document_symbol()<CR>")
+        map("n", "gf", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
       end,
     })
 
@@ -249,17 +240,16 @@ return require("packer").startup({
       config = function()
         require("tb.lspsaga")
 
-        local utils = require("tb.utils")
-        local o = { silent = true }
-        utils.map("n", "gh", ":Lspsaga lsp_finder<CR>", o)
-        utils.map("n", "<leader>ca", ":Lspsaga code_action<CR>", o)
-        -- utils.map("n", "<leader>k", ":Lspsaga hover_doc<CR>", o)
-        utils.map("n", "gs", ":Lspsaga signature_help<CR>", o)
-        utils.map("n", "gr", ":Lspsaga rename<CR>", o)
-        utils.map("n", "gD", ":Lspsaga preview_definition<CR>", o)
-        utils.map("n", "<leader>cd", ":Lspsaga show_line_diagnostics<CR>", o)
-        utils.map("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>", o)
-        utils.map("n", "]d", ":Lspsaga diagnostic_jump_next<CR>", o)
+        local map = require("tb.utils").map
+        map("n", "gh", ":Lspsaga lsp_finder<CR>")
+        map("n", "<leader>ca", ":Lspsaga code_action<CR>")
+        -- map("n", "<leader>k", ":Lspsaga hover_doc<CR>")
+        map("n", "gs", ":Lspsaga signature_help<CR>")
+        map("n", "gr", ":Lspsaga rename<CR>")
+        map("n", "gD", ":Lspsaga preview_definition<CR>")
+        map("n", "<leader>cd", ":Lspsaga show_line_diagnostics<CR>")
+        map("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>")
+        map("n", "]d", ":Lspsaga diagnostic_jump_next<CR>")
       end,
     })
 
@@ -369,30 +359,16 @@ return require("packer").startup({
       "nvim-telescope/telescope.nvim",
       requires = {
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-fzy-native.nvim",
-        "nvim-telescope/telescope-github.nvim",
+        -- "nvim-telescope/telescope-fzy-native.nvim",
+        -- "nvim-telescope/telescope-github.nvim",
         -- "nvim-telescope/telescope-packer.nvim"  -- currently breaking packer
       },
       config = function()
         require("tb.telescope")
-        vim.api.nvim_set_keymap(
-          "n",
-          "<Leader><Leader>",
-          "<cmd>lua require('telescope.builtin').builtin()<CR>",
-          { noremap = true, silent = true }
-        )
-        vim.api.nvim_set_keymap(
-          "n",
-          "<C-p>",
-          "<cmd>lua require('tb.telescope').project_files()<CR>",
-          { noremap = true, silent = true }
-        )
-        vim.api.nvim_set_keymap(
-          "n",
-          "<C-b>",
-          "<cmd>lua require('telescope.builtin').buffers()<CR>",
-          { noremap = true, silent = true }
-        )
+        local map = require("tb.utils").map
+        map("n", "<Leader><Leader>", "<cmd>lua require('telescope.builtin').builtin()<CR>")
+        map("n", "<C-p>", "<cmd>lua require('tb.telescope').project_files()<CR>")
+        map("n", "<C-b>", "<cmd>lua require('telescope.builtin').buffers()<CR>")
       end,
     })
 

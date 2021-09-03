@@ -41,7 +41,7 @@ layout_strategies.flex = function(self, max_columns, max_lines)
 end
 
 -- Extensions
-telescope.load_extension("fzy_native")
+-- telescope.load_extension("fzy_native")
 -- telescope.load_extension("gh")
 -- telescope.load_extension("packer")  -- currently breaking packer
 
