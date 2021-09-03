@@ -252,7 +252,7 @@ lspconfig.sumneko_lua.setup({
       telemetry = { enable = false },
       workspace = {
         checkThirdParty = false,
-        library = vim.api.nvim_get_runtime_file("**/lua/", true),
+        -- library = vim.api.nvim_get_runtime_file("**/lua/", true),
         maxPreload = 2000,
         preloadFileSize = 1000,
       },
