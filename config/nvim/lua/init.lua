@@ -27,6 +27,7 @@ vim.opt.pyxversion = 3
 vim.g.mapleader = " "
 
 vim.opt.clipboard = "unnamed" -- yank to system clipboard
+vim.opt.commentstring = "# %s"
 vim.opt.hidden = true -- switch buffers without saving
 vim.opt.mouse = "a" -- let the mouse wheel scroll page, etc
 vim.opt.splitbelow = true
@@ -54,7 +55,11 @@ vim.opt.listchars = {
   tab = " ",
   trail = "·",
 }
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
+vim.opt.softtabstop = 2
+vim.opt.tabstop = 2
 
 ---------------------------------- Searching ----------------------------------
 vim.opt.ignorecase = true
