@@ -6,11 +6,6 @@ local previewers = require("telescope.previewers")
 telescope.setup({
   defaults = {
     layout_strategy = "flex",
-    -- layout_config = {
-    --   -- flip_columns = 160,
-    --   height = 1,
-    --   preview_cutoff = 10,
-    -- },
     mappings = {
       i = {
         ["<CR>"] = actions.select_default + actions.center,
