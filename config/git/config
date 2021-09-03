@@ -1,0 +1,18 @@
+[core]
+	excludesfile = /Users/tim/.ggitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[diff]
+	tool = nvimdiff
+[merge]
+	tool = nvimdiff
+[mergetool]
+  prompt = true
+[mergetool "nvimdiff"]
+	path = nvim
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+; [pager]
+; 	diff = delta
+; 	log = delta
+; 	reflog = delta
+; 	show = delta
