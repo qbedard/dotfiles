@@ -1,6 +1,8 @@
 [core]
 	excludesfile = /Users/tim/.ggitignore
 	pager = diff-so-fancy | $PAGER
+[init]
+	defaultBranch = main
 [diff]
 	tool = nvimdiff
 [merge]
