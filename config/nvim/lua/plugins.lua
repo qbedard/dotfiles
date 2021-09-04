@@ -366,7 +366,11 @@ return require("packer").startup({
       config = function()
         require("tb.telescope")
         local map = require("tb.utils").map
-        map("n", "<Leader><Leader>", "<cmd>lua require('telescope.builtin').builtin()<CR>")
+        map(
+          "n",
+          "<Leader><Leader>",
+          "<cmd>lua require('telescope.builtin').builtin()<CR>"
+        )
         map("n", "<C-p>", "<cmd>lua require('tb.telescope').project_files()<CR>")
         map("n", "<C-b>", "<cmd>lua require('telescope.builtin').buffers()<CR>")
       end,
