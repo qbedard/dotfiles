@@ -79,8 +79,6 @@ RUN fish -c 'curl -L https://get.oh-my.fish | source - --noninteractive'
 RUN apk add \
         bash \
         bat \
-        # TODO: Replace with universal when available.
-        ctags \
         curl \
         # diff-so-fancy \  # not yet
         direnv \
@@ -107,7 +105,6 @@ RUN apk add \
         shellcheck \
         # starship \  # not yet
         stow \
-        tmux \
         tokei
         # zoxide  # not yet
 

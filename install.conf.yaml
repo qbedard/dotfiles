@@ -17,12 +17,9 @@
 - link:
     ~/.bashrc:
     ~/.common.sh:
-    ~/.eslintrc.yml:
     ~/.ggitignore:
     ~/.ideavimrc:
     ~/.isort.cfg:
-    ~/.stylelintrc.json:
-    ~/.tmux.conf:
     ~/.zshrc:
 
 - stow:

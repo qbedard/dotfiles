@@ -59,15 +59,6 @@ local efm_prettier = {
   formatStdin = true,
 }
 
--- local efm_eslint = {
---   lintCommand = "eslint -f unix --stdin --stdin-filename '${INPUT}'",
---   lintIgnoreExitCode = true,
---   lintStdin = true,
---   lintFormats = { "%f:%l:%c: %m" },
---   formatCommand = "eslint --fix-to-stdout --stdin --stdin-filename '${INPUT}'",
---   formatStdin = true,
--- }
-
 local efm_sqlformat = {
   -- TODO: Find something that works better
   formatCommand = "sqlformat -k upper --wrap_after 80 -",
