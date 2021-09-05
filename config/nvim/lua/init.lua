@@ -104,7 +104,7 @@ local map = require("tb.utils").map
 ---------------------------------- Navigation ---------------------------------
 map("i", "jj", "<Esc>", { noremap = false }) -- exit insert (-noremap for abbrevs)
 map("t", "kk", "<C-\\><C-n>", { noremap = false }) -- exit terminal mode
-map("nx", ";", ":") -- faster command entry
+map("nx", ";", ":", { silent = false }) -- faster command entry
 map("n", "H", "^") -- beginning of line
 map("n", "L", "$") -- end of line
 
