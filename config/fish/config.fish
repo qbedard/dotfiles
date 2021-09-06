@@ -2,7 +2,7 @@
 
 # Oh My Fish
 # if not functions -q omf
-#   curl -L https://get.oh-my.fish | fish
+#     curl -L https://get.oh-my.fish | fish
 # end
 
 # set theme_color_scheme gruvbox
@@ -11,59 +11,60 @@ set -g theme_date_format "+%a %b %d %l:%M%p"
 set -g theme_date_timezone America/Chicago
 
 # disable greeting
-function fish_greeting; end
+function fish_greeting
+end
 
 # ----- PATH ----- #
-fish_add_path "$HOME/bin"  # custom binaries
-fish_add_path "$HOME/.local/bin"  # local binaries
-fish_add_path "$HOME/.cargo/bin"  # rust
-fish_add_path "$HOME/go/bin"  # go
-fish_add_path "/usr/local/opt/ruby/bin"  # ruby
-fish_add_path "/usr/local/lib/ruby/gems/2.7.0/bin"  # ruby gems
-fish_add_path "/usr/local/lib/ruby/gems/3.0.0/bin"  # ruby gems
+fish_add_path "$HOME/bin" # custom binaries
+fish_add_path "$HOME/.local/bin" # local binaries
+fish_add_path "$HOME/.cargo/bin" # rust
+fish_add_path "$HOME/go/bin" # go
+fish_add_path /usr/local/opt/ruby/bin # ruby
+fish_add_path "/usr/local/lib/ruby/gems/2.7.0/bin" # ruby gems
+fish_add_path "/usr/local/lib/ruby/gems/3.0.0/bin" # ruby gems
 # fish_add_path (brew --prefix llvm)/bin
 
 set -gx PAGER "less --tabs=4 -RFX"
 
 # add openssl for compilers
-set -gx LDFLAGS "-L/usr/local/opt/openssl/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/openssl/include"
+set -gx LDFLAGS -L/usr/local/opt/openssl/lib
+set -gx CPPFLAGS -I/usr/local/opt/openssl/include
 
 # use sccache for cargo
-if command -v sccache > /dev/null
-  set -gx RUSTC_WRAPPER "sccache"
+if command -v sccache >/dev/null
+    set -gx RUSTC_WRAPPER sccache
 end
 
 # ----- Aliases ----- #
 # TODO: Test these
-alias e "nvim"
-alias v "nvim"
-alias vi "nvim"
-alias vim "nvim"
+alias e nvim
+alias v nvim
+alias vi nvim
+alias vim nvim
 
-# if command -v pyenv > /dev/null
-#   alias brew 'env PATH=<SOMETHING> brew'
+# if command -v pyenv >/dev/null
+#     alias brew 'env PATH=<SOMETHING> brew'
 # end
 
-if command -v exa > /dev/null
-  alias ls "exa --group-directories-first --icons"
+if command -v exa >/dev/null
+    alias ls "exa --group-directories-first --icons"
 end
 
-if command -v bat > /dev/null
-  alias cat "bat"
+if command -v bat >/dev/null
+    alias cat bat
 end
 
-if command -v procs > /dev/null
-  alias ps "procs"
+if command -v procs >/dev/null
+    alias ps procs
 end
 
 # TODO: maybe move this to a ripgreprc (pointed at by setting RIPGREP_CONFIG_PATH)
 alias rg 'rg --smart-case --max-columns=120 --max-columns-preview'
 
 alias glog "\
-  git log --graph --abbrev-commit --date=relative \
-  --pretty=format:'%Cred%h%Creset %an: %s - \
-  %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset'"
+    git log --graph --abbrev-commit --date=relative \
+        --pretty=format:'%Cred%h%Creset %an: %s - \
+        %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset'"
 
 # ----- Abbreviations ----- #
 
@@ -87,25 +88,25 @@ abbr -a la "ls -1a"
 abbr -a ll "ls -lh"
 abbr -a lla "ls -lh -a"
 
-if command -v exa > /dev/null
-  abbr -a ll "ls -lh --git"
-  abbr -a lla "ls -lh --git -a"
-  abbr -a llg "ll --grid"
-  abbr -a llga "ll --grid -a"
-  abbr -a lt "ls -T"
-  abbr -a lta "ls -T -a"
-  abbr -a llt "ll -T"
-  abbr -a llta "ll -T -a"
+if command -v exa >/dev/null
+    abbr -a ll "ls -lh --git"
+    abbr -a lla "ls -lh --git -a"
+    abbr -a llg "ll --grid"
+    abbr -a llga "ll --grid -a"
+    abbr -a lt "ls -T"
+    abbr -a lta "ls -T -a"
+    abbr -a llt "ll -T"
+    abbr -a llta "ll -T -a"
 end
 
-abbr -a mk "make"
+abbr -a mk make
 
 # --- Docker Compose ---
-abbr -a dc "docker-compose"
+abbr -a dc docker-compose
 abbr -a dcu "docker-compose up"
 abbr -a dcd "docker-compose down"
 # abbr -a ld "env TERM=screen-256color lazydocker"
-abbr -a ld "lazydocker"
+abbr -a ld lazydocker
 
 # --- Git ---
 abbr -a gs "git status -sb"
@@ -147,42 +148,44 @@ abbr -a vh "vagrant halt"
 abbr -a vss "vagrant ssh"
 
 # ----- fzf -----#
-if command -v bat > /dev/null
-  set -gx FZF_FILE_PREVIEW_CMD "bat --line-range :100 --color=always"
+if command -v bat >/dev/null
+    set -gx FZF_FILE_PREVIEW_CMD "bat --line-range :100 --color=always"
 else
-  set -gx FZF_FILE_PREVIEW_CMD "head -n 100"
+    set -gx FZF_FILE_PREVIEW_CMD "head -n 100"
 end
 
 function __fzf_file_preview -a file
-  fish -c "$FZF_FILE_PREVIEW_CMD $file"
+    fish -c "$FZF_FILE_PREVIEW_CMD $file"
 end
 
-if command -v exa > /dev/null
-  set -gx FZF_DIR_PREVIEW_CMD "exa --tree --level 1 --all --icons --color=always"
+if command -v exa >/dev/null
+    set -gx FZF_DIR_PREVIEW_CMD "exa --tree --level 1 --all --icons --color=always"
 else
-  set -gx FZF_DIR_PREVIEW_CMD "ls -1 -a"
+    set -gx FZF_DIR_PREVIEW_CMD "ls -1 -a"
 end
 
 function __fzf_dir_preview -a dir
-  fish -c "$FZF_DIR_PREVIEW_CMD (echo $dir | sed 's/^[ 0-9]*//' )"  # strip leading spaces/numbers
+    # strip leading spaces/numbers
+    fish -c "$FZF_DIR_PREVIEW_CMD (echo $dir | sed 's/^[ 0-9]*//' )"
 end
 
 function __fzf_either_preview -a file
-  if test -d $file
-    __fzf_dir_preview $file
-  else if test -e $file
-    __fzf_file_preview $file
-  end
+    if test -d $file
+        __fzf_dir_preview $file
+    else if test -e $file
+        __fzf_file_preview $file
+    end
 end
 
-if command -v rg > /dev/null
-  set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+if command -v rg >/dev/null
+    set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
 end
-if command -v fd > /dev/null
-  set -gx FZF_CTRL_T_COMMAND '\
-    fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv" --exclude ".pytest_cache" --exclude ".venv"'
-  set -gx FZF_ALT_C_COMMAND '\
-    fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
+if command -v fd >/dev/null
+    set -gx FZF_CTRL_T_COMMAND '\
+        fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv" \
+            --exclude ".pytest_cache" --exclude ".venv"'
+    set -gx FZF_ALT_C_COMMAND '\
+        fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
 end
 
 set -gx FZF_CTRL_T_OPTS '--preview "__fzf_either_preview {}"'
@@ -197,29 +200,29 @@ bind \co '__fzf_open --editor'
 # try this out too
 bind \ce '__fzf_open --editor'
 
-bind \cs '__fzf_ripgrep'
+bind \cs __fzf_ripgrep
 
 bind \cg\cf __fzf_git_diff_file
 bind \cg\cb __fzf_git_branch
 bind \cg\ct __fzf_git_tag
-bind \cg\cc __fzf_git_commit_hash  # bound to c instead of h because C-hjkl nav around
+bind \cg\cc __fzf_git_commit_hash # bound to c instead of h because C-hjkl nav around
 bind \cg\cr __fzf_git_remote
 bind \cg\cs __fzf_git_stash
 
 function fco -d "Fuzzy-find and checkout a branch"
-  git branch --all | grep -v HEAD | string trim | \
-    fzf | read -l result; and git checkout "$result"
+    git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
 end
 
 # --- sk --- #
-# if command -v rg > /dev/null
-#   set -gx SKIM_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+# if command -v rg >/dev/null
+#     set -gx SKIM_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
 # end
-# if command -v fd > /dev/null
-#   set -gx SKIM_CTRL_T_COMMAND '\
-#     fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv" --exclude ".pytest_cache" --exclude ".venv"'
-#   set -gx SKIM_ALT_C_COMMAND '\
-#     fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
+# if command -v fd >/dev/null
+#     set -gx SKIM_CTRL_T_COMMAND '\
+#         fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv" \
+#             --exclude ".pytest_cache" --exclude ".venv"'
+#     set -gx SKIM_ALT_C_COMMAND '\
+#         fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
 # end
 
 # set -gx SKIM_CTRL_T_OPTS '--preview "__fzf_either_preview {}"'
@@ -238,33 +241,24 @@ set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
 
 # find missing python deps
 function rg-deps
-  rg -INoP '^\s*(import|from) \K(\w*)' | sort | uniq | awk \
-    '{if( system("echo \'import " $0 "\' | python >/dev/null 2>&1") ) {print $0}}'
+    rg -INoP '^\s*(import|from) \K(\w*)' | sort | uniq | awk \
+        '{if( system("echo \'import " $0 "\' | python >/dev/null 2>&1") ) {print $0}}'
 end
 
 # --- python ---
-set -gx PYTHONDONTWRITEBYTECODE 1  # prevent .pyc files
+set -gx PYTHONDONTWRITEBYTECODE 1 # prevent .pyc files
 
 # --- direnv ---
-if command -v direnv > /dev/null
-  direnv hook fish | source
-end
-
-if status is-interactive
-and not set -q TMUX
-  # TODO: Find out why the hell this borks fzf when not inside this conditional
-  # bash "$HOME/.local/share/nvim/site/pack/packer/start/gruvbox/gruvbox_256palette.sh"
-  # attach to session "main" if it exists, otherwise create it
-  # TODO: Attach only if none attached
-  # exec tmux new-session -A -s main
+if command -v direnv >/dev/null
+    direnv hook fish | source
 end
 
 # zoxide
-if command -v zoxide > /dev/null
-  zoxide init fish | source
+if command -v zoxide >/dev/null
+    zoxide init fish | source
 end
 
 # starship prompt
-if command -v starship > /dev/null
-  starship init fish | source
+if command -v starship >/dev/null
+    starship init fish | source
 end
