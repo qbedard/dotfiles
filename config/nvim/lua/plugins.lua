@@ -1,17 +1,21 @@
-local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
-if vim.fn.empty(vim.fn.glob(packer_path)) then
+local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
   vim.fn.system({
     "git",
     "clone",
+    "--depth",
+    "1",
     "https://github.com/wbthomason/packer.nvim",
     packer_path,
   })
   vim.cmd("packadd packer.nvim")
 end
 
+require("packer.luarocks").install_commands()
+
 return require("packer").startup({
   function()
-    use({ "wbthomason/packer.nvim", opt = true })
+    use({ "wbthomason/packer.nvim" })
 
     use({
       "nvim-treesitter/nvim-treesitter",
