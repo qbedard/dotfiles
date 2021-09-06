@@ -238,7 +238,8 @@ set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
 
 # find missing python deps
 function rg-deps
-  rg -INoP '^\s*(import|from) \K(\w*)' | sort | uniq | awk '{if( system("echo \'import " $0 "\' | python >/dev/null 2>&1") ) {print $0}}'
+  rg -INoP '^\s*(import|from) \K(\w*)' | sort | uniq | awk \
+    '{if( system("echo \'import " $0 "\' | python >/dev/null 2>&1") ) {print $0}}'
 end
 
 # --- python ---

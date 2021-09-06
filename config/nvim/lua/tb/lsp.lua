@@ -77,6 +77,7 @@ lspconfig.efm.setup({
   init_options = { codeAction = false, documentFormatting = true },
   filetypes = {
     "css",
+    "fish",
     "html",
     "javascript",
     "javascriptreact",
@@ -96,6 +97,15 @@ lspconfig.efm.setup({
     rootMarkers = { ".git/" },
     languages = {
       css = { efm_prettier },
+      fish = {
+        { formatCommand = "fish_indent", formatStdin = true },
+        {
+          lintCommand = "fish -n '${INPUT}'",
+          lintFormats = {
+            "%f (line %l): %m",
+          },
+        },
+      },
       html = { efm_prettier },
       javascript = { efm_prettier },
       javascriptreact = { efm_prettier },
