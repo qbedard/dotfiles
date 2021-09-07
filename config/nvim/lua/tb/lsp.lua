@@ -129,7 +129,6 @@ lspconfig.efm.setup({
       python = {
         { formatCommand = "black --quiet -", formatStdin = true },
         {
-          -- lintCommand = "flake8 --stdin-display-name '${INPUT}' -",
           lintCommand = "flake8 --format 'W %(path)s:%(row)d:%(col)d: %(code)s %(text)s' --stdin-display-name '${INPUT}' -",
           lintStdin = true,
           lintFormats = {
@@ -137,22 +136,12 @@ lspconfig.efm.setup({
           },
         },
         { formatCommand = "isort --quiet -", formatStdin = true },
-        -- {
-        --   lintCommand = "mypy --show-column-numbers",
-        --   lintFormats = {
-        --     "%f:%l:%c: %trror: %m",
-        --     "%f:%l:%c: %tarning: %m",
-        --     "%f:%l:%c: %tote: %m",
-        --   },
-        -- },
       },
       ruby = {
-        -- TODO: Find out why this is broken
         {
           formatCommand = "rubocop --fix-layout --force-exclusion --stderr --stdin '${INPUT}'",
           formatStdin = true,
         },
-        -- { formatCommand = "rubocop --auto-correct --force-exclusion '${INPUT}'" },
         {
           lintCommand = "rubocop --format clang --no-display-cop-names --stdin '${INPUT}'",
           lintFormats = {
@@ -160,7 +149,6 @@ lspconfig.efm.setup({
           },
           lintStdin = true,
         },
-        -- { lintCommand = "ruby -T1 -c -w" },
       },
       sh = {
         {
