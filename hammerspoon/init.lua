@@ -1,40 +1,37 @@
--- Hot reload config
-local reload_config = function(files)
-  for _, file in pairs(files) do
-    if file:sub(-4) == ".lua" then
-      hs.reload()
-      break
+-- Install SpoonInstall if needed
+local spoon_install_path = hs.spoons.resourcePath("Spoons")
+if
+  not pcall(function()
+    hs.fs.dir(spoon_install_path .. "/SpoonInstall.spoon")
+  end)
+then
+  hs.http.asyncGet(
+    "https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip",
+    nil,
+    function(status, body, headers)
+      local zipfile = spoon_install_path .. "/SpoonInstall.spoon.zip"
+      io.open(zipfile, "w"):write(body):close()
+      hs.execute(string.format("/usr/bin/unzip -d %s %s", spoon_install_path, zipfile))
+      hs.execute(string.format("/bin/rm '%s'", zipfile))
     end
-  end
-end
-local reloader = hs.pathwatcher.new(
-  (os.getenv("XDG_CONFIG_HOME") or os.getenv("HOME") .. "/.config") .. "/hammerspoon",
-  reload_config
-):start()
-hs.alert.show("Config loaded!")
-
--- Caffeine
-local caffeine = hs.menubar.new()
-local set_caffeine_display = function(state)
-  if state then
-    caffeine:setTitle("😇")
-  else
-    caffeine:setTitle("😪")
-  end
+  )
 end
 
-local caffeine_clicked = function()
-  set_caffeine_display(hs.caffeinate.toggle("displayIdle"))
-end
+--- Spoons ---
+hs.loadSpoon("SpoonInstall")
+spoon.SpoonInstall:andUse("Caffeine")
+spoon.SpoonInstall:andUse("ReloadConfiguration")
 
-if caffeine then
-  caffeine:setClickCallback(caffeine_clicked)
-  set_caffeine_display(hs.caffeinate.get("displayIdle"))
-end
+spoon.ReloadConfiguration.watch_paths =
+  { os.getenv("HOME") .. "/.dotfiles/hammerspoon" }
+spoon.ReloadConfiguration:start()
 
--- Map Caps Lock to Ctrl/Esc on built-in keyboard
+spoon.Caffeine:start()
 
 -- Zoom/Discord mic mute
+-- spoon.MicMute:bindHotkeys({}, 0.75)
+
+-- Map Caps Lock to Ctrl/Esc on built-in keyboard
 
 -- Move windows around
 -- hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "H", function()
@@ -44,11 +41,3 @@ end
 --   f.x = f.x - 10
 --   win:setFrame(f)
 -- end)
-
--- Change Spoons dir location?
-
--- Install SpoonInstall
--- hs.task.new()
-
---- Spoons ---
--- - ReloadConfiguration
