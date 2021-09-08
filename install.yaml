@@ -13,6 +13,7 @@
 
 - create:
     - ~/.config/gh
+    - ~/.hammerspoon
 
 - link:
     ~/.bashrc:
@@ -24,6 +25,7 @@
 
 - stow:
     config: ~/.config
+    hammerspoon: ~/.hammerspoon
 
 - shell:
     - fish -c 'omf install'

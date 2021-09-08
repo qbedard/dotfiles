@@ -48,6 +48,7 @@ end
 -- Change Spoons dir location?
 
 -- Install SpoonInstall
+-- hs.task.new()
 
 --- Spoons ---
 -- - ReloadConfiguration
