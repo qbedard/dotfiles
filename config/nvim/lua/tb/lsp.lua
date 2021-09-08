@@ -242,8 +242,8 @@ lspconfig.sumneko_lua.setup({
       workspace = {
         checkThirdParty = false,
         -- library = vim.api.nvim_get_runtime_file("**/lua/", true),
-        maxPreload = 2000,
-        preloadFileSize = 1000,
+        maxPreload = 10000,
+        preloadFileSize = 10000,
       },
     },
   },
