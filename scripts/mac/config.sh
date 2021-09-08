@@ -15,7 +15,7 @@ echo "{
     "^\UF72B" = moveToEndOfDocument:; // ctrl-end
     "^$\UF729" = moveToBeginningOfDocumentAndModifySelection:; // ctrl-shift-home
     "^$\UF72B" = moveToEndOfDocumentAndModifySelection:; // ctrl-shift-end
-}" > $HOME/Library/KeyBindings/DefaultKeyBindings.dict
+}" >"$HOME/Library/KeyBindings/DefaultKeyBindings.dict"
 
 # Set fast key repeat rate
 defaults write -globalDomain InitialKeyRepeat -int 12
@@ -34,7 +34,7 @@ defaults write com.apple.finder AppleShowAllFiles YES
 # I find tap-to-click awful. I will never enable it.
 
 # Hammerspoon's default init location is ~/.hammerspoon
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspoon/init.lua"
 
 # TODO: Is this still needed?
 # Fix italics in iterm + tmux + vim
@@ -44,7 +44,7 @@ tic -x "$DOTPATH/scripts/mac/tmux-256color.terminfo"
 
 echo "Changing shell to fish..."
 # TODO: make this avoid repetitive additions if re-run
-sudo echo "/usr/local/bin/fish" >> /etc/shells
+sudo echo "/usr/local/bin/fish" >>/etc/shells
 chsh -s /usr/local/bin/fish
 
 echo "Configuration complete."
