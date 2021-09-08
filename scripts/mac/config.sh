@@ -33,6 +33,9 @@ defaults write com.apple.finder AppleShowAllFiles YES
 
 # I find tap-to-click awful. I will never enable it.
 
+# Hammerspoon's default init location is ~/.hammerspoon
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+
 # TODO: Is this still needed?
 # Fix italics in iterm + tmux + vim
 # src: https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be
