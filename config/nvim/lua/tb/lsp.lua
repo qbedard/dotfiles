@@ -43,7 +43,7 @@ local servers = {
   "dockerls",
   "gopls",
   "html",
-  "jsonls",
+  -- "jsonls",
   "rnix",
   "sqls",
   -- "solargraph", -- ruby
