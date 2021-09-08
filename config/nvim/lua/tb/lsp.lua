@@ -45,6 +45,7 @@ local servers = {
   "html",
   -- "jsonls",
   "rnix",
+  "rust_analyzer",
   "sqls",
   -- "solargraph", -- ruby
   -- "terraformls",
