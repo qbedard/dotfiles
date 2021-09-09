@@ -19,23 +19,17 @@ end
 
 --- Spoons ---
 hs.loadSpoon("SpoonInstall")
-spoon.SpoonInstall:andUse("Caffeine")
+spoon.SpoonInstall:andUse("Caffeine", { start = true })
 -- spoon.SpoonInstall:andUse(
 --   "MicMute",
 --   { hotkeys = { toggle = { { "cmd", "shift" }, "a" } } }
 -- )
-spoon.SpoonInstall:andUse("ReloadConfiguration")
-
 -- TODO: PR to support symlinks
-spoon.ReloadConfiguration.watch_paths = {
-  os.getenv("HOME") .. "/.dotfiles/hammerspoon",
-}
-spoon.ReloadConfiguration:start()
-
-spoon.Caffeine:start()
-
--- Zoom/Discord mic mute
--- spoon.MicMute:bindHotkeys({ toggle = { { "cmd", "shift" }, "a" } }, 0.75)
+spoon.SpoonInstall:andUse("ReloadConfiguration", {
+  config = { watch_paths = { os.getenv("HOME") .. "/.dotfiles/hammerspoon" } },
+  start = true,
+})
+spoon.SpoonInstall:andUse("RoundedCorners", { config = { radius = 9 }, start = true })
 
 -- Map Caps Lock to Ctrl/Esc on built-in keyboard
 
