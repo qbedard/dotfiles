@@ -236,15 +236,14 @@ lspconfig.sumneko_lua.setup({
       },
       runtime = {
         version = "LuaJIT",
-        path = { "?.lua", "?/init.lua", "lua/?.lua" },
-        -- path = vim.split(package.path, ";")
+        path = { "?.lua", "?/init.lua" },
       },
       telemetry = { enable = false },
       workspace = {
         checkThirdParty = false,
         library = vim.list_extend(
           { "/Applications/Hammerspoon.app/Contents/Resources/extensions/hs" },
-          vim.api.nvim_get_runtime_file("lua/*.lua", true)
+          vim.api.nvim_get_runtime_file("lua/", true)
         ),
         maxPreload = 10000,
         preloadFileSize = 10000,
