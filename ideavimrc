@@ -1,6 +1,0 @@
-set visualbell
-set noerrorbells
-
-source '~/.dotfiles/vim/init.vim'
-
-set surround
