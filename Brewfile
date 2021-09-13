@@ -11,7 +11,6 @@ brew "fzf"  # fuzzy
 brew "gh"  # GitHub CLI
 brew "ghq"  # repo organization
 brew "git"
-brew "git-delta"  # fancy git diff
 brew "gnupg"  # GPG tools
 brew "hub"  # GitHub tools
 brew "ipython"  # better python shell
@@ -29,8 +28,9 @@ brew "shellcheck"
 brew "shfmt"
 brew "starship"  # shell prompt
 brew "stow"
+brew "stylua"
 brew "tealdeer"  # Rust tldr pages client
-brew "tokei"
+brew "tokei"  # fancy line count
 brew "zoxide"  # fast dir nav
 
 # --- Casks --- #
