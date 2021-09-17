@@ -121,7 +121,7 @@ lspconfig.efm.setup({
         --   formatStdin = true,
         -- },
         {
-          formatCommand = "stylua --config-path $HOME/.config/stylua.toml --stdin-filepath '${INPUT}' -",
+          formatCommand = "stylua -s --stdin-filepath '${INPUT}' -",
           formatStdin = true,
         },
       },
