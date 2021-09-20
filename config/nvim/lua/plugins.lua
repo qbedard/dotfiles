@@ -216,9 +216,8 @@ return require("packer").startup({
     use({
       "sumneko/lua-language-server",
       run = {
-        "cd 3rd/luamake && ./compile/install.sh && cd ../../ && 3rd/luamake/luamake rebuild",
-        -- "cd 3rd/luamake && ./compile/install.sh",
-        -- "3rd/luamake/luamake rebuild"
+        "cd 3rd/luamake && ./compile/install.sh",
+        "3rd/luamake/luamake rebuild",
       },
     })
 
