@@ -47,12 +47,25 @@ local servers = {
   "rnix",
   "rust_analyzer",
   "sqls",
+  -- "taplo",
   -- "solargraph", -- ruby
   -- "terraformls",
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({ capabilities = capabilities })
 end
+
+require("lspconfig").taplo.setup({
+  settings = {
+    evenBetterToml = {
+      formatter = {
+        alignEntries = true,
+        indentTables = true,
+        reorderKeys = true,
+      },
+    },
+  },
+})
 
 --------------------- General Lint/Format (efm-langserver) ---------------------
 local efm_prettier = {
@@ -91,7 +104,7 @@ lspconfig.efm.setup({
     "sh",
     "sql",
     "terraform",
-    "toml",
+    -- "toml",
     "yaml",
   },
   settings = {
