@@ -508,6 +508,7 @@ return require("packer").startup({
       ft = { "html", "jinja" },
     })
 
+    use("nathom/filetype.nvim")
     use("justinmk/vim-dirvish")
     use("romainl/vim-cool")
     use("farmergreg/vim-lastplace")
