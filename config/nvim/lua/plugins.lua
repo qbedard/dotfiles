@@ -490,7 +490,7 @@ return require("packer").startup({
         -- handle <CR> mapping with nvim-cmp
         require("nvim-autopairs.completion.cmp").setup({
           map_cr = true, --  map <CR> on insert mode
-          map_complete = true, -- insert `(` when function/method is completed
+          map_complete = false, -- insert `(` when function/method is completed
         })
       end,
     })
