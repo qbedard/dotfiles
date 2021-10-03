@@ -46,6 +46,19 @@ augroup hide_netrw
   autocmd FileType netrw setl bufhidden=wipe
 augroup END
 
+"--- ftdetect ---"
+augroup detect_cfg
+  autocmd BufNewFile,BufRead *.conf,*editorconfig,*flake8 setf cfg
+augroup END
+
+augroup detect_mysql
+  autocmd BufNewFile,BufRead *.sql setf mysql
+augroup END
+
+augroup detect_zmk
+  autocmd BufNewFile,BufRead *.keymap,*.overlay setf c
+augroup END
+
 "---------------------------------- Commands ----------------------------------"
 " I'm bad at typing.
 :command! Q q
