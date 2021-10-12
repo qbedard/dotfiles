@@ -142,6 +142,7 @@ return require("packer").startup({
               },
               {
                 "filename",
+                path = 1,
                 symbols = { modified = i.file._mod, readonly = i.file._lock },
               },
             },
@@ -168,6 +169,17 @@ return require("packer").startup({
         })
       end,
     })
+
+    -- use({
+    --   "famiu/feline.nvim",
+    --   after = { "gruvbox.nvim", "gruvqueen" },
+    --   config = function()
+    --     require("feline").setup({
+    --       colors = {},
+    --       components = {},
+    --     })
+    --   end,
+    -- })
 
     -- TODO: Find out wtf is going on with the lines (and barbar) colors
     --       changing on autocmd to PackerCompile.
