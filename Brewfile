@@ -17,6 +17,7 @@ brew 'ipython' # better python shell
 brew 'jq' # JSON parsing
 brew 'lazydocker' # docker term UI
 brew 'luajit', args: ['HEAD'] # neovim HEAD dep
+brew 'n'  # Node version manager
 brew 'neovim', args: ['HEAD']
 brew 'node'
 brew 'pipx'

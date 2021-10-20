@@ -248,6 +248,11 @@ end
 # --- python ---
 set -gx PYTHONDONTWRITEBYTECODE 1 # prevent .pyc files
 
+# --- n ---
+set -gx N_PREFIX "$HOME/.local/share"
+set -gx NODE_VERSIONS "$N_PREFIX/n/versions/node"
+set -gx NODE_VERSION_PREFIX ""
+
 # --- direnv ---
 if command -v direnv >/dev/null
     direnv hook fish | source
