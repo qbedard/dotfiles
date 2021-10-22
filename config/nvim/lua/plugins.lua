@@ -119,7 +119,7 @@ return require("packer").startup({
     })
 
     use({
-      "hoob3rt/lualine.nvim",
+      "nvim-lualine/lualine.nvim",
       requires = { "kyazdani42/nvim-web-devicons" },
       after = { "gruvbox.nvim", "gruvqueen" },
       config = function()
