@@ -150,7 +150,7 @@ return require("packer").startup({
               {
                 "diagnostics",
                 sources = { "nvim_lsp" },
-                color_info = "#83a598",
+                diagnostics_color = { info = { fg = "#83a598" } },
                 symbols = {
                   error = i.diag.error_,
                   warn = i.diag.warn_,
@@ -158,8 +158,6 @@ return require("packer").startup({
                   hint = i.diag.hint_,
                 },
               },
-              -- "encoding",
-              -- "fileformat",
               "filetype",
             },
             lualine_y = { "progress" },
