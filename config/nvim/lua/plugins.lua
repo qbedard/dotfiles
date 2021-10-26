@@ -179,8 +179,6 @@ return require("packer").startup({
     --   end,
     -- })
 
-    -- TODO: Find out wtf is going on with the lines (and barbar) colors
-    --       changing on autocmd to PackerCompile.
     use({
       "lukas-reineke/indent-blankline.nvim",
       config = function()
@@ -440,13 +438,7 @@ return require("packer").startup({
       ft = "markdown",
     })
 
-    use({
-      "kshenoy/vim-signature",
-      config = function()
-        -- only supports vim-gitgutter
-        -- vim.g.SignatureMarkTextHLDynamic = 1
-      end,
-    })
+    use("kshenoy/vim-signature")
 
     use({
       "unblevable/quick-scope",
@@ -505,18 +497,7 @@ return require("packer").startup({
       end,
     })
 
-    use({
-      "abecodes/tabout.nvim",
-      config = function()
-        require("tabout").setup()
-      end,
-    })
-
-    use({
-      "Glench/Vim-Jinja2-Syntax",
-      opt = true,
-      ft = { "html", "jinja" },
-    })
+    use({ "Glench/Vim-Jinja2-Syntax", opt = true, ft = { "html", "jinja" } })
 
     use("nathom/filetype.nvim")
     use("justinmk/vim-dirvish")
@@ -540,24 +521,22 @@ return require("packer").startup({
     use("Vimjas/vim-python-pep8-indent")
     use("sophacles/vim-bundle-mako")
 
-    -- use {
+    -- use({
     --   "sheerun/vim-polyglot",
     --   opt = true,
     --   event = "VimEnter *",
     --   setup = function()
-    --     vim.g.polyglot_disabled = {"helm", "python"}
+    --     vim.g.polyglot_disabled = { "helm", "python" }
     --   end,
     --   config = function()
     --     vim.g.javascript_plugin_jsdoc = 1
     --     vim.g.vim_markdown_frontmatter = 1
     --     vim.g.vim_markdown_new_list_item_indent = 2
-    --   end
-    -- }
+    --   end,
+    -- })
 
     use("janko-m/vim-test")
-    -- use "hkupty/iron.nvim"
+    -- use("hkupty/iron.nvim")
   end,
-  config = {
-    python_cmd = "python3",
-  },
+  config = { python_cmd = "python3" },
 })
