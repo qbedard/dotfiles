@@ -329,11 +329,7 @@ return require("packer").startup({
             ["<C-n>"] = cmp.mapping.select_next_item(),
             ["<C-Space>"] = cmp.mapping.complete(),
             ["<C-e>"] = cmp.mapping.close(),
-            -- This is handled by nvim-autopairs.
-            -- ["<CR>"] = cmp.mapping.confirm {
-            --   behavior = cmp.ConfirmBehavior.Replace,
-            --   select = true
-            -- }
+            ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
           },
           sources = {
             { name = "nvim_lsp" },
@@ -489,11 +485,6 @@ return require("packer").startup({
       after = "nvim-cmp",
       config = function()
         require("nvim-autopairs").setup({})
-        -- handle <CR> mapping with nvim-cmp
-        require("nvim-autopairs.completion.cmp").setup({
-          map_cr = true, --  map <CR> on insert mode
-          map_complete = false, -- insert `(` when function/method is completed
-        })
       end,
     })
 
