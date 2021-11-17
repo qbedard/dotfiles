@@ -43,6 +43,7 @@ if vim.fn.executable("fish") then
 end
 
 ----------------------------- Tabs & Indentation ------------------------------
+vim.opt.cindent = false
 vim.opt.expandtab = true -- tabs insert spaces
 vim.opt.foldlevel = 99
 vim.opt.joinspaces = false -- only one space after punction when joining lines
