@@ -359,6 +359,14 @@ return require("packer").startup({
             other = i.diag.pass,
           },
         })
+
+        local map = require("tb.utils").map
+        map("n", "<Leader>xx", "<cmd>TroubleToggle<CR>")
+        map("n", "<Leader>xw", "<cmd>TroubleToggle lsp_workspace_diagnostics<CR>")
+        map("n", "<Leader>xd", "<cmd>TroubleToggle lsp_document_diagnostics<CR>")
+        map("n", "<Leader>xl", "<cmd>TroubleToggle loclist<CR>")
+        map("n", "<Leader>xc", "<cmd>TroubleToggle quickfix<CR>")
+        map("n", "gR", "<cmd>TroubleToggle lsp_references<CR>")
       end,
     })
 
