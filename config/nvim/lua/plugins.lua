@@ -43,12 +43,14 @@ return require("packer").startup({
 
         -- require("tb.gruvbox")  -- for ref, but inline works on PackerCompile
 
-        -- treesitter highlights
+        -- general
+        vim.cmd("highlight! link Operator GruvboxRed")
+        vim.cmd("highlight! link Function GruvboxAqua")
+        vim.cmd("highlight! link Method GruvboxAqua")
+        vim.cmd("highlight! link Delimiter GruvboxFg2") -- temp for delimiter contrast
+
+        -- treesitter
         vim.cmd("highlight! link TSConstBuiltin Constant") -- None
-        vim.cmd("highlight! link TSKeywordOperator Keyword") -- not, in
-        vim.cmd("highlight! link TSOperator GruvboxRed")
-        vim.cmd("highlight! link TSFunction GruvboxAqua")
-        vim.cmd("highlight! link TSMethod GruvboxAqua")
         vim.cmd("highlight! clear TSError")
 
         -- misc
