@@ -51,6 +51,10 @@ augroup detect_cfg
   autocmd BufNewFile,BufRead *.conf,*editorconfig,*flake8 setf cfg
 augroup END
 
+augroup detect_direnvrc
+  autocmd BufNewFile,BufRead direnvrc setf bash
+augroup END
+
 augroup detect_mysql
   autocmd BufNewFile,BufRead *.sql setf mysql
 augroup END
