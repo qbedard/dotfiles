@@ -47,7 +47,6 @@ return require("packer").startup({
         vim.cmd("highlight! link Operator GruvboxRed")
         vim.cmd("highlight! link Function GruvboxAqua")
         vim.cmd("highlight! link Method GruvboxAqua")
-        vim.cmd("highlight! link Delimiter GruvboxFg2") -- temp for delimiter contrast
 
         -- treesitter
         vim.cmd("highlight! link TSConstBuiltin Constant") -- None
