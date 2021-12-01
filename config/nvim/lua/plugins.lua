@@ -237,12 +237,19 @@ return require("packer").startup({
       config = function()
         require("tb.lsp")
         local map = require("tb.utils").map
+        map("n", "<leader>d", "<Cmd>lua vim.diagnostic.open_float()<CR>")
+        map("n", "[g", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
+        map("n", "]g", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
+
         map("n", "<leader>k", "<Cmd>lua vim.lsp.buf.hover()<CR>")
+        map("n", "<leader>s", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
         map("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
         map("n", "1gd", "<Cmd>lua vim.lsp.buf.type_definition()<CR>")
         -- map("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>")
         map("n", "g0", "<Cmd>lua vim.lsp.buf.document_symbol()<CR>")
         map("n", "gf", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
+
+        map("n", "<leader>c", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
       end,
     })
 
