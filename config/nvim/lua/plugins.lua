@@ -269,7 +269,13 @@ return require("packer").startup({
           filetypes = { "python" },
           generator = null_ls.generator({
             command = "flake8",
-            args = { "--format", "default", "--stdin-display-name", "$FILENAME", "-" },
+            args = {
+              "--format=default",
+              "--select=C,E,F,W,B,N,B950",
+              "--ignore=E203,E501,N818,W503",
+              "--stdin-display-name=$FILENAME",
+              "-",
+            },
             to_stdin = true,
             from_stderr = true,
             format = "line",
