@@ -9,13 +9,13 @@ vim.fn.sign_define("DiagnosticSignError", {
   text = i.diag.error,
   texthl = "DiagnosticSignError",
 })
-vim.fn.sign_define("DiagnosticSignWarning", {
+vim.fn.sign_define("DiagnosticSignWarn", {
   text = i.diag.warn,
-  texthl = "DiagnosticSignWarning",
+  texthl = "DiagnosticSignWarn",
 })
-vim.fn.sign_define("DiagnosticSignInformation", {
+vim.fn.sign_define("DiagnosticSignInfo", {
   text = i.diag.info,
-  texthl = "DiagnosticSignInformation",
+  texthl = "DiagnosticSignInfo",
 })
 vim.fn.sign_define("DiagnosticSignHint", {
   text = i.diag.hint,
