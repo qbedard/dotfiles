@@ -39,14 +39,14 @@ curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.p
 "$HOME/.poetry/bin/poetry" self update
 
 # Bash (macOS/Homebrew)
-"$HOME/.poetry/bin/poetry" completions bash > $(brew --prefix)/etc/bash_completion.d/poetry.bash-completion
+"$HOME/.poetry/bin/poetry" completions bash > "$(brew --prefix)/etc/bash_completion.d/poetry.bash-completion"
 
 # Fish
-"$HOME/.poetry/bin/poetry" completions fish > ~/.config/fish/completions/poetry.fish
+"$HOME/.poetry/bin/poetry" completions fish > "$HOME/.config/fish/completions/poetry.fish"
 
 # Oh-My-Zsh
-mkdir $ZSH/plugins/poetry
-"$HOME/.poetry/bin/poetry" completions zsh > $ZSH/plugins/poetry/_poetry
+mkdir "$ZSH/plugins/poetry"
+"$HOME/.poetry/bin/poetry" completions zsh > "$ZSH/plugins/poetry/_poetry"
 
 echo "Installing tpm (Tmux Plugin Manager)..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
