@@ -3,7 +3,13 @@ local lspconfig = require("lspconfig")
 ------------------------------------ Signs -------------------------------------
 local i = require("tb.icons")
 
-vim.diagnostic.config({ virtual_text = { prefix = i.diag.virtual } })
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = i.diag.virtual,
+    -- source = "always",
+  },
+  severity_sort = true,
+})
 
 vim.fn.sign_define("DiagnosticSignError", {
   text = i.diag.error,
