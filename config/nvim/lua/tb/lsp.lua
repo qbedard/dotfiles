@@ -11,21 +11,21 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-vim.fn.sign_define("LspDiagnosticsSignError", {
+vim.fn.sign_define("DiagnosticSignError", {
   text = i.diag.error,
-  texthl = "LspDiagnosticsSignError",
+  texthl = "DiagnosticSignError",
 })
-vim.fn.sign_define("LspDiagnosticsSignWarning", {
+vim.fn.sign_define("DiagnosticSignWarning", {
   text = i.diag.warn,
-  texthl = "LspDiagnosticsSignWarning",
+  texthl = "DiagnosticSignWarning",
 })
-vim.fn.sign_define("LspDiagnosticsSignInformation", {
+vim.fn.sign_define("DiagnosticSignInformation", {
   text = i.diag.info,
-  texthl = "LspDiagnosticsSignInformation",
+  texthl = "DiagnosticSignInformation",
 })
-vim.fn.sign_define("LspDiagnosticsSignHint", {
+vim.fn.sign_define("DiagnosticSignHint", {
   text = i.diag.hint,
-  texthl = "LspDiagnosticsSignHint",
+  texthl = "DiagnosticSignHint",
 })
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(
