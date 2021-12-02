@@ -310,7 +310,12 @@ return require("packer").startup({
             diagnostics.shellcheck,
             formatting.black,
             formatting.fish_indent,
-            formatting.isort,
+            formatting.isort.with({ args = {
+              "--stdout",
+              "--profile=black",
+              "--filename=$FILENAME",
+              "-",
+            } }),
             formatting.prettier,
             formatting.rubocop,
             formatting.shfmt,
