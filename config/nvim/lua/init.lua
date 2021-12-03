@@ -130,7 +130,6 @@ map("x", ">", ">gv") -- indent selection
 map("x", "<", "<gv") -- outdent selection
 
 ----------------------------------- Plugins -----------------------------------
-vim.g.did_load_filetypes = 1 -- use filetype.nvim instead
 vim.g.loaded_netrwPlugin = 1 -- no netrw
 vim.g.netrw_dirhistmax = 0 -- no netrwhist
 

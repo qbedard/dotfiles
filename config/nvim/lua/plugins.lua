@@ -1,3 +1,5 @@
+vim.g.did_load_filetypes = 1 -- use filetype.nvim instead
+
 local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
   vim.fn.system({
@@ -310,12 +312,14 @@ return require("packer").startup({
             diagnostics.shellcheck,
             formatting.black,
             formatting.fish_indent,
-            formatting.isort.with({ args = {
-              "--stdout",
-              "--profile=black",
-              "--filename=$FILENAME",
-              "-",
-            } }),
+            formatting.isort.with({
+              args = {
+                "--stdout",
+                "--profile=black",
+                "--filename=$FILENAME",
+                "-",
+              },
+            }),
             formatting.prettier,
             formatting.rubocop,
             formatting.shfmt,
@@ -439,9 +443,6 @@ return require("packer").startup({
       requires = {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-        -- "nvim-telescope/telescope-fzy-native.nvim",
-        -- "nvim-telescope/telescope-github.nvim",
-        -- "nvim-telescope/telescope-packer.nvim"  -- currently breaking packer
       },
       config = function()
         require("tb.telescope")
