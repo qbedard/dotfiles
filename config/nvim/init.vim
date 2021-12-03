@@ -55,6 +55,10 @@ augroup detect_direnvrc
   autocmd BufNewFile,BufRead direnvrc setf bash
 augroup END
 
+augroup detect_mako
+  autocmd BufNewFile,BufRead *.mako* setf mako
+augroup END
+
 augroup detect_mysql
   autocmd BufNewFile,BufRead *.sql setf mysql
 augroup END
