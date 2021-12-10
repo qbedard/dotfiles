@@ -55,15 +55,23 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({ capabilities = capabilities })
 end
 
--- require("lspconfig").taplo.setup({
---   init_options = {
---     formatter = {
---       alignEntries = true,
---       indentTables = true,
---       reorderKeys = true,
---     },
---   },
--- })
+require("lspconfig").taplo.setup({
+  on_attach = function(client)
+    -- Let null-ls handle formatting for now.
+    client.resolved_capabilities.document_formatting = false
+  end,
+  capabilities = capabilities,
+  settings = {
+    evenBetterToml = {
+      schema = {
+        enabled = true,
+        repositoryEnabled = true,
+        repositoryUrl = "https://taplo.tamasfe.dev/schema_index.json",
+      },
+      -- formatter = { indentTables = true },
+    },
+  },
+})
 
 ------------------------------------ Python ------------------------------------
 local python = "python"
