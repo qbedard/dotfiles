@@ -266,7 +266,29 @@ return require("packer").startup({
         -- TODO: fish lint
 
         local h = require("null-ls.helpers")
-        local flake8 = {
+
+        local diagnostics_fish = {
+          method = null_ls.methods.DIAGNOSTICS,
+          filetypes = { "fish" },
+          generator = null_ls.generator({
+            command = "fish",
+            args = { "-n", "$FILENAME" },
+            to_stdin = false,
+            from_stderr = true,
+            to_temp_file = true,
+            format = "raw",
+            check_exit_code = function(code)
+              return code <= 1
+            end,
+            on_output = h.diagnostics.from_errorformat(
+              table.concat({ "%f (line %l): %m" }, ","),
+              "fish"
+            ),
+          }),
+          factory = h.generator_factory,
+        }
+
+        local diagnostics_flake8 = {
           method = null_ls.methods.DIAGNOSTICS,
           filetypes = { "python" },
           generator = null_ls.generator({
@@ -303,13 +325,44 @@ return require("packer").startup({
           factory = h.generator_factory,
         }
 
+        -- TODO: Get working
+        -- local diagnostics_taplo = {
+        --   method = null_ls.methods.DIAGNOSTICS,
+        --   filetypes = { "toml" },
+        --   generator = null_ls.generator({
+        --     command = "taplo",
+        --     args = {
+        --       "lint",
+        --       "--default-schema-repository",
+        --       "--cache-path",
+        --       vim.fn.stdpath("cache") .. "/taplo",
+        --       "$FILENAME",
+        --     },
+        --     to_stdin = false,
+        --     -- from_stderr = true,
+        --     to_temp_file = true,
+        --     format = "raw",
+        --     check_exit_code = function(code)
+        --       return code <= 1
+        --     end,
+        --     on_output = h.diagnostics.from_pattern(
+        --       [[(%a+): (.*)\n.*:(%d+):(%d+)]],
+        --       { "severity", "message", "row", "col" },
+        --       {}
+        --     ),
+        --   }),
+        --   factory = h.generator_factory,
+        -- }
+
         null_ls.config({
           sources = {
             code_actions.gitsigns,
+            diagnostics_fish,
             -- diagnostics.flake8,
-            flake8,
+            diagnostics_flake8,
             diagnostics.rubocop,
             diagnostics.shellcheck,
+            -- diagnostics_taplo,
             formatting.black,
             formatting.fish_indent,
             formatting.isort.with({
@@ -325,6 +378,7 @@ return require("packer").startup({
             formatting.shfmt,
             formatting.sqlformat,
             formatting.stylua,
+            formatting.taplo,
             formatting.terraform_fmt,
           },
         })
