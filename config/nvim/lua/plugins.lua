@@ -152,7 +152,7 @@ return require("packer").startup({
             lualine_x = {
               {
                 "diagnostics",
-                sources = { "nvim_lsp" },
+                sources = { "nvim_diagnostic" },
                 diagnostics_color = { info = { fg = "#83a598" } },
                 symbols = {
                   error = i.diag.error_,
