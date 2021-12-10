@@ -55,15 +55,15 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({ capabilities = capabilities })
 end
 
-require("lspconfig").taplo.setup({
-  init_options = {
-    formatter = {
-      alignEntries = true,
-      indentTables = true,
-      reorderKeys = true,
-    },
-  },
-})
+-- require("lspconfig").taplo.setup({
+--   init_options = {
+--     formatter = {
+--       alignEntries = true,
+--       indentTables = true,
+--       reorderKeys = true,
+--     },
+--   },
+-- })
 
 ------------------------------------ Python ------------------------------------
 local python = "python"
@@ -74,17 +74,18 @@ lspconfig.pyright.setup({
   capabilities = capabilities,
   settings = {
     python = {
-      -- analysis = {
-      --   diagnosticSeverityOverrides = {
-      --     reportMissingTypeStubs = true,
-      --     reportUnknownArgumentType = "warning",
-      --     reportUnknownLambdaType = "warning",
-      --     reportUnknownMemberType = "warning",
-      --     reportUnknownParameterType = "warning",
-      --     reportUnknownVariableType = "warning",
-      --   },
-      --   typeCheckingMode = "strict",
-      -- },
+      analysis = {
+        -- diagnosticSeverityOverrides = {
+        --   reportMissingTypeStubs = true,
+        --   reportUnknownArgumentType = "warning",
+        --   reportUnknownLambdaType = "warning",
+        --   reportUnknownMemberType = "warning",
+        --   reportUnknownParameterType = "warning",
+        --   reportUnknownVariableType = "warning",
+        -- },
+        -- typeCheckingMode = "strict",
+        useLibraryCodeForTypes = true,
+      },
       pythonPath = python,
     },
   },
