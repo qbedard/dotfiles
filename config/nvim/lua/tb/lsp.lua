@@ -56,13 +56,11 @@ for _, lsp in ipairs(servers) do
 end
 
 require("lspconfig").taplo.setup({
-  settings = {
-    evenBetterToml = {
-      formatter = {
-        alignEntries = true,
-        indentTables = true,
-        reorderKeys = true,
-      },
+  init_options = {
+    formatter = {
+      alignEntries = true,
+      indentTables = true,
+      reorderKeys = true,
     },
   },
 })
