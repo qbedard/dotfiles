@@ -68,7 +68,8 @@ require("lspconfig").taplo.setup({
         repositoryEnabled = true,
         repositoryUrl = "https://taplo.tamasfe.dev/schema_index.json",
       },
-      -- formatter = { indentTables = true },
+      -- Apparently removing this borks the settings?!
+      formatter = { indentTables = true },
     },
   },
 })
