@@ -68,6 +68,7 @@ require("lspconfig").taplo.setup({
         repositoryEnabled = true,
         repositoryUrl = "https://taplo.tamasfe.dev/schema_index.json",
       },
+      cachePath = vim.fn.stdpath("cache") .. "/taplo",
       -- Apparently removing this borks the settings?!
       formatter = { indentTables = true },
     },
