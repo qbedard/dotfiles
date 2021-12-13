@@ -63,6 +63,13 @@ augroup detect_mysql
   autocmd BufNewFile,BufRead *.sql setf mysql
 augroup END
 
+augroup detect_terraform
+  autocmd BufRead,BufNewFile *.hcl set filetype=hcl
+  autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl
+  autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
+  autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json
+augroup END
+
 augroup detect_zmk
   autocmd BufNewFile,BufRead *.keymap,*.overlay setf c
 augroup END
