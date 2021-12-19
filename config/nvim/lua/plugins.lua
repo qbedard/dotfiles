@@ -52,7 +52,6 @@ return require("packer").startup({
 
         -- treesitter
         vim.cmd("highlight! link TSConstBuiltin Constant") -- None
-        vim.cmd("highlight! clear TSError")
 
         -- misc
         vim.cmd("highlight! link DiffChange GruvboxBlue") -- for gitsigns
