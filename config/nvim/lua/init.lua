@@ -20,9 +20,6 @@
 -------------------------------------------------------------------------------
 --                                  General                                  --
 -------------------------------------------------------------------------------
------------------------------------ Python ------------------------------------
-vim.opt.pyxversion = 3
-
 --------------------------------- The Basics ----------------------------------
 vim.g.mapleader = " "
 
@@ -97,6 +94,25 @@ vim.opt.termguicolors = true -- true color support
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.shortmess:append("c")
 
+---------------------------------- Filetype -----------------------------------
+vim.g.did_load_filetypes = 0 -- don't use filetype.vim
+vim.g.do_filetype_lua = 1 -- use filetype.lua
+
+vim.filetype.add({
+  extension = {
+    conf = "cfg",
+    keymap = "c",
+    overlay = "c",
+    sql = "mysql",
+  },
+  filename = {
+    direnvrc = "bash",
+  },
+})
+
+----------------------------------- Python ------------------------------------
+vim.opt.pyxversion = 3
+
 -------------------------------------------------------------------------------
 --                                  Mappings                                 --
 -------------------------------------------------------------------------------
@@ -129,11 +145,20 @@ map("x", "<M-h>", "<gv") -- outdent selection
 map("x", ">", ">gv") -- indent selection
 map("x", "<", "<gv") -- outdent selection
 
----------------------------------- Filetype -----------------------------------
-vim.g.did_load_filetypes = 0 -- don't use filetype.vim
-vim.g.do_filetype_lua = 1 -- use filetype.lua
+-------------------------------------------------------------------------------
+--                                  Commands                                 --
+-------------------------------------------------------------------------------
+local command = vim.api.nvim_add_user_command
 
------------------------------------ Plugins -----------------------------------
+-- Sometimes I'm bad at typing.
+command("Q", "q", { bang = true })
+command("W", "w", { bang = true })
+command("WQ", "wq", { bang = true })
+command("Wq", "wq", { bang = true })
+
+-------------------------------------------------------------------------------
+--                                  Plugins                                  --
+-------------------------------------------------------------------------------
 vim.g.loaded_netrwPlugin = 1 -- no netrw
 vim.g.netrw_dirhistmax = 0 -- no netrwhist
 
