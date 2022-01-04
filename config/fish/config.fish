@@ -60,6 +60,7 @@ end
 
 # TODO: maybe move this to a ripgreprc (pointed at by setting RIPGREP_CONFIG_PATH)
 alias rg 'rg --smart-case --max-columns=120 --max-columns-preview'
+alias hg 'kitty +kitten hyperlinked_grep'
 
 alias glog "\
     git log --graph --abbrev-commit --date=relative \
