@@ -98,6 +98,7 @@ require("null-ls").setup({
     diagnostics_fish,
     -- diagnostics.flake8,
     diagnostics_flake8,
+    -- diagnostics.mypy,
     diagnostics.rubocop,
     diagnostics.shellcheck,
     -- diagnostics_taplo,

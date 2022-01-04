@@ -94,7 +94,6 @@ lspconfig.pyright.setup({
         --   reportUnknownVariableType = "warning",
         -- },
         -- typeCheckingMode = "strict",
-        useLibraryCodeForTypes = true,
       },
       pythonPath = python,
     },
