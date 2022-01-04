@@ -129,6 +129,10 @@ map("x", "<M-h>", "<gv") -- outdent selection
 map("x", ">", ">gv") -- indent selection
 map("x", "<", "<gv") -- outdent selection
 
+---------------------------------- Filetype -----------------------------------
+vim.g.did_load_filetypes = 0 -- don't use filetype.vim
+vim.g.do_filetype_lua = 1 -- use filetype.lua
+
 ----------------------------------- Plugins -----------------------------------
 vim.g.loaded_netrwPlugin = 1 -- no netrw
 vim.g.netrw_dirhistmax = 0 -- no netrwhist

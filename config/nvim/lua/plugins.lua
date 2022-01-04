@@ -1,5 +1,3 @@
-vim.g.did_load_filetypes = 1 -- use filetype.nvim instead
-
 local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
   vim.fn.system({
@@ -493,7 +491,7 @@ return require("packer").startup({
 
     use({ "Glench/Vim-Jinja2-Syntax", opt = true, ft = { "html", "jinja" } })
 
-    use("nathom/filetype.nvim")
+    -- use("nathom/filetype.nvim")
     use("justinmk/vim-dirvish")
     use("romainl/vim-cool")
     use("farmergreg/vim-lastplace")
