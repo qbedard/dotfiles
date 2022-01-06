@@ -116,34 +116,32 @@ vim.opt.pyxversion = 3
 -------------------------------------------------------------------------------
 --                                  Mappings                                 --
 -------------------------------------------------------------------------------
-local map = require("tb.utils").map
-
 ---------------------------------- Navigation ---------------------------------
-map("i", "jj", "<Esc>", { noremap = false }) -- exit insert (-noremap for abbrevs)
-map("t", "kk", "<C-\\><C-n>", { noremap = false }) -- exit terminal mode
-map("nx", ";", ":", { silent = false }) -- faster command entry
-map("n", "H", "^") -- beginning of line
-map("n", "L", "$") -- end of line
+vim.keymap.set("i", "jj", "<Esc>") -- exit insert
+vim.keymap.set("t", "kk", "<C-\\><C-n>") -- exit terminal mode
+vim.keymap.set({ "n", "x" }, ";", ":") -- faster command entry
+vim.keymap.set("n", "H", "^") -- beginning of line
+vim.keymap.set("n", "L", "$") -- end of line
 
 ----------------------------------- Editing -----------------------------------
-map("n", "U", "<C-R>") -- redo
-map("i", "<C-u>", "<C-g>u<C-u>") -- allow undo of <C-u>
-map("i", "<C-w>", "<C-g>u<C-w>") -- allow undo of <C-w>
+vim.keymap.set("n", "U", "<C-R>") -- redo
+vim.keymap.set("i", "<C-u>", "<C-g>u<C-u>") -- allow undo of <C-u>
+vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>") -- allow undo of <C-w>
 -- TODO: make repeatable
-map("n", "<leader>i", "i<Space><Esc>r") -- insert single character before
-map("n", "<leader>a", "a<Space><Esc>r") -- insert single character after
+vim.keymap.set("n", "<leader>i", "i<Space><Esc>r") -- insert single character before
+vim.keymap.set("n", "<leader>a", "a<Space><Esc>r") -- insert single character after
 
 --- some brilliant line movement mappings from junegunn ---
-map("n", "<M-k>", ":move-2<CR>") -- move line up
-map("n", "<M-j>", ":move+<CR>") -- move line down
-map("n", "<M-l>", ">>") -- indent line
-map("n", "<M-h>", "<<") -- outdent line
-map("x", "<M-k>", ":move-2<CR>gv") -- move selection up
-map("x", "<M-j>", ":move'>+<CR>gv") -- move selection up
-map("x", "<M-l>", ">gv") -- indent selection
-map("x", "<M-h>", "<gv") -- outdent selection
-map("x", ">", ">gv") -- indent selection
-map("x", "<", "<gv") -- outdent selection
+vim.keymap.set("n", "<M-k>", ":move-2<CR>", { silent = true }) -- move line up
+vim.keymap.set("n", "<M-j>", ":move+<CR>", { silent = true }) -- move line down
+vim.keymap.set("n", "<M-l>", ">>", { silent = true }) -- indent line
+vim.keymap.set("n", "<M-h>", "<<", { silent = true }) -- outdent line
+vim.keymap.set("x", "<M-k>", ":move-2<CR>gv", { silent = true }) -- move selection up
+vim.keymap.set("x", "<M-j>", ":move'>+<CR>gv", { silent = true }) -- move selection up
+vim.keymap.set("x", "<M-l>", ">gv", { silent = true }) -- indent selection
+vim.keymap.set("x", "<M-h>", "<gv", { silent = true }) -- outdent selection
+vim.keymap.set("x", ">", ">gv", { silent = true }) -- indent selection
+vim.keymap.set("x", "<", "<gv", { silent = true }) -- outdent selection
 
 -------------------------------------------------------------------------------
 --                                  Commands                                 --

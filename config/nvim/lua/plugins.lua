@@ -78,6 +78,7 @@ return require("packer").startup({
       requires = "kyazdani42/nvim-web-devicons",
       after = { "gruvbox.nvim", "gruvqueen" },
       config = function()
+        local bufferline = require("bufferline")
         local colors = require("bufferline.colors")
         local hex = colors.get_hex
         local shade = colors.shade_color
@@ -86,7 +87,7 @@ return require("packer").startup({
         local separator_background_color = shade(normal_bg, -27)
         local background_color = shade(normal_bg, -18)
 
-        require("bufferline").setup({
+        bufferline.setup({
           highlights = {
             buffer_selected = { gui = "bold" },
             background = { guibg = background_color },
@@ -111,10 +112,12 @@ return require("packer").startup({
             show_close_icon = false,
           },
         })
-
-        local map = require("tb.utils").map
-        map("nx", "K", ":BufferLineCycleNext<CR>")
-        map("nx", "J", ":BufferLineCyclePrev<CR>")
+        vim.keymap.set({ "n", "x" }, "K", function()
+          bufferline.cycle(1)
+        end)
+        vim.keymap.set({ "n", "x" }, "J", function()
+          bufferline.cycle(-1)
+        end)
       end,
     })
 
@@ -235,20 +238,19 @@ return require("packer").startup({
       -- rocks = {"luaformatter", server = "https://luarocks.org/dev"},
       config = function()
         require("tb.lsp")
-        local map = require("tb.utils").map
-        map("n", "<leader>d", "<Cmd>lua vim.diagnostic.open_float()<CR>")
-        map("n", "[g", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
-        map("n", "]g", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
+        vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+        vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
+        vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 
-        map("n", "<leader>k", "<Cmd>lua vim.lsp.buf.hover()<CR>")
-        map("n", "<leader>s", "<Cmd>lua vim.lsp.buf.signature_help()<CR>")
-        map("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
-        map("n", "1gd", "<Cmd>lua vim.lsp.buf.type_definition()<CR>")
-        -- map("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>")
-        map("n", "g0", "<Cmd>lua vim.lsp.buf.document_symbol()<CR>")
-        map("n", "gf", "<Cmd>lua vim.lsp.buf.formatting()<CR>")
+        vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover)
+        vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+        vim.keymap.set("n", "1gd", vim.lsp.buf.type_definition)
+        -- vim.keymap.set("n", "gr", vim.lsp.buf.references)
+        vim.keymap.set("n", "g0", vim.lsp.buf.document_symbol)
+        vim.keymap.set("n", "gf", vim.lsp.buf.formatting)
 
-        map("n", "<leader>c", "<Cmd>lua vim.lsp.buf.code_action()<CR>")
+        vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action)
       end,
     })
 
@@ -345,8 +347,9 @@ return require("packer").startup({
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
         local i = require("tb.icons")
+        local trouble = require("trouble")
 
-        require("trouble").setup({
+        trouble.setup({
           signs = {
             error = i.diag.error,
             warning = i.diag.warn,
@@ -356,13 +359,22 @@ return require("packer").startup({
           },
         })
 
-        local map = require("tb.utils").map
-        map("n", "<Leader>xx", "<cmd>TroubleToggle<CR>")
-        map("n", "<Leader>xw", "<cmd>TroubleToggle lsp_workspace_diagnostics<CR>")
-        map("n", "<Leader>xd", "<cmd>TroubleToggle lsp_document_diagnostics<CR>")
-        map("n", "<Leader>xl", "<cmd>TroubleToggle loclist<CR>")
-        map("n", "<Leader>xc", "<cmd>TroubleToggle quickfix<CR>")
-        map("n", "gR", "<cmd>TroubleToggle lsp_references<CR>")
+        vim.keymap.set("n", "<Leader>xx", trouble.toggle)
+        vim.keymap.set("n", "<Leader>xw", function()
+          trouble.toggle("workspace_diagnostics")
+        end)
+        vim.keymap.set("n", "<Leader>xd", function()
+          trouble.toggle("document_diagnostics")
+        end)
+        vim.keymap.set("n", "<Leader>xl", function()
+          trouble.toggle("loclist")
+        end)
+        vim.keymap.set("n", "<Leader>xc", function()
+          trouble.toggle("quickfix")
+        end)
+        vim.keymap.set("n", "gR", function()
+          trouble.toggle("lsp_references")
+        end)
       end,
     })
 
@@ -373,24 +385,21 @@ return require("packer").startup({
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
       },
       config = function()
-        require("tb.telescope")
-        local map = require("tb.utils").map
-        map(
-          "n",
-          "<Leader><Leader>",
-          "<cmd>lua require('telescope.builtin').builtin()<CR>"
-        )
-        map("n", "<C-p>", "<cmd>lua require('tb.telescope').project_files()<CR>")
-        map("n", "<C-b>", "<cmd>lua require('telescope.builtin').buffers()<CR>")
+        local custom = require("tb.telescope")
+        local builtin = require("telescope.builtin")
+
+        vim.keymap.set("n", "<Leader><Leader>", builtin.builtin)
+        vim.keymap.set("n", "<C-p>", custom.project_files)
+        vim.keymap.set("n", "<C-b>", builtin.buffers)
       end,
     })
 
-    use({
-      "folke/which-key.nvim",
-      config = function()
-        require("which-key").setup({})
-      end,
-    })
+    -- use({
+    --   "folke/which-key.nvim",
+    --   config = function()
+    --     require("which-key").setup({})
+    --   end,
+    -- })
 
     use({ "norcalli/nvim-colorizer.lua", opt = true, ft = { "css", "html" } })
 
