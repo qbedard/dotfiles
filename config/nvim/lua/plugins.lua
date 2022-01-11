@@ -35,8 +35,7 @@ return require("packer").startup({
     })
 
     use({
-      "npxbr/gruvbox.nvim",
-      requires = "rktjmp/lush.nvim",
+      "ellisonleao/gruvbox.nvim",
       config = function()
         vim.g.gruvbox_sign_column = "bg0"
         vim.cmd("colorscheme gruvbox")
@@ -49,6 +48,9 @@ return require("packer").startup({
         vim.cmd("highlight! link Method GruvboxAqua")
 
         -- treesitter
+        vim.cmd("highlight! link TSOperator GruvboxRed")
+        vim.cmd("highlight! link TSFunction GruvboxAqua")
+        vim.cmd("highlight! link TSMethod GruvboxAqua")
         vim.cmd("highlight! link TSConstBuiltin Constant") -- None
 
         -- misc
