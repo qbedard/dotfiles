@@ -151,12 +151,12 @@ lspconfig.sumneko_lua.setup({
 })
 
 ---------------------------------- JavaScript ----------------------------------
--- lspconfig.tsserver.setup({
---   capabilities = capabilities,
---   on_attach = function(client)
---     client.resolved_capabilities.document_formatting = false
---   end,
--- })
+lspconfig.tsserver.setup({
+  capabilities = capabilities,
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = false
+  end,
+})
 
 ---------------------------------- Vimscript -----------------------------------
 lspconfig.vimls.setup({
