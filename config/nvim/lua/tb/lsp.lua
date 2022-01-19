@@ -120,7 +120,7 @@ lspconfig.pyright.setup({
 ------------------------------------- Lua --------------------------------------
 local sumneko_root_path = vim.fn.stdpath("data")
   .. "/site/pack/packer/start/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 lspconfig.sumneko_lua.setup({
   capabilities = capabilities,
   -- TODO: Make work on Linux as well
