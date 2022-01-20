@@ -101,6 +101,7 @@ vim.g.do_filetype_lua = 1 -- use filetype.lua
 vim.filetype.add({
   extension = {
     conf = "cfg",
+    dockerfile = "dockerfile",
     keymap = "c",
     overlay = "c",
     sql = "mysql",
