@@ -134,6 +134,7 @@ abbr -a gt "git tag"
 abbr -a pup "pip install --upgrade pip"
 abbr -a pup2 "pip2 install --upgrade pip"
 abbr -a pup3 "pip3 install --upgrade pip"
+abbr -a poi "poetry install"
 
 # --- ripgrep ---
 abbr -a rgm "rg -g '*.mako'"
