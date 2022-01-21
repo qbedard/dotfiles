@@ -108,6 +108,7 @@ vim.filetype.add({
   },
   filename = {
     direnvrc = "bash",
+    ["poetry.lock"] = "toml",
   },
 })
 
