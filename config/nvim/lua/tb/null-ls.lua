@@ -102,7 +102,8 @@ require("null-ls").setup({
     diagnostics.rubocop,
     diagnostics.shellcheck,
     -- diagnostics_taplo,
-    formatting.black,
+    -- formatting.black,
+    formatting.black.with({ extra_args = { "--preview" } }),
     formatting.fish_indent,
     formatting.isort.with({
       args = {
