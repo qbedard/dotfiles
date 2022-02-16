@@ -1,7 +1,7 @@
 require("nvim-treesitter.configs").setup({
   ensure_installed = "maintained",
-  ignore_install = {"ocamllex"},
-  highlight = { enable = true },
+  ignore_install = { "ocamllex" },
+  highlight = { enable = true, disable = { "scss" } },
   -- incremental_selection = {
   --   enable = true,
   --   keymaps = {
@@ -79,10 +79,10 @@ require("nvim-treesitter.configs").setup({
 })
 
 if require("nvim-treesitter.parsers").has_parser("python") then
-  require("vim.treesitter.query").set_query(
+    require("vim.treesitter.query").set_query(
     "python",
-    "folds",
-    [[
+        "folds",
+        [[
       [
         (function_definition)
         (class_definition)
@@ -111,5 +111,5 @@ if require("nvim-treesitter.parsers").has_parser("python") then
         (string)
       ] @fold
     ]]
-  )
+    )
 end
