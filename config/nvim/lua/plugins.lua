@@ -403,7 +403,21 @@ return require("packer").startup({
     --   end,
     -- })
 
-    use({ "norcalli/nvim-colorizer.lua", opt = true, ft = { "css", "html" } })
+    use({
+      -- not maintained :(
+      -- "norcalli/nvim-colorizer.lua",
+      "timbedard/nvim-colorizer.lua",
+      opt = true,
+      ft = { "css", "scss", "html" },
+      config = function()
+        -- TODO: Fix this in nvim-colorizer.lua
+        -- require("colorizer").setup({ default_options = { mode = "virtualtext" } })
+        require("colorizer").setup({
+          css = { mode = "virtualtext" },
+          scss = { mode = "virtualtext" },
+        })
+      end,
+    })
 
     use({
       "liuchengxu/vista.vim",
