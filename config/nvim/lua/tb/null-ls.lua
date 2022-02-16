@@ -117,7 +117,7 @@ require("null-ls").setup({
     formatting.rubocop,
     formatting.shfmt,
     formatting.sqlformat,
-    formatting.stylua,
+    -- formatting.stylua,
     formatting.taplo,
     formatting.terraform_fmt,
   },
