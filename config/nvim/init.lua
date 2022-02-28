@@ -146,6 +146,49 @@ vim.keymap.set("x", ">", ">gv", { silent = true }) -- indent selection
 vim.keymap.set("x", "<", "<gv", { silent = true }) -- outdent selection
 
 -------------------------------------------------------------------------------
+--                                Autocommands                               --
+-------------------------------------------------------------------------------
+vim.api.nvim_create_augroup({ name = "recompile_plugins", clear = true })
+vim.api.nvim_create_autocmd({
+  event = "BufWritePost",
+  group = "recompile_plugins",
+  pattern = "plugins.lua",
+  callback = function()
+    require("plugins").compile()
+  end,
+})
+
+vim.api.nvim_create_augroup({ name = "number_toggle", clear = true })
+vim.api.nvim_create_autocmd({
+  event = { "BufEnter", "FocusGained", "InsertLeave" },
+  group = "number_toggle",
+  pattern = "*",
+  callback = function()
+    vim.wo.relativenumber = true
+  end,
+})
+vim.api.nvim_create_autocmd({
+  event = { "BufLeave", "FocusLost", "InsertEnter" },
+  group = "number_toggle",
+  pattern = "*",
+  callback = function()
+    vim.wo.relativenumber = false
+  end,
+})
+
+-- " TODO: Find out why tf I do this
+-- augroup win_resize
+--   autocmd!
+--   autocmd VimResized * wincmd =
+-- augroup END
+
+-- " Go away, netrw!
+-- augroup hide_netrw
+--   autocmd!
+--   autocmd FileType netrw setl bufhidden=wipe
+-- augroup END
+
+-------------------------------------------------------------------------------
 --                                  Commands                                 --
 -------------------------------------------------------------------------------
 local command = vim.api.nvim_add_user_command
