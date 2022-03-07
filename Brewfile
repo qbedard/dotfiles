@@ -19,7 +19,7 @@ brew 'luajit', args: ['HEAD'] # neovim HEAD dep
 brew 'n' # Node version manager
 brew 'neovim', args: ['HEAD']
 brew 'node'
-brew 'pipx'
+# brew 'pipx'
 brew 'procs' # ps replacement
 brew 'pyenv'
 brew 'python'

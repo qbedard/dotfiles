@@ -43,4 +43,4 @@ update-nvim:
 	@nvim --headless +PackerUpdate +qall
 	@echo "\nNeovim plugins updated!"
 
-update: update-brew update-brew-head update-omf update-pipx update-tldr update-nvim
+update: update-brew update-brew-head update-omf update-tldr update-nvim
