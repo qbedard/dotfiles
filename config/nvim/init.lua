@@ -107,6 +107,7 @@ vim.filetype.add({
     sql = "mysql",
   },
   filename = {
+    Brewfile = "ruby",
     direnvrc = "bash",
     ["poetry.lock"] = "toml",
   },
