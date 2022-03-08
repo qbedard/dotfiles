@@ -149,24 +149,24 @@ vim.keymap.set("x", "<", "<gv", { silent = true }) -- outdent selection
 -------------------------------------------------------------------------------
 --                                Autocommands                               --
 -------------------------------------------------------------------------------
-vim.api.nvim_create_augroup("recompile_plugins", {})
+local recompile_plugins = vim.api.nvim_create_augroup("recompile_plugins", {})
 vim.api.nvim_create_autocmd("BufWritePost", {
-  group = "recompile_plugins",
+  group = recompile_plugins,
   pattern = "plugins.lua",
   callback = function()
     require("plugins").compile()
   end,
 })
 
-vim.api.nvim_create_augroup("number_toggle", {})
+local number_toggle = vim.api.nvim_create_augroup("number_toggle", {})
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
-  group = "number_toggle",
+  group = number_toggle,
   callback = function()
     vim.wo.relativenumber = true
   end,
 })
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
-  group = "number_toggle",
+  group = number_toggle,
   callback = function()
     vim.wo.relativenumber = false
   end,
