@@ -21,7 +21,21 @@ aliases:
         }
       }
     "
-  repos: |-
+  my-repos: |-
+    !gh api graphql -f query="
+      query { 
+        viewer { 
+          repositories(first: 100) {
+            nodes {
+              nameWithOwner
+            }
+          } 
+        }
+      }
+    " \
+    | jq .data.viewer.repositories.nodes[].nameWithOwner \
+    | sed "s/\"//g"
+  org-repos: |-
     !gh api graphql -f query="
       query {
         viewer {
