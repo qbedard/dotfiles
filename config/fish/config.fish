@@ -64,8 +64,7 @@ alias hg 'kitty +kitten hyperlinked_grep'
 
 alias glog "\
     git log --graph --abbrev-commit --date=relative \
-        --pretty=format:'%Cred%h%Creset %an: %s - \
-        %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset'"
+        --pretty=format:'%Cred%h%Creset %an: %s -%C(yellow)%d %Cgreen(%cr)'"
 
 # ----- Abbreviations ----- #
 
