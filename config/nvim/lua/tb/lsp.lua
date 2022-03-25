@@ -76,10 +76,6 @@ require("lspconfig").taplo.setup({
 })
 
 ------------------------------------ Python ------------------------------------
-local python = "python"
-if vim.env.VIRTUAL_ENV then
-  python = vim.env.VIRTUAL_ENV .. "/bin/python"
-end
 lspconfig.pyright.setup({
   capabilities = capabilities,
   settings = {
@@ -95,7 +91,9 @@ lspconfig.pyright.setup({
         -- },
         -- typeCheckingMode = "strict",
       },
-      pythonPath = python,
+      pythonPath = (
+          vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV .. "/bin/python" or "python"
+        ),
     },
   },
 })
