@@ -1,6 +1,6 @@
 local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
-  vim.fn.system({
+  PACKER_BOOTSTRAP = vim.fn.system({
     "git",
     "clone",
     "--depth",
@@ -11,10 +11,10 @@ if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
   vim.cmd("packadd packer.nvim")
 end
 
-require("packer.luarocks").install_commands()
+-- require("packer.luarocks").install_commands()
 
 return require("packer").startup({
-  function()
+  function(use)
     use({ "wbthomason/packer.nvim" })
 
     use({
@@ -554,6 +554,11 @@ return require("packer").startup({
 
     use("janko-m/vim-test")
     -- use("hkupty/iron.nvim")
+
+    -- TODO: Make sure this works.
+    if PACKER_BOOTSTRAP then
+      require("packer").sync()
+    end
   end,
   config = { python_cmd = "python3" },
 })
