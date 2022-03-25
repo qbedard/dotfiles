@@ -25,15 +25,12 @@ vim.g.mapleader = " "
 
 vim.opt.clipboard = "unnamed" -- yank to system clipboard
 vim.opt.commentstring = "# %s"
-vim.opt.hidden = true -- switch buffers without saving
 vim.opt.mouse = "a" -- let the mouse wheel scroll page, etc
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.ttimeout = true -- prevent delay when changing modes
-vim.opt.ttimeoutlen = 50
 vim.opt.updatetime = 100 -- speed up screen updating
 vim.opt.undofile = true -- persistent undo
-vim.opt.viewoptions:remove({ "options" }) -- keep from saving cur dir in view
 
 if vim.fn.executable("fish") then
   vim.opt.shell = "fish"
@@ -43,7 +40,6 @@ end
 vim.opt.cindent = false
 vim.opt.expandtab = true -- tabs insert spaces
 vim.opt.foldlevel = 99
-vim.opt.joinspaces = false -- only one space after punction when joining lines
 vim.opt.linebreak = true -- wrap line if too long
 vim.opt.list = true -- show listchars
 vim.opt.listchars = {
@@ -82,7 +78,6 @@ end
 --------------------------------- Appearance ----------------------------------
 vim.env.NVIM_TERM = 1 -- TODO: Why?
 
-vim.opt.background = "dark"
 vim.opt.cursorline = true -- highlight the line the cursor is on
 vim.opt.number = true
 vim.opt.scrolloff = 1 -- start scrolling when near the last line
