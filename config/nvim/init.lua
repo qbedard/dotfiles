@@ -154,7 +154,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   group = recompile_plugins,
   pattern = "plugins.lua",
   callback = function()
-    require("plugins").compile()
+    require("packer").compile()
   end,
 })
 
