@@ -63,35 +63,6 @@ local diagnostics_flake8 = {
   factory = h.generator_factory,
 }
 
--- TODO: Get working
--- local diagnostics_taplo = {
---   method = null_ls.methods.DIAGNOSTICS,
---   filetypes = { "toml" },
---   generator = null_ls.generator({
---     command = "taplo",
---     args = {
---       "lint",
---       "--default-schema-repository",
---       "--cache-path",
---       vim.fn.stdpath("cache") .. "/taplo",
---       "$FILENAME",
---     },
---     to_stdin = false,
---     -- from_stderr = true,
---     to_temp_file = true,
---     format = "raw",
---     check_exit_code = function(code)
---       return code <= 1
---     end,
---     on_output = h.diagnostics.from_pattern(
---       [[(%a+): (.*)\n.*:(%d+):(%d+)]],
---       { "severity", "message", "row", "col" },
---       {}
---     ),
---   }),
---   factory = h.generator_factory,
--- }
-
 require("null-ls").setup({
   sources = {
     code_actions.gitsigns,
@@ -101,7 +72,6 @@ require("null-ls").setup({
     -- diagnostics.mypy,
     -- diagnostics.rubocop,
     diagnostics.shellcheck,
-    -- diagnostics_taplo,
     -- formatting.black,
     formatting.black.with({ extra_args = { "--preview" } }),
     formatting.fish_indent,
@@ -118,7 +88,6 @@ require("null-ls").setup({
     formatting.shfmt,
     formatting.sqlformat,
     formatting.stylua,
-    formatting.taplo,
     formatting.terraform_fmt,
   },
 })

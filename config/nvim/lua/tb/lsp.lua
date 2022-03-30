@@ -56,10 +56,10 @@ for _, lsp in ipairs(servers) do
 end
 
 require("lspconfig").taplo.setup({
-  on_attach = function(client)
-    -- Let null-ls handle formatting for now.
-    client.resolved_capabilities.document_formatting = false
-  end,
+  -- on_attach = function(client)
+  --   -- Let null-ls handle formatting for now.
+  --   client.resolved_capabilities.document_formatting = false
+  -- end,
   capabilities = capabilities,
   settings = {
     evenBetterToml = {
@@ -70,7 +70,10 @@ require("lspconfig").taplo.setup({
       },
       cachePath = vim.fn.stdpath("cache") .. "/taplo",
       -- Apparently removing this borks the settings?!
-      formatter = { indentTables = true },
+      formatter = {
+        alignComments = false,
+        -- indentTables = true,
+      },
     },
   },
 })
