@@ -56,10 +56,6 @@ for _, lsp in ipairs(servers) do
 end
 
 require("lspconfig").taplo.setup({
-  -- on_attach = function(client)
-  --   -- Let null-ls handle formatting for now.
-  --   client.resolved_capabilities.document_formatting = false
-  -- end,
   capabilities = capabilities,
   settings = {
     evenBetterToml = {
