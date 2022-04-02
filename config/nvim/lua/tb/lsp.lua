@@ -115,16 +115,16 @@ lspconfig.pyright.setup({
 -- })
 
 ------------------------------------- Lua --------------------------------------
-local sumneko_root_path = vim.fn.stdpath("data")
-  .. "/site/pack/packer/start/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+-- local sumneko_root_path = vim.fn.stdpath("data")
+--   .. "/site/pack/packer/start/lua-language-server"
+-- local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 lspconfig.sumneko_lua.setup({
   capabilities = capabilities,
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
   end,
   -- TODO: Make work on Linux as well
-  cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
+  -- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
   settings = {
     Lua = {
       completion = { kewordSnippet = "Disable" },

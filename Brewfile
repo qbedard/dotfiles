@@ -15,6 +15,7 @@ brew 'hub' # GitHub tools
 brew 'ipython' # better python shell
 brew 'jq' # JSON parsing
 brew 'lazydocker' # docker term UI
+brew 'lua-language-server'
 brew 'luajit', args: ['HEAD'] # neovim HEAD dep
 brew 'n' # Node version manager
 brew 'neovim', args: ['HEAD']
