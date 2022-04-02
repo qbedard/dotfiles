@@ -226,13 +226,13 @@ return require("packer").startup({
       end,
     })
 
-    use({
-      "sumneko/lua-language-server",
-      run = {
-        "cd 3rd/luamake && ./compile/install.sh",
-        "3rd/luamake/luamake rebuild",
-      },
-    })
+    -- use({
+    --   "sumneko/lua-language-server",
+    --   run = {
+    --     "cd 3rd/luamake && ./compile/install.sh",
+    --     "3rd/luamake/luamake rebuild",
+    --   },
+    -- })
 
     use({
       "neovim/nvim-lspconfig",
