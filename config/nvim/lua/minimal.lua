@@ -1,6 +1,6 @@
 local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
-  vim.fn.system({
+  PACKER_BOOTSTRAP = vim.fn.system({
     "git",
     "clone",
     "--depth",
@@ -12,7 +12,7 @@ if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
 end
 
 return require("packer").startup({
-  function()
+  function(use)
     use({ "wbthomason/packer.nvim" })
     use({
       "nvim-treesitter/nvim-treesitter",
@@ -25,21 +25,27 @@ return require("packer").startup({
       end,
     })
     use({
-      "npxbr/gruvbox.nvim",
-      requires = "rktjmp/lush.nvim",
+      "ellisonleao/gruvbox.nvim",
       config = function()
         vim.g.gruvbox_sign_column = "bg0"
         vim.cmd("colorscheme gruvbox")
         vim.cmd("highlight! link Operator GruvboxRed")
         vim.cmd("highlight! link Function GruvboxAqua")
         vim.cmd("highlight! link Method GruvboxAqua")
+        vim.cmd("highlight! link TSOperator GruvboxRed")
+        vim.cmd("highlight! link TSFunction GruvboxAqua")
+        vim.cmd("highlight! link TSMethod GruvboxAqua")
         vim.cmd("highlight! link TSConstBuiltin Constant")
-        vim.cmd("highlight! clear TSError")
         vim.cmd("highlight! link DiffChange GruvboxBlue")
       end,
     })
-    use("sumneko/lua-language-server")
     use("tpope/vim-commentary")
     use("tpope/vim-surround")
+
+    -- Insert plugins to test here. --
+
+    if PACKER_BOOTSTRAP then
+      require("packer").sync()
+    end
   end,
 })
