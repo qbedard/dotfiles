@@ -166,7 +166,7 @@ return require("packer").startup({
               "filetype",
             },
             lualine_y = { "progress" },
-            lualine_z = { "location" },
+            lualine_z = { "%3l:%-2c" },
           },
           extensions = { "fugitive" },
         })
