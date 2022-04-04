@@ -5,27 +5,6 @@ local formatting = null_ls.builtins.formatting
 
 local h = require("null-ls.helpers")
 
-local diagnostics_fish = {
-  method = null_ls.methods.DIAGNOSTICS,
-  filetypes = { "fish" },
-  generator = null_ls.generator({
-    command = "fish",
-    args = { "--no-execute", "$FILENAME" },
-    to_stdin = false,
-    from_stderr = true,
-    to_temp_file = true,
-    format = "raw",
-    check_exit_code = function(code)
-      return code <= 1
-    end,
-    on_output = h.diagnostics.from_errorformat(
-      table.concat({ "%f (line %l): %m" }, ","),
-      "fish"
-    ),
-  }),
-  factory = h.generator_factory,
-}
-
 local diagnostics_flake8 = {
   method = null_ls.methods.DIAGNOSTICS,
   filetypes = { "python" },
@@ -66,7 +45,7 @@ local diagnostics_flake8 = {
 require("null-ls").setup({
   sources = {
     code_actions.gitsigns,
-    diagnostics_fish,
+    diagnostics.fish,
     -- diagnostics.flake8,
     diagnostics_flake8,
     -- diagnostics.mypy,
