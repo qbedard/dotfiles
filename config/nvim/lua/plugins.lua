@@ -226,18 +226,8 @@ return require("packer").startup({
       end,
     })
 
-    -- use({
-    --   "sumneko/lua-language-server",
-    --   run = {
-    --     "cd 3rd/luamake && ./compile/install.sh",
-    --     "3rd/luamake/luamake rebuild",
-    --   },
-    -- })
-
     use({
       "neovim/nvim-lspconfig",
-      -- TODO: Get this working
-      -- rocks = {"luaformatter", server = "https://luarocks.org/dev"},
       config = function()
         require("tb.lsp")
         vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
@@ -516,7 +506,6 @@ return require("packer").startup({
 
     use({ "Glench/Vim-Jinja2-Syntax", opt = true, ft = { "html", "jinja" } })
 
-    -- use("nathom/filetype.nvim")
     use("justinmk/vim-dirvish")
     use("romainl/vim-cool")
     use("farmergreg/vim-lastplace")
