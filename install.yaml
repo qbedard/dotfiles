@@ -18,7 +18,6 @@
 - link:
     ~/.bashrc:
     ~/.common.sh:
-    ~/.ggitignore:
     ~/.isort.cfg:
     ~/.zshrc:
 

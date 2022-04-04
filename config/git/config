@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/tim/.ggitignore
+	excludesfile = ~/.config/git/ignore
 	pager = diff-so-fancy | $PAGER
 [init]
 	defaultBranch = main
