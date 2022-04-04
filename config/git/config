@@ -1,5 +1,5 @@
 [core]
-	excludesfile = ~/.config/git/ignore
+	excludesFile = ~/.config/git/ignore
 	pager = diff-so-fancy | $PAGER
 [init]
 	defaultBranch = main
