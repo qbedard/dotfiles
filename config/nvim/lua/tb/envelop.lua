@@ -1,6 +1,5 @@
 vim.g.envelop_enabled = { "node", "python3" }
 vim.g.envelop_node_link = {
-  -- "node_modules/.bin/luafmt",
   "node_modules/.bin/prettier",
   "node_modules/.bin/bash-language-server",
   "node_modules/.bin/docker-langserver",
@@ -17,10 +16,8 @@ vim.g.envelop_node_link = {
 vim.g.envelop_node_packages = {
   "bash-language-server",
   "dockerfile-language-server-nodejs",
-  -- "lua-fmt",
   "neovim",
   "prettier",
-  -- "prettier-plugin-toml",
   "pyright",
   "typescript",
   "typescript-language-server",
