@@ -106,6 +106,9 @@ vim.filetype.add({
     direnvrc = "bash",
     ["poetry.lock"] = "toml",
   },
+  pattern = {
+    [".*git/config"] = "gitconfig",
+  },
 })
 
 ----------------------------------- Python ------------------------------------
