@@ -102,8 +102,10 @@ vim.filetype.add({
     sql = "mysql",
   },
   filename = {
+    [".flake8"] = "cfg",
     Brewfile = "ruby",
     direnvrc = "bash",
+    flake8 = "cfg",
     ["poetry.lock"] = "toml",
   },
   pattern = {
