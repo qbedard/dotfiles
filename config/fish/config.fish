@@ -5,6 +5,8 @@
 #     curl -L https://get.oh-my.fish | fish
 # end
 
+set -gx BREW "/usr/local/opt"
+
 # set theme_color_scheme gruvbox
 set -g theme_nerd_fonts yes
 set -g theme_date_format "+%a %b %d %l:%M%p"
@@ -253,14 +255,20 @@ end
 set -gx PYTHONDONTWRITEBYTECODE 1 # prevent .pyc files
 
 # --- n ---
-set -gx N_PREFIX "$HOME/.local/share"
-set -gx NODE_VERSIONS "$N_PREFIX/n/versions/node"
-set -gx NODE_VERSION_PREFIX ""
+# set -gx N_PREFIX "$HOME/.local/share"
+# set -gx NODE_VERSIONS "$N_PREFIX/n/versions/node"
+# set -gx NODE_VERSION_PREFIX ""
 
 # --- direnv ---
-if command -v direnv >/dev/null
-    direnv hook fish | source
+# set -gx NODE_VERSIONS "$HOME/.asdf/installs/nodejs"
+# set -gx NODE_VERSION_PREFIX ""
+if command -v asdf >/dev/null
+    source "$BREW/asdf/libexec/asdf.fish"
 end
+
+# if command -v direnv >/dev/null
+#     direnv hook fish | source
+# end
 
 # zoxide
 if command -v zoxide >/dev/null

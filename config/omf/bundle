@@ -1,7 +1,5 @@
 package brew
-package direnv
 package fzf
 package hub
-package pyenv
 theme bobthefish
 theme default

@@ -16,9 +16,11 @@
     - ~/.hammerspoon
 
 - link:
+    ~/.asdfrc:
     ~/.bashrc:
     ~/.common.sh:
     ~/.isort.cfg:
+    ~/.tool-versions:
     ~/.zshrc:
 
 - stow:

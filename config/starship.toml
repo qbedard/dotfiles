@@ -59,7 +59,7 @@ symbol = " "
 disabled = true
 
 [python]
-format = "[$symbol($virtualenv)]($style) "
+format = "[$symbol$version]($style) "
 symbol = " "
 
 [ruby]
