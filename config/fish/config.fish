@@ -24,7 +24,6 @@ fish_add_path "$HOME/go/bin" # go
 fish_add_path /usr/local/opt/ruby/bin # ruby
 fish_add_path "/usr/local/lib/ruby/gems/2.7.0/bin" # ruby gems
 fish_add_path "/usr/local/lib/ruby/gems/3.0.0/bin" # ruby gems
-# fish_add_path (brew --prefix llvm)/bin
 
 set -gx PAGER "less --tabs=4 -RFX"
 
@@ -43,10 +42,6 @@ alias e nvim
 alias v nvim
 alias vi nvim
 alias vim nvim
-
-# if command -v pyenv >/dev/null
-#     alias brew 'env PATH=<SOMETHING> brew'
-# end
 
 if command -v exa >/dev/null
     alias ls "exa --group-directories-first --icons"
@@ -254,21 +249,14 @@ end
 # --- python ---
 set -gx PYTHONDONTWRITEBYTECODE 1 # prevent .pyc files
 
-# --- n ---
-# set -gx N_PREFIX "$HOME/.local/share"
-# set -gx NODE_VERSIONS "$N_PREFIX/n/versions/node"
-# set -gx NODE_VERSION_PREFIX ""
-
 # --- direnv ---
-# set -gx NODE_VERSIONS "$HOME/.asdf/installs/nodejs"
-# set -gx NODE_VERSION_PREFIX ""
+# NOTE: hook handled by omf
+set -gx NODE_VERSIONS "$HOME/.asdf/installs/nodejs"
+set -gx NODE_VERSION_PREFIX ""
+
 if command -v asdf >/dev/null
     source "$BREW/asdf/libexec/asdf.fish"
 end
-
-# if command -v direnv >/dev/null
-#     direnv hook fish | source
-# end
 
 # zoxide
 if command -v zoxide >/dev/null

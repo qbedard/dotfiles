@@ -18,12 +18,10 @@ brew 'jq' # JSON parsing
 brew 'lazydocker' # docker term UI
 brew 'lua-language-server'
 brew 'luajit', args: ['HEAD'] # neovim HEAD dep
-brew 'n' # Node version manager
 brew 'neovim', args: ['HEAD']
 brew 'node'
 # brew 'pipx'
 brew 'procs' # ps replacement
-# brew 'pyenv'
 brew 'python'
 brew 'ripgrep' # awesome grep
 brew 'shellcheck'

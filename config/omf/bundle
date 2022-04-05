@@ -1,4 +1,5 @@
 package brew
+package direnv
 package fzf
 package hub
 theme bobthefish

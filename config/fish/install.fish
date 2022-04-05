@@ -4,5 +4,4 @@ omf install \
     brew \
     direnv \
     fzf \
-    hub \
-    pyenv
+    hub
