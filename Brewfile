@@ -20,6 +20,7 @@ brew 'lua-language-server'
 brew 'luajit', args: ['HEAD'] # neovim HEAD dep
 brew 'neovim', args: ['HEAD']
 brew 'node'
+brew 'phoenix' # JS-based OS scripting engine
 # brew 'pipx'
 brew 'procs' # ps replacement
 brew 'python'

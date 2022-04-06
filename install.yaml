@@ -19,6 +19,7 @@
     ~/.bashrc:
     ~/.common.sh:
     ~/.isort.cfg:
+    ~/.phoenix.js:
     ~/.tool-versions:
     ~/.zshrc:
 
