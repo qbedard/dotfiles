@@ -254,9 +254,9 @@ set -gx PYTHONDONTWRITEBYTECODE 1 # prevent .pyc files
 set -gx NODE_VERSIONS "$HOME/.asdf/installs/nodejs"
 set -gx NODE_VERSION_PREFIX ""
 
-if command -v asdf >/dev/null
-    source "$BREW/asdf/libexec/asdf.fish"
-end
+# if command -v asdf >/dev/null
+#     source "$BREW/asdf/libexec/asdf.fish"
+# end
 
 # zoxide
 if command -v zoxide >/dev/null
