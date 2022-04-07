@@ -76,7 +76,7 @@ return require("packer").startup({
     })
 
     use({
-      "akinsho/nvim-bufferline.lua",
+      "akinsho/bufferline.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       after = { "gruvbox.nvim", "gruvqueen" },
       config = function()
@@ -450,8 +450,6 @@ return require("packer").startup({
       ft = "markdown",
     })
 
-    use("kshenoy/vim-signature")
-
     use({
       "unblevable/quick-scope",
       config = function()
@@ -470,7 +468,6 @@ return require("packer").startup({
 
     use({
       "lewis6991/gitsigns.nvim",
-      requires = "nvim-lua/plenary.nvim",
       config = function()
         -- local i = require("tb.icons")
 
@@ -504,19 +501,19 @@ return require("packer").startup({
       end,
     })
 
-    use({ "Glench/Vim-Jinja2-Syntax", opt = true, ft = { "html", "jinja" } })
+    use("kshenoy/vim-signature")
 
     use("justinmk/vim-dirvish")
     use("romainl/vim-cool")
     use("farmergreg/vim-lastplace")
 
-    use("tpope/vim-commentary")
-    use("tpope/vim-surround")
-    use("tpope/vim-repeat")
-    use("tpope/vim-eunuch")
     use("tpope/vim-abolish")
+    use("tpope/vim-commentary")
+    use("tpope/vim-eunuch")
     use("tpope/vim-fugitive")
+    use("tpope/vim-repeat")
     use("tpope/vim-rhubarb")
+    use("tpope/vim-surround")
     use("tpope/vim-unimpaired")
 
     use("wellle/targets.vim")
@@ -526,6 +523,7 @@ return require("packer").startup({
 
     use("Vimjas/vim-python-pep8-indent")
     use("sophacles/vim-bundle-mako")
+    use({ "Glench/Vim-Jinja2-Syntax", opt = true, ft = { "html", "jinja" } })
 
     -- use({
     --   "sheerun/vim-polyglot",
