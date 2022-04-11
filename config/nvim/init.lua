@@ -187,7 +187,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
 -------------------------------------------------------------------------------
 --                                  Commands                                 --
 -------------------------------------------------------------------------------
-local command = vim.api.nvim_add_user_command
+local command = vim.api.nvim_create_user_command
 
 -- Sometimes I'm bad at typing.
 command("Q", "q", { bang = true })
