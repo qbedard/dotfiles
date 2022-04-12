@@ -1,6 +1,5 @@
 require("nvim-treesitter.configs").setup({
-  ensure_installed = "maintained",
-  ignore_install = { "ocamllex" },
+  ensure_installed = "all",
   highlight = { enable = true, disable = { "scss" } },
   -- incremental_selection = {
   --   enable = true,
@@ -30,7 +29,7 @@ require("nvim-treesitter.configs").setup({
   -- },
 
   --- nvim-treesitter-textobjects ---
-  -- TODO: Replace other textobject plugins with this
+  -- TODO: Replace other textobject plugins with this?
   textobjects = {
     move = {
       enable = true,
