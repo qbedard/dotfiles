@@ -259,7 +259,7 @@ return require("packer").startup({
       config = function()
         local i = require("tb.icons")
 
-        require("lspkind").init({
+        require("lspkind").setup({
           symbol_map = {
             Class = i.lang.class,
             Color = i.lang.color,
