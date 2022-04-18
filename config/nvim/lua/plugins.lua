@@ -255,11 +255,11 @@ return require("packer").startup({
     })
 
     use({
-      "onsails/lspkind-nvim",
+      "onsails/lspkind.nvim",
       config = function()
         local i = require("tb.icons")
 
-        require("lspkind").setup({
+        require("lspkind").init({
           symbol_map = {
             Class = i.lang.class,
             Color = i.lang.color,
@@ -299,7 +299,7 @@ return require("packer").startup({
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
       },
-      after = "lspkind-nvim",
+      after = "lspkind.nvim",
       config = function()
         require("cmp_nvim_lsp").setup()
         local cmp = require("cmp")
