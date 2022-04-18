@@ -22,6 +22,7 @@
     ~/.phoenix.js:
     ~/.tool-versions:
     ~/.zshrc:
+    ~/Library/Application Support/jesseduffield/lazydocker/config.yml: lazydocker-config.yaml
 
 - stow:
     config: ~/.config
