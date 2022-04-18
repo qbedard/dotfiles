@@ -1,4 +1,5 @@
 commandTemplates:
+  dockerCompose: docker compose
   containerLogs: docker logs --follow --since=60m {{ .Container.ID }}
   viewContainerLogs: docker logs --follow --since=60m {{ .Container.ID }}
 reporting: off
