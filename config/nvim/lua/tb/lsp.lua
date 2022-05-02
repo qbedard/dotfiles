@@ -121,7 +121,7 @@ lspconfig.pyright.setup({
 lspconfig.sumneko_lua.setup({
   capabilities = capabilities,
   on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end,
   -- TODO: Make work on Linux as well
   -- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
@@ -154,7 +154,7 @@ lspconfig.sumneko_lua.setup({
 lspconfig.tsserver.setup({
   capabilities = capabilities,
   on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end,
 })
 
