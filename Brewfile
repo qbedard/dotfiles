@@ -25,7 +25,7 @@ brew 'phoenix' # JS-based OS scripting engine
 brew 'procs' # ps replacement
 brew 'python'
 brew 'ripgrep' # awesome grep
-brew 'shellcheck'
+brew 'shellcheck' # used by bashls
 brew 'shfmt'
 brew 'starship'  # shell prompt
 brew 'stow'
