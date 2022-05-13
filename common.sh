@@ -1,17 +1,17 @@
 # ----- PATH ----- #
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  # add brew's local bins
-  export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+	# add brew's local bins
+	export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
-  # add openssl to path for compilers
-  export LDFLAGS="-L/usr/local/opt/openssl/lib"
-  export CPPFLAGS="-I/usr/local/opt/openssl/include"
+	# add openssl to path for compilers
+	export LDFLAGS="-L/usr/local/opt/openssl/lib"
+	export CPPFLAGS="-I/usr/local/opt/openssl/include"
 
-  # add ruby bins to path
-  export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+	# add ruby bins to path
+	export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 fi
 
-export PATH="$HOME/bin:$PATH"  # custom binaries
+export PATH="$HOME/bin:$PATH" # custom binaries
 
 # add cargo binaries to path
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -21,7 +21,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # XDG_DATA_HOME
 if [ -z "$XDG_DATA_HOME" ]; then
-  XDG_DATA_HOME="$HOME/.local/share"
+	XDG_DATA_HOME="$HOME/.local/share"
 fi
 
 # ----- Aliases ----- #
@@ -114,25 +114,21 @@ export CHEATCOLORS=true
 # --- direnv ---
 # append a nice env identifier if we're in a direnv venv
 show_virtual_env() {
-  if [ -n "$VIRTUAL_ENV" ] && \
-     [ "$(basename "$(dirname "$VIRTUAL_ENV")")" = '.direnv' ]
-    # regular direnv
-  then
-    direnv_parent="$(dirname "$(dirname "$VIRTUAL_ENV")")"
-    echo "(d:$(basename "$direnv_parent"))"
-  elif [ -n "$VIRTUAL_ENV" ] && \
-       [ "$(dirname "$VIRTUAL_ENV")" = "$XDG_DATA_HOME/virtualenvs" ]
-    # Pipenv (expects global venv dir, not local .venv)
-  then
-    echo "(p:$(basename "$VIRTUAL_ENV"))"
-  fi
+	if [ -n "$VIRTUAL_ENV" ] &&
+		[ "$(basename "$(dirname "$VIRTUAL_ENV")")" = '.direnv' ]; then # regular direnv
+		direnv_parent="$(dirname "$(dirname "$VIRTUAL_ENV")")"
+		echo "(d:$(basename "$direnv_parent"))"
+	elif [ -n "$VIRTUAL_ENV" ] &&
+		[ "$(dirname "$VIRTUAL_ENV")" = "$XDG_DATA_HOME/virtualenvs" ]; then # Pipenv (expects global venv dir, not local .venv)
+		echo "(p:$(basename "$VIRTUAL_ENV"))"
+	fi
 }
 PS1='$(show_virtual_env)'$PS1
 
 # --- fasd ---
 fasd_cache="$HOME/.fasd-init-sh"
 if [ "$(command -v fasd)" -nt "$fasd_cache" ] || [ ! -s "$fasd_cache" ]; then
-  fasd --init auto >| "$fasd_cache"
+	fasd --init auto >|"$fasd_cache"
 fi
 . "$fasd_cache"
 unset fasd_cache
@@ -145,17 +141,17 @@ alias o='a -e open'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # --- nvm ---
-if command -v nvm > /dev/null; then
-  # export NVM_DIR="$HOME/.nvm"
-  # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-  # [ -s "$NVM_DIR/etc/bash_completion" ] && . "$NVM_DIR/etc/bash_completion"  # This loads nvm bash_completion
+if command -v nvm >/dev/null; then
+	# export NVM_DIR="$HOME/.nvm"
+	# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+	# [ -s "$NVM_DIR/etc/bash_completion" ] && . "$NVM_DIR/etc/bash_completion"  # This loads nvm bash_completion
 
-  # add npm bins to PATH
-  for d in "$NVM_DIR/versions/node"/v*/bin; do PATH="$PATH:$d"; done
+	# add npm bins to PATH
+	for d in "$NVM_DIR/versions/node"/v*/bin; do PATH="$PATH:$d"; done
 fi
 
 # --- python ---
-export PYTHONDONTWRITEBYTECODE=1  # prevent .pyc files
+export PYTHONDONTWRITEBYTECODE=1 # prevent .pyc files
 
 # --- ripgrep ---
 alias rg='rg --smart-case'

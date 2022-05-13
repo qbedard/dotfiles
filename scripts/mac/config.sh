@@ -6,7 +6,7 @@ DOTPATH="$(git rev-parse --show-toplevel)"
 
 # enable home and end keys to work as expected
 mkdir -p "$HOME/Library/KeyBindings"
-echo "{
+echo '{
     "\UF729"  = moveToBeginningOfParagraph:; // home
     "\UF72B"  = moveToEndOfParagraph:; // end
     "$\UF729" = moveToBeginningOfParagraphAndModifySelection:; // shift-home
@@ -15,7 +15,7 @@ echo "{
     "^\UF72B" = moveToEndOfDocument:; // ctrl-end
     "^$\UF729" = moveToBeginningOfDocumentAndModifySelection:; // ctrl-shift-home
     "^$\UF72B" = moveToEndOfDocumentAndModifySelection:; // ctrl-shift-end
-}" >"$HOME/Library/KeyBindings/DefaultKeyBindings.dict"
+}' >"$HOME/Library/KeyBindings/DefaultKeyBindings.dict"
 
 # Set fast key repeat rate
 defaults write -globalDomain InitialKeyRepeat -int 12

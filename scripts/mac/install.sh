@@ -5,8 +5,8 @@ xcode-select --install
 
 # Homebrew
 if test ! "$(which brew)"; then
-    echo "Installing Homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	echo "Installing Homebrew..."
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Update recipes
@@ -39,14 +39,14 @@ curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.p
 "$HOME/.poetry/bin/poetry" self update
 
 # Bash (macOS/Homebrew)
-"$HOME/.poetry/bin/poetry" completions bash > "$(brew --prefix)/etc/bash_completion.d/poetry.bash-completion"
+"$HOME/.poetry/bin/poetry" completions bash >"$(brew --prefix)/etc/bash_completion.d/poetry.bash-completion"
 
 # Fish
-"$HOME/.poetry/bin/poetry" completions fish > "$HOME/.config/fish/completions/poetry.fish"
+"$HOME/.poetry/bin/poetry" completions fish >"$HOME/.config/fish/completions/poetry.fish"
 
 # Oh-My-Zsh
 mkdir "$ZSH/plugins/poetry"
-"$HOME/.poetry/bin/poetry" completions zsh > "$ZSH/plugins/poetry/_poetry"
+"$HOME/.poetry/bin/poetry" completions zsh >"$ZSH/plugins/poetry/_poetry"
 
 echo "Installing tpm (Tmux Plugin Manager)..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
