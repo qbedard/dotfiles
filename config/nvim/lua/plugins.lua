@@ -82,7 +82,7 @@ return require("packer").startup({
       config = function()
         local bufferline = require("bufferline")
         local colors = require("bufferline.colors")
-        local hex = colors.get_hex
+        local hex = colors.get_color
         local shade = colors.shade_color
 
         local normal_bg = hex({ name = "Normal", attribute = "bg" })
@@ -240,7 +240,7 @@ return require("packer").startup({
         vim.keymap.set("n", "1gd", vim.lsp.buf.type_definition)
         -- vim.keymap.set("n", "gr", vim.lsp.buf.references)
         vim.keymap.set("n", "g0", vim.lsp.buf.document_symbol)
-        vim.keymap.set("n", "gf", vim.lsp.buf.formatting)
+        vim.keymap.set("n", "gf", vim.lsp.buf.format)
 
         vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action)
       end,
@@ -393,21 +393,23 @@ return require("packer").startup({
     --   end,
     -- })
 
-    use({
-      -- not maintained :(
-      -- "norcalli/nvim-colorizer.lua",
-      "timbedard/nvim-colorizer.lua",
-      opt = true,
-      ft = { "css", "scss", "html" },
-      config = function()
-        -- TODO: Fix this in nvim-colorizer.lua
-        -- require("colorizer").setup({ default_options = { mode = "virtualtext" } })
-        require("colorizer").setup({
-          css = { mode = "virtualtext" },
-          scss = { mode = "virtualtext" },
-        })
-      end,
-    })
+    -- use({
+    --   -- not maintained :(
+    --   -- "norcalli/nvim-colorizer.lua",
+    --   "timbedard/nvim-colorizer.lua",
+    --   opt = true,
+    --   ft = { "css", "scss", "html" },
+    --   config = function()
+    --     -- TODO: Fix this in nvim-colorizer.lua
+    --     -- require("colorizer").setup({ default_options = { mode = "virtualtext" } })
+    --     require("colorizer").setup({
+    --       css = { mode = "virtualtext" },
+    --       scss = { mode = "virtualtext" },
+    --     })
+    --   end,
+    -- })
+
+    use({ "gorodinskiy/vim-coloresque" })
 
     use({
       "liuchengxu/vista.vim",
