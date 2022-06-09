@@ -247,7 +247,9 @@ return require("packer").startup({
     })
 
     use({
-      "jose-elias-alvarez/null-ls.nvim",
+      -- "jose-elias-alvarez/null-ls.nvim",
+      "timbedard/null-ls.nvim",
+      branch = "add-sql-formatter",
       requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
       config = function()
         require("tb.null-ls")

@@ -6,6 +6,7 @@ local formatting = null_ls.builtins.formatting
 local h = require("null-ls.helpers")
 
 local diagnostics_flake8 = {
+  name = "flake8",
   method = null_ls.methods.DIAGNOSTICS,
   filetypes = { "python" },
   generator = null_ls.generator({
@@ -43,6 +44,7 @@ local diagnostics_flake8 = {
 }
 
 require("null-ls").setup({
+  debug = true,
   sources = {
     code_actions.gitsigns,
     diagnostics.fish,
@@ -51,6 +53,10 @@ require("null-ls").setup({
     -- diagnostics.mypy,
     -- diagnostics.rubocop,
     diagnostics.shellcheck,
+    diagnostics.sqlfluff.with({
+      extra_args = { "--dialect", "mysql" },
+      filetypes = { "mysql", "sql" },
+    }),
     -- formatting.black,
     formatting.black.with({ extra_args = { "--preview" } }),
     formatting.fish_indent,
@@ -65,7 +71,15 @@ require("null-ls").setup({
     formatting.prettier,
     -- formatting.rubocop,
     formatting.shfmt,
-    formatting.sqlformat,
+    -- formatting.sqlfluff.with({
+    --   extra_args = { "--dialect", "mysql" },
+    --   filetypes = { "mysql", "sql" },
+    -- }),
+    -- formatting.sqlformat,
+    formatting.sql_formatter.with({
+      extra_args = { "-l", "mysql" },
+      filetypes = { "mysql", "sql" },
+    }),
     formatting.stylua,
     formatting.terraform_fmt,
   },

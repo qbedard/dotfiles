@@ -6,6 +6,7 @@ vim.g.envelop_node_link = {
   "node_modules/.bin/neovim-node-host",
   "node_modules/.bin/pyright",
   "node_modules/.bin/pyright-langserver",
+  "node_modules/.bin/sql-formatter",
   "node_modules/.bin/typescript-language-server",
   "node_modules/.bin/vim-language-server",
   "node_modules/.bin/vscode-css-language-server",
@@ -19,6 +20,7 @@ vim.g.envelop_node_packages = {
   "neovim",
   "prettier",
   "pyright",
+  "sql-formatter",
   "typescript",
   "typescript-language-server",
   "vim-language-server",
@@ -32,6 +34,7 @@ vim.g.envelop_python3_link = {
   -- "bin/mypy",
   "bin/pip3",
   "bin/python3",
+  "bin/sqlfluff",
   "bin/sqlformat",
   "bin/vint",
 }
@@ -47,6 +50,7 @@ vim.g.envelop_python3_packages = {
   "pep8-naming",
   "pip",
   "pynvim",
+  "sqlfluff",
   "sqlparse",
   "vim-vint",
 }

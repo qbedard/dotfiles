@@ -46,7 +46,7 @@ local servers = {
   -- "jsonls",
   "rnix",
   "rust_analyzer",
-  "sqls",
+  -- "sqls",
   -- "taplo",
   -- "solargraph", -- ruby
   "terraformls",
@@ -68,7 +68,7 @@ require("lspconfig").taplo.setup({
       -- Apparently removing this borks the settings?!
       formatter = {
         alignComments = false,
-        -- indentTables = true,
+        indentTables = true,
       },
     },
   },
