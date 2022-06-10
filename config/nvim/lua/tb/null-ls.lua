@@ -53,10 +53,10 @@ require("null-ls").setup({
     -- diagnostics.mypy,
     -- diagnostics.rubocop,
     diagnostics.shellcheck,
-    diagnostics.sqlfluff.with({
-      extra_args = { "--dialect", "mysql" },
-      filetypes = { "mysql", "sql" },
-    }),
+    -- diagnostics.sqlfluff.with({
+    --   extra_args = { "--dialect", "mysql" },
+    --   filetypes = { "mysql", "sql" },
+    -- }),
     -- formatting.black,
     formatting.black.with({ extra_args = { "--preview" } }),
     formatting.fish_indent,
@@ -77,7 +77,7 @@ require("null-ls").setup({
     -- }),
     -- formatting.sqlformat,
     formatting.sql_formatter.with({
-      extra_args = { "-l", "mysql" },
+      extra_args = { "-l", "mysql", "-c", vim.env.HOME .. "/.sql-formatter.json" },
       filetypes = { "mysql", "sql" },
     }),
     formatting.stylua,
