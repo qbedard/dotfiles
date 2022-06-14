@@ -247,9 +247,7 @@ return require("packer").startup({
     })
 
     use({
-      -- "jose-elias-alvarez/null-ls.nvim",
-      "timbedard/null-ls.nvim",
-      branch = "add-common-flake8-plugin-severities",
+      "jose-elias-alvarez/null-ls.nvim",
       requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
       config = function()
         require("tb.null-ls")
