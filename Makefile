@@ -40,7 +40,7 @@ update-tldr:
 
 update-nvim:
 	@echo "Updating Neovim plugins..."
-	@nvim --headless +PackerUpdate +qall
+	@nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
 	@echo "\nNeovim plugins updated!"
 
 update: update-brew update-brew-head update-omf update-tldr update-nvim
