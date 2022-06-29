@@ -182,8 +182,8 @@ end
 if command -v fd >/dev/null
     set -gx FZF_CTRL_T_COMMAND '\
         fd --strip-cwd-prefix --hidden --follow --no-ignore-vcs \
-            --exclude ".git" --exclude ".direnv" --exclude ".pytest_cache" \
-            --exclude ".venv" --exclude "node_modules"'
+            --exclude ".aws-sam" --exclude ".git" --exclude ".direnv" \
+            --exclude ".pytest_cache" --exclude ".venv" --exclude "node_modules"'
     set -gx FZF_ALT_C_COMMAND '\
         fd --strip-cwd-prefix --type directory --hidden --follow \
             --no-ignore-vcs --exclude ".git" --exclude "node_modules"'
