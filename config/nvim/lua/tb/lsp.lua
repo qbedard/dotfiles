@@ -68,7 +68,7 @@ require("lspconfig").taplo.setup({
       -- Apparently removing this borks the settings?!
       formatter = {
         alignComments = false,
-        indentTables = true,
+        -- indentTables = true,
       },
     },
   },
@@ -80,19 +80,21 @@ lspconfig.pyright.setup({
   settings = {
     python = {
       analysis = {
-        -- diagnosticSeverityOverrides = {
-        --   reportMissingTypeStubs = true,
-        --   reportUnknownArgumentType = "warning",
-        --   reportUnknownLambdaType = "warning",
-        --   reportUnknownMemberType = "warning",
-        --   reportUnknownParameterType = "warning",
-        --   reportUnknownVariableType = "warning",
-        -- },
+        diagnosticSeverityOverrides = {
+          -- reportUnknownArgumentType = "warning",
+          reportPrivateImportUsage = "information",
+          -- reportUnknownLambdaType = "warning",
+          -- reportUnknownMemberType = "warning",
+          -- reportUnknownParameterType = "warning",
+          -- reportUnknownVariableType = "warning",
+        },
+        -- reportMissingTypeStubs = true,
+        -- reportPrivateImportUsage = false,
         -- typeCheckingMode = "strict",
       },
       pythonPath = (
-          vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV .. "/bin/python" or "python"
-        ),
+        vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV .. "/bin/python" or "python"
+      ),
     },
   },
 })
