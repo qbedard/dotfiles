@@ -7,17 +7,26 @@ require("null-ls").setup({
   debug = true,
   sources = {
     code_actions.gitsigns,
+    diagnostics.bandit,
     diagnostics.fish,
     diagnostics.flake8,
     -- diagnostics.mypy,
     -- diagnostics.rubocop,
+    diagnostics.pydocstyle,
     diagnostics.shellcheck,
     -- diagnostics.sqlfluff.with({
     --   extra_args = { "--dialect", "mysql" },
     --   filetypes = { "mysql", "sql" },
     -- }),
-    -- formatting.black,
+    formatting.autoflake,
     formatting.black.with({ extra_args = { "--preview" } }),
+    formatting.docformatter.with({
+      extra_args = {
+        "--pre-summary-newline", -- compatibility for now
+        "--wrap-summaries=88",
+        "--wrap-descriptions=88",
+      },
+    }),
     formatting.fish_indent,
     formatting.isort.with({
       args = {

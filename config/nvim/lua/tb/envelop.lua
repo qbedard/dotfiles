@@ -28,18 +28,25 @@ vim.g.envelop_node_packages = {
   "yaml-language-server",
 }
 vim.g.envelop_python3_link = {
+  "bin/autoflake",
+  "bin/bandit",
   "bin/black",
+  "bin/docformatter",
   "bin/flake8",
   "bin/isort",
   -- "bin/mypy",
   "bin/pip3",
+  "bin/pydocstyle",
   "bin/python3",
   "bin/sqlfluff",
   "bin/sqlformat",
   "bin/vint",
 }
 vim.g.envelop_python3_packages = {
+  "autoflake",
+  "bandit",
   "black",
+  "docformatter",
   "flake8",
   "flake8-bugbear",
   -- "flake8-builtins",
@@ -49,6 +56,7 @@ vim.g.envelop_python3_packages = {
   -- "mypy",
   "pep8-naming",
   "pip",
+  "pydocstyle",
   "pynvim",
   "sqlfluff",
   "sqlparse",

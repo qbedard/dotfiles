@@ -240,14 +240,18 @@ return require("packer").startup({
         vim.keymap.set("n", "1gd", vim.lsp.buf.type_definition)
         -- vim.keymap.set("n", "gr", vim.lsp.buf.references)
         vim.keymap.set("n", "g0", vim.lsp.buf.document_symbol)
-        vim.keymap.set("n", "gf", vim.lsp.buf.format)
+        vim.keymap.set("n", "gf", function()
+          vim.lsp.buf.format({ timeout_ms = 3000 })
+        end)
 
         vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action)
       end,
     })
 
     use({
-      "jose-elias-alvarez/null-ls.nvim",
+      -- "jose-elias-alvarez/null-ls.nvim",
+      "timbedard/null-ls.nvim",
+      branch = "more-python-tools",
       requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
       config = function()
         require("tb.null-ls")
