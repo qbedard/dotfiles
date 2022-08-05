@@ -50,6 +50,7 @@ vim.g.envelop_python3_packages = {
   "flake8",
   "flake8-bugbear",
   -- "flake8-builtins",
+  -- "flake8-docstrings",
   -- "flake8-pytest-style",
   -- "flake8-simplify",
   "isort",

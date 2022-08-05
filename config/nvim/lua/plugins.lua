@@ -241,7 +241,7 @@ return require("packer").startup({
         -- vim.keymap.set("n", "gr", vim.lsp.buf.references)
         vim.keymap.set("n", "g0", vim.lsp.buf.document_symbol)
         vim.keymap.set("n", "gf", function()
-          vim.lsp.buf.format({ timeout_ms = 3000 })
+          vim.lsp.buf.format({ timeout_ms = 4000 })
         end)
 
         vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action)
