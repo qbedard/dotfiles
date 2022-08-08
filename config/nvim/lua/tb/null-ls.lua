@@ -12,7 +12,7 @@ require("null-ls").setup({
     diagnostics.flake8,
     -- diagnostics.mypy,
     -- diagnostics.rubocop,
-    diagnostics.pydocstyle.with({ extra_args = { "--ignore=D1" } }),
+    diagnostics.pydocstyle.with({ extra_args = { "--add-ignore=D1" } }),
     diagnostics.shellcheck,
     -- diagnostics.sqlfluff.with({
     --   extra_args = { "--dialect", "mysql" },
