@@ -58,7 +58,7 @@ return require("packer").startup({
       end,
     })
     use({
-      "Murtaza-Udaipurwala/gruvqueen",
+      "murtaza-u/gruvqueen",
       config = function()
         -- require("gruvqueen").setup {
         --   config = {
@@ -174,7 +174,7 @@ return require("packer").startup({
     })
 
     -- use({
-    --   "famiu/feline.nvim",
+    --   "feline-nvim/feline.nvim",
     --   after = { "gruvbox.nvim", "gruvqueen" },
     --   config = function()
     --     require("feline").setup({
@@ -413,7 +413,7 @@ return require("packer").startup({
     --   end,
     -- })
 
-    use({ "gorodinskiy/vim-coloresque" })
+    use({ "gko/vim-coloresque" })
 
     use({
       "liuchengxu/vista.vim",
@@ -545,7 +545,7 @@ return require("packer").startup({
     --   end,
     -- })
 
-    use("janko-m/vim-test")
+    use("vim-test/vim-test")
     -- use("hkupty/iron.nvim")
 
     -- TODO: Make sure this works.
