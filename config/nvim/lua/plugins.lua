@@ -91,20 +91,20 @@ return require("packer").startup({
 
         bufferline.setup({
           highlights = {
-            buffer_selected = { gui = "bold" },
-            background = { guibg = background_color },
-            fill = { guibg = separator_background_color },
+            buffer_selected = { bold = true },
+            background = { bg = background_color },
+            fill = { bg = separator_background_color },
             indicator_selected = {
-              guifg = { attribute = "fg", highlight = "GruvboxBlue" },
+              fg = { attribute = "fg", highlight = "GruvboxBlue" },
             },
             separator = {
-              guifg = separator_background_color,
-              guibg = background_color,
+              fg = separator_background_color,
+              bg = background_color,
             },
-            tab = { guibg = background_color },
-            tab_close = { guibg = background_color },
-            close_button = { guibg = background_color },
-            modified = { guibg = background_color },
+            tab = { bg = background_color },
+            tab_close = { bg = background_color },
+            close_button = { bg = background_color },
+            modified = { bg = background_color },
           },
           options = {
             always_show_bufferline = false,
