@@ -8,6 +8,11 @@ vim.diagnostic.config({
     prefix = i.diag.virtual,
     -- source = "always",
   },
+  float = {
+    format = function(diagnostic)
+      return string.format("%s %s", diagnostic.code, diagnostic.message)
+    end,
+  },
   severity_sort = true,
 })
 
@@ -92,9 +97,8 @@ lspconfig.pyright.setup({
         -- reportPrivateImportUsage = false,
         -- typeCheckingMode = "strict",
       },
-      pythonPath = (
-        vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV .. "/bin/python" or "python"
-      ),
+      pythonPath = vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV .. "/bin/python"
+          or "python",
     },
   },
 })
