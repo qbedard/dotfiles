@@ -18,7 +18,7 @@ require("null-ls").setup({
     --   extra_args = { "--dialect", "mysql" },
     --   filetypes = { "mysql", "sql" },
     -- }),
-    formatting.autoflake,
+    formatting.autoflake.with({ extra_args = { "--remove-all-unused-imports" } }),
     formatting.black.with({ extra_args = { "--preview" } }),
     formatting.docformatter.with({
       extra_args = {
