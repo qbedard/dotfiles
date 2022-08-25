@@ -22,14 +22,14 @@ require("null-ls").setup({
     -- }),
     formatting.autoflake.with({ extra_args = { "--remove-all-unused-imports" } }),
     formatting.black.with({ extra_args = { "--preview" } }),
-    formatting.docformatter.with({
-      extra_args = {
-        "--close-quotes-on-newline", -- not perfect, but okay
-        "--pre-summary-newline", -- compatibility for now
-        "--wrap-summaries=80",
-        "--wrap-descriptions=80",
-      },
-    }),
+    -- formatting.docformatter.with({
+    --   extra_args = {
+    --     "--close-quotes-on-newline", -- not perfect, but okay
+    --     "--pre-summary-newline", -- compatibility for now
+    --     "--wrap-summaries=80",
+    --     "--wrap-descriptions=80",
+    --   },
+    -- }),
     formatting.fish_indent,
     formatting.isort.with({
       args = {
