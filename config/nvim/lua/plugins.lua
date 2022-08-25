@@ -81,35 +81,18 @@ return require("packer").startup({
       after = { "gruvbox.nvim", "gruvqueen" },
       config = function()
         local bufferline = require("bufferline")
-        local colors = require("bufferline.colors")
-        local hex = colors.get_color
-        local shade = colors.shade_color
-
-        local normal_bg = hex({ name = "Normal", attribute = "bg" })
-        local separator_background_color = shade(normal_bg, -27)
-        local background_color = shade(normal_bg, -18)
 
         bufferline.setup({
           highlights = {
-            buffer_selected = { bold = true },
-            background = { bg = background_color },
-            fill = { bg = separator_background_color },
+            buffer_selected = { italic = false },
             indicator_selected = {
               fg = { attribute = "fg", highlight = "GruvboxBlue" },
             },
-            separator = {
-              fg = separator_background_color,
-              bg = background_color,
-            },
-            tab = { bg = background_color },
-            tab_close = { bg = background_color },
-            close_button = { bg = background_color },
-            modified = { bg = background_color },
           },
           options = {
-            always_show_bufferline = false,
+            -- always_show_bufferline = false,
             enforce_regular_tabs = true,
-            -- modified_icon = require("tb.icons").file.mod,
+            modified_icon = require("tb.icons").file.mod,
             show_buffer_close_icons = false,
             show_close_icon = false,
           },
