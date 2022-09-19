@@ -90,9 +90,6 @@ vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.shortmess:append("c")
 
 ---------------------------------- Filetype -----------------------------------
-vim.g.did_load_filetypes = 0 -- don't use filetype.vim
-vim.g.do_filetype_lua = 1 -- use filetype.lua
-
 vim.filetype.add({
   extension = {
     conf = "cfg",
