@@ -99,10 +99,10 @@ end
 abbr -a mk make
 
 # --- Docker Compose ---
-abbr -a dc docker-compose
-abbr -a dcu "docker-compose up"
-abbr -a dcd "docker-compose down"
-# abbr -a ld "env TERM=screen-256color lazydocker"
+abbr -a dc docker compose
+abbr -a dcu "docker compose up"
+abbr -a dcud "docker compose up -d"
+abbr -a dcd "docker compose down"
 abbr -a ld lazydocker
 
 # --- Git ---
