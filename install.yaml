@@ -19,6 +19,7 @@
     ~/.bashrc:
     ~/.common.sh:
     ~/.isort.cfg:
+    ~/.npmrc:
     ~/.phoenix.js:
     ~/.sql-formatter.json:
     ~/.tool-versions:
