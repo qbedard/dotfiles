@@ -1,7 +1,10 @@
-.direnv/
 .DS_Store
-.idea/
+.aws-sam
+.direnv
+.idea
 .pyc
-.ropeproject/
+.pytest_cache
+.ropeproject
 .tool-versions
-.venv/
+.venv
+node_modules
