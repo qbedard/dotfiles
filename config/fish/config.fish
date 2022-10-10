@@ -5,7 +5,7 @@
 #     curl -L https://get.oh-my.fish | fish
 # end
 
-set -gx BREW "/usr/local/opt"
+set -gx BREW /usr/local/opt
 set -gx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 
 # set theme_color_scheme gruvbox
