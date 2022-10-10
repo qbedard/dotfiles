@@ -53,16 +53,11 @@ local M = {}
 
 -- Pickers
 M.project_files = function()
-  local ok = pcall(require("telescope.builtin").git_files, {})
-  if not ok then
-    require("telescope.builtin").find_files({})
-  end
+  require("telescope.builtin").find_files({
+    cwd = require("lspconfig.util").root_pattern(".git")(
+      vim.fn.expand("%:p") or vim.loop.cwd()
+    ),
+  })
 end
-
--- M.project_files = function()
---   require("telescope.builtin").find_files({
---     cwd = require("lspconfig.util").root_pattern(".git")(vim.fn.expand("%:p")),
---   })
--- end
 
 return M
