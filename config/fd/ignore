@@ -1,0 +1,6 @@
+.aws-sam
+.direnv
+.git
+.pytest_cache
+.venv
+node_modules

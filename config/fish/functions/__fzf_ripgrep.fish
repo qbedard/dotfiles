@@ -1,5 +1,5 @@
 function __fzf_ripgrep
-    set -l rg_cmd "rg -l --hidden --no-ignore-vcs --glob '!.git/*' --glob '!.direnv/*'"
+    set -l rg_cmd "rg -l --hidden --no-ignore-vcs"
 
     set -l results (
         FZF_DEFAULT_COMMAND="rg --files" fzf \

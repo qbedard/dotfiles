@@ -1,0 +1,9 @@
+--glob=!.aws-sam/*
+--glob=!.git/*
+--glob=!.direnv/*
+--glob=!.pytest_cache/*
+--glob=!.venv/*
+--glob=!node_modules/*
+--max-columns=120
+--max-columns-preview
+--smart-case

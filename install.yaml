@@ -21,6 +21,7 @@
     ~/.isort.cfg:
     ~/.npmrc:
     ~/.phoenix.js:
+    ~/.ripgreprc:
     ~/.sql-formatter.json:
     ~/.tool-versions:
     ~/.zshrc:

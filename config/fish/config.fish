@@ -6,6 +6,7 @@
 # end
 
 set -gx BREW "/usr/local/opt"
+set -gx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 
 # set theme_color_scheme gruvbox
 set -g theme_nerd_fonts yes
@@ -55,8 +56,6 @@ if command -v procs >/dev/null
     alias ps procs
 end
 
-# TODO: maybe move this to a ripgreprc (pointed at by setting RIPGREP_CONFIG_PATH)
-alias rg 'rg --smart-case --max-columns=120 --max-columns-preview'
 alias hg 'kitty +kitten hyperlinked_grep'
 
 alias glog "\
@@ -176,17 +175,13 @@ function __fzf_either_preview -a file
 end
 
 if command -v rg >/dev/null
-    set -gx FZF_DEFAULT_COMMAND \
-        'rg --files --hidden --follow --glob "!.git/*"'
+    set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
 end
 if command -v fd >/dev/null
     set -gx FZF_CTRL_T_COMMAND '\
-        fd --strip-cwd-prefix --hidden --follow --no-ignore-vcs \
-            --exclude ".aws-sam" --exclude ".git" --exclude ".direnv" \
-            --exclude ".pytest_cache" --exclude ".venv" --exclude "node_modules"'
+        fd --strip-cwd-prefix --hidden --follow --no-ignore-vcs'
     set -gx FZF_ALT_C_COMMAND '\
-        fd --strip-cwd-prefix --type directory --hidden --follow \
-            --no-ignore-vcs --exclude ".git" --exclude "node_modules"'
+        fd --strip-cwd-prefix --type directory --hidden --follow --no-ignore-vcs'
 end
 
 set -gx FZF_CTRL_T_OPTS '--preview "__fzf_either_preview {}"'
@@ -216,14 +211,12 @@ end
 
 # --- sk --- #
 # if command -v rg >/dev/null
-#     set -gx SKIM_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+#     set -gx SKIM_DEFAULT_COMMAND 'rg --files --hidden --follow'
 # end
 # if command -v fd >/dev/null
-#     set -gx SKIM_CTRL_T_COMMAND '\
-#         fd --hidden --follow --no-ignore-vcs --exclude ".git" --exclude ".direnv" \
-#             --exclude ".pytest_cache" --exclude ".venv"'
+#     set -gx SKIM_CTRL_T_COMMAND 'fd --hidden --follow --no-ignore-vcs'
 #     set -gx SKIM_ALT_C_COMMAND '\
-#         fd --type directory --hidden --follow --no-ignore-vcs --exclude ".git"'
+#         fd --type directory --hidden --follow --no-ignore-vcs'
 # end
 
 # set -gx SKIM_CTRL_T_OPTS '--preview "__fzf_either_preview {}"'
