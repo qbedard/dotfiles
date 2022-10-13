@@ -12,6 +12,7 @@
       recursive: true
 
 - create:
+    - ~/.config/fish
     - ~/.config/gh
     - ~/.hammerspoon
     - ~/Library/Application\ Support/jesseduffield/lazydocker
