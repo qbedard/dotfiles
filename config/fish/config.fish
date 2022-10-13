@@ -5,6 +5,7 @@
 #     curl -L https://get.oh-my.fish | fish
 # end
 
+set -gx SHELL fish
 set -gx BREW /usr/local/opt
 set -gx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 
