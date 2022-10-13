@@ -42,11 +42,12 @@ cask 'docker'
 cask 'hammerspoon'
 cask 'insomnia'
 # cask 'kitty'
-cask 'kitty-nightly'
 cask 'rectangle'
 cask 'tableplus'
+
+tap 'homebrew/cask-versions'
+cask 'kitty-nightly'
 
 # --- Fonts --- #
 tap 'homebrew/cask-fonts'
 cask 'font-hack-nerd-font'
-cask 'font-hack-nerd-font-mono'
