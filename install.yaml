@@ -14,7 +14,7 @@
 - create:
     - ~/.config/gh
     - ~/.hammerspoon
-    - ~/Library/Application Support/jesseduffield/lazydocker
+    - ~/Library/Application\ Support/jesseduffield/lazydocker
 
 - link:
     ~/.bashrc:
@@ -33,4 +33,5 @@
     hammerspoon: ~/.hammerspoon
 
 - shell:
+    # - curl -L https://get.oh-my.fish | fish
     - fish -c 'omf install'
