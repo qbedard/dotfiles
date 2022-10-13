@@ -14,6 +14,7 @@
 - create:
     - ~/.config/gh
     - ~/.hammerspoon
+    - ~/Library/Application Support/jesseduffield/lazydocker
 
 - link:
     ~/.bashrc:
