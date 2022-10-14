@@ -14,7 +14,7 @@
 - create:
     - ~/.config/fish
     - ~/.config/gh
-    - ~/.hammerspoon
+    - ~/.config/hammerspoon
     - ~/Library/Application\ Support/jesseduffield/lazydocker
 
 - link:
@@ -31,7 +31,6 @@
 
 - stow:
     config: ~/.config
-    hammerspoon: ~/.hammerspoon
 
 - shell:
     # - curl -L https://get.oh-my.fish | fish
