@@ -6,6 +6,8 @@
 # end
 
 set -gx SHELL fish
+# set -gx XDG_CONFIG_HOME "$HOME/.config"
+
 set -gx BREW /usr/local/opt
 set -gx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 
