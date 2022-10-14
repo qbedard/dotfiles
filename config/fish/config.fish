@@ -179,10 +179,10 @@ if command -v rg >/dev/null
     set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
 end
 if command -v fd >/dev/null
-    set -gx FZF_CTRL_T_COMMAND '\
-        fd --strip-cwd-prefix --hidden --follow --no-ignore-vcs'
-    set -gx FZF_ALT_C_COMMAND '\
-        fd --strip-cwd-prefix --type directory --hidden --follow --no-ignore-vcs'
+    set -gx FZF_CTRL_T_COMMAND \
+        'fd --strip-cwd-prefix --hidden --follow --no-ignore-vcs'
+    set -gx FZF_ALT_C_COMMAND \
+        'fd --strip-cwd-prefix --type directory --hidden --follow --no-ignore-vcs'
 end
 
 set -gx FZF_CTRL_T_OPTS '--preview "__fzf_either_preview {}"'
@@ -207,7 +207,8 @@ bind \cg\cr __fzf_git_remote
 bind \cg\cs __fzf_git_stash
 
 function fco -d "Fuzzy-find and checkout a branch"
-    git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
+    git branch --all | grep -v HEAD | string trim | fzf | \
+        read -l result; and git checkout "$result"
 end
 
 # --- sk --- #
