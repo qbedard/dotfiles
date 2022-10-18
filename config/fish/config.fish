@@ -4,7 +4,6 @@ set -gx PAGER "less --tabs=4 -RFX"
 set -gx PYTHONDONTWRITEBYTECODE 1 # prevent .pyc files
 set -gx SHELL fish
 
-# set theme_color_scheme gruvbox
 set -g theme_nerd_fonts yes
 set -g theme_date_format "+%a %b %d %l:%M%p"
 set -g theme_date_timezone America/Chicago
@@ -171,11 +170,6 @@ set -gx FZF_OPEN_COMMAND $FZF_DEFAULT_COMMAND
 set -gx FZF_OPEN_OPTS '--height 40% --reverse --preview "__fzf_file_preview {}"'
 
 set -gx _ZO_FZF_OPTS '--height=50% --reverse --preview "__fzf_dir_preview {}"'
-
-# for some reason, this isn't getting set via omf
-bind \co '__fzf_open --editor'
-# try this out too
-bind \ce '__fzf_open --editor'
 
 bind \cs __fzf_ripgrep
 

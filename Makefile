@@ -26,10 +26,6 @@ update-npm:
 	@fish -c "npm update -g"
 	@echo "npm packages updated!"
 
-update-omf:
-	@echo "Updating omf..."
-	@fish -c "omf update"
-
 update-pipx:
 	@echo "Updating pipx packages..."
 	@pipx upgrade-all
@@ -45,4 +41,4 @@ update-nvim:
 	@nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
 	@echo "\nNeovim plugins updated!"
 
-update: update-brew update-brew-head update-omf update-tldr update-nvim
+update: update-brew update-brew-head update-tldr update-nvim
