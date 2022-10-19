@@ -35,6 +35,11 @@ defaults write com.apple.finder AppleShowAllFiles YES
 
 # Hammerspoon's default init location is ~/.hammerspoon
 defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspoon/init.lua"
+#
+# Hide Dock
+defaults write com.apple.dock autohide -bool true && killall Dock
+defaults write com.apple.dock autohide-delay -float 1000 && killall Dock
+defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
 
 # TODO: Is this still needed?
 # Fix italics in iterm + tmux + vim
