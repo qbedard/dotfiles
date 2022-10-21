@@ -216,12 +216,12 @@ return require("packer").startup({
       "neovim/nvim-lspconfig",
       config = function()
         require("tb.lsp")
-        vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+        vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float)
         vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
         vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 
-        vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover)
-        vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help)
+        vim.keymap.set("n", "<Leader>k", vim.lsp.buf.hover)
+        vim.keymap.set("n", "<Leader>s", vim.lsp.buf.signature_help)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition)
         vim.keymap.set("n", "1gd", vim.lsp.buf.type_definition)
         -- vim.keymap.set("n", "gr", vim.lsp.buf.references)
@@ -230,7 +230,7 @@ return require("packer").startup({
           vim.lsp.buf.format({ timeout_ms = 4000 })
         end)
 
-        vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action)
+        vim.keymap.set("n", "<Leader>c", vim.lsp.buf.code_action)
       end,
     })
 
