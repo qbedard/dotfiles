@@ -231,6 +231,8 @@ return require("packer").startup({
       end,
     })
 
+    use({"folke/neodev.nvim"})
+
     use({
       -- "jose-elias-alvarez/null-ls.nvim",
       "timbedard/null-ls.nvim",
