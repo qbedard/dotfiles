@@ -186,6 +186,8 @@ return require("packer").startup({
       end,
     })
 
+    use({"RRethy/vim-illuminate"})
+
     use({
       "edluffy/specs.nvim",
       config = function()
@@ -401,6 +403,7 @@ return require("packer").startup({
 
     use({
       "akinsho/toggleterm.nvim",
+      event = "BufWinEnter",
       config = function()
         require("toggleterm").setup({
           open_mapping = "<c-t>",
