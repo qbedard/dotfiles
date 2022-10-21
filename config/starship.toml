@@ -75,6 +75,7 @@ symbol = " "
 [shlvl]
 format = "[$symbol]($style)"
 symbol = "↳"
+threshold = 3
 disabled = false
 
 [terraform]

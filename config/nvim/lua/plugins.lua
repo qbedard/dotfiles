@@ -77,6 +77,7 @@ return require("packer").startup({
 
     use({
       "akinsho/bufferline.nvim",
+      event = "BufWinEnter",
       requires = "kyazdani42/nvim-web-devicons",
       after = { "gruvbox.nvim", "gruvqueen" },
       config = function()
@@ -231,7 +232,7 @@ return require("packer").startup({
       end,
     })
 
-    use({"folke/neodev.nvim"})
+    use({ "folke/neodev.nvim" })
 
     use({
       -- "jose-elias-alvarez/null-ls.nvim",
@@ -398,6 +399,13 @@ return require("packer").startup({
     --   end,
     -- })
 
+    use({
+      "akinsho/toggleterm.nvim",
+      config = function()
+        require("toggleterm").setup({ open_mapping = "<c-t>", direction = "float" })
+      end,
+    })
+
     use({ "gko/vim-coloresque" })
 
     use({
@@ -459,6 +467,7 @@ return require("packer").startup({
 
     use({
       "lewis6991/gitsigns.nvim",
+      event = "BufRead",
       config = function()
         -- local i = require("tb.icons")
 
@@ -498,8 +507,16 @@ return require("packer").startup({
     use("romainl/vim-cool")
     use("farmergreg/vim-lastplace")
 
+    use({
+      "numToStr/Comment.nvim",
+      event = "BufRead",
+      config = function()
+        require("Comment").setup()
+      end,
+    })
+
     use("tpope/vim-abolish")
-    use("tpope/vim-commentary")
+    -- use("tpope/vim-commentary")
     use("tpope/vim-eunuch")
     use("tpope/vim-fugitive")
     use("tpope/vim-repeat")
