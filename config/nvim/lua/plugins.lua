@@ -378,6 +378,15 @@ return require("packer").startup({
       end,
     })
 
+    use({
+      "lewis6991/satellite.nvim",
+      config = function()
+        require("satellite").setup()
+      end
+    })
+
+    use("stevearc/dressing.nvim")
+
     -- use({
     --   "folke/which-key.nvim",
     --   config = function()
