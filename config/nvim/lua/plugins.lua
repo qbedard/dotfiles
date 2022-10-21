@@ -37,24 +37,25 @@ return require("packer").startup({
     use({
       "ellisonleao/gruvbox.nvim",
       config = function()
-        vim.g.gruvbox_sign_column = "bg0"
+        require("gruvbox").setup({
+          overrides = {
+            -- general
+            Function = { link = "GruvboxAqua" },
+            Method = { link = "GruvboxAqua" },
+            Operator = { link = "GruvboxRed" },
+            SignColumn = { link = "GruvboxBg0" },
+            GruvboxAquaSign = { bg = "#282828" },
+            GruvboxBlueSign = { bg = "#282828" },
+            GruvboxGreenSign = { bg = "#282828" },
+            GruvboxOrangeSign = { bg = "#282828" },
+            GruvboxPurpleSign = { bg = "#282828" },
+            GruvboxRedSign = { bg = "#282828" },
+            GruvboxYellowSign = { bg = "#282828" },
+            -- gitsigns
+            GitSignsChange = { link = "GruvboxBlueSign" },
+          },
+        })
         vim.cmd("colorscheme gruvbox")
-
-        -- require("tb.gruvbox")  -- for ref, but inline works on PackerCompile
-
-        -- general
-        vim.cmd("highlight! link Operator GruvboxRed")
-        vim.cmd("highlight! link Function GruvboxAqua")
-        vim.cmd("highlight! link Method GruvboxAqua")
-
-        -- treesitter
-        vim.cmd("highlight! link TSOperator GruvboxRed")
-        vim.cmd("highlight! link TSFunction GruvboxAqua")
-        vim.cmd("highlight! link TSMethod GruvboxAqua")
-        vim.cmd("highlight! link TSConstBuiltin Constant") -- None
-
-        -- misc
-        vim.cmd("highlight! link DiffChange GruvboxBlue") -- for gitsigns
       end,
     })
     use({
@@ -172,7 +173,6 @@ return require("packer").startup({
       "lukas-reineke/indent-blankline.nvim",
       config = function()
         local i = require("tb.icons")
-        vim.opt.colorcolumn = "80" -- highlight bug hack fix
         require("indent_blankline").setup({
           char = i.bar.thin,
           char_highlight_list = { "GruvboxBg1", "GruvboxBg2" },
@@ -186,7 +186,7 @@ return require("packer").startup({
       end,
     })
 
-    use({"RRethy/vim-illuminate"})
+    use({ "RRethy/vim-illuminate" })
 
     use({
       "edluffy/specs.nvim",
@@ -489,7 +489,6 @@ return require("packer").startup({
           -- },
           sign_priority = 0,
         })
-        vim.opt.signcolumn = "yes"
       end,
     })
 

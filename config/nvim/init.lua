@@ -76,12 +76,16 @@ if vim.fn.executable("rg") then
 end
 
 --------------------------------- Appearance ----------------------------------
+vim.api.nvim_set_hl(0, "@constant.builtin", { link = "Constant" })
+
 vim.env.NVIM_TERM = 1 -- TODO: Why?
 
+vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true -- highlight the line the cursor is on
 vim.opt.number = true
 vim.opt.scrolloff = 1 -- start scrolling when near the last line
 vim.opt.showmode = false
+vim.opt.signcolumn = "yes"
 vim.opt.sidescrolloff = 5 -- start scrolling when near the last col
 vim.opt.termguicolors = true -- true color support
 
