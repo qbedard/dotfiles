@@ -11,8 +11,6 @@ if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
   vim.cmd("packadd packer.nvim")
 end
 
--- require("packer.luarocks").install_commands()
-
 return require("packer").startup({
   function(use)
     use({ "wbthomason/packer.nvim" })
@@ -20,9 +18,6 @@ return require("packer").startup({
     use({
       "nvim-treesitter/nvim-treesitter",
       requires = {
-        -- "romgrk/nvim-treesitter-context", -- This is rad, but stupid slow right now.
-        -- "nvim-treesitter/playground",
-        -- "nvim-treesitter/nvim-treesitter-refactor",
         "nvim-treesitter/nvim-treesitter-textobjects",
         "windwp/nvim-ts-autotag",
       },
@@ -58,29 +53,12 @@ return require("packer").startup({
         vim.cmd("colorscheme gruvbox")
       end,
     })
-    use({
-      "murtaza-u/gruvqueen",
-      config = function()
-        -- require("gruvqueen").setup {
-        --   config = {
-        --     invert_selection = true,
-        --     style = "original",
-        --     -- transparent_background = true
-        --   },
-        --   palette = {
-        --     bg1 = "#282828",
-        --     grey0 = "#7c6f64"
-        --   }
-        -- }
-        -- vim.cmd("colorscheme gruvqueen")
-      end,
-    })
 
     use({
       "akinsho/bufferline.nvim",
       event = "BufWinEnter",
       requires = "kyazdani42/nvim-web-devicons",
-      after = { "gruvbox.nvim", "gruvqueen" },
+      after = { "gruvbox.nvim" },
       config = function()
         local bufferline = require("bufferline")
 
@@ -111,7 +89,7 @@ return require("packer").startup({
     use({
       "nvim-lualine/lualine.nvim",
       requires = { "kyazdani42/nvim-web-devicons" },
-      after = { "gruvbox.nvim", "gruvqueen" },
+      after = { "gruvbox.nvim" },
       config = function()
         local i = require("tb.icons")
 
@@ -160,7 +138,7 @@ return require("packer").startup({
 
     -- use({
     --   "feline-nvim/feline.nvim",
-    --   after = { "gruvbox.nvim", "gruvqueen" },
+    --   after = { "gruvbox.nvim" },
     --   config = function()
     --     require("feline").setup({
     --       colors = {},
@@ -191,14 +169,12 @@ return require("packer").startup({
     use({
       "edluffy/specs.nvim",
       config = function()
-        -- vim.cmd("highlight SpecsWinHl guibg=#1D2021")
         require("specs").setup({
           min_jump = 20,
           popup = {
             inc_ms = 5,
             blend = 50,
             winhl = "PMenuThumb",
-            -- winhl = "SpecsWinHl"
           },
         })
       end,
@@ -224,7 +200,6 @@ return require("packer").startup({
         vim.keymap.set("n", "<Leader>s", vim.lsp.buf.signature_help)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition)
         vim.keymap.set("n", "1gd", vim.lsp.buf.type_definition)
-        -- vim.keymap.set("n", "gr", vim.lsp.buf.references)
         vim.keymap.set("n", "g0", vim.lsp.buf.document_symbol)
         vim.keymap.set("n", "gf", function()
           vim.lsp.buf.format({ timeout_ms = 4000 })
@@ -382,7 +357,7 @@ return require("packer").startup({
       "lewis6991/satellite.nvim",
       config = function()
         require("satellite").setup()
-      end
+      end,
     })
 
     use("stevearc/dressing.nvim")
@@ -394,21 +369,16 @@ return require("packer").startup({
     --   end,
     -- })
 
-    -- use({
-    --   -- not maintained :(
-    --   -- "norcalli/nvim-colorizer.lua",
-    --   "timbedard/nvim-colorizer.lua",
-    --   opt = true,
-    --   ft = { "css", "scss", "html" },
-    --   config = function()
-    --     -- TODO: Fix this in nvim-colorizer.lua
-    --     -- require("colorizer").setup({ default_options = { mode = "virtualtext" } })
-    --     require("colorizer").setup({
-    --       css = { mode = "virtualtext" },
-    --       scss = { mode = "virtualtext" },
-    --     })
-    --   end,
-    -- })
+    use({
+      "NvChad/nvim-colorizer.lua",
+      opt = true,
+      ft = { "css", "scss", "html" },
+      config = function()
+        require("colorizer").setup({
+          user_default_options = { mode = "virtualtext" },
+        })
+      end,
+    })
 
     use({
       "akinsho/toggleterm.nvim",
@@ -421,8 +391,6 @@ return require("packer").startup({
         })
       end,
     })
-
-    use({ "gko/vim-coloresque" })
 
     use({
       "liuchengxu/vista.vim",
