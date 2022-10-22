@@ -453,19 +453,7 @@ return require("packer").startup({
       "lewis6991/gitsigns.nvim",
       event = "BufRead",
       config = function()
-        -- local i = require("tb.icons")
-
-        require("gitsigns").setup({
-          -- TODO: maybe change this now that gruvbox.nvim highlights have changed
-          -- signs = {
-          --   add = {hl = "DiffAdd", text = i.bar.thick},
-          --   change = {hl = "DiffChange", text = i.bar.thick},
-          --   changedelete = {hl = "GruvboxOrange", text = i.bar.thick},
-          --   delete = {hl = "DiffDelete"},
-          --   topdelete = {hl = "DiffDelete"}
-          -- },
-          sign_priority = 0,
-        })
+        require("gitsigns").setup({ sign_priority = 0 })
       end,
     })
 
@@ -499,7 +487,6 @@ return require("packer").startup({
     })
 
     use("tpope/vim-abolish")
-    -- use("tpope/vim-commentary")
     use("tpope/vim-eunuch")
     use("tpope/vim-fugitive")
     use("tpope/vim-repeat")
