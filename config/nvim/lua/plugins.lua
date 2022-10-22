@@ -188,6 +188,13 @@ return require("packer").startup({
       end,
     })
 
+    -- use({
+    --   "williamboman/mason.nvim",
+    --   config = function()
+    --     require("mason").setup()
+    --   end,
+    -- })
+
     use({
       "neovim/nvim-lspconfig",
       config = function()
