@@ -2,8 +2,6 @@
 
 echo "Configuring macOS..."
 
-DOTPATH="$(git rev-parse --show-toplevel)"
-
 # enable home and end keys to work as expected
 mkdir -p "$HOME/Library/KeyBindings"
 echo '{
@@ -41,15 +39,9 @@ defaults write com.apple.dock autohide -bool true && killall Dock
 defaults write com.apple.dock autohide-delay -float 1000 && killall Dock
 defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
 
-# TODO: Is this still needed?
-# Fix italics in iterm + tmux + vim
-# src: https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be
-tic -x "$DOTPATH/scripts/mac/xterm-256color-italic.terminfo"
-tic -x "$DOTPATH/scripts/mac/tmux-256color.terminfo"
-
 echo "Changing shell to fish..."
 # TODO: make this avoid repetitive additions if re-run
-sudo echo "/usr/local/bin/fish" >>/etc/shells
+sudo echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
 
 echo "Configuration complete."
