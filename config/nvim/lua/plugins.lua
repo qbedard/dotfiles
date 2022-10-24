@@ -58,6 +58,7 @@ return require("packer").startup({
           },
         })
         vim.cmd("colorscheme gruvbox")
+        vim.cmd("hi clear Error") -- fix some ugly in floats
       end,
     })
 
@@ -285,9 +286,7 @@ return require("packer").startup({
         local cmp = require("cmp")
         local lspkind = require("lspkind")
         cmp.setup({
-          formatting = {
-            format = lspkind.cmp_format({ mode = "symbol" })
-          },
+          formatting = { format = lspkind.cmp_format({ mode = "symbol" }) },
           min_length = 0, -- allow for `from package import _` in Python
           mapping = {
             ["<S-Tab>"] = cmp.mapping.select_prev_item(),
