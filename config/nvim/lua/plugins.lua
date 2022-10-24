@@ -22,6 +22,13 @@ return require("packer").startup({
     use({ "wbthomason/packer.nvim" })
 
     use({
+      "ggandor/leap.nvim",
+      config = function()
+        require("leap").add_default_mappings()
+      end,
+    })
+
+    use({
       "nvim-treesitter/nvim-treesitter",
       requires = {
         "nvim-treesitter/nvim-treesitter-textobjects",
