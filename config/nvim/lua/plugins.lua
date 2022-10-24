@@ -52,6 +52,7 @@ return require("packer").startup({
             GruvboxPurpleSign = { bg = "#282828" },
             GruvboxRedSign = { bg = "#282828" },
             GruvboxYellowSign = { bg = "#282828" },
+            NormalFloat = { link = "Float" },
             -- gitsigns
             GitSignsChange = { link = "GruvboxBlueSign" },
           },
@@ -94,7 +95,7 @@ return require("packer").startup({
 
     use({
       "nvim-lualine/lualine.nvim",
-      requires = { "kyazdani42/nvim-web-devicons" },
+      requires = "kyazdani42/nvim-web-devicons",
       after = { "gruvbox.nvim" },
       config = function()
         local i = require("tb.icons")
@@ -203,6 +204,7 @@ return require("packer").startup({
 
     use({
       "neovim/nvim-lspconfig",
+      requires = "folke/neodev.nvim", -- vim lua library
       config = function()
         require("tb.lsp")
         vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float)
@@ -221,8 +223,6 @@ return require("packer").startup({
         vim.keymap.set("n", "<Leader>c", vim.lsp.buf.code_action)
       end,
     })
-
-    use({ "folke/neodev.nvim" })
 
     use({
       -- "jose-elias-alvarez/null-ls.nvim",
@@ -286,7 +286,7 @@ return require("packer").startup({
         local lspkind = require("lspkind")
         cmp.setup({
           formatting = {
-            format = function(entry, vim_item)
+            format = function(_, vim_item)
               vim_item.kind = lspkind.presets.default[vim_item.kind]
               return vim_item
             end,
