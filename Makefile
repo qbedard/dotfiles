@@ -42,3 +42,8 @@ update-nvim:
 	@echo "\nNeovim plugins updated!"
 
 update: update-brew update-brew-head update-tldr update-nvim
+
+reload-amethyst:
+	@killall Amethyst
+	@rm ~/Library/Preferences/com.amethyst.Amethyst.plist
+	@open /Applications/Amethyst.app

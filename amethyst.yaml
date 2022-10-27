@@ -1,0 +1,20 @@
+layouts:
+  - tall
+  - fullscreen
+  - two-pane
+  - middle-wide
+  - 3column-left
+  - 3column-middle
+  - column
+  - widescreen-tall
+  - bsp
+
+cycle-layout:
+  mod: mod1
+  key: y
+
+cycle-layout-backward:
+  mod: mod2
+  key: y
+
+use-canary-build: true

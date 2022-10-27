@@ -19,6 +19,7 @@
     - ~/Library/Application\ Support/pypoetry
 
 - link:
+    ~/.amethyst.yml: amethyst.yaml
     ~/.bashrc:
     ~/.common.sh:
     ~/.isort.cfg:

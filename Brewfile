@@ -38,6 +38,7 @@ brew 'zoxide' # fast dir nav
 # --- Casks --- #
 tap 'homebrew/cask'
 cask 'alfred'
+cask 'amethyst' # tiling window manager
 cask 'brave-browser'
 cask 'docker'
 cask 'hammerspoon'
