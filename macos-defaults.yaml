@@ -1,0 +1,27 @@
+NSGlobalDomain:
+  AppleShowAllExtensions: true
+  InitialKeyRepeat: 12
+  KeyRepeat: 1
+  com.apple.mouse.tapBehavior: 0
+com.apple.AppleMultitouchTrackpad:
+  Clicking: false
+com.apple.TimeMachine:
+  DoNotOfferNewDisksForBackup: true
+com.apple.driver.AppleBluetoothMultitouch.trackpad:
+  Clicking: false
+com.apple.dock:
+  autohide: true
+  autohide-delay: 1000
+  no-bouncing: true
+  orientation: left
+com.apple.finder:
+  AppleShowAllFiles: true
+  ShowPathbar: true
+  _FXSortFoldersFirst: true
+# Require password as soon as screensaver or sleep mode starts
+com.apple.screensaver:
+  askForPassword: 1
+  askForPasswordDelay: 0
+
+org.hammerspoon.Hammerspoon:
+  MJConfigFile: "${HOME}/.config/hammerspoon/init.lua"

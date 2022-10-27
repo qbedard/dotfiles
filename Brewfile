@@ -53,3 +53,7 @@ cask 'kitty-nightly'
 # --- Fonts --- #
 tap 'homebrew/cask-fonts'
 cask 'font-hack-nerd-font'
+
+# --- Misc --- #
+tap 'zero-sh/tap'
+brew 'apply-user-defaults'
