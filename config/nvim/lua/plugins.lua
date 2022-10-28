@@ -101,6 +101,15 @@ return require("packer").startup({
       end,
     })
 
+    -- use({
+    --   "folke/noice.nvim",
+    --   requires = { "MunifTanjim/nui.nvim" },
+    --   event = "VimEnter",
+    --   config = function()
+    --     require("noice").setup({})
+    --   end,
+    -- })
+
     use({
       "nvim-lualine/lualine.nvim",
       requires = "kyazdani42/nvim-web-devicons",
@@ -130,6 +139,11 @@ return require("packer").startup({
               },
             },
             lualine_x = {
+              -- {
+              --   require("noice").api.statusline.mode.get,
+              --   cond = require("noice").api.statusline.mode.has,
+              --   color = "CursorLineNr",
+              -- },
               {
                 "diagnostics",
                 sources = { "nvim_diagnostic" },
@@ -411,12 +425,13 @@ return require("packer").startup({
       end,
     })
 
-    use({
-      "lewis6991/satellite.nvim",
-      config = function()
-        require("satellite").setup()
-      end,
-    })
+    -- super cool minimap scrollbars, but is nuts flickery
+    -- use({
+    --   "lewis6991/satellite.nvim",
+    --   config = function()
+    --     require("satellite").setup()
+    --   end,
+    -- })
 
     use("stevearc/dressing.nvim")
 
