@@ -62,6 +62,8 @@ return require("packer").startup({
             NormalFloat = { link = "Float" },
             -- gitsigns
             GitSignsChange = { link = "GruvboxBlueSign" },
+            -- treesitter
+            ["@constant.builtin"] = { link = "Constant" },
           },
         })
         vim.cmd("colorscheme gruvbox")
