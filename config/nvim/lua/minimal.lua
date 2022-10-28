@@ -25,7 +25,7 @@ return require("packer").startup({
       run = ":TSUpdate",
       config = function()
         require("nvim-treesitter.configs").setup({
-          ensure_installed = "maintained",
+          ensure_installed = "all",
           highlight = { enable = true },
         })
       end,
@@ -45,7 +45,13 @@ return require("packer").startup({
         vim.cmd("highlight! link DiffChange GruvboxBlue")
       end,
     })
-    use("tpope/vim-commentary")
+    use({
+      "numToStr/Comment.nvim",
+      event = "BufRead",
+      config = function()
+        require("Comment").setup()
+      end,
+    })
     use("tpope/vim-surround")
 
     -- Insert plugins to test here. --
