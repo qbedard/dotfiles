@@ -555,7 +555,6 @@ return require("packer").startup({
 
     use({
       "numToStr/Comment.nvim",
-      event = "BufRead",
       config = function()
         require("Comment").setup()
       end,
