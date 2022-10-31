@@ -23,6 +23,7 @@ require("null-ls").setup({
     -- diagnostics.mypy,
     -- diagnostics.rubocop,
     diagnostics.pydocstyle.with({ extra_args = { "--add-ignore=D1,D205,D400" } }),
+    -- diagnostics.selene,
     diagnostics.shellcheck,
     -- diagnostics.sqlfluff.with({
     --   extra_args = { "--dialect", "mysql" },
