@@ -22,11 +22,59 @@ return require("packer").startup({
     use({ "wbthomason/packer.nvim" })
 
     use({
-      "ggandor/leap.nvim",
+      "echasnovski/mini.nvim",
       config = function()
-        require("leap").add_default_mappings()
+        -- require("mini.ai").setup({
+        --   custom_textobjects = {
+        --     F = require("mini.ai").gen_spec.treesitter({
+        --       a = "@function.outer",
+        --       i = "@function.inner",
+        --     }),
+        --     -- TODO: line
+        --   },
+        -- })
+        require("mini.comment").setup({})
+        -- require("mini.completion").setup({})
+        require("mini.cursorword").setup({})
+
+        -- local indentscope = require("mini.indentscope")
+        -- indentscope.setup({ symbol = require("tb.icons").bar.thin })
+        -- indentscope.gen_animation('none')
+
+        -- require("mini.jump").setup()
+
+        -- local map = require("mini.map")
+        -- map.setup({
+        --   integrations = {
+        --     map.gen_integration.builtin_search(),
+        --     map.gen_integration.gitsigns(),
+        --     map.gen_integration.diagnostic(),
+        --   },
+        -- })
+
+        require("mini.misc").setup({})
+        require("mini.pairs").setup({
+          modes = { insert = true, command = true, terminal = true },
+        })
+        -- require("mini.statusline").setup()
+        require("mini.surround").setup({ search_method = "cover_or_next" })
+        -- require("mini.tabline").setup()
+
+        local trailspace = require("mini.trailspace")
+        vim.api.nvim_create_user_command("Trim", function()
+          trailspace.trim()
+          trailspace.trim_last_lines()
+        end, { bang = true })
       end,
     })
+
+    -- TODO: Resolve conflict with mini.surround mappings
+    -- use({
+    --   "ggandor/leap.nvim",
+    --   config = function()
+    --     require("leap").add_default_mappings()
+    --   end,
+    -- })
 
     use({
       "nvim-treesitter/nvim-treesitter",
@@ -194,8 +242,6 @@ return require("packer").startup({
         })
       end,
     })
-
-    use({ "RRethy/vim-illuminate" })
 
     use({
       "edluffy/specs.nvim",
@@ -516,15 +562,6 @@ return require("packer").startup({
     })
 
     use({
-      "ntpeters/vim-better-whitespace",
-      config = function()
-        vim.g.better_whitespace_enabled = 0
-        vim.g.strip_whitelines_at_eof = 1
-        vim.cmd("command! Trim StripWhitespace")
-      end,
-    })
-
-    use({
       "lewis6991/gitsigns.nvim",
       event = "BufRead",
       config = function()
@@ -539,13 +576,13 @@ return require("packer").startup({
       end,
     })
 
-    use({
-      "windwp/nvim-autopairs",
-      after = "nvim-cmp",
-      config = function()
-        require("nvim-autopairs").setup({})
-      end,
-    })
+    -- use({
+    --   "windwp/nvim-autopairs",
+    --   after = "nvim-cmp",
+    --   config = function()
+    --     require("nvim-autopairs").setup({})
+    --   end,
+    -- })
 
     use("kshenoy/vim-signature")
 
@@ -553,19 +590,12 @@ return require("packer").startup({
     use("romainl/vim-cool")
     use("farmergreg/vim-lastplace")
 
-    use({
-      "numToStr/Comment.nvim",
-      config = function()
-        require("Comment").setup()
-      end,
-    })
-
     use("tpope/vim-abolish")
     use("tpope/vim-eunuch")
     use("tpope/vim-fugitive")
     use("tpope/vim-repeat")
     use("tpope/vim-rhubarb")
-    use("tpope/vim-surround")
+    -- use("tpope/vim-surround")
     use("tpope/vim-unimpaired")
 
     use("wellle/targets.vim")

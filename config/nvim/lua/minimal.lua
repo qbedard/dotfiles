@@ -26,33 +26,47 @@ return require("packer").startup({
       config = function()
         require("nvim-treesitter.configs").setup({
           ensure_installed = "all",
-          highlight = { enable = true },
+          highlight = { enable = true, disable = { "scss" } },
         })
+        vim.opt.foldmethod = "expr"
+        vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+      end,
+    })
+    use({
+      "echasnovski/mini.nvim",
+      config = function()
+        require("mini.comment").setup({})
+        require("mini.surround").setup({})
       end,
     })
     use({
       "ellisonleao/gruvbox.nvim",
       config = function()
-        vim.g.gruvbox_sign_column = "bg0"
+        require("gruvbox").setup({
+          overrides = {
+            -- general
+            Function = { link = "GruvboxAqua" },
+            Method = { link = "GruvboxAqua" },
+            Operator = { link = "GruvboxRed" },
+            SignColumn = { link = "GruvboxBg0" },
+            GruvboxAquaSign = { bg = "#282828" },
+            GruvboxBlueSign = { bg = "#282828" },
+            GruvboxGreenSign = { bg = "#282828" },
+            GruvboxOrangeSign = { bg = "#282828" },
+            GruvboxPurpleSign = { bg = "#282828" },
+            GruvboxRedSign = { bg = "#282828" },
+            GruvboxYellowSign = { bg = "#282828" },
+            NormalFloat = { link = "Float" },
+            -- gitsigns
+            GitSignsChange = { link = "GruvboxBlueSign" },
+            -- treesitter
+            ["@constant.builtin"] = { link = "Constant" },
+          },
+        })
         vim.cmd("colorscheme gruvbox")
-        vim.cmd("highlight! link Operator GruvboxRed")
-        vim.cmd("highlight! link Function GruvboxAqua")
-        vim.cmd("highlight! link Method GruvboxAqua")
-        vim.cmd("highlight! link TSOperator GruvboxRed")
-        vim.cmd("highlight! link TSFunction GruvboxAqua")
-        vim.cmd("highlight! link TSMethod GruvboxAqua")
-        vim.cmd("highlight! link TSConstBuiltin Constant")
-        vim.cmd("highlight! link DiffChange GruvboxBlue")
+        vim.cmd("hi clear Error") -- fix some ugly in floats
       end,
     })
-    use({
-      "numToStr/Comment.nvim",
-      event = "BufRead",
-      config = function()
-        require("Comment").setup()
-      end,
-    })
-    use("tpope/vim-surround")
 
     -- Insert plugins to test here. --
 
