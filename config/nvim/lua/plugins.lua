@@ -23,6 +23,7 @@ return require("packer").startup({
 
     use({
       "echasnovski/mini.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
       config = function()
         -- require("mini.ai").setup({
         --   custom_textobjects = {
@@ -34,14 +35,14 @@ return require("packer").startup({
         --   },
         -- })
         require("mini.comment").setup({})
-        -- require("mini.completion").setup({})
+        -- require("mini.completion").setup({}) -- TODO
         require("mini.cursorword").setup({})
 
         -- local indentscope = require("mini.indentscope")
         -- indentscope.setup({ symbol = require("tb.icons").bar.thin })
         -- indentscope.gen_animation('none')
 
-        -- require("mini.jump").setup()
+        -- require("mini.jump").setup() -- TODO?
 
         -- local map = require("mini.map")
         -- map.setup({
@@ -56,9 +57,9 @@ return require("packer").startup({
         require("mini.pairs").setup({
           modes = { insert = true, command = true, terminal = true },
         })
-        -- require("mini.statusline").setup()
+        -- require("mini.statusline").setup() -- TODO
         require("mini.surround").setup({ search_method = "cover_or_next" })
-        -- require("mini.tabline").setup()
+        -- require("mini.tabline").setup({}) -- TODO
 
         local trailspace = require("mini.trailspace")
         vim.api.nvim_create_user_command("Trim", function()
@@ -236,6 +237,7 @@ return require("packer").startup({
       end,
     })
 
+    -- show where cursor moves to
     use({
       "edluffy/specs.nvim",
       config = function()
@@ -415,6 +417,30 @@ return require("packer").startup({
     })
 
     use({
+      "lewis6991/gitsigns.nvim",
+      event = "BufRead",
+      config = function()
+        require("gitsigns").setup({ sign_priority = 0 })
+      end,
+    })
+
+    use({
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+      },
+      config = function()
+        local custom = require("tb.telescope")
+        local builtin = require("telescope.builtin")
+
+        vim.keymap.set("n", "<Leader><Leader>", builtin.builtin)
+        vim.keymap.set("n", "<C-p>", custom.project_files)
+        vim.keymap.set("n", "<C-b>", builtin.buffers)
+      end,
+    })
+
+    use({
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
@@ -447,22 +473,6 @@ return require("packer").startup({
         vim.keymap.set("n", "gR", function()
           trouble.toggle("lsp_references")
         end)
-      end,
-    })
-
-    use({
-      "nvim-telescope/telescope.nvim",
-      requires = {
-        "nvim-lua/plenary.nvim",
-        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-      },
-      config = function()
-        local custom = require("tb.telescope")
-        local builtin = require("telescope.builtin")
-
-        vim.keymap.set("n", "<Leader><Leader>", builtin.builtin)
-        vim.keymap.set("n", "<C-p>", custom.project_files)
-        vim.keymap.set("n", "<C-b>", builtin.buffers)
       end,
     })
 
@@ -551,14 +561,6 @@ return require("packer").startup({
       "unblevable/quick-scope",
       config = function()
         vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
-      end,
-    })
-
-    use({
-      "lewis6991/gitsigns.nvim",
-      event = "BufRead",
-      config = function()
-        require("gitsigns").setup({ sign_priority = 0 })
       end,
     })
 
