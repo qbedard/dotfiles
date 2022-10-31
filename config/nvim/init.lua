@@ -190,13 +190,11 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
 -------------------------------------------------------------------------------
 --                                  Commands                                 --
 -------------------------------------------------------------------------------
-local command = vim.api.nvim_create_user_command
-
 -- Sometimes I'm bad at typing.
-command("Q", "q", { bang = true })
-command("W", "w", { bang = true })
-command("WQ", "wq", { bang = true })
-command("Wq", "wq", { bang = true })
+vim.api.nvim_create_user_command("Q", "q", { bang = true })
+vim.api.nvim_create_user_command("W", "w", { bang = true })
+vim.api.nvim_create_user_command("WQ", "wq", { bang = true })
+vim.api.nvim_create_user_command("Wq", "wq", { bang = true })
 
 -------------------------------------------------------------------------------
 --                                  Plugins                                  --
