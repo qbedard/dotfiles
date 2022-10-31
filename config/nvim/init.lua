@@ -124,6 +124,8 @@ vim.opt.pyxversion = 3
 vim.keymap.set("i", "jj", "<Esc>") -- exit insert
 vim.keymap.set("t", "kk", "<C-\\><C-n>") -- exit terminal mode
 vim.keymap.set({ "n", "x" }, ";", ":") -- faster command entry
+vim.keymap.set({ "n", "x" }, "J", "<Cmd>bprev<CR>") -- prev buffer
+vim.keymap.set({ "n", "x" }, "K", "<Cmd>bnext<CR>") -- next buffer
 vim.keymap.set("n", "H", "^") -- beginning of line
 vim.keymap.set("n", "L", "$") -- end of line
 
@@ -132,8 +134,8 @@ vim.keymap.set("n", "U", "<C-R>") -- redo
 vim.keymap.set("i", "<C-u>", "<C-g>u<C-u>") -- allow undo of <C-u>
 vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>") -- allow undo of <C-w>
 -- TODO: make repeatable
-vim.keymap.set("n", "<leader>i", "i<Space><Esc>r") -- insert single character before
-vim.keymap.set("n", "<leader>a", "a<Space><Esc>r") -- insert single character after
+vim.keymap.set("n", "<Leader>i", "i<Space><Esc>r") -- insert single character before
+vim.keymap.set("n", "<Leader>a", "a<Space><Esc>r") -- insert single character after
 
 --- some brilliant line movement mappings from junegunn ---
 vim.keymap.set("n", "<M-k>", ":move-2<CR>", { silent = true }) -- move line up

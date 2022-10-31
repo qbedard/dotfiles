@@ -135,19 +135,12 @@ return require("packer").startup({
             },
           },
           options = {
-            -- always_show_bufferline = false,
             enforce_regular_tabs = true,
             modified_icon = require("tb.icons").file.mod,
             show_buffer_close_icons = false,
             show_close_icon = false,
           },
         })
-        vim.keymap.set({ "n", "x" }, "K", function()
-          bufferline.cycle(1)
-        end)
-        vim.keymap.set({ "n", "x" }, "J", function()
-          bufferline.cycle(-1)
-        end)
       end,
     })
 
