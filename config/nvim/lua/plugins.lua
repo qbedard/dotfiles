@@ -37,18 +37,17 @@ return require("packer").startup({
         require("mini.comment").setup({})
         -- require("mini.completion").setup({}) -- TODO
 
-        -- TODO: use different highlight
-        -- require("mini.cursorword").setup({})
-        -- vim.api.nvim_set_hl(0, "MiniCursorword", { link = "CursorLine" })
-        -- local cursorword_filetype =
-        --   vim.api.nvim_create_augroup("cursorword_filetype", {})
-        -- vim.api.nvim_create_autocmd("FileType", {
-        --   group = cursorword_filetype,
-        --   pattern = "telescope",
-        --   callback = function()
-        --     vim.b.minicursorword_disable = true
-        --   end,
-        -- })
+        require("mini.cursorword").setup({})
+        vim.api.nvim_set_hl(0, "MiniCursorword", { link = "CursorLine" })
+        local cursorword_filetype =
+          vim.api.nvim_create_augroup("cursorword_filetype", {})
+        vim.api.nvim_create_autocmd("FileType", {
+          group = cursorword_filetype,
+          pattern = "telescope",
+          callback = function()
+            vim.b.minicursorword_disable = true
+          end,
+        })
 
         -- local indentscope = require("mini.indentscope")
         -- indentscope.setup({ symbol = require("tb.icons").bar.thin })
