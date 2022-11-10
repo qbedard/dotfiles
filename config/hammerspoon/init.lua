@@ -19,7 +19,7 @@ end
 
 --- Spoons ---
 hs.loadSpoon("SpoonInstall")
-spoon.SpoonInstall:andUse("Caffeine", { start = true })
+-- spoon.SpoonInstall:andUse("Caffeine", { start = true })
 -- spoon.SpoonInstall:andUse(
 --   "MicMute",
 --   { hotkeys = { toggle = { { "cmd", "shift" }, "a" } } }
