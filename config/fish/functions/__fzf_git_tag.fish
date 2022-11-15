@@ -1,4 +1,4 @@
-function __fzf_git_tag
+function __fzf_git_tag --description "fzf git tag"
 
     __is_in_git_repo || return
 

@@ -1,4 +1,4 @@
-function __fzf_git_diff_file
+function __fzf_git_diff_file --description "fzf git diff"
 
     __is_in_git_repo || return
 

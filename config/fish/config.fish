@@ -131,14 +131,24 @@ else
     set -gx FZF_FILE_PREVIEW_CMD "head -n 100"
 end
 
-function __fzf_file_preview -a file
-    fish -c "$FZF_FILE_PREVIEW_CMD $file"
+if command -q fd
+    set -gx FZF_CTRL_T_COMMAND 'fd --strip-cwd-prefix --hidden --follow --no-ignore-vcs'
+    set -gx FZF_ALT_C_COMMAND \
+        'fd --strip-cwd-prefix --type directory --hidden --follow --no-ignore-vcs'
 end
 
 if command -q exa
     set -gx FZF_DIR_PREVIEW_CMD "exa --tree --level 1 --all --icons --color=always"
 else
     set -gx FZF_DIR_PREVIEW_CMD "ls -1 -a"
+end
+
+if command -q rg
+    set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
+end
+
+function __fzf_file_preview -a file
+    fish -c "$FZF_FILE_PREVIEW_CMD $file"
 end
 
 function __fzf_dir_preview -a dir
@@ -152,16 +162,6 @@ function __fzf_either_preview -a file
     else if test -e $file
         __fzf_file_preview $file
     end
-end
-
-if command -q rg
-    set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
-end
-
-if command -q fd
-    set -gx FZF_CTRL_T_COMMAND 'fd --strip-cwd-prefix --hidden --follow --no-ignore-vcs'
-    set -gx FZF_ALT_C_COMMAND \
-        'fd --strip-cwd-prefix --type directory --hidden --follow --no-ignore-vcs'
 end
 
 set -gx FZF_CTRL_T_OPTS '--preview "__fzf_either_preview {}"'

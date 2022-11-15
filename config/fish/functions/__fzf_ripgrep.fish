@@ -1,4 +1,4 @@
-function __fzf_ripgrep
+function __fzf_ripgrep --description "fzf ripgrep"
     set -l rg_cmd "rg -l --hidden --no-ignore-vcs"
 
     set -l results (

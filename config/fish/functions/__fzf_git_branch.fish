@@ -1,4 +1,4 @@
-function __fzf_git_branch
+function __fzf_git_branch --description "fzf git branch"
 
     __is_in_git_repo || return
 

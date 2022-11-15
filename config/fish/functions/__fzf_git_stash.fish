@@ -1,4 +1,4 @@
-function __fzf_git_stash
+function __fzf_git_stash --description "fzf git stash"
 
     __is_in_git_repo || return
 

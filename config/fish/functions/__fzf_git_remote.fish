@@ -1,4 +1,4 @@
-function __fzf_git_remote
+function __fzf_git_remote --description "fzf git remote"
 
     __is_in_git_repo || return
 

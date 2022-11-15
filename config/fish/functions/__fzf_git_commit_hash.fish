@@ -1,4 +1,4 @@
-function __fzf_git_commit_hash
+function __fzf_git_commit_hash --description "fzf git commit hash"
 
     __is_in_git_repo || return
 
