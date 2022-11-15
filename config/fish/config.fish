@@ -1,6 +1,6 @@
 # ~/.config/fish/config.fish
 # --------------------------------- General ---------------------------------- #
-set -gx PAGER "less --tabs=4 -RFX"
+set -gx PAGER less --tabs=4 -RFX
 set -gx PYTHONDONTWRITEBYTECODE 1 # prevent .pyc files
 set -gx SHELL fish
 
@@ -61,8 +61,8 @@ abbr -a gs "git status -sb"
 abbr -a gt "git tag"
 
 alias glog "\
-    git log --graph --abbrev-commit --date=relative \
-        --pretty=format:'%Cred%h%Creset %an: %s -%C(yellow)%d %Cgreen(%cr)'"
+    git log --color --graph --abbrev-commit --date=relative \
+        --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
 # --- Python --- #
 abbr -a poi "poetry install"
@@ -195,6 +195,7 @@ if command -q asdf
     source "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.fish"
     set -gx NODE_VERSIONS "$HOME/.asdf/installs/nodejs"
     set -gx NODE_VERSION_PREFIX ""
+
 end
 
 if command -q direnv
@@ -207,4 +208,12 @@ end
 
 if command -q zoxide
     zoxide init fish | source
+end
+
+# ----------------------------- Hooks Dependent ------------------------------ #
+if command -q devmoji
+    alias glog "\
+        git log --color --graph --abbrev-commit --date=relative \
+            --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
+            | devmoji --log --color | $PAGER"
 end
