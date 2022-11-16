@@ -62,7 +62,7 @@ abbr -a gt "git tag"
 
 alias glog "\
     git log --color --graph --abbrev-commit --date=relative \
-        --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+        --pretty=format:'%Cred%h%Creset %s%C(yellow)%d %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
 # --- Python --- #
 abbr -a poi "poetry install"
@@ -214,6 +214,6 @@ end
 if command -q devmoji
     alias glog "\
         git log --color --graph --abbrev-commit --date=relative \
-            --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
+            --pretty=format:'%Cred%h%Creset %s%C(yellow)%d %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
             | devmoji --log --color | $PAGER"
 end
