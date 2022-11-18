@@ -69,7 +69,26 @@ return require("packer").startup({
           modes = { insert = true, command = true, terminal = true },
         })
         -- require("mini.statusline").setup() -- TODO
-        require("mini.surround").setup({ search_method = "cover_or_next" })
+
+        local surround = require("mini.surround")
+        surround.setup({
+          mappings = {
+            add = "ys",
+            delete = "ds",
+            find = "",
+            find_left = "",
+            highlight = "",
+            replace = "cs",
+            update_n_lines = "",
+          },
+          search_method = "cover_or_next",
+        })
+        vim.keymap.del({"v"}, "ys")
+        -- TODO: Figure out why I can't call MiniSurround.add directly here.
+        vim.keymap.set({"v", "x"}, "S", ":<C-u>lua MiniSurround.add('visual')<CR>")
+        -- TODO: Figure out why this doesn't work.
+        -- vim.keymap.set("n", "yss", "ys_")
+
         -- require("mini.tabline").setup({}) -- TODO
 
         local trailspace = require("mini.trailspace")
