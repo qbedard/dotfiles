@@ -152,17 +152,6 @@ vim.keymap.set("x", "<", "<gv", { silent = true }) -- outdent selection
 -------------------------------------------------------------------------------
 --                                Autocommands                               --
 -------------------------------------------------------------------------------
-local recompile_plugins = vim.api.nvim_create_augroup("recompile_plugins", {})
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = recompile_plugins,
-  pattern = "plugins.lua",
-  callback = function()
-    package.loaded["plugins"] = nil
-    require("plugins")
-    require("packer").compile()
-  end,
-})
-
 local number_toggle = vim.api.nvim_create_augroup("number_toggle", {})
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
   group = number_toggle,
@@ -204,5 +193,19 @@ vim.api.nvim_create_user_command("Wq", "wq", { bang = true })
 vim.g.loaded_netrwPlugin = 1 -- no netrw
 vim.g.netrw_dirhistmax = 0 -- no netrwhist
 
-require("plugins")
+-- Bootstrap lazy.nvim
+local lazy_path = vim.fn.stdpath("data") .. "/site/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazy_path) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazy_path,
+  })
+end
+vim.opt.runtimepath:prepend(lazy_path)
+
+require("lazy").setup("plugins")
 -- require("minimal")
