@@ -33,15 +33,16 @@ return {
       debug = true,
       sources = {
         code_actions.gitsigns,
-        diagnostics.bandit.with({
-          runtime_condition = function(utils)
-            if string.find(utils.bufname, "tests") then
-              return false
-            else
-              return true
-            end
-          end,
-        }),
+        -- TODO: Get working
+        -- diagnostics.bandit.with({
+        --   runtime_condition = function(utils)
+        --     if string.find(utils.bufname, "tests") then
+        --       return false
+        --     else
+        --       return true
+        --     end
+        --   end,
+        -- }),
         diagnostics.fish,
         diagnostics.flake8.with({
           extra_args = { "--select=C,E,F,W,B,N,B950", "--ignore=E203,E501,N818,W503" },
