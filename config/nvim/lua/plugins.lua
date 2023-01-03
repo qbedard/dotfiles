@@ -63,6 +63,7 @@ return {
   },
 
   "stevearc/dressing.nvim",
+  {"j-hui/fidget.nvim", config = true},
 
   "kshenoy/vim-signature",
 
