@@ -2,7 +2,27 @@ return {
   -- "jose-elias-alvarez/null-ls.nvim",
   "timbedard/null-ls.nvim",
   branch = "more-python-tools",
-  dependencies =  "nvim-lua/plenary.nvim" ,
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "williamboman/mason.nvim",
+    {
+      "jay-babu/mason-null-ls.nvim",
+      config = {
+        automatic_installation = {
+          exclude = {
+            "bandit", -- not available
+            "docformatter", -- not available
+            "fish", -- comes with shell
+            "fish_indent", -- comes with shell
+            "shellcheck", -- brew
+            "shfmt", -- brew
+            "stylua", -- brew
+            "terraform_fmt", -- comes with terraform
+          },
+        },
+      },
+    },
+  },
   config = function()
     local null_ls = require("null-ls")
     local code_actions = null_ls.builtins.code_actions

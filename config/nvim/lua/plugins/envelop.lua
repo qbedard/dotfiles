@@ -1,5 +1,7 @@
 return {
   "timbedard/vim-envelop",
+  -- lazy = false,
+  enable = false,
   build = ":EnvCreate",
   config = function()
     vim.g.envelop_enabled = { "node", "python3" }
