@@ -194,7 +194,7 @@ vim.g.loaded_netrwPlugin = 1 -- no netrw
 vim.g.netrw_dirhistmax = 0 -- no netrwhist
 
 -- Bootstrap lazy.nvim
-local lazy_path = vim.fn.stdpath("data") .. "/site/lazy/lazy.nvim"
+local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazy_path) then
   vim.fn.system({
     "git",

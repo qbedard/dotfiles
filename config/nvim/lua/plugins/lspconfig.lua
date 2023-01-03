@@ -1,6 +1,23 @@
 return {
   "neovim/nvim-lspconfig",
-  dependencies = "folke/neodev.nvim", -- vim lua library
+  dependencies = {
+    "folke/neodev.nvim",
+    "williamboman/mason.nvim",
+    {
+      "williamboman/mason-lspconfig.nvim",
+      config = {
+        automatic_installation = {
+          exclude = {
+            "gopls",
+            "rust_analyzer",
+            "terraformls",
+            "sumneko_lua",
+            "taplo",
+          },
+        },
+      },
+    },
+  },
   keys = {
     { "<Leader>d", vim.diagnostic.open_float },
     { "[g", vim.diagnostic.goto_prev },
@@ -82,7 +99,7 @@ return {
       "gopls",
       "html",
       -- "jsonls",
-      "rnix",
+      -- "rnix",
       "rust_analyzer",
       -- "sqls",
       -- "taplo",
@@ -92,25 +109,6 @@ return {
     for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup({ capabilities = capabilities })
     end
-
-    require("lspconfig").taplo.setup({
-      capabilities = capabilities,
-      settings = {
-        evenBetterToml = {
-          schema = {
-            enabled = true,
-            repositoryEnabled = true,
-            repositoryUrl = "https://taplo.tamasfe.dev/schema_index.json",
-          },
-          cachePath = vim.fn.stdpath("cache") .. "/taplo",
-          -- Apparently removing this borks the settings?!
-          formatter = {
-            alignComments = false,
-            -- indentTables = true,
-          },
-        },
-      },
-    })
 
     ---------------------------------- Python ----------------------------------
     lspconfig.pyright.setup({
@@ -189,6 +187,26 @@ return {
       on_attach = function(client)
         client.server_capabilities.document_formatting = false
       end,
+    })
+
+    ----------------------------------- TOML -----------------------------------
+    lspconfig.taplo.setup({
+      capabilities = capabilities,
+      settings = {
+        evenBetterToml = {
+          schema = {
+            enabled = true,
+            repositoryEnabled = true,
+            repositoryUrl = "https://taplo.tamasfe.dev/schema_index.json",
+          },
+          cachePath = vim.fn.stdpath("cache") .. "/taplo",
+          -- Apparently removing this borks the settings?!
+          formatter = {
+            alignComments = false,
+            -- indentTables = true,
+          },
+        },
+      },
     })
 
     -------------------------------- Vimscript ---------------------------------

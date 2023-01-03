@@ -2,7 +2,7 @@ return {
   -- "jose-elias-alvarez/null-ls.nvim",
   "timbedard/null-ls.nvim",
   branch = "more-python-tools",
-  dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  dependencies =  "nvim-lua/plenary.nvim" ,
   config = function()
     local null_ls = require("null-ls")
     local code_actions = null_ls.builtins.code_actions
