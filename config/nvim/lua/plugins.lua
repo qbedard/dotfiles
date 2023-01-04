@@ -27,9 +27,7 @@ return {
   {
     "NvChad/nvim-colorizer.lua",
     ft = { "css", "scss", "html" },
-    config = {
-      user_default_options = { mode = "virtualtext" },
-    },
+    config = { user_default_options = { mode = "virtualtext" } },
   },
 
   {
@@ -57,13 +55,13 @@ return {
 
   {
     "andymass/vim-matchup",
-    config = function()
+    init = function()
       vim.g.matchup_matchparen_offscreen = {}
     end,
   },
 
   "stevearc/dressing.nvim",
-  {"j-hui/fidget.nvim", config = true},
+  { "j-hui/fidget.nvim", config = { text = { spinner = "dots" } } },
 
   "kshenoy/vim-signature",
 

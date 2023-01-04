@@ -2,7 +2,7 @@ local i = require("icons")
 
 return {
   "liuchengxu/vista.vim",
-  config = function()
+  init = function()
     vim.g["vista#renderer#icons"] = {
       class = i.lang.class,
       color = i.lang.color,

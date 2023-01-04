@@ -3,7 +3,7 @@ return {
   -- lazy = false,
   enable = false,
   build = ":EnvCreate",
-  config = function()
+  init = function()
     vim.g.envelop_enabled = { "node", "python3" }
     vim.g.envelop_node_link = {
       "node_modules/.bin/prettier",
