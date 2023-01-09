@@ -9,7 +9,6 @@ return {
       config = {
         automatic_installation = {
           exclude = {
-            "gopls",
             "rust_analyzer",
             "terraformls",
             "sumneko_lua",
