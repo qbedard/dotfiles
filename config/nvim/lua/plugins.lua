@@ -36,7 +36,7 @@ return {
     config = {
       open_mapping = "<c-t>",
       direction = "float",
-      float_opts = { border = "curved" },
+      float_opts = { border = "rounded" },
     },
   },
 

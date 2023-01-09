@@ -22,5 +22,5 @@ return {
       },
     },
   },
-  config = true,
+  config = { ui = { border = "rounded" } },
 }

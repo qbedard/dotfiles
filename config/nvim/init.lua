@@ -207,5 +207,5 @@ if not vim.loop.fs_stat(lazy_path) then
 end
 vim.opt.runtimepath:prepend(lazy_path)
 
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", { ui = { border = "rounded" } })
 -- require("minimal")
