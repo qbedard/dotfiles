@@ -12,6 +12,7 @@ brew 'gh' # GitHub CLI
 brew 'ghq' # repo organization
 brew 'git'
 brew 'gnupg' # GPG tools
+brew 'go'
 brew 'hub' # GitHub tools
 brew 'ipython' # better python shell
 brew 'jq' # JSON parsing
