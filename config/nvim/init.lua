@@ -166,18 +166,6 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
   end,
 })
 
--- " TODO: Find out why tf I do this
--- augroup win_resize
---   autocmd!
---   autocmd VimResized * wincmd =
--- augroup END
-
--- " Go away, netrw!
--- augroup hide_netrw
---   autocmd!
---   autocmd FileType netrw setl bufhidden=wipe
--- augroup END
-
 -------------------------------------------------------------------------------
 --                                  Commands                                 --
 -------------------------------------------------------------------------------
