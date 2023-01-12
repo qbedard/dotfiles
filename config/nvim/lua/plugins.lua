@@ -15,9 +15,6 @@ return {
   --   },
   -- },
 
-  -- TODO: Switch to this?
-  -- { "williamboman/mason.nvim", config = true },
-
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
