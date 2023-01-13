@@ -33,6 +33,8 @@ brew 'stow'
 brew 'stylua'
 brew 'taplo'  # TOML LSP and toolset
 brew 'tealdeer'  # Rust tldr pages client
+# brew 'terraform'
+# brew 'terraform-ls'
 brew 'tokei' # fancy line count
 brew 'zoxide' # fast dir nav
 
