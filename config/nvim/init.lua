@@ -166,6 +166,15 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
   end,
 })
 
+-- fix formatexpr
+local lsp_attach = vim.api.nvim_create_augroup("lsp_attach", {})
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = lsp_attach,
+  callback = function(args)
+    vim.bo[args.buf].formatexpr = nil
+  end,
+})
+
 -------------------------------------------------------------------------------
 --                                  Commands                                 --
 -------------------------------------------------------------------------------
