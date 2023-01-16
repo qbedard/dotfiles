@@ -3,7 +3,7 @@ local i = require("icons")
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = "kyazdani42/nvim-web-devicons",
-  config = {
+  opts = {
     sections = {
       lualine_a = { "mode" },
       lualine_b = {

@@ -1,6 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  config = {
+  opts = {
     char = require("icons").bar.thin,
     char_highlight_list = { "GruvboxBg1", "GruvboxBg2" },
     context_highlight_list = { "GruvboxAqua" },

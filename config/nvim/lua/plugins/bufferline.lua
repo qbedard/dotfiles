@@ -2,7 +2,7 @@ return {
   "akinsho/bufferline.nvim",
   event = "BufWinEnter",
   dependencies = "kyazdani42/nvim-web-devicons",
-  config = {
+  opts = {
     highlights = {
       buffer_selected = { italic = false },
       indicator_selected = {

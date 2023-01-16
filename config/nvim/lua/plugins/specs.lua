@@ -1,7 +1,7 @@
 -- show where cursor moves to
 return {
   "edluffy/specs.nvim",
-  config = {
+  opts = {
     min_jump = 20,
     popup = {
       inc_ms = 5,

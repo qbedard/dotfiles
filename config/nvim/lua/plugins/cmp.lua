@@ -10,11 +10,11 @@ return {
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
   },
-  config = function()
+  opts = function()
     require("cmp_nvim_lsp").setup()
     local cmp = require("cmp")
     local lspkind = require("lspkind")
-    cmp.setup({
+    return {
       -- window = {
       --   completion = cmp.config.window.bordered(),
       --   documentation = cmp.config.window.bordered(),
@@ -50,7 +50,7 @@ return {
           require("luasnip").lsp_expand(args.body)
         end,
       },
-    })
+    }
 
     -- TODO: Get this working?
     -- cmp.setup.cmdline({ "/", "?" }, {

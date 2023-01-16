@@ -42,7 +42,7 @@ return {
       end,
     },
   },
-  config = {
+  opts = {
     signs = {
       error = icons.diag.error,
       warning = icons.diag.warn,

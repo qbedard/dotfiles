@@ -29,12 +29,10 @@ return {
       end,
     },
   },
-  config = function()
-    local telescope = require("telescope")
+  opts = function()
     local actions = require("telescope.actions")
 
-    -- Setup
-    telescope.setup({
+    return {
       defaults = {
         layout_strategy = "flex",
         layout_config = {
@@ -76,9 +74,12 @@ return {
           },
         },
       },
-    })
+    }
+  end,
+  config = function(plugin, opts)
+    local telescope = require("telescope")
 
-    -- Extensions
+    telescope.setup(opts)
     telescope.load_extension("fzf")
   end,
 }

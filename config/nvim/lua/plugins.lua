@@ -9,7 +9,7 @@ return {
   -- TODO: Switch to this?
   -- {
   --   "feline-nvim/feline.nvim",
-  --   config = {
+  --   opts = {
   --     colors = {},
   --     components = {},
   --   },
@@ -18,19 +18,19 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
-    config = { sign_priority = 0 },
+    opts = { sign_priority = 0 },
   },
 
   {
     "NvChad/nvim-colorizer.lua",
     ft = { "css", "scss", "html" },
-    config = { user_default_options = { mode = "virtualtext" } },
+    opts = { user_default_options = { mode = "virtualtext" } },
   },
 
   {
     "akinsho/toggleterm.nvim",
     event = "BufWinEnter",
-    config = {
+    opts = {
       open_mapping = "<c-t>",
       direction = "float",
       float_opts = { border = "rounded" },
@@ -58,7 +58,7 @@ return {
   },
 
   "stevearc/dressing.nvim",
-  { "j-hui/fidget.nvim", config = { text = { spinner = "dots" } } },
+  { "j-hui/fidget.nvim", opts = { text = { spinner = "dots" } } },
 
   "kshenoy/vim-signature",
 

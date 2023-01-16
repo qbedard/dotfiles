@@ -3,7 +3,7 @@ return {
   lazy = false,
   dependencies = {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    config = {
+    opts = {
       ensure_installed = {
         "autoflake",
         -- "bandit",
@@ -22,5 +22,5 @@ return {
       },
     },
   },
-  config = { ui = { border = "rounded" } },
+  opts = { ui = { border = "rounded" } },
 }
