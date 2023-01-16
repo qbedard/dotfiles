@@ -76,7 +76,7 @@ return {
       },
     }
   end,
-  config = function(plugin, opts)
+  config = function(_, opts)
     local telescope = require("telescope")
 
     telescope.setup(opts)

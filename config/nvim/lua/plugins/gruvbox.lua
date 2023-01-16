@@ -23,7 +23,7 @@ return {
       ["@constant.builtin"] = { link = "Constant" },
     },
   },
-  config = function(plugin, opts)
+  config = function(_, opts)
     require("gruvbox").setup(opts)
     vim.cmd("colorscheme gruvbox")
     vim.cmd("hi clear Error") -- fix some ugly in floats
