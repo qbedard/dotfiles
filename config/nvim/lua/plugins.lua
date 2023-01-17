@@ -6,15 +6,6 @@ return {
   --   config = true,
   -- },
 
-  -- TODO: Switch to this?
-  -- {
-  --   "feline-nvim/feline.nvim",
-  --   opts = {
-  --     colors = {},
-  --     components = {},
-  --   },
-  -- },
-
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
