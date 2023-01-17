@@ -3,6 +3,14 @@ local _icons = {
     thick = "┃",
     thin = "│",
   },
+  fold = {
+    collapsed_thin = "",
+    expanded_thin = "",
+    collapsed_thick = "",
+    expanded_thick = "",
+    collapsed_thin_big = "",
+    expanded_thin_big = "",
+  },
   diag = {
     error = "",
     warn = "",
