@@ -38,7 +38,7 @@ update-tldr:
 
 update-nvim:
 	@echo "Updating Neovim plugins..."
-	@nvim --headless -c "Lazy! sync" +qa
+	@nvim --headless -c "Lazy! sync" +MasonToolsUpdate +qa
 	@echo "\nNeovim plugins updated!"
 
 update: update-brew update-brew-head update-tldr update-nvim
