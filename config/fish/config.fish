@@ -198,6 +198,10 @@ if command -q asdf
 
 end
 
+if command -q pdm
+    pdm --pep582 fish | source
+end
+
 if command -q direnv
     direnv hook fish | source
 end
