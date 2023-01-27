@@ -5,16 +5,16 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
-        "autoflake",
+        -- "autoflake",
         -- "bandit",
         "black",
         -- "docformatter",
-        "flake8",
+        -- "flake8",
         -- "flake8-bugbear",
         "isort",
         -- "pep8-naming",
         "prettier",
-        "pydocstyle",
+        -- "pydocstyle",
         "sql-formatter",
         -- "sqlfluff",  -- available, but not using currently
         -- "sqlparse",  -- not available, but not using currently

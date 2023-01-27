@@ -100,6 +100,7 @@ return {
       "html",
       -- "jsonls",
       -- "rnix",
+      -- "ruff_lsp",
       "rust_analyzer",
       -- "sqls",
       -- "taplo",
@@ -133,6 +134,18 @@ return {
         },
       },
     })
+
+    -- lspconfig.ruff_lsp.setup({
+    --   capabilities = capabilities,
+    --   init_options = {
+    --     settings = {
+    --       args = {
+    --         "--select=A,B,C4,C90,D,E,F,N,PIE,PT003,PT006,PT008,PT022,RET504,SIM,T20,UP,W",
+    --         "--ignore=D1,D203,D205,D213,D400",
+    --       },
+    --     },
+    --   },
+    -- })
 
     ----------------------------------- SQL ------------------------------------
     -- TODO: Figure out why this doesn't work.
