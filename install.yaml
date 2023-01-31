@@ -16,7 +16,7 @@
     - ~/.config/gh
     - ~/.config/hammerspoon
     - ~/Library/Application\ Support/jesseduffield/lazydocker
-    - ~/Library/Application\ Support/pypoetry
+    - ~/Library/Preferences/pypoetry
 
 - link:
     ~/.amethyst.yml: amethyst.yaml
@@ -30,7 +30,7 @@
     ~/.tool-versions:
     ~/.zshrc:
     ~/Library/Application Support/jesseduffield/lazydocker/config.yml: lazydocker-config.yaml
-    ~/Library/Application Support/pypoetry/config.toml: config/pypoetry/config.toml
+    ~/Library/Preferences/pypoetry/config.toml: config/pypoetry/config.toml
 
 - stow:
     config: ~/.config
