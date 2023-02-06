@@ -3,4 +3,5 @@
 .git
 .pytest_cache
 .venv
+__pypackages__
 node_modules
