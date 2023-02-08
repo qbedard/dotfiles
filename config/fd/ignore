@@ -2,6 +2,7 @@
 .direnv
 .git
 .pytest_cache
+.ruff_cache
 .venv
 __pypackages__
 node_modules
