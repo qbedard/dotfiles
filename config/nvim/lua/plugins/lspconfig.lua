@@ -6,7 +6,7 @@ return {
     "williamboman/mason.nvim",
     {
       "williamboman/mason-lspconfig.nvim",
-      config = {
+      opts = {
         automatic_installation = {
           exclude = {
             "rust_analyzer",

@@ -1,13 +1,13 @@
 return {
-  -- "jose-elias-alvarez/null-ls.nvim",
-  "timbedard/null-ls.nvim",
-  branch = "more-python-tools",
+  "jose-elias-alvarez/null-ls.nvim",
+  -- "timbedard/null-ls.nvim",
+  -- branch = "more-python-tools",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "williamboman/mason.nvim",
     {
       "jay-babu/mason-null-ls.nvim",
-      config = {
+      opts = {
         automatic_installation = {
           exclude = {
             "bandit", -- not available
@@ -31,7 +31,7 @@ return {
 
     local ruff_args = {
       "--select=A,B,C4,C90,D,E,F,N,PIE,PT003,PT006,PT008,PT022,RET504,SIM,T20,UP,W",
-      "--ignore=D1,D203,D205,D213,D400, D415",
+      "--ignore=D1,D203,D205,D213,D400,D415",
     }
 
     return {
@@ -84,7 +84,6 @@ return {
         formatting.prettier,
         formatting.ruff.with({ extra_args = ruff_args }),
         -- formatting.rubocop,
-        formatting.ruff,
         formatting.shfmt,
         -- formatting.sqlfluff.with({
         --   extra_args = { "--dialect", "mysql" },

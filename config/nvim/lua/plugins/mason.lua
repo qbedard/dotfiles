@@ -15,6 +15,7 @@ return {
         -- "pep8-naming",
         "prettier",
         -- "pydocstyle",
+        "ruff",
         "sql-formatter",
         -- "sqlfluff",  -- available, but not using currently
         -- "sqlparse",  -- not available, but not using currently
