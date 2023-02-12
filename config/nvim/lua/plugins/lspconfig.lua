@@ -11,7 +11,7 @@ return {
           exclude = {
             "rust_analyzer",
             "terraformls",
-            "sumneko_lua",
+            "lua_ls",
             "taplo",
           },
         },
@@ -165,7 +165,7 @@ return {
     -- })
 
     ----------------------------------- Lua ------------------------------------
-    lspconfig.sumneko_lua.setup({
+    lspconfig.lua_ls.setup({
       capabilities = capabilities,
       on_attach = function(client)
         client.server_capabilities.document_formatting = false
