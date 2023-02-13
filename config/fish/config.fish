@@ -32,7 +32,8 @@ abbr -a popd prevd
 abbr -a q exit
 
 # --- Docker --- #
-abbr -a dc docker compose
+abbr -a dc "docker compose"
+abbr -a dcb "docker compose build"
 abbr -a dcu "docker compose up"
 abbr -a dcud "docker compose up -d"
 abbr -a dcd "docker compose down"
