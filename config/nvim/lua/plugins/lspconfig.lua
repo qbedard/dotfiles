@@ -130,7 +130,7 @@ return {
             -- typeCheckingMode = "strict",
           },
           pythonPath = vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV .. "/bin/python"
-          or "python",
+              or "python",
         },
       },
     })
@@ -141,7 +141,7 @@ return {
         settings = {
           args = {
             "--select=A,B,C4,C90,D,E,F,N,PIE,PT003,PT006,PT008,PT022,RET504,SIM,T20,UP,W",
-            "--ignore=D1,D203,D205,D213,D400,D415",
+            "--ignore=D1,D203,D205,D213,D400,D415,I",
           },
         },
       },
