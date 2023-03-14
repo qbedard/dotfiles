@@ -44,6 +44,7 @@ return {
     require("mini.pairs").setup({
       modes = { insert = true, command = true, terminal = true },
     })
+    -- require("mini.splitjoin").setup() -- TODO?
     -- require("mini.statusline").setup() -- TODO
 
     local surround = require("mini.surround")

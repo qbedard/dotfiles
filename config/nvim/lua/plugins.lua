@@ -70,7 +70,12 @@ return {
   { "kana/vim-textobj-line", dependencies = "kana/vim-textobj-user" },
   "michaeljsmith/vim-indent-object",
 
-  "AndrewRadev/splitjoin.vim",
+  {
+    "Wansmer/treesj",
+    keys = { { "gS", "<cmd>TSJSplit<cr>" }, { "gJ", "<cmd>TSJJoin<cr>" } },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = { use_default_keymaps = false },
+  },
 
   -- Language Support
   "Vimjas/vim-python-pep8-indent",
