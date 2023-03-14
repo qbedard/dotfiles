@@ -67,7 +67,6 @@ return {
   -- Text Objects
   -- TODO: Replace with mini.ai
   "wellle/targets.vim",
-  { "kana/vim-textobj-line", dependencies = "kana/vim-textobj-user" },
   "michaeljsmith/vim-indent-object",
 
   {

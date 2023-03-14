@@ -129,6 +129,10 @@ vim.keymap.set({ "n", "x" }, "K", "<Cmd>bnext<CR>") -- next buffer
 vim.keymap.set("n", "H", "^") -- beginning of line
 vim.keymap.set("n", "L", "$") -- end of line
 
+-- "inside line" text object
+vim.keymap.set("x", "il", "^og_")
+vim.keymap.set("o", "il", ":normal vil<cr>") -- "inside line" text object
+
 ----------------------------------- Editing -----------------------------------
 vim.keymap.set("n", "U", "<C-R>") -- redo
 vim.keymap.set("i", "<C-u>", "<C-g>u<C-u>") -- allow undo of <C-u>
