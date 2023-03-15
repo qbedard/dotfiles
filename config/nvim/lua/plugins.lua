@@ -71,7 +71,7 @@ return {
 
   {
     "Wansmer/treesj",
-    keys = { { "gS", "<cmd>TSJSplit<cr>" }, { "gJ", "<cmd>TSJJoin<cr>" } },
+    keys = { { "gS", "<cmd>TSJSplit<CR>" }, { "gJ", "<cmd>TSJJoin<CR>" } },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = { use_default_keymaps = false },
   },

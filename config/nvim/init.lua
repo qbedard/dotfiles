@@ -131,7 +131,7 @@ vim.keymap.set("n", "L", "$") -- end of line
 
 -- "inside line" text object
 vim.keymap.set("x", "il", "^og_")
-vim.keymap.set("o", "il", ":normal vil<cr>")
+vim.keymap.set("o", "il", ":normal vil<CR>")
 
 ----------------------------------- Editing -----------------------------------
 vim.keymap.set("n", "U", "<C-R>") -- redo
