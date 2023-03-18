@@ -2,15 +2,19 @@ return {
   "echasnovski/mini.nvim",
   dependencies = "kyazdani42/nvim-web-devicons",
   config = function()
-    -- require("mini.ai").setup({
-    --   custom_textobjects = {
-    --     F = require("mini.ai").gen_spec.treesitter({
-    --       a = "@function.outer",
-    --       i = "@function.inner",
-    --     }),
-    --     -- TODO: line
-    --   },
-    -- })
+    require("mini.ai").setup({
+      custom_textobjects = {
+        F = require("mini.ai").gen_spec.treesitter({
+          a = "@function.outer",
+          i = "@function.inner",
+        }),
+      },
+    })
+    -- Recreate "inside line" text object
+    vim.keymap.set("x", "il", "^og_")
+    vim.keymap.set("o", "il", ":normal vil<CR>")
+
+    require("mini.bracketed").setup({})
     require("mini.comment").setup({})
     -- require("mini.completion").setup({}) -- TODO
 
@@ -25,9 +29,15 @@ return {
       end,
     })
 
-    -- local indentscope = require("mini.indentscope")
-    -- indentscope.setup({ symbol = require("tb.icons").bar.thin })
-    -- indentscope.gen_animation('none')
+    local indentscope = require("mini.indentscope")
+    indentscope.setup({
+      draw = {
+        delay = 50,
+        animation = indentscope.gen_animation.linear({ duration = 1 }),
+      },
+      symbol = require("icons").bar.thin,
+    })
+    vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { link = "GruvboxAqua" })
 
     -- require("mini.jump").setup() -- TODO?
 

@@ -37,8 +37,10 @@ if vim.fn.executable("fish") then
 end
 
 ----------------------------- Tabs & Indentation ------------------------------
+-- vim.opt.breakindent = true -- TODO: Figure out breaking cursorline highlight.
 vim.opt.cindent = false
 vim.opt.expandtab = true -- tabs insert spaces
+vim.opt.fillchars = { eob = " " } -- TODO: more
 vim.opt.foldlevel = 99
 vim.opt.linebreak = true -- wrap line if too long
 vim.opt.list = true -- show listchars

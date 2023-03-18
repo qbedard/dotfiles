@@ -22,7 +22,7 @@ return {
     "akinsho/toggleterm.nvim",
     event = "BufWinEnter",
     opts = {
-      open_mapping = "<c-t>",
+      open_mapping = "<C-t>",
       direction = "float",
       float_opts = { border = "rounded" },
     },
@@ -60,18 +60,13 @@ return {
   "tpope/vim-abolish",
   "tpope/vim-eunuch",
   "tpope/vim-fugitive",
-  "tpope/vim-repeat",
   "tpope/vim-rhubarb",
-  "tpope/vim-unimpaired",
 
-  -- Text Objects
-  -- TODO: Replace with mini.ai
-  "wellle/targets.vim",
   "michaeljsmith/vim-indent-object",
 
   {
     "Wansmer/treesj",
-    keys = { { "gS", "<cmd>TSJSplit<CR>" }, { "gJ", "<cmd>TSJJoin<CR>" } },
+    keys = { { "gS", "<Cmd>TSJSplit<CR>" }, { "gJ", "<Cmd>TSJJoin<CR>" } },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = { use_default_keymaps = false },
   },
