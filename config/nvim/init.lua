@@ -37,10 +37,19 @@ if vim.fn.executable("fish") then
 end
 
 ----------------------------- Tabs & Indentation ------------------------------
--- vim.opt.breakindent = true -- TODO: Figure out breaking cursorline highlight.
+-- vim.opt.breakindent = true -- TODO: figure out breaking cursorline highlight
 vim.opt.cindent = false
 vim.opt.expandtab = true -- tabs insert spaces
-vim.opt.fillchars = { eob = " " } -- TODO: more
+vim.opt.fillchars = {
+  horiz = "─",
+  horizup = "┴",
+  horizdown = "┬",
+  vert = "│",
+  vertleft = "┤",
+  vertright = "├",
+  verthoriz = "┼",
+  eob = " ", -- replace "~" at end buffer
+}
 vim.opt.foldlevel = 99
 vim.opt.linebreak = true -- wrap line if too long
 vim.opt.list = true -- show listchars
@@ -56,6 +65,7 @@ vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 vim.opt.softtabstop = 2
 vim.opt.tabstop = 2
+vim.opt.virtualedit = "block"
 
 ---------------------------------- Searching ----------------------------------
 vim.opt.ignorecase = true
@@ -85,11 +95,13 @@ vim.env.NVIM_TERM = 1 -- TODO: Why?
 vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true -- highlight the line the cursor is on
 vim.opt.number = true
+vim.opt.pumblend = 10 -- transparent popup menu
 vim.opt.scrolloff = 1 -- start scrolling when near the last line
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.sidescrolloff = 5 -- start scrolling when near the last col
 vim.opt.termguicolors = true -- true color support
+vim.opt.winblend = 10 -- transparent floating windows
 
 --------------------------------- Completion ----------------------------------
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
@@ -122,38 +134,50 @@ vim.opt.pyxversion = 3
 -------------------------------------------------------------------------------
 --                                  Mappings                                 --
 -------------------------------------------------------------------------------
+local map = vim.keymap.set
 ---------------------------------- Navigation ---------------------------------
-vim.keymap.set("i", "jj", "<Esc>") -- exit insert
-vim.keymap.set("t", "kk", "<C-\\><C-n>") -- exit terminal mode
-vim.keymap.set({ "n", "x" }, ";", ":") -- faster command entry
-vim.keymap.set({ "n", "x" }, "J", "<Cmd>bprev<CR>") -- prev buffer
-vim.keymap.set({ "n", "x" }, "K", "<Cmd>bnext<CR>") -- next buffer
-vim.keymap.set("n", "H", "^") -- beginning of line
-vim.keymap.set("n", "L", "$") -- end of line
+map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
+map("t", "kk", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+map({ "n", "x" }, ";", ":", { desc = "Enter command mode" })
+map({ "n", "x" }, "J", "<Cmd>bprev<CR>", { desc = "Previous buffer" })
+map({ "n", "x" }, "K", "<Cmd>bnext<CR>", { desc = "Next buffer" })
+map("n", "H", "^", { desc = "Go to line's first non-blank character" })
+map("n", "L", "$", { desc = "Go to end of line" })
 
--- "inside line" text object
-vim.keymap.set("x", "il", "^og_")
-vim.keymap.set("o", "il", ":normal vil<CR>")
+map("x", "il", "^og_", { desc = "Inside line" })
+map("o", "il", ":normal vil<CR>", { desc = "Inside line" })
 
 ----------------------------------- Editing -----------------------------------
-vim.keymap.set("n", "U", "<C-R>") -- redo
-vim.keymap.set("i", "<C-u>", "<C-g>u<C-u>") -- allow undo of <C-u>
-vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>") -- allow undo of <C-w>
+map("n", "U", "<C-R>", { desc = "Redo" })
+map("i", "<C-u>", "<C-g>u<C-u>", { desc = "Undo" }) -- allow undo of <C-u>
+map("i", "<C-w>", "<C-g>u<C-w>", { desc = "Undo" }) -- allow undo of <C-w>
 -- TODO: make repeatable
-vim.keymap.set("n", "<Leader>i", "i<Space><Esc>r") -- insert single character before
-vim.keymap.set("n", "<Leader>a", "a<Space><Esc>r") -- insert single character after
+map("n", "<Leader>i", "i<Space><Esc>r", { desc = "Insert single character before" })
+map("n", "<Leader>a", "a<Space><Esc>r", { desc = "Insert single character after" })
+map(
+  "n",
+  "gO",
+  "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>",
+  { desc = "Put empty line above" }
+)
+map(
+  "n",
+  "go",
+  "<Cmd>call append(line('.'), repeat([''], v:count1))<CR>",
+  { desc = "Put empty line below" }
+)
 
 --- some brilliant line movement mappings from junegunn ---
-vim.keymap.set("n", "<M-k>", ":move-2<CR>", { silent = true }) -- move line up
-vim.keymap.set("n", "<M-j>", ":move+<CR>", { silent = true }) -- move line down
-vim.keymap.set("n", "<M-l>", ">>", { silent = true }) -- indent line
-vim.keymap.set("n", "<M-h>", "<<", { silent = true }) -- outdent line
-vim.keymap.set("x", "<M-k>", ":move-2<CR>gv", { silent = true }) -- move selection up
-vim.keymap.set("x", "<M-j>", ":move'>+<CR>gv", { silent = true }) -- move selection up
-vim.keymap.set("x", "<M-l>", ">gv", { silent = true }) -- indent selection
-vim.keymap.set("x", "<M-h>", "<gv", { silent = true }) -- outdent selection
-vim.keymap.set("x", ">", ">gv", { silent = true }) -- indent selection
-vim.keymap.set("x", "<", "<gv", { silent = true }) -- outdent selection
+map("n", "<M-k>", ":move-2<CR>", { desc = "Move line up", silent = true })
+map("n", "<M-j>", ":move+<CR>", { desc = "Move line down", silent = true })
+map("n", "<M-l>", ">>", { desc = "Indent line", silent = true })
+map("n", "<M-h>", "<<", { desc = "Outdent line", silent = true })
+map("x", "<M-k>", ":move-2<CR>gv", { desc = "Move selection up", silent = true })
+map("x", "<M-j>", ":move'>+<CR>gv", { desc = "Move selection down", silent = true })
+map("x", "<M-l>", ">gv", { desc = "Indent selection", silent = true })
+map("x", "<M-h>", "<gv", { desc = "Outdent selection", silent = true })
+map("x", ">", ">gv", { desc = "Indent selection", silent = true })
+map("x", "<", "<gv", { desc = "Outdent selection", silent = true })
 
 -------------------------------------------------------------------------------
 --                                Autocommands                               --

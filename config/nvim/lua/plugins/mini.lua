@@ -16,7 +16,7 @@ return {
 
     require("mini.bracketed").setup({})
     require("mini.comment").setup({})
-    -- require("mini.completion").setup({}) -- TODO
+    -- require("mini.completion").setup({})
 
     require("mini.cursorword").setup({})
     vim.api.nvim_set_hl(0, "MiniCursorword", { link = "CursorLine" })
@@ -38,6 +38,7 @@ return {
       symbol = require("icons").bar.thin,
     })
     vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { link = "GruvboxAqua" })
+    vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { link = "GruvboxRed" })
 
     -- require("mini.jump").setup() -- TODO?
 
@@ -51,14 +52,14 @@ return {
     -- })
 
     require("mini.misc").setup({})
+    -- require("mini.move").setup({}) -- TODO?
     require("mini.pairs").setup({
       modes = { insert = true, command = true, terminal = true },
     })
     -- require("mini.splitjoin").setup() -- TODO?
     -- require("mini.statusline").setup() -- TODO
 
-    local surround = require("mini.surround")
-    surround.setup({
+    require("mini.surround").setup({
       mappings = {
         add = "ys",
         delete = "ds",
