@@ -4,4 +4,5 @@ return {
   config = function(_, opts)
     require("statuscol").setup(opts)
   end,
+  enabled = false,
 }
