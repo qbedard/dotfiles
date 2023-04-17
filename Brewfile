@@ -50,8 +50,8 @@ cask 'insomnia'
 cask 'rectangle'
 cask 'tableplus'
 
-tap 'homebrew/cask-versions'
-cask 'kitty-nightly'
+# tap 'homebrew/cask-versions'
+# cask 'kitty-nightly'
 
 # --- Fonts --- #
 tap 'homebrew/cask-fonts'
