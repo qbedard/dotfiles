@@ -2,7 +2,7 @@
 # --------------------------------- General ---------------------------------- #
 set -gx PAGER less --tabs=4 -RFX
 set -gx PYTHONDONTWRITEBYTECODE 1 # prevent .pyc files
-set -gx SAM_CLI_TELEMETRY=0
+set -gx SAM_CLI_TELEMETRY 0
 set -gx SHELL fish
 
 set -g theme_nerd_fonts yes
