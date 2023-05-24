@@ -84,7 +84,6 @@ RUN apk add \
 	direnv \
 	# TODO: Fix timezone issues.
 	exa \
-	fasd \
 	fd \
 	fish \
 	# TODO: Get fzf working properly.

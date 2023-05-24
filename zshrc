@@ -8,7 +8,6 @@ plugins=(
   cargo
   docker
   docker-compose
-  fasd
   # gem
   git
   git-extras

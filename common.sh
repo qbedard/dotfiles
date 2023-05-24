@@ -125,18 +125,6 @@ show_virtual_env() {
 }
 PS1='$(show_virtual_env)'$PS1
 
-# --- fasd ---
-fasd_cache="$HOME/.fasd-init-sh"
-if [ "$(command -v fasd)" -nt "$fasd_cache" ] || [ ! -s "$fasd_cache" ]; then
-	fasd --init auto >|"$fasd_cache"
-fi
-. "$fasd_cache"
-unset fasd_cache
-
-alias j='fasd_cd -d'
-alias v='f -e vim'
-alias o='a -e open'
-
 # use rg with fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
