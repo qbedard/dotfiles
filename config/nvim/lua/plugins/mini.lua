@@ -54,7 +54,7 @@ return {
     require("mini.misc").setup({})
     -- require("mini.move").setup({}) -- TODO?
     require("mini.pairs").setup({
-      modes = { insert = true, command = true, terminal = true },
+      modes = { insert = true, terminal = true },
     })
     -- require("mini.splitjoin").setup() -- TODO?
     -- require("mini.statusline").setup() -- TODO
