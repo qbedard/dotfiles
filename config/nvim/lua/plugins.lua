@@ -49,8 +49,11 @@ return {
   },
 
   "stevearc/dressing.nvim",
-  { "j-hui/fidget.nvim", opts = { text = { spinner = "dots" } } },
-
+  {
+    "j-hui/fidget.nvim",
+    tag = "legacy", -- TODO: upgrade to new version when released
+    opts = { text = { spinner = "dots" } },
+  },
   "kshenoy/vim-signature",
 
   "justinmk/vim-dirvish",
