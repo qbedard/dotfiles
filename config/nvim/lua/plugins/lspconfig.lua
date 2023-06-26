@@ -95,6 +95,7 @@ return {
       -- "clangd",
       -- "cmake",
       "cssls",
+      "docker_compose_language_service",
       "dockerls",
       "gopls",
       "html",
