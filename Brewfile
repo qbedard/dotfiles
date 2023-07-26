@@ -46,7 +46,7 @@ cask 'brave-browser'
 cask 'docker'
 cask 'hammerspoon'
 cask 'insomnia'
-# cask 'kitty'
+cask 'kitty'
 cask 'rectangle'
 cask 'tableplus'
 
