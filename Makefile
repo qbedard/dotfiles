@@ -41,7 +41,7 @@ update-nvim:
 	@nvim --headless -c "Lazy! sync" +MasonToolsUpdate +qa
 	@echo "\nNeovim plugins updated!"
 
-update: update-brew update-brew-head update-tldr update-nvim
+update: update-brew update-brew-head update-tldr update-nvim update-pipx
 
 reload-amethyst:
 	@killall Amethyst
