@@ -1,4 +1,5 @@
 NSGlobalDomain:
+  AppleKeyboardUIMode: 2
   AppleShowAllExtensions: true
   InitialKeyRepeat: 12
   KeyRepeat: 1
