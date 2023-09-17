@@ -9,17 +9,18 @@ brew 'fd' # find replacement
 brew 'fish' # shell
 brew 'fzf' # fuzzy
 brew 'gh' # GitHub CLI
-brew 'ghq' # repo organization
+# brew 'ghq' # repo organization
 brew 'git'
 brew 'gnupg' # GPG tools
 brew 'go'
-brew 'hub' # GitHub tools
+# brew 'hub' # GitHub tools
 brew 'ipython' # better python shell
 brew 'jq' # JSON parsing
 brew 'lazydocker' # docker term UI
 brew 'lua-language-server'
 brew 'luajit', args: ['HEAD'] # neovim HEAD dep
-brew 'neovim', args: ['HEAD']
+# brew 'neovim', args: ['HEAD']
+brew 'neovim'
 brew 'node'
 # brew 'phoenix' # JS-based OS scripting engine
 brew 'pipx'
@@ -39,16 +40,15 @@ brew 'tokei' # fancy line count
 brew 'zoxide' # fast dir nav
 
 # --- Casks --- #
-tap 'homebrew/cask'
 cask 'alfred'
 cask 'amethyst' # tiling window manager
 cask 'brave-browser'
 cask 'docker'
 cask 'hammerspoon'
-cask 'insomnia'
+# cask 'insomnia'
 cask 'kitty'
-cask 'rectangle'
-cask 'tableplus'
+# cask 'rectangle'
+# cask 'tableplus'
 
 # tap 'homebrew/cask-versions'
 # cask 'kitty-nightly'
