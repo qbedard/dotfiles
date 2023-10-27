@@ -33,7 +33,7 @@ alias c="clear"
 alias q="exit"
 alias quit="exit"
 
-alias ls="exa --group-directories-first"
+alias ls="eza --group-directories-first"
 alias l="ls -1"
 alias la="l -a"
 alias ll="ls -lh --git"

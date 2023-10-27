@@ -83,7 +83,7 @@ RUN apk add \
 	# diff-so-fancy \  # not yet
 	direnv \
 	# TODO: Fix timezone issues.
-	exa \
+	eza \
 	fd \
 	fish \
 	# TODO: Get fzf working properly.

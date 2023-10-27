@@ -86,8 +86,8 @@ if command -q bat
     set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain'"
 end
 
-if command -q exa
-    alias ls "exa --group-directories-first --icons"
+if command -q eza
+    alias ls "eza --group-directories-first --icons"
     abbr -a ll "ls -lh --git"
     abbr -a lla "ls -lh --git -a"
     abbr -a llg "ll --grid"
@@ -139,8 +139,8 @@ if command -q fd
         'fd --strip-cwd-prefix --type directory --hidden --follow --no-ignore-vcs'
 end
 
-if command -q exa
-    set -gx FZF_DIR_PREVIEW_CMD "exa --tree --level 1 --all --icons --color=always"
+if command -q eza
+    set -gx FZF_DIR_PREVIEW_CMD "eza --tree --level 1 --all --icons --color=always"
 else
     set -gx FZF_DIR_PREVIEW_CMD "ls -1 -a"
 end
