@@ -38,6 +38,7 @@ abbr -a dcb "docker compose build"
 abbr -a dcu "docker compose up"
 abbr -a dcud "docker compose up -d"
 abbr -a dcd "docker compose down"
+abbr -a dcr "docker compose run"
 
 abbr -a ld lazydocker
 
