@@ -10,6 +10,9 @@ return {
       char = require("icons").bar.thin,
       highlight = { "GruvboxBg1", "GruvboxBg2" },
     },
+    scope = {
+      highlight = { "GruvboxAqua" },
+    },
     whitespace = { remove_blankline_trail = true },
   },
 }
