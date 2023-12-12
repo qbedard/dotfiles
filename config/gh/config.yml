@@ -40,3 +40,4 @@ aliases:
         " \
         | jq .data.viewer.organizations.nodes[].repositories.nodes[].nameWithOwner \
         | sed "s/\"//g"
+version: "1"
