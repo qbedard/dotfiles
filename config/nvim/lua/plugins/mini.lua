@@ -29,17 +29,17 @@ return {
       end,
     })
 
-    local indentscope = require("mini.indentscope")
-    indentscope.setup({
-      draw = {
-        delay = 50,
-        animation = indentscope.gen_animation.linear({ duration = 1 }),
-      },
-      symbol = require("icons").bar.thin,
-    })
-    vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { link = "GruvboxAqua" })
-    vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { link = "GruvboxRed" })
-
+    -- local indentscope = require("mini.indentscope")
+    -- indentscope.setup({
+    --   draw = {
+    --     delay = 50,
+    --     animation = indentscope.gen_animation.linear({ duration = 1 }),
+    --   },
+    --   symbol = require("icons").bar.thin,
+    -- })
+    -- vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { link = "GruvboxAqua" })
+    -- vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { link = "GruvboxRed" })
+    --
     -- require("mini.jump").setup() -- TODO?
 
     -- local map = require("mini.map")
