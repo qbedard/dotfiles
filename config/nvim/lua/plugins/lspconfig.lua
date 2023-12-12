@@ -54,22 +54,16 @@ return {
       severity_sort = true,
     })
 
-    vim.fn.sign_define("DiagnosticSignError", {
-      text = i.diag.error,
-      texthl = "DiagnosticSignError",
-    })
-    vim.fn.sign_define("DiagnosticSignWarn", {
-      text = i.diag.warn,
-      texthl = "DiagnosticSignWarn",
-    })
-    vim.fn.sign_define("DiagnosticSignInfo", {
-      text = i.diag.info,
-      texthl = "DiagnosticSignInfo",
-    })
-    vim.fn.sign_define("DiagnosticSignHint", {
-      text = i.diag.hint,
-      texthl = "DiagnosticSignHint",
-    })
+    for name, icon in pairs({
+      Error = i.diag.error,
+      Warn = i.diag.warn,
+      Info = i.diag.info,
+      Hint = i.diag.hint,
+      Ok = i.diag.ok,
+    }) do
+      name = "DiagnosticSign" .. name
+      vim.fn.sign_define(name, { text = icon, texthl = name })
+    end
 
     -- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
     -- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -101,7 +95,7 @@ return {
       "html",
       -- "jsonls",
       -- "rnix",
-      -- "ruff_lsp",
+      "ruff_lsp",
       "rust_analyzer",
       -- "sqls",
       -- "taplo",
@@ -136,17 +130,17 @@ return {
       },
     })
 
-    lspconfig.ruff_lsp.setup({
-      capabilities = capabilities,
-      init_options = {
-        settings = {
-          args = {
-            "--select=A,B,C4,C90,D,E,F,N,PIE,PT003,PT006,PT008,PT022,RET504,SIM,T20,UP,W",
-            "--ignore=D1,D203,D205,D212,D213,D400,D404,D415,I,N818",
-          },
-        },
-      },
-    })
+    -- lspconfig.ruff_lsp.setup({
+    --   capabilities = capabilities,
+    --   init_options = {
+    --     settings = {
+    --       args = {
+    --         "--select=A,B,C4,C90,D,E,F,N,PIE,PT003,PT006,PT008,PT022,RET504,SIM,T20,UP,W",
+    --         "--ignore=D1,D203,D205,D212,D213,D400,D404,D415,I,N818",
+    --       },
+    --     },
+    --   },
+    -- })
 
     ----------------------------------- SQL ------------------------------------
     -- TODO: Figure out why this doesn't work.

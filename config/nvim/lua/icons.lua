@@ -17,7 +17,7 @@ local _icons = {
     -- hint = "➤",
     hint = "",
     info = "",
-    pass = "",
+    ok = "",
     -- virtual = ""
     virtual = "•",
   },
