@@ -6,13 +6,8 @@ return {
       filetypes = { "text", "markdown" },
       buftypes = { "help", "nofile", "prompt", "quickfix", "terminal" },
     },
-    indent = {
-      char = require("icons").bar.thin,
-      highlight = { "GruvboxBg1", "GruvboxBg2" },
-    },
-    scope = {
-      highlight = { "GruvboxAqua" },
-    },
+    indent = { highlight = { "GruvboxBg1", "GruvboxBg2" } },
+    scope = { highlight = { "GruvboxAqua" } },
     whitespace = { remove_blankline_trail = true },
   },
 }
