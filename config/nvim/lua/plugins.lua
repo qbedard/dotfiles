@@ -48,12 +48,10 @@ return {
     end,
   },
 
+  -- "gravndal/shiftwidth_leadmultispace.nvim",  -- TODO
+
+  { "j-hui/fidget.nvim", opts = {} }, -- TODO: Replace with nvim-notify?
   "stevearc/dressing.nvim",
-  {
-    "j-hui/fidget.nvim",
-    tag = "legacy", -- TODO: upgrade to new version when released
-    opts = { text = { spinner = "dots" } },
-  },
   "kshenoy/vim-signature",
 
   "justinmk/vim-dirvish",
