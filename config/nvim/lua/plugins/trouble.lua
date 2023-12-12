@@ -1,5 +1,3 @@
-local icons = require("icons")
-
 return {
   "folke/trouble.nvim",
   lazy = false,
@@ -42,13 +40,5 @@ return {
       end,
     },
   },
-  opts = {
-    signs = {
-      error = icons.diag.error,
-      warning = icons.diag.warn,
-      hint = icons.diag.hint,
-      information = icons.diag.info,
-      other = icons.diag.pass,
-    },
-  },
+  opts = { use_diagnostic_signs = true },
 }
