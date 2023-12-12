@@ -5,6 +5,7 @@
 
 - shell:
     - bash -c 'if [ "$(uname)" == "Darwin" ]; then brew bundle --no-lock; fi'
+    - bash -c 'apply-user-defaults macos-defaults.yaml'
 
 - clean:
     ~/:
