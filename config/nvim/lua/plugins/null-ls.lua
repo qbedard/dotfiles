@@ -1,7 +1,5 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim",
-  -- "timbedard/null-ls.nvim",
-  -- branch = "more-python-tools",
+  "nvimtools/none-ls.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "williamboman/mason.nvim",
@@ -49,12 +47,8 @@ return {
         --   end,
         -- }),
         diagnostics.fish,
-        -- diagnostics.flake8.with({
-        --   extra_args = { "--select=C,E,F,W,B,N,B950", "--ignore=E203,E501,N818,W503" },
-        -- }),
         -- diagnostics.mypy,
         -- diagnostics.rubocop,
-        -- diagnostics.pydocstyle.with({ extra_args = { "--add-ignore=D1,D205,D400" } }),
         -- diagnostics.selene,
         diagnostics.shellcheck,
         -- diagnostics.ruff.with({ extra_args = ruff_args }),
@@ -62,26 +56,18 @@ return {
         --   extra_args = { "--dialect", "mysql" },
         --   filetypes = { "mysql", "sql" },
         -- }),
-        -- formatting.autoflake.with({ extra_args = { "--remove-all-unused-imports" } }),
-        formatting.black.with({ extra_args = { "--preview" } }),
-        -- formatting.docformatter.with({
-        --   extra_args = {
-        --     "--close-quotes-on-newline", -- not perfect, but okay
-        --     "--pre-summary-newline", -- compatibility for now
-        --     "--wrap-summaries=80",
-        --     "--wrap-descriptions=80",
-        --   },
+        -- formatting.black.with({ extra_args = { "--preview" } }),
         -- }),
         formatting.fish_indent,
-        formatting.isort.with({
-          args = {
-            "--stdout",
-            "--profile=black",
-            "--lines-after-imports=2",
-            "--filename=$FILENAME",
-            "-",
-          },
-        }),
+        -- formatting.isort.with({
+        --   args = {
+        --     "--stdout",
+        --     "--profile=black",
+        --     "--lines-after-imports=2",
+        --     "--filename=$FILENAME",
+        --     "-",
+        --   },
+        -- }),
         formatting.prettier,
         -- formatting.ruff.with({ extra_args = ruff_args }),
         -- formatting.rubocop,
