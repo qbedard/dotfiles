@@ -113,6 +113,7 @@ vim.filetype.add({
     conf = "cfg",
     dockerfile = "dockerfile",
     keymap = "c",
+    jsonl = "json",
     overlay = "c",
     sql = "mysql",
   },
@@ -125,6 +126,7 @@ vim.filetype.add({
   },
   pattern = {
     [".*git/config"] = "gitconfig",
+    [".*gitconfig.*"] = "gitconfig",
   },
 })
 
