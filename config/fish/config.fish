@@ -88,7 +88,9 @@ if command -q bat
 end
 
 if command -q eza
-    alias ls "eza --group-directories-first --icons"
+    set -gx EZA_ICONS_AUTO 1
+    alias eza "eza --group-directories-first"
+    alias ls "eza"
     abbr -a ll "ls -lh --git"
     abbr -a lla "ls -lh --git -a"
     abbr -a llg "ll --grid"
@@ -135,19 +137,20 @@ else
 end
 
 if command -q fd
-    set -gx FZF_CTRL_T_COMMAND 'fd --strip-cwd-prefix --hidden --follow --no-ignore-vcs'
+    set -gx FZF_CTRL_T_COMMAND "fd --strip-cwd-prefix --hidden --follow --no-ignore-vcs"
     set -gx FZF_ALT_C_COMMAND \
-        'fd --strip-cwd-prefix --type directory --hidden --follow --no-ignore-vcs'
+        "fd --strip-cwd-prefix --type directory --hidden --follow --no-ignore-vcs"
 end
 
 if command -q eza
-    set -gx FZF_DIR_PREVIEW_CMD "eza --tree --level 1 --all --icons --color=always"
+    set -gx FZF_DIR_PREVIEW_CMD \
+        "eza --tree --level 1 --all --icons --color=always --group-directories-first"
 else
     set -gx FZF_DIR_PREVIEW_CMD "ls -1 -a"
 end
 
 if command -q rg
-    set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
+    set -gx FZF_DEFAULT_COMMAND "rg --files --hidden --follow"
 end
 
 function __fzf_file_preview -a file
