@@ -24,3 +24,6 @@
 
 ; [delta]
 ; 	syntax-theme = gruvbox
+[user]
+	name = Tim Bedard
+	email = tpbedard@gmail.com

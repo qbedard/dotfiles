@@ -9,11 +9,9 @@ brew 'fd' # find replacement
 brew 'fish' # shell
 brew 'fzf' # fuzzy
 brew 'gh' # GitHub CLI
-# brew 'ghq' # repo organization
 brew 'git'
 brew 'gnupg' # GPG tools
 brew 'go'
-# brew 'hub' # GitHub tools
 brew 'ipython' # better python shell
 brew 'jq' # JSON parsing
 brew 'lazydocker' # docker term UI
@@ -22,6 +20,7 @@ brew 'luajit', args: ['HEAD'] # neovim HEAD dep
 # brew 'neovim', args: ['HEAD']
 brew 'neovim'
 brew 'node'
+brew 'obsidian'
 # brew 'phoenix' # JS-based OS scripting engine
 brew 'pipx'
 brew 'procs' # ps replacement
@@ -32,6 +31,7 @@ brew 'shfmt'
 brew 'starship'  # shell prompt
 brew 'stow'
 brew 'stylua'
+brew 'syncthing'
 brew 'taplo'  # TOML LSP and toolset
 brew 'tealdeer'  # Rust tldr pages client
 # brew 'terraform'
@@ -40,14 +40,12 @@ brew 'tokei' # fancy line count
 brew 'zoxide' # fast dir nav
 
 # --- Casks --- #
-cask 'alfred'
 cask 'amethyst' # tiling window manager
 cask 'brave-browser'
 cask 'docker'
-cask 'hammerspoon'
 # cask 'insomnia'
 cask 'kitty'
-# cask 'rectangle'
+cask 'raycast'
 # cask 'tableplus'
 
 # tap 'homebrew/cask-versions'

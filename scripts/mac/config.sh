@@ -17,7 +17,7 @@ echo '{
 
 echo "Changing shell to fish..."
 # TODO: make this avoid repetitive additions if re-run
-sudo echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/fish
+sudo echo "$HOMEBREW_PREFIX/bin/fish" | sudo tee -a /etc/shells
+chsh -s $HOMEBREW_PREFIX/bin/fish
 
 echo "Configuration complete."
