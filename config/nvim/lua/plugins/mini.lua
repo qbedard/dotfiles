@@ -42,14 +42,29 @@ return {
     --
     -- require("mini.jump").setup() -- TODO?
 
-    -- local map = require("mini.map")
-    -- map.setup({
-    --   integrations = {
-    --     map.gen_integration.builtin_search(),
-    --     map.gen_integration.gitsigns(),
-    --     map.gen_integration.diagnostic(),
-    --   },
-    -- })
+    local map = require("mini.map")
+    map.setup({
+      integrations = {
+        map.gen_integration.builtin_search(),
+        map.gen_integration.diagnostic({
+          error = "DiagnosticFloatingError",
+          warn = "DiagnosticFloatingWarn",
+          info = "DiagnosticFloatingInfo",
+          hint = "DiagnosticFloatingHint",
+        }),
+        map.gen_integration.gitsigns(),
+      },
+      symbols = { encode = map.gen_encode_symbols.dot("4x2"), scroll_line = "⏵" },
+      window = { show_integration_count = false, width = 5 },
+    })
+    for _, key in ipairs({ "n", "N", "*", "#" }) do
+      vim.keymap.set(
+        "n",
+        key,
+        key .. "<Cmd>lua MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>"
+      )
+    end
+    map.open()
 
     require("mini.misc").setup({})
     -- require("mini.move").setup({}) -- TODO?
