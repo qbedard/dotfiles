@@ -31,7 +31,6 @@ brew 'shfmt'
 brew 'starship'  # shell prompt
 brew 'stow'
 brew 'stylua'
-brew 'syncthing'
 brew 'taplo'  # TOML LSP and toolset
 brew 'tealdeer'  # Rust tldr pages client
 # brew 'terraform'
@@ -46,6 +45,7 @@ cask 'docker'
 # cask 'insomnia'
 cask 'kitty'
 cask 'raycast'
+cask 'syncthing'
 # cask 'tableplus'
 
 # tap 'homebrew/cask-versions'
