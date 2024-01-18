@@ -25,6 +25,7 @@
     ~/.amethyst.yml: amethyst.yaml
     ~/.bashrc:
     ~/.common.sh:
+    ~/.hushlogin:
     ~/.isort.cfg:
     ~/.npmrc:
     ~/.phoenix.js:
