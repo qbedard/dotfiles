@@ -39,7 +39,7 @@ brew 'tokei' # fancy line count
 brew 'zoxide' # fast dir nav
 
 # --- Casks --- #
-cask 'amethyst' # tiling window manager
+# cask 'amethyst' # tiling window manager
 cask 'brave-browser'
 cask 'docker'
 # cask 'insomnia'
@@ -47,6 +47,9 @@ cask 'kitty'
 cask 'raycast'
 cask 'syncthing'
 # cask 'tableplus'
+
+tap 'nikitabobko/tap'
+cask 'aerospace' # tiling window manager
 
 # tap 'homebrew/cask-versions'
 # cask 'kitty-nightly'
