@@ -8,13 +8,14 @@ com.apple.AppleMultitouchTrackpad:
   Clicking: false
 com.apple.TimeMachine:
   DoNotOfferNewDisksForBackup: true
-com.apple.driver.AppleBluetoothMultitouch.trackpad:
-  Clicking: false
 com.apple.dock:
   autohide: true
   autohide-delay: 1000
+  mru-spaces: false
   no-bouncing: true
   orientation: left
+com.apple.driver.AppleBluetoothMultitouch.trackpad:
+  Clicking: false
 com.apple.finder:
   AppleShowAllFiles: true
   ShowPathbar: true
