@@ -2,3 +2,4 @@ direnv system
 nodejs 18.12.1 system
 python 3.11.6 3.9.16 3.8.16 3.7.16 system
 golang 1.20.10
+terraform 1.5.1
