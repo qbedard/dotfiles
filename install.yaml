@@ -31,6 +31,7 @@
     ~/.phoenix.js:
     ~/.ripgreprc:
     ~/.sql-formatter.json:
+    ~/.tflint.hcl:
     ~/.tool-versions:
     ~/.zshrc:
     ~/Library/Application Support/jesseduffield/lazydocker/config.yml: lazydocker-config.yaml

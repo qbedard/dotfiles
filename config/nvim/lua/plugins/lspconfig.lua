@@ -10,7 +10,7 @@ return {
         automatic_installation = {
           exclude = {
             "rust_analyzer",
-            "terraformls",
+            -- "terraformls",
             "lua_ls",
             "taplo",
           },
@@ -101,6 +101,7 @@ return {
       -- "taplo",
       -- "solargraph", -- ruby
       "terraformls",
+      "tflint", -- TODO: Add `tflint --init`?
     }
     for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup({ capabilities = capabilities })
