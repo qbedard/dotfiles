@@ -43,6 +43,7 @@ brew 'zoxide' # fast dir nav
 cask 'brave-browser'
 cask 'docker'
 # cask 'insomnia'
+# cask 'karabiner-elements'
 cask 'kitty'
 cask 'raycast'
 cask 'syncthing'
