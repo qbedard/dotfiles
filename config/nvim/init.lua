@@ -116,6 +116,8 @@ vim.filetype.add({
     jsonl = "json",
     overlay = "c",
     sql = "mysql",
+    tfstate = "json",
+    tfvars = "hcl",
   },
   filename = {
     [".flake8"] = "cfg",
