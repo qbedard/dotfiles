@@ -17,6 +17,7 @@
     - ~/.config/fish/functions
     - ~/.config/gh
     - ~/.config/hammerspoon
+    - ~/.config/karabiner
     - ~/Library/Application Support/jesseduffield/lazydocker
     - ~/Library/Application Support/pypoetry
     - ~/Library/Application Support/ruff
