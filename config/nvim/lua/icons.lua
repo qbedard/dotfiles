@@ -14,12 +14,11 @@ local _icons = {
   diag = {
     error = "",
     warn = "",
-    -- hint = "➤",
     hint = "",
     info = "",
     ok = "",
-    -- virtual = ""
     virtual = "•",
+    -- virtual = "",
   },
   diff = {
     add = "",
