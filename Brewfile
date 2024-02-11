@@ -57,7 +57,9 @@ cask 'aerospace' # tiling window manager
 
 # --- Fonts --- #
 tap 'homebrew/cask-fonts'
-cask 'font-hack-nerd-font'
+cask 'font-hack'
+cask 'font-iosevka'
+cask 'font-symbols-only-nerd-font'
 
 # --- Misc --- #
 tap 'zero-sh/tap'
