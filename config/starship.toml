@@ -7,7 +7,6 @@ symbol = " "
 disabled = true
 
 [cmd_duration]
-# TODO: Figure out how to fix timer icons being kanji
 format = "[ $duration]($style) "
 disabled = true
 
@@ -16,12 +15,12 @@ read_only = " "
 
 [docker_context]
 format = "[$symbol]($style) "
-symbol = " "
+symbol = "󰡨 "
 disabled = true
 
 [git_branch]
 format = "[$symbol$branch]($style) "
-symbol = " "
+symbol = "󰘬 "
 
 [git_status]
 deleted = "x"
@@ -32,7 +31,7 @@ deleted = "x"
 # behind = ""
 # diverged = ""
 # untracked = ""
-# stashed = ""
+# stashed = "󰋻"
 # modified = ""
 # staged = ""
 # renamed = ""
@@ -57,7 +56,7 @@ detect_files = [".node-version", ".nvmrc", "package.json"]
 format = "[$symbol$version]($style) "
 
 [package]
-symbol = " "
+symbol = " "
 disabled = true
 
 [python]
@@ -80,7 +79,7 @@ disabled = false
 
 [terraform]
 format = "[$symbol$version]($style) "
-symbol = " "
+symbol = "󱁢 "
 disabled = true
 
 [username]
