@@ -25,7 +25,7 @@ local codicons = {
     lock = "",
   },
   git = {
-    branch = "",
+    branch = "󰘬",
   },
   lang = {
     class = "",
@@ -88,7 +88,7 @@ local _icons = {
     lock = "",
   },
   git = {
-    branch = "",
+    branch = "󰘬",
   },
   lang = {
     class = "󰠱",
