@@ -130,10 +130,13 @@ local _icons = {
 }
 
 local icons = vim.tbl_extend("force", {}, _icons)
+
+icons.kind = {}
 for k, v in pairs(icons.lang) do
   k = k:sub(1,1):upper() .. k:sub(2)
   icons.kind[k] = v .. " "
 end
+
 for name, section in pairs(_icons) do
   for k, v in pairs(section) do
     icons[name]["_" .. k] = " " .. v -- leading space
