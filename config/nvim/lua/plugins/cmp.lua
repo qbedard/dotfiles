@@ -13,13 +13,22 @@ return {
   opts = function()
     require("cmp_nvim_lsp").setup()
     local cmp = require("cmp")
+    local icons = require("icons")
     local lspkind = require("lspkind")
     return {
       -- window = {
       --   completion = cmp.config.window.bordered(),
       --   documentation = cmp.config.window.bordered(),
       -- },
-      formatting = { format = lspkind.cmp_format({ mode = "symbol" }) },
+      -- formatting = { format = lspkind.cmp_format({ mode = "symbol" }) },
+      formatting = {
+        format = function(_, item)
+          if icons.kind[item.kind] then
+            item.kind = icons.kind[item.kind]
+          end
+          return item
+        end,
+      },
       -- NOTE: Only useful for cmp-path
       -- formatting = {
       --   format = function(entry, vim_item)

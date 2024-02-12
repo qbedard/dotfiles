@@ -7,7 +7,7 @@ return {
     sections = {
       lualine_a = { "mode" },
       lualine_b = {
-        { "branch", icon = "" },
+        { "branch", icon = i.git.branch },
       },
       lualine_c = {
         {
