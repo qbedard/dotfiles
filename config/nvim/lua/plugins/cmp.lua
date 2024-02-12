@@ -16,10 +16,10 @@ return {
     local icons = require("icons")
     local lspkind = require("lspkind")
     return {
-      -- window = {
-      --   completion = cmp.config.window.bordered(),
-      --   documentation = cmp.config.window.bordered(),
-      -- },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
       -- formatting = { format = lspkind.cmp_format({ mode = "symbol" }) },
       formatting = {
         format = function(_, item)
