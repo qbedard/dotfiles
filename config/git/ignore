@@ -6,6 +6,7 @@
 .pyc
 .pytest_cache
 .ropeproject
+.terraform
 .tool-versions
 .venv
 node_modules
