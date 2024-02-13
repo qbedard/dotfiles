@@ -42,13 +42,13 @@ format = "[$symbol$version]($style) "
 symbol = " "
 
 [java]
-symbol = " "
+symbol = "󰬷 "
 
 [line_break]
 disabled = true
 
 [lua]
-symbol = " "
+symbol = " "
 
 [nodejs]
 detect_extensions = []
@@ -61,11 +61,11 @@ disabled = true
 
 [python]
 format = "[$symbol$version]($style) "
-symbol = " "
+symbol = " "
 
 [ruby]
 format = "[$symbol$version]($style) "
-symbol = " "
+symbol = "󰴭 "
 
 [rust]
 format = "[$symbol$version]($style) "
