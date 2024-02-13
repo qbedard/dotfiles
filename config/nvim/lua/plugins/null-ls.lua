@@ -8,8 +8,8 @@ return {
       opts = {
         automatic_installation = {
           exclude = {
-            "bandit", -- not available
-            "docformatter", -- not available
+            -- "bandit", -- not available
+            -- "docformatter", -- not available
             "fish", -- comes with shell
             "fish_indent", -- comes with shell
             "shellcheck", -- brew
@@ -47,30 +47,19 @@ return {
         --   end,
         -- }),
         diagnostics.fish,
-        -- diagnostics.mypy,
         -- diagnostics.rubocop,
+        -- diagnostics.ruff.with({ extra_args = ruff_args }),
         -- diagnostics.selene,
         diagnostics.shellcheck,
-        -- diagnostics.ruff.with({ extra_args = ruff_args }),
         -- diagnostics.sqlfluff.with({
         --   extra_args = { "--dialect", "mysql" },
         --   filetypes = { "mysql", "sql" },
         -- }),
-        -- formatting.black.with({ extra_args = { "--preview" } }),
-        -- }),
+
         formatting.fish_indent,
-        -- formatting.isort.with({
-        --   args = {
-        --     "--stdout",
-        --     "--profile=black",
-        --     "--lines-after-imports=2",
-        --     "--filename=$FILENAME",
-        --     "-",
-        --   },
-        -- }),
         formatting.prettier,
-        -- formatting.ruff.with({ extra_args = ruff_args }),
         -- formatting.rubocop,
+        -- formatting.ruff.with({ extra_args = ruff_args }),
         formatting.shfmt,
         -- formatting.sqlfluff.with({
         --   extra_args = { "--dialect", "mysql" },
