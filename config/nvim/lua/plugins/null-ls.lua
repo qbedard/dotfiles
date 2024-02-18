@@ -12,7 +12,7 @@ return {
             -- "docformatter", -- not available
             "fish", -- comes with shell
             "fish_indent", -- comes with shell
-            "shellcheck", -- brew
+            -- "shellcheck", -- brew
             "shfmt", -- brew
             "stylua", -- brew
             "terraform_fmt", -- comes with terraform
@@ -50,7 +50,7 @@ return {
         -- diagnostics.rubocop,
         -- diagnostics.ruff.with({ extra_args = ruff_args }),
         -- diagnostics.selene,
-        diagnostics.shellcheck,
+        -- diagnostics.shellcheck,
         -- diagnostics.sqlfluff.with({
         --   extra_args = { "--dialect", "mysql" },
         --   filetypes = { "mysql", "sql" },
