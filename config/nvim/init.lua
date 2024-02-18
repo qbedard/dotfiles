@@ -122,7 +122,7 @@ vim.filetype.add({
   filename = {
     [".flake8"] = "cfg",
     Brewfile = "ruby",
-    direnvrc = "bash",
+    direnvrc = "sh",
     flake8 = "cfg",
     ["poetry.lock"] = "toml",
   },
