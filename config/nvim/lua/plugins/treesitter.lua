@@ -87,5 +87,6 @@ return {
     require("nvim-treesitter.configs").setup(opts)
     vim.opt.foldmethod = "expr"
     vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+    vim.treesitter.language.register("terraform", "terraform-vars")
   end,
 }

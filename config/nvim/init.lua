@@ -110,6 +110,7 @@ vim.opt.shortmess:append("c")
 ---------------------------------- Filetype -----------------------------------
 vim.filetype.add({
   extension = {
+    backend = "terraform-vars",
     conf = "cfg",
     dockerfile = "dockerfile",
     keymap = "c",
@@ -117,7 +118,7 @@ vim.filetype.add({
     overlay = "c",
     sql = "mysql",
     tfstate = "json",
-    tfvars = "hcl",
+    tfvars = "terraform-vars",
   },
   filename = {
     [".flake8"] = "cfg",
