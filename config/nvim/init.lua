@@ -117,6 +117,7 @@ vim.filetype.add({
     jsonl = "json",
     overlay = "c",
     sql = "mysql",
+    tfbackend = "terraform-vars",
     tfstate = "json",
     tfvars = "terraform-vars",
   },
