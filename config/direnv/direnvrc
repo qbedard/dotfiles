@@ -13,7 +13,8 @@ layout_poetry() {
 	fi
 
 	# faster than `export VIRTUAL_ENV=$(poetry env info --path)`
-	export VIRTUAL_ENV=".venv"
+	VIRTUAL_ENV="$(realpath .venv)"
+	export VIRTUAL_ENV
 	export POETRY_ACTIVE=1
 	PATH_add "$VIRTUAL_ENV/bin"
 }
