@@ -7,6 +7,18 @@ return {
     sections = {
       lualine_a = { "mode" },
       lualine_b = {
+        {
+          function()
+            local git_dir = require("lualine.components.branch.git_branch").find_git_dir()
+            if git_dir then
+              local path_elems = vim.split(git_dir, "/")
+              return path_elems[#path_elems - 1]
+            end
+            return ""
+          end,
+          padding = { left = 1, right = 0 },
+          separator = "",
+        },
         { "branch", icon = i.git.branch },
       },
       lualine_c = {
