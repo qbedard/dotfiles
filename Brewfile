@@ -1,5 +1,5 @@
 # --- Packages --- #
-brew 'asdf' # tool version manager (node, python, etc)
+# brew 'asdf' # tool version manager (node, python, etc)
 brew 'bat' # cat replacement
 brew 'coreutils' # GNU coreutils (macOS utils are a little different)
 brew 'diff-so-fancy'  # fancy git diff
@@ -17,6 +17,7 @@ brew 'jq' # JSON parsing
 brew 'lazydocker' # docker term UI
 brew 'lua-language-server'
 brew 'luajit', args: ['HEAD'] # neovim HEAD dep
+brew 'mise' # tool version manager
 # brew 'neovim', args: ['HEAD']
 brew 'neovim'
 brew 'node'
