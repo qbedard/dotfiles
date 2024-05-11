@@ -1,5 +1,4 @@
 # --- Packages --- #
-# brew 'asdf' # tool version manager (node, python, etc)
 brew 'bat' # cat replacement
 brew 'coreutils' # GNU coreutils (macOS utils are a little different)
 brew 'diff-so-fancy'  # fancy git diff

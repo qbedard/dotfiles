@@ -200,12 +200,6 @@ function rg-deps -d "Find missing Python dependencies"
 end
 
 # ---------------------------------- Hooks ----------------------------------- #
-# if command -q asdf
-#     source "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.fish"
-#     set -gx NODE_VERSIONS "$HOME/.asdf/installs/nodejs"
-#     set -gx NODE_VERSION_PREFIX ""
-# end
-
 # if command -q mise
 #     mise activate fish | source
 # end
