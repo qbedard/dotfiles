@@ -1,6 +1,6 @@
 -- show where cursor moves to
 return {
-  "edluffy/specs.nvim",
+  "cxwx/specs.nvim",
   opts = {
     min_jump = 20,
     popup = {
