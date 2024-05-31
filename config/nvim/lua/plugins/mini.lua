@@ -15,7 +15,6 @@ return {
     vim.keymap.set("o", "il", ":normal vil<CR>")
 
     require("mini.bracketed").setup({})
-    require("mini.comment").setup({})
     -- require("mini.completion").setup({})
 
     require("mini.cursorword").setup({})
