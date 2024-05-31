@@ -231,7 +231,7 @@ return {
     lspconfig.vimls.setup({
       capabilities = capabilities,
       init_options = {
-        runtimepath = vim.api.nvim_get_option("runtimepath"),
+        runtimepath = vim.o.runtimepath,
         indexes = { gap = 75, count = 5 },
       },
     })
