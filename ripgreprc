@@ -2,6 +2,7 @@
 --glob=!.direnv/*
 --glob=!.git/*
 --glob=!.pytest_cache/*
+--glob=!.terraform/*
 --glob=!.venv/*
 --glob=!node_modules/*
 --max-columns-preview
