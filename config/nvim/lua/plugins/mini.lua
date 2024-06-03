@@ -2,6 +2,15 @@ return {
   "echasnovski/mini.nvim",
   dependencies = "kyazdani42/nvim-web-devicons",
   config = function()
+    -- TODO?
+    -- require("mini.basics").setup()
+    -- require("mini.completion").setup()
+    -- require("mini.diff").setup()
+    -- require("mini.jump").setup()
+    -- require("mini.move").setup()
+    -- require("mini.statusline").setup()
+    -- require("mini.tabline").setup()
+
     require("mini.ai").setup({
       custom_textobjects = {
         F = require("mini.ai").gen_spec.treesitter({
@@ -14,10 +23,55 @@ return {
     vim.keymap.set("x", "il", "^og_")
     vim.keymap.set("o", "il", ":normal vil<CR>")
 
-    require("mini.bracketed").setup({})
-    -- require("mini.completion").setup({})
+    -- require("mini.animate").setup({ cursor = { enable = false } })
+    require("mini.bracketed").setup()
 
-    require("mini.cursorword").setup({})
+    local miniclue = require("mini.clue")
+    miniclue.setup({
+      triggers = {
+        -- Leader triggers
+        { mode = "n", keys = "<Leader>" },
+        { mode = "x", keys = "<Leader>" },
+
+        -- Built-in completion
+        { mode = "i", keys = "<C-x>" },
+
+        -- `g` key
+        { mode = "n", keys = "g" },
+        { mode = "x", keys = "g" },
+
+        -- Marks
+        { mode = "n", keys = "'" },
+        { mode = "n", keys = "`" },
+        { mode = "x", keys = "'" },
+        { mode = "x", keys = "`" },
+
+        -- Registers
+        { mode = "n", keys = '"' },
+        { mode = "x", keys = '"' },
+        { mode = "i", keys = "<C-r>" },
+        { mode = "c", keys = "<C-r>" },
+
+        -- Window commands
+        { mode = "n", keys = "<C-w>" },
+
+        -- `z` key
+        { mode = "n", keys = "z" },
+        { mode = "x", keys = "z" },
+      },
+
+      clues = {
+        -- Enhance this by adding descriptions for <Leader> mapping groups
+        miniclue.gen_clues.builtin_completion(),
+        miniclue.gen_clues.g(),
+        miniclue.gen_clues.marks(),
+        miniclue.gen_clues.registers(),
+        miniclue.gen_clues.windows(),
+        miniclue.gen_clues.z(),
+      },
+    })
+
+    require("mini.cursorword").setup()
     vim.api.nvim_set_hl(0, "MiniCursorword", { link = "CursorLine" })
     local cursorword_filetype = vim.api.nvim_create_augroup("cursorword_filetype", {})
     vim.api.nvim_create_autocmd("FileType", {
@@ -38,8 +92,6 @@ return {
     -- })
     -- vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { link = "GruvboxAqua" })
     -- vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { link = "GruvboxRed" })
-    --
-    -- require("mini.jump").setup() -- TODO?
 
     local map = require("mini.map")
     map.setup({
@@ -65,17 +117,18 @@ return {
     end
     map.open()
 
-    require("mini.misc").setup({})
-    -- require("mini.move").setup({}) -- TODO?
+    require("mini.misc").setup()
+    require("mini.operators").setup()
     require("mini.pairs").setup({
       modes = { insert = true, terminal = true },
     })
+
+    -- maybe with https://github.com/echasnovski/mini.nvim/discussions/36#discussioncomment-8382869
     -- local splitjoin = require("mini.splitjoin")
     -- splitjoin.setup({
     --   split = { hooks_post = { splitjoin.gen_hook.add_trailing_separator() } },
     --   join = { hooks_post = { splitjoin.gen_hook.del_trailing_separator() } },
     -- }) -- TODO
-    -- require("mini.statusline").setup() -- TODO
 
     require("mini.surround").setup({
       mappings = {
@@ -94,8 +147,6 @@ return {
     vim.keymap.set({ "v", "x" }, "S", ":<C-u>lua MiniSurround.add('visual')<CR>")
     -- TODO: Figure out why this doesn't work.
     -- vim.keymap.set("n", "yss", "ys_")
-
-    -- require("mini.tabline").setup({}) -- TODO
 
     local trailspace = require("mini.trailspace")
     vim.api.nvim_create_user_command("Trim", function()
