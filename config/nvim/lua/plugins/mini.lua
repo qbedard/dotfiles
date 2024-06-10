@@ -71,6 +71,8 @@ return {
       },
     })
 
+    require("mini.comment").setup()
+
     require("mini.cursorword").setup()
     vim.api.nvim_set_hl(0, "MiniCursorword", { link = "CursorLine" })
     local cursorword_filetype = vim.api.nvim_create_augroup("cursorword_filetype", {})
