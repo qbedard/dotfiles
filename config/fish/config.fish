@@ -132,6 +132,10 @@ if command -q sccache
     set -gx RUSTC_WRAPPER sccache
 end
 
+if command -q terraform
+    abbr -a tf "terraform"
+end
+
 # ----------------------------------- fzf ------------------------------------ #
 if command -q bat
     set -gx FZF_FILE_PREVIEW_CMD "bat --line-range :100 --color=always"
