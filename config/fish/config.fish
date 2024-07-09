@@ -132,9 +132,8 @@ if command -q sccache
     set -gx RUSTC_WRAPPER sccache
 end
 
-if command -q terraform
-    abbr -a tf "terraform"
-end
+# abbr sans check as Terraform is managed by mise, which isn't hooked in yet
+abbr -a tf "terraform"
 
 # ----------------------------------- fzf ------------------------------------ #
 if command -q bat
