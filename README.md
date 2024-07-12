@@ -1,1 +1,1 @@
-# Tim's Dotfiles
+# Quin's Dotfiles
