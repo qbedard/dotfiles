@@ -77,4 +77,6 @@ return {
   "sophacles/vim-bundle-mako",
   { "Glench/Vim-Jinja2-Syntax", ft = { "html", "jinja" } },
   "vim-test/vim-test",
+
+  "github/copilot.vim",
 }
