@@ -12,7 +12,7 @@ return {
             "rust_analyzer",
             -- "terraformls",
             "lua_ls",
-            "taplo",
+            -- "taplo",
           },
         },
       },
@@ -20,12 +20,15 @@ return {
   },
   keys = {
     { "<Leader>d", vim.diagnostic.open_float },
-    { "[g", vim.diagnostic.goto_prev },
-    { "]g", vim.diagnostic.goto_next },
+    { "<Leader>e", vim.diagnostic.open_float },
+    { "[d", vim.diagnostic.goto_prev },
+    { "]d", vim.diagnostic.goto_next },
+    { "<Leader>q", vim.diagnostic.setloclist },
+    { "gD", vim.lsp.buf.declaration },
+    { "gd", vim.lsp.buf.definition },
+    { "<Leader>D", vim.lsp.buf.type_definition },
     { "<Leader>k", vim.lsp.buf.hover },
     { "<Leader>s", vim.lsp.buf.signature_help },
-    { "gd", vim.lsp.buf.definition },
-    { "1gd", vim.lsp.buf.type_definition },
     { "g0", vim.lsp.buf.document_symbol },
     {
       "gf",
@@ -93,19 +96,66 @@ return {
       "dockerls",
       "gopls",
       "html",
-      -- "jsonls",
+      "jsonls",
+      -- "powershell_es",
       -- "rnix",
       "ruff_lsp",
       "rust_analyzer",
       -- "sqls",
       -- "taplo",
       -- "solargraph", -- ruby
-      "terraformls",
+      -- "terraformls",
       "tflint", -- TODO: Add `tflint --init`?
     }
     for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup({ capabilities = capabilities })
     end
+
+    -------------------------------- JavaScript --------------------------------
+    lspconfig.tsserver.setup({
+      capabilities = capabilities,
+      on_attach = function(client)
+        client.server_capabilities.document_formatting = false
+      end,
+    })
+    --
+    ----------------------------------- JSON -----------------------------------
+    lspconfig.jsonls.setup({
+      capabilities = capabilities,
+      on_attach = function(client)
+        client.server_capabilities.document_formatting = false
+      end,
+    })
+
+    ----------------------------------- Lua ------------------------------------
+    lspconfig.lua_ls.setup({
+      capabilities = capabilities,
+      on_attach = function(client)
+        client.server_capabilities.document_formatting = false
+      end,
+      settings = {
+        Lua = {
+          completion = { kewordSnippet = "Disable" },
+          diagnostics = {
+            globals = { "hs", "renoise", "spoon", "vim" },
+          },
+          runtime = {
+            version = "LuaJIT",
+            path = { "?.lua", "?/init.lua" },
+          },
+          telemetry = { enable = false },
+          workspace = {
+            checkThirdParty = false,
+            library = vim.list_extend(
+              { "/Applications/Hammerspoon.app/Contents/Resources/extensions/hs" },
+              vim.api.nvim_get_runtime_file("lua/", true)
+            ),
+            maxPreload = 10000,
+            preloadFileSize = 10000,
+          },
+        },
+      },
+    })
 
     ---------------------------------- Python ----------------------------------
     lspconfig.pyright.setup({
@@ -160,44 +210,6 @@ return {
     --   },
     -- })
 
-    ----------------------------------- Lua ------------------------------------
-    lspconfig.lua_ls.setup({
-      capabilities = capabilities,
-      on_attach = function(client)
-        client.server_capabilities.document_formatting = false
-      end,
-      settings = {
-        Lua = {
-          completion = { kewordSnippet = "Disable" },
-          diagnostics = {
-            globals = { "hs", "renoise", "spoon", "vim" },
-          },
-          runtime = {
-            version = "LuaJIT",
-            path = { "?.lua", "?/init.lua" },
-          },
-          telemetry = { enable = false },
-          workspace = {
-            checkThirdParty = false,
-            library = vim.list_extend(
-              { "/Applications/Hammerspoon.app/Contents/Resources/extensions/hs" },
-              vim.api.nvim_get_runtime_file("lua/", true)
-            ),
-            maxPreload = 10000,
-            preloadFileSize = 10000,
-          },
-        },
-      },
-    })
-
-    -------------------------------- JavaScript --------------------------------
-    lspconfig.tsserver.setup({
-      capabilities = capabilities,
-      on_attach = function(client)
-        client.server_capabilities.document_formatting = false
-      end,
-    })
-
     ----------------------------------- TOML -----------------------------------
     lspconfig.taplo.setup({
       capabilities = capabilities,
@@ -237,6 +249,19 @@ return {
     })
 
     ----------------------------------- YAML -----------------------------------
+    lspconfig.yamlls.setup({
+      capabilities = capabilities,
+      settings = {
+        yaml = {
+          schemaStore = { enable = true },
+          schemas = {
+            ["https://json.schemastore.org/github-workflow"] = "*/.github/workflows/*",
+          },
+          validate = true,
+        },
+      },
+    })
+
     -- lspconfig.yamlls.setup({
     --   capabilities = capabilities,
     --   settings = {
