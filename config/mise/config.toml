@@ -2,8 +2,16 @@
 go = "1.22"
 node = ["20", "18"]
 python = "3.11"
-terraform = "1.5.1"
+rust = "latest"
+terraform = ["latest", "1.5.1"]
 usage = "latest"
+
+"npm:biome" = "latest"
+"npm:prettier" = "latest"
+"pipx:poetry" = "latest"
+"pipx:pre-commit" = "latest"
+"pipx:pyright" = "latest"
+"pipx:ruff" = "latest"
 
 [settings]
 experimental = true
