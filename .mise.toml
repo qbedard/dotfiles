@@ -1,0 +1,21 @@
+[tasks.install]
+description = "Install dotfiles using Dotbot"
+run = "./install"
+
+[tasks.link]
+run = "./install --only clean link stow"
+
+[tasks."update:brew"]
+run = "brew upgrade"
+
+[tasks."update:mise"]
+run = "mise upgrade"
+
+[tasks."update:tldr"]
+run = "tldr --update"
+
+[tasks."update:nvim"]
+run = "nvim --headless '+Lazy! sync' +MasonToolsUpdateSync +TSUpdateSync +qa"
+
+[tasks.update]
+depends = ["update:*"]
