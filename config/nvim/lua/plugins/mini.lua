@@ -6,8 +6,11 @@ return {
     -- require("mini.basics").setup()
     -- require("mini.completion").setup()
     -- require("mini.diff").setup()
+    -- require("mini.icons").setup()
     -- require("mini.jump").setup()
     -- require("mini.move").setup()
+    -- require("mini.notify").setup()
+    -- require("mini.pick").setup()
     -- require("mini.statusline").setup()
     -- require("mini.tabline").setup()
 
@@ -125,12 +128,13 @@ return {
       modes = { insert = true, terminal = true },
     })
 
-    -- maybe with https://github.com/echasnovski/mini.nvim/discussions/36#discussioncomment-8382869
-    -- local splitjoin = require("mini.splitjoin")
-    -- splitjoin.setup({
-    --   split = { hooks_post = { splitjoin.gen_hook.add_trailing_separator() } },
-    --   join = { hooks_post = { splitjoin.gen_hook.del_trailing_separator() } },
-    -- }) -- TODO
+    local splitjoin = require("mini.splitjoin")
+    splitjoin.setup({
+      -- https://github.com/echasnovski/mini.nvim/discussions/36#discussioncomment-8382869
+      mappings = {}, -- Configured in treesj config
+      split = { hooks_post = { splitjoin.gen_hook.add_trailing_separator() } },
+      join = { hooks_post = { splitjoin.gen_hook.del_trailing_separator() } },
+    })
 
     require("mini.surround").setup({
       mappings = {

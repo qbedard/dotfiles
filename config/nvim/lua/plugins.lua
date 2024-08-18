@@ -67,9 +67,43 @@ return {
 
   {
     "Wansmer/treesj",
-    keys = { { "gS", "<Cmd>TSJSplit<CR>" }, { "gJ", "<Cmd>TSJJoin<CR>" } },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = { use_default_keymaps = false },
+    -- keys = { { "gS", "<Cmd>TSJSplit<CR>" }, { "gJ", "<Cmd>TSJJoin<CR>" } },
+    -- opts = { use_default_keymaps = false },
+    -- https://github.com/echasnovski/mini.nvim/discussions/36#discussioncomment-8382869
+    keys = { { "<leader>m", mode = { "n", "v" }, desc = "Toggle split" } },
+    config = function()
+      require("treesj").setup({
+        max_join_length = 512,
+        use_default_keymaps = false,
+      })
+
+      local function get_pos_lang(node)
+        local c = vim.api.nvim_win_get_cursor(0)
+        local range = { c[1] - 1, c[2], c[1] - 1, c[2] }
+        local buf = vim.api.nvim_get_current_buf()
+        local ok, parser = pcall(
+          vim.treesitter.get_parser,
+          buf,
+          vim.treesitter.language.get_lang(vim.bo[buf].ft)
+        )
+        if not ok then
+          return ""
+        end
+        local current_tree = parser:language_for_range(range)
+        return current_tree:lang()
+      end
+
+      vim.keymap.set({ "n", "v" }, "gS", function()
+        local tsj_langs = require("treesj.langs")["presets"]
+        local lang = get_pos_lang()
+        if lang ~= "" and tsj_langs[lang] then
+          require("treesj").toggle()
+        else
+          require("mini.splitjoin").toggle()
+        end
+      end)
+    end,
   },
 
   -- Language Support
