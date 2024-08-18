@@ -46,6 +46,7 @@ return {
         --     end
         --   end,
         -- }),
+        diagnostics.actionlint,
         diagnostics.fish,
         -- diagnostics.rubocop,
         -- diagnostics.ruff.with({ extra_args = ruff_args }),
