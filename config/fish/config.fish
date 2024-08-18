@@ -93,7 +93,7 @@ end
 if command -q eza
     set -gx EZA_ICONS_AUTO 1
     alias eza "eza --group-directories-first"
-    alias ls "eza"
+    alias ls eza
     abbr -a ll "ls -lh --git"
     abbr -a lla "ls -lh --git -a"
     abbr -a llg "ll --grid"
@@ -133,7 +133,7 @@ if command -q sccache
 end
 
 # abbr sans check as Terraform is managed by mise, which isn't hooked in yet
-abbr -a tf "terraform"
+abbr -a tf terraform
 
 # ----------------------------------- fzf ------------------------------------ #
 if command -q bat
@@ -206,6 +206,9 @@ end
 # if command -q mise
 #     mise activate fish | source
 # end
+if command -q mise
+    abbr -a mr "mise run"
+end
 
 if command -q pdm
     pdm --pep582 fish | source
