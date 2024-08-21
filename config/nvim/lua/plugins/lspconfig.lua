@@ -232,6 +232,10 @@ return {
 
     lspconfig.terraformls.setup({
       capabilities = capabilities,
+      on_init = function(client, _)
+        -- Disable syntax highlighting (use Treesitter instead)
+        client.server_capabilities.semanticTokensProvider = nil
+      end,
       settings = {
         terraformls = {
           experimentalFeatures = { prefillRequiredFields = true },
