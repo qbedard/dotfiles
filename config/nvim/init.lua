@@ -127,6 +127,7 @@ vim.filetype.add({
     direnvrc = "sh",
     flake8 = "cfg",
     ["poetry.lock"] = "toml",
+    ["uv.lock"] = "toml",
   },
   pattern = {
     [".*git/config"] = "gitconfig",
