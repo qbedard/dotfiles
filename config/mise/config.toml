@@ -5,8 +5,13 @@ python = "latest"
 rust = "latest"
 terraform = "latest"
 usage = "latest"
-"cargo:cargo-binstall" = "latest"
-"cargo:taplo-cli" = "latest"
+
+# "cargo:cargo-binstall" = "latest"
+# "cargo:ubi" = "latest"
+"pipx:uv" = "latest"
+
+"cargo:taplo-cli" = { version = "latest", features = "lsp" }
+"go:github.com/google/yamlfmt/cmd/yamlfmt" = "latest"
 "npm:@biomejs/biome" = "latest"
 "npm:lefthook" = "latest"
 "npm:prettier" = "latest"
@@ -14,9 +19,9 @@ usage = "latest"
 "pipx:pre-commit" = "latest"
 "pipx:pyright" = "latest"
 "pipx:ruff" = "latest"
-"pipx:uv" = "latest"
+# "ubi:koalaman/shellcheck" = "latest"
 
 [settings]
-cargo_binstall = true
+# cargo_binstall = true
 experimental = true
 pipx_uvx = true
