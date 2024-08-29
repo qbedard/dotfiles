@@ -8,13 +8,10 @@ layouts:
   - column
   - widescreen-tall
   - bsp
-
 cycle-layout:
   mod: mod1
   key: y
-
 cycle-layout-backward:
   mod: mod2
   key: y
-
 use-canary-build: true

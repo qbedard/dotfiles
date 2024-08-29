@@ -2,17 +2,14 @@
     shell:
       stdout: true
       stderr: true
-
 - shell:
     - bash -c 'if [ "$(uname)" == "Darwin" ]; then brew bundle --no-lock; fi'
     - bash -c 'apply-user-defaults macos-defaults.yaml'
     - bat cache --build
-
 - clean:
     ~/:
     ~/.config:
       recursive: true
-
 - create:
     - ~/.config/fish/functions
     - ~/.config/gh
@@ -20,7 +17,6 @@
     - ~/.config/karabiner
     - ~/Library/Application Support/jesseduffield/lazydocker
     - ~/Library/Application Support/pypoetry
-
 - link:
     ~/.amethyst.yml: amethyst.yaml
     ~/.bashrc:
@@ -35,7 +31,5 @@
     ~/.zshrc:
     ~/Library/Application Support/jesseduffield/lazydocker/config.yml: lazydocker-config.yaml
     ~/Library/Application Support/pypoetry/config.toml: config/pypoetry/config.toml
-
-
 - stow:
     config: ~/.config

@@ -1,43 +1,43 @@
 aliases:
-    open-prs: |-
-        !gh api graphql -f query="
-          query {
-            viewer {
-              pullRequests(first: 100, states: [OPEN]) {
+  open-prs: |-
+    !gh api graphql -f query="
+      query {
+        viewer {
+          pullRequests(first: 100, states: [OPEN]) {
+            nodes {
+              author {
+                login
+              }
+              headRefName
+              isDraft
+              number
+              permalink
+              repository {
+                name
+              }
+              title
+            }
+          }
+        }
+      }
+    "
+  my-repos: "!gh api graphql -f query=\"\n  query { \n    viewer { \n      repositories(first: 100) {\n        nodes {\n          nameWithOwner\n        }\n      } \n    }\n  }\n\" \\\n| jq .data.viewer.repositories.nodes[].nameWithOwner \\\n| sed \"s/\\\"//g\""
+  org-repos: |-
+    !gh api graphql -f query="
+      query {
+        viewer {
+          organizations(first: 10) {
+            nodes {
+              repositories(first: 100) {
                 nodes {
-                  author {
-                    login
-                  }
-                  headRefName
-                  isDraft
-                  number
-                  permalink
-                  repository {
-                    name
-                  }
-                  title
+                  nameWithOwner
                 }
               }
             }
           }
-        "
-    my-repos: "!gh api graphql -f query=\"\n  query { \n    viewer { \n      repositories(first: 100) {\n        nodes {\n          nameWithOwner\n        }\n      } \n    }\n  }\n\" \\\n| jq .data.viewer.repositories.nodes[].nameWithOwner \\\n| sed \"s/\\\"//g\""
-    org-repos: |-
-        !gh api graphql -f query="
-          query {
-            viewer {
-              organizations(first: 10) {
-                nodes {
-                  repositories(first: 100) {
-                    nodes {
-                      nameWithOwner
-                    }
-                  }
-                }
-              }
-            }
-          }
-        " \
-        | jq .data.viewer.organizations.nodes[].repositories.nodes[].nameWithOwner \
-        | sed "s/\"//g"
+        }
+      }
+    " \
+    | jq .data.viewer.organizations.nodes[].repositories.nodes[].nameWithOwner \
+    | sed "s/\"//g"
 version: "1"
