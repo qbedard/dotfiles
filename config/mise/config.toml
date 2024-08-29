@@ -1,9 +1,22 @@
 [tools]
+go = "latest"
 node = "latest"
 python = "latest"
 rust = "latest"
 terraform = "latest"
 usage = "latest"
+"cargo:cargo-binstall" = "latest"
+"cargo:taplo-cli" = "latest"
+"npm:@biomejs/biome" = "latest"
+"npm:lefthook" = "latest"
+"npm:prettier" = "latest"
+"pipx:poetry" = "latest"
+"pipx:pre-commit" = "latest"
+"pipx:pyright" = "latest"
+"pipx:ruff" = "latest"
+"pipx:uv" = "latest"
 
 [settings]
+cargo_binstall = true
 experimental = true
+pipx_uvx = true
