@@ -1,23 +1,24 @@
 [lint]
 select = [
-  "A",
-  "B",
-  "C4",
-  "C90",
+  "A", # flake8-builtins
+  "B", # flake8-bugbear
+  "C4", # flake8-comprehensions
+  "C90", # mccabe
   "D",
-  "E",
-  "F",
-  "N",
-  "PIE",
+  "E", # pycodestyle errors
+  "F", # pyflakes
+  "I", # isort
+  "N", # pep8-naming
+  "W", # pycodestyle warnings
+  "PIE", # flake8-pie
   "PT003",
   "PT006",
   "PT008",
   "PT022",
-  "RET504",
-  "SIM",
-  "T20",
-  "UP",
-  "W",
+  "RET504", # flake8-return -> unnecessary-assign
+  "SIM", # flake8-simplify
+  "T20", # flake8-print
+  "UP", # pyupgrade
 ]
 ignore = [
   "D1",
@@ -31,8 +32,11 @@ ignore = [
   "N818",
 ]
 
-[isort]
+[lint.isort]
 lines-after-imports = 2
 
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
 [format]
-preview = true
+# preview = true
