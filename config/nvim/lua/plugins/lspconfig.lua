@@ -12,7 +12,8 @@ return {
             "rust_analyzer",
             -- "terraformls",
             "lua_ls",
-            -- "taplo",
+            "nil_ls",
+            "taplo",
           },
         },
       },
@@ -112,7 +113,7 @@ return {
     end
 
     -------------------------------- JavaScript --------------------------------
-    lspconfig.tsserver.setup({
+    lspconfig.ts_ls.setup({
       capabilities = capabilities,
       on_attach = function(client)
         client.server_capabilities.document_formatting = false

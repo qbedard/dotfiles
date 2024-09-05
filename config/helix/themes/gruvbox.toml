@@ -1,0 +1,5 @@
+inherits = "gruvbox"
+
+function = { fg = "light-cyan" }
+operator = "red"
+namespace = "fg1"

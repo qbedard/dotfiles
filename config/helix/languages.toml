@@ -1,0 +1,14 @@
+[[language]]
+name = "python"
+roots = ["pyproject.toml", "setup.py"]
+language-servers = ["pyright", "ruff"]
+
+[language-server.pyright]
+command = "pyright-langserver"
+
+[language-server.pyright.config]
+venvPath = "."
+venv = ".venv"
+
+[language-server.ruff]
+command = "ruff-lsp"

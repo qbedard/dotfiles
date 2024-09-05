@@ -1,0 +1,21 @@
+theme = "gruvbox"
+
+[editor]
+bufferline = "multiple"
+color-modes = true
+completion-trigger-len = 1
+cursorline = true
+idle-timeout = 200
+line-number = "relative"
+rulers = [80]
+scrolloff = 0
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.whitespace.render]
+tab = "all"
+
+[editor.indent-guides]
+render = true
+
