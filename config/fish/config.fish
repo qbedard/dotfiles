@@ -80,9 +80,12 @@ if command -q brew
     # Install casks to ~/Applications
     set -gx HOMEBREW_CASK_OPTS "--appdir=$HOME/Applications"
 
-    # add openssl for compilers
+    # Add openssl for compilers
     set -gx CPPFLAGS -I$HOMEBREW_PREFIX/opt/openssl/include
     set -gx LDFLAGS -L$HOMEBREW_PREFIX/opt/openssl/lib
+
+    # Add openssl certs for Node
+    set -gx NODE_EXTRA_CA_CERTS "$HOMEBREW_PREFIX/etc/ca-certificates/cert.pem"
 end
 
 if command -q bat
