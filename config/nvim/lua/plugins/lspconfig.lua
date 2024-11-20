@@ -22,15 +22,15 @@ return {
   keys = {
     { "<Leader>d", vim.diagnostic.open_float },
     { "<Leader>e", vim.diagnostic.open_float },
-    { "[d",        vim.diagnostic.goto_prev },
-    { "]d",        vim.diagnostic.goto_next },
+    { "[d", vim.diagnostic.goto_prev },
+    { "]d", vim.diagnostic.goto_next },
     { "<Leader>q", vim.diagnostic.setloclist },
-    { "gD",        vim.lsp.buf.declaration },
-    { "gd",        vim.lsp.buf.definition },
+    { "gD", vim.lsp.buf.declaration },
+    { "gd", vim.lsp.buf.definition },
     { "<Leader>D", vim.lsp.buf.type_definition },
     { "<Leader>k", vim.lsp.buf.hover },
     { "<Leader>s", vim.lsp.buf.signature_help },
-    { "g0",        vim.lsp.buf.document_symbol },
+    { "g0", vim.lsp.buf.document_symbol },
     {
       "gf",
       function()
@@ -77,9 +77,9 @@ return {
     -- end
 
     vim.lsp.handlers["textDocument/hover"] =
-        vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+      vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
     vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+      vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities(
       vim.lsp.protocol.make_client_capabilities()
@@ -100,7 +100,6 @@ return {
       "jsonls",
       -- "nil_ls",
       -- "powershell_es",
-      "ruff_lsp",
       "rust_analyzer",
       -- "sqls",
       -- "taplo",
@@ -165,6 +164,16 @@ return {
     })
 
     ---------------------------------- Python ----------------------------------
+    -- lspconfig.basedpyright.setup({
+    --   capabilities = capabilities,
+    --   settings = {
+    --     python = {
+    --       pythonPath = vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV .. "/bin/python"
+    --         or "python",
+    --     },
+    --   },
+    -- })
+
     lspconfig.pyright.setup({
       capabilities = capabilities,
       settings = {
@@ -183,22 +192,22 @@ return {
             -- typeCheckingMode = "strict",
           },
           pythonPath = vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV .. "/bin/python"
-              or "python",
+            or "python",
         },
       },
     })
 
-    -- lspconfig.ruff_lsp.setup({
-    --   capabilities = capabilities,
-    --   init_options = {
-    --     settings = {
-    --       args = {
-    --         "--select=A,B,C4,C90,D,E,F,N,PIE,PT003,PT006,PT008,PT022,RET504,SIM,T20,UP,W",
-    --         "--ignore=D1,D203,D205,D212,D213,D400,D404,D415,I,N818",
-    --       },
-    --     },
-    --   },
-    -- })
+    lspconfig.ruff.setup({
+      capabilities = capabilities,
+      init_options = {
+        settings = {
+          args = {
+            "--select=A,B,C4,C90,D,E,F,N,PIE,PT003,PT006,PT008,PT022,RET504,SIM,T20,UP,W",
+            "--ignore=D1,D203,D205,D212,D213,D400,D404,D415,I,N818",
+          },
+        },
+      },
+    })
 
     ----------------------------------- SQL ------------------------------------
     -- TODO: Figure out why this doesn't work.
