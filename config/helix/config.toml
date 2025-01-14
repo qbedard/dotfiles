@@ -5,17 +5,41 @@ bufferline = "multiple"
 color-modes = true
 completion-trigger-len = 1
 cursorline = true
+end-of-line-diagnostics = "hint"
 idle-timeout = 200
+jump-label-alphabet = "asdfghjklweruio"
 line-number = "relative"
 rulers = [80]
 scrolloff = 0
 
 [editor.cursor-shape]
+
 insert = "bar"
 
-[editor.whitespace.render]
-tab = "all"
+[editor.inline-diagnostics]
+cursor-line = "hint"
 
 [editor.indent-guides]
 render = true
 
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "version-control",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator",
+]
+right = [
+  "diagnostics",
+  "file-type",
+  "selections",
+  "primary-selection-length",
+  "register",
+  "position",
+  "file-encoding",
+]
+
+[editor.whitespace.render]
+tab = "all"

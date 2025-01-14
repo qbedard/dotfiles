@@ -11,4 +11,4 @@ venvPath = "."
 venv = ".venv"
 
 [language-server.ruff]
-command = "ruff-lsp"
+command = "ruff server"
