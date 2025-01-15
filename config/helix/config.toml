@@ -5,6 +5,7 @@ bufferline = "multiple"
 color-modes = true
 completion-trigger-len = 1
 cursorline = true
+default-yank-register = "+"
 end-of-line-diagnostics = "hint"
 idle-timeout = 200
 jump-label-alphabet = "asdfghjklweruio"
