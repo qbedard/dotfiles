@@ -5,7 +5,7 @@ pipx.uvx = true
 [tools]
 go = "latest"
 node = "22"
-python = "latest"
+python = "3.13"
 rust = "latest"
 terraform = "latest"
 usage = "latest"
