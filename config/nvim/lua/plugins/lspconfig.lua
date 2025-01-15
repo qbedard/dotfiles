@@ -273,9 +273,15 @@ return {
       capabilities = capabilities,
       settings = {
         yaml = {
+          customTags = {
+            "!Ref",
+            "!Split sequence",
+            "!Sub sequence",
+          },
           schemaStore = { enable = true },
           schemas = {
             ["https://json.schemastore.org/github-workflow"] = "*/.github/workflows/*",
+            ["https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json"] = "*.cf.yaml",
           },
           validate = true,
         },
