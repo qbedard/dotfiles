@@ -139,6 +139,8 @@ end
 abbr -a tf terraform
 
 # ----------------------------------- fzf ------------------------------------ #
+fzf --fish | source
+
 if command -q bat
     set -gx FZF_FILE_PREVIEW_CMD "bat --line-range :100 --color=always"
 else
