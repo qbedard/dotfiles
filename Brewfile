@@ -19,12 +19,8 @@ brew 'luajit', args: ['HEAD'] # neovim HEAD dep
 brew 'mise' # tool version manager
 # brew 'neovim', args: ['HEAD']
 brew 'neovim'
-brew 'node'
-brew 'obsidian'
-# brew 'phoenix' # JS-based OS scripting engine
-brew 'pipx'
+# brew 'obsidian'
 brew 'procs' # ps replacement
-brew 'python'
 brew 'ripgrep' # awesome grep
 brew 'shellcheck' # used by bashls
 brew 'shfmt'
@@ -33,33 +29,23 @@ brew 'stow'
 brew 'stylua'
 brew 'taplo'  # TOML LSP and toolset
 brew 'tealdeer'  # Rust tldr pages client
-# brew 'terraform'
 # brew 'terraform-ls'
 brew 'tokei' # fancy line count
+brew 'uv'
 brew 'zoxide' # fast dir nav
 
 # --- Casks --- #
-# cask 'amethyst' # tiling window manager
-cask 'brave-browser'
-cask 'docker'
-# cask 'insomnia'
+cask 'amethyst' # tiling window manager
+# cask 'brave-browser'
+# cask 'docker'
 # cask 'karabiner-elements'
 cask 'kitty'
-cask 'raycast'
-cask 'syncthing'
-# cask 'tableplus'
-
-tap 'nikitabobko/tap'
-cask 'aerospace' # tiling window manager
 
 # tap 'homebrew/cask-versions'
 # cask 'kitty-nightly'
 
 # --- Fonts --- #
-tap 'homebrew/cask-fonts'
-cask 'font-hack'
 cask 'font-iosevka'
-cask 'font-symbols-only-nerd-font'
 
 # --- Misc --- #
 tap 'zero-sh/tap'
