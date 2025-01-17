@@ -6,7 +6,6 @@ pipx.uvx = true
 go = "latest"
 node = "22"
 python = "3.13"
-rust = "latest"
 terraform = "latest"
 usage = "latest"
 
