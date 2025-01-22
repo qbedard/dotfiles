@@ -3,6 +3,7 @@
 .cache
 .direnv
 .idea
+.mise.local.toml
 .pyc
 .pytest_cache
 .ropeproject
