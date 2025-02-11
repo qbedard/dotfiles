@@ -100,10 +100,11 @@ return {
       "jsonls",
       -- "nil_ls",
       -- "powershell_es",
+      "regal",
       "rust_analyzer",
       -- "sqls",
-      -- "taplo",
       -- "solargraph", -- ruby
+      -- "taplo",
       -- "terraformls",
       "tflint", -- TODO: Add `tflint --init`?
     }
