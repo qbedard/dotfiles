@@ -8,7 +8,7 @@ function __fzf_git_tag --description "fzf git tag"
     git tag --sort -taggerdate |
         fzf --height=50% --reverse --multi --preview-window right:70% \
             --preview 'git show --color=always {} | head -200' \
-            --query $fzf_query |
+            --query (string unescape $fzf_query) |
         while read -l s
             set results $results $s
         end

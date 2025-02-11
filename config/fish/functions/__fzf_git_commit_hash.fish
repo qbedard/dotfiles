@@ -9,7 +9,7 @@ function __fzf_git_commit_hash --description "fzf git commit hash"
         fzf --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
             --header 'Press CTRL-S to toggle sort' \
             --preview 'echo {} | grep -o "[a-f0-9]\{7,\}" | xargs git show --color=always | head -200' \
-            --query $fzf_query |
+            --query (string unescape $fzf_query) |
         grep -o "[a-f0-9]\{7,\}" |
         while read -l s
             set results $results $s

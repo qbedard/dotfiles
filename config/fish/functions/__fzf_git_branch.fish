@@ -15,7 +15,7 @@ function __fzf_git_branch --description "fzf git branch"
             --preview '__glog_preview {}' \
             --preview 'git log --oneline --graph --date=short --color=always \
                 --pretty="format:%C(auto)%cd %h%d %s" {} -- | head -200' \
-            --query $fzf_query |
+            --query (string unescape $fzf_query) |
         while read -l s
             set results $results $s
         end
@@ -24,11 +24,11 @@ function __fzf_git_branch --description "fzf git branch"
         commandline -f repaint
         return
     else
-        commandline -t ""
+        commandline -t "" # Remove last token from commandline.
     end
 
     for result in $results
-        commandline -it -- (string escape $result)
+        commandline -it -- (string escape -- $result)
         commandline -it -- " "
     end
     commandline -f repaint

@@ -9,7 +9,7 @@ function __fzf_git_remote --description "fzf git remote"
         fzf --height=50% --reverse --tac \
             --preview 'git log --oneline --graph --date=short --color=always \
                 --pretty="format:%C(auto)%cd %h%d %s" {1} | head -200' \
-            --query $fzf_query |
+            --query (string unescape $fzf_query) |
         cut -f1 |
         while read -l s
             set results $results $s

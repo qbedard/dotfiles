@@ -6,7 +6,7 @@ function __fzf_git_stash --description "fzf git stash"
     set -l fzf_query $commandline[2]
 
     git stash list |
-        fzf --reverse -d: --preview 'git show --color=always {1}' --query $fzf_query |
+        fzf --reverse -d: --preview 'git show --color=always {1}' --query (string unescape $fzf_query) |
         cut -d: -f1 |
         while read -l s
             set results $results $s
