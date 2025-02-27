@@ -190,12 +190,12 @@ set -gx _ZO_FZF_OPTS '--height=50% --reverse --preview "__fzf_dir_preview {}"'
 
 bind \cs __fzf_ripgrep
 
-bind \cg\cf __fzf_git_diff_file
-bind \cg\cb __fzf_git_branch
-bind \cg\ct __fzf_git_tag
-bind \cg\cc __fzf_git_commit_hash # bound to c instead of h because C-h = bkspc
-bind \cg\cr __fzf_git_remote
-bind \cg\cs __fzf_git_stash
+bind ctrl-g,ctrl-f __fzf_git_diff_file
+bind ctrl-g,ctrl-b __fzf_git_branch
+bind ctrl-g,ctrl-t __fzf_git_tag
+bind ctrl-g,ctrl-c __fzf_git_commit_hash # bound to c instead of h because C-h = bkspc
+bind ctrl-g,ctrl-r __fzf_git_remote
+bind ctrl-g,ctrl-s __fzf_git_stash
 
 function fco -d "Fuzzy-find and checkout a branch"
     git branch --all | grep -v HEAD | string trim | fzf | read -l result
