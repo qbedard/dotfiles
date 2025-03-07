@@ -52,7 +52,9 @@ return {
       },
       float = {
         format = function(diagnostic)
-          return string.format("%s %s", diagnostic.code, diagnostic.message)
+          return diagnostic.code
+              and string.format("%s %s", diagnostic.code, diagnostic.message)
+            or diagnostic.message
         end,
       },
       severity_sort = true,
