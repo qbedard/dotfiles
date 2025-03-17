@@ -249,6 +249,7 @@ return {
       },
     })
 
+    -------------------------------- Terraform ---------------------------------
     lspconfig.terraformls.setup({
       capabilities = capabilities,
       on_init = function(client, _)
