@@ -22,8 +22,18 @@ return {
   keys = {
     { "<Leader>d", vim.diagnostic.open_float },
     { "<Leader>e", vim.diagnostic.open_float },
-    { "[d", vim.diagnostic.goto_prev },
-    { "]d", vim.diagnostic.goto_next },
+    {
+      "[d",
+      function()
+        vim.diagnostic.jump({ count = 1 })
+      end,
+    },
+    {
+      "]d",
+      function()
+        vim.diagnostic.jump({ count = -1 })
+      end,
+    },
     { "<Leader>q", vim.diagnostic.setloclist },
     { "gD", vim.lsp.buf.declaration },
     { "gd", vim.lsp.buf.definition },
@@ -44,12 +54,9 @@ return {
 
     ---------------------------------- Signs -----------------------------------
     local i = require("icons")
+    local severity = vim.diagnostic.severity
 
     vim.diagnostic.config({
-      virtual_text = {
-        prefix = i.diag.virtual,
-        -- source = "always",
-      },
       float = {
         format = function(diagnostic)
           return diagnostic.code
@@ -58,18 +65,20 @@ return {
         end,
       },
       severity_sort = true,
+      signs = {
+        text = {
+          [severity.ERROR] = i.diag.error,
+          [severity.WARN] = i.diag.warn,
+          [severity.INFO] = i.diag.info,
+          [severity.HINT] = i.diag.hint,
+          -- [severity.OK] = i.diag.ok, -- This is gone? Does it matter?
+        },
+      },
+      virtual_text = {
+        prefix = i.diag.virtual,
+        -- source = "always",
+      },
     })
-
-    for name, icon in pairs({
-      Error = i.diag.error,
-      Warn = i.diag.warn,
-      Info = i.diag.info,
-      Hint = i.diag.hint,
-      Ok = i.diag.ok,
-    }) do
-      name = "DiagnosticSign" .. name
-      vim.fn.sign_define(name, { text = icon, texthl = name })
-    end
 
     -- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
     -- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -77,11 +86,6 @@ return {
     --   opts.border = opts.border or "rounded"
     --   return orig_util_open_floating_preview(contents, syntax, opts, ...)
     -- end
-
-    vim.lsp.handlers["textDocument/hover"] =
-      vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-    vim.lsp.handlers["textDocument/signatureHelp"] =
-      vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities(
       vim.lsp.protocol.make_client_capabilities()

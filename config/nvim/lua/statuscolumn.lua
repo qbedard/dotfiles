@@ -110,7 +110,11 @@ _G.StatusColumn = {
 
   set_window = function(value)
     vim.defer_fn(function()
-      vim.api.nvim_win_set_option(vim.api.nvim_get_current_win(), "statuscolumn", value)
+      vim.api.nvim_set_option_value(
+        "statuscolumn",
+        value,
+        { win = vim.api.nvim_get_current_win() }
+      )
     end, 1)
   end,
 }

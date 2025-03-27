@@ -102,6 +102,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.sidescrolloff = 5 -- start scrolling when near the last col
 vim.opt.termguicolors = true -- true color support
 vim.opt.winblend = 10 -- transparent floating windows
+-- vim.opt.winborder = "rounded" -- TODO: Use this when Telescope is fixed
 
 --------------------------------- Completion ----------------------------------
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
@@ -230,7 +231,7 @@ vim.g.netrw_dirhistmax = 0 -- no netrwhist
 
 -- Bootstrap lazy.nvim
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazy_path) then
+if not vim.uv.fs_stat(lazy_path) then
   vim.fn.system({
     "git",
     "clone",
