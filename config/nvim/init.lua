@@ -57,7 +57,7 @@ vim.opt.listchars = {
   extends = "",
   precedes = "",
   nbsp = "·",
-  tab = "󰁕 ",
+  tab = "▎ ",
   trail = "·",
 }
 vim.opt.expandtab = true
