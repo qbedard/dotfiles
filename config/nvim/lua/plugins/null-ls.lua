@@ -36,6 +36,7 @@ return {
       debug = true,
       sources = {
         code_actions.gitsigns,
+        code_actions.regal,
         -- TODO: Get working
         -- diagnostics.bandit.with({
         --   runtime_condition = function(utils)
