@@ -21,7 +21,6 @@ return {
   },
   keys = {
     { "<Leader>d", vim.diagnostic.open_float },
-    { "<Leader>e", vim.diagnostic.open_float },
     {
       "[d",
       function()

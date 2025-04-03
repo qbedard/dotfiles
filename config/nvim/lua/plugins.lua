@@ -1,9 +1,26 @@
 return {
+  -- Plugins eliminated by snacks --
+  { "j-hui/fidget.nvim",        opts = {} }, -- TODO: Replace with notifier LSP progress?
+  -- "justinmk/vim-dirvish",
+  "tpope/vim-fugitive",
+  "tpope/vim-rhubarb",
+
   -- {
   --   "folke/noice.nvim",
   --   dependencies = "MunifTanjim/nui.nvim",
   --   event = "VimEnter",
   --   config = true,
+  -- },
+
+  -- {
+  --   "frankroeder/parrot.nvim",
+  --   dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
+  --   main = "parrot",
+  --   opts = {
+  --     providers = {
+  --       github = { api_key = vim.fn.system({ "gh", "auth", "token" }) },
+  --     },
+  --   },
   -- },
 
   {
@@ -18,15 +35,6 @@ return {
     opts = { user_default_options = { mode = "virtualtext" } },
   },
 
-  {
-    "akinsho/toggleterm.nvim",
-    event = "BufWinEnter",
-    opts = {
-      open_mapping = "<C-t>",
-      direction = "float",
-      float_opts = { border = "rounded" },
-    },
-  },
 
   {
     "iamcco/markdown-preview.nvim",
@@ -50,18 +58,13 @@ return {
 
   -- "gravndal/shiftwidth_leadmultispace.nvim",  -- TODO
 
-  { "j-hui/fidget.nvim", opts = {} }, -- TODO: Replace with nvim-notify?
-  "stevearc/dressing.nvim",
   "kshenoy/vim-signature",
 
-  "justinmk/vim-dirvish",
   "romainl/vim-cool",
   "farmergreg/vim-lastplace",
 
   "tpope/vim-abolish",
   "tpope/vim-eunuch",
-  "tpope/vim-fugitive",
-  "tpope/vim-rhubarb",
 
   "michaeljsmith/vim-indent-object",
 
