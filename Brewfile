@@ -46,6 +46,7 @@ cask 'kitty'
 
 # --- Fonts --- #
 cask 'font-iosevka'
+cask 'font-symbols-only-nerd-font'
 
 # --- Misc --- #
 tap 'zero-sh/tap'
