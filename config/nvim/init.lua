@@ -112,6 +112,7 @@ vim.filetype.add({
   extension = {
     backend = "terraform-vars",
     conf = "cfg",
+    containerfile = "dockerfile",
     dockerfile = "dockerfile",
     keymap = "c",
     jsonl = "json",
