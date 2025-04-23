@@ -26,7 +26,9 @@ return {
   init = function()
     local snacks = require("snacks")
 
-    vim.keymap.set("n", "<C-p>", snacks.picker.smart)
+    vim.keymap.set("n", "<C-p>", function()
+      snacks.picker.smart({ multi = { "git_files", "files" } })
+    end)
     vim.keymap.set("n", "<Leader><Leader>", snacks.picker.pickers)
     vim.keymap.set("n", "<Leader>b", snacks.gitbrowse.open)
     vim.keymap.set("n", "<Leader>e", snacks.explorer.open)
