@@ -1,6 +1,13 @@
 [settings]
 experimental = true
 pipx.uvx = true
+idiomatic_version_file_enable_tools = [
+  "go",
+  "node",
+  "python",
+  "terraform",
+  "yarn",
+]
 
 [tools]
 go = "latest"
