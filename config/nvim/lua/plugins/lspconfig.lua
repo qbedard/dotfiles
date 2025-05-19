@@ -112,9 +112,11 @@ return {
       -- "taplo",
       -- "terraformls",
       "tflint", -- TODO: Add `tflint --init`?
+      "ty",
     }
     for _, lsp in ipairs(servers) do
-      lspconfig[lsp].setup({ capabilities = capabilities })
+      vim.lsp.config(lsp, { capabilities = capabilities })
+      vim.lsp.enable(lsp)
     end
 
     -------------------------------- JavaScript --------------------------------
@@ -145,6 +147,7 @@ return {
           diagnostics = {
             globals = { "hs", "renoise", "spoon", "vim" },
           },
+          format = { enable = false },
           runtime = {
             version = "LuaJIT",
             path = { "?.lua", "?/init.lua" },
@@ -259,6 +262,7 @@ return {
         -- Disable syntax highlighting (use Treesitter instead)
         client.server_capabilities.semanticTokensProvider = nil
       end,
+      filetypes = { "hcl", "terraform", "terraform-vars" },
       settings = {
         terraformls = {
           experimentalFeatures = { prefillRequiredFields = true },
