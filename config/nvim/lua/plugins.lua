@@ -1,6 +1,6 @@
 return {
   -- Plugins eliminated by snacks --
-  { "j-hui/fidget.nvim",        opts = {} }, -- TODO: Replace with notifier LSP progress?
+  { "j-hui/fidget.nvim", opts = {} }, -- TODO: Replace with notifier LSP progress?
   -- "justinmk/vim-dirvish",
   "tpope/vim-fugitive",
   "tpope/vim-rhubarb",
@@ -34,7 +34,6 @@ return {
     ft = { "css", "scss", "html" },
     opts = { user_default_options = { mode = "virtualtext" } },
   },
-
 
   {
     "iamcco/markdown-preview.nvim",
@@ -93,6 +92,7 @@ return {
         if not ok then
           return ""
         end
+        ---@diagnostic disable-next-line: need-check-nil
         local current_tree = parser:language_for_range(range)
         return current_tree:lang()
       end
@@ -116,4 +116,35 @@ return {
   "vim-test/vim-test",
 
   "github/copilot.vim",
+
+  { "mason-org/mason.nvim", lazy = false, opts = {} },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
+    opts = {
+      ensure_installed = {
+        "bashls",
+        "cssls",
+        "docker_compose_language_service",
+        "dockerls",
+        "gopls",
+        "html",
+        "jsonls",
+        "lua_ls",
+        "marksman",
+        -- "nil_ls",
+        "pyright",
+        "regal",
+        "ruff",
+        "rust_analyzer",
+        -- "snyk_ls",
+        "taplo",
+        "terraformls",
+        "ts_ls",
+        "tflint",
+        "ty",
+        "vimls",
+      },
+    },
+  },
 }

@@ -15,7 +15,7 @@ run = "mise upgrade"
 run = "tldr --update"
 
 [tasks."update:nvim"]
-run = "nvim --headless '+Lazy! sync' +MasonToolsUpdateSync +TSUpdateSync +qa"
+run = "nvim --headless '+Lazy! sync' +MasonUpdate +TSUpdateSync +qa"
 
 [tasks.update]
 depends = ["update:*"]

@@ -1,24 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   lazy = false,
-  dependencies = {
-    "folke/lazydev.nvim",
-    "williamboman/mason.nvim",
-    {
-      "williamboman/mason-lspconfig.nvim",
-      opts = {
-        automatic_installation = {
-          exclude = {
-            "rust_analyzer",
-            -- "terraformls",
-            "lua_ls",
-            "nil_ls",
-            "taplo",
-          },
-        },
-      },
-    },
-  },
+  dependencies = { "folke/lazydev.nvim" },
   keys = {
     { "<Leader>d", vim.diagnostic.open_float },
     {
@@ -49,8 +32,6 @@ return {
     { "<Leader>c", vim.lsp.buf.code_action },
   },
   config = function()
-    local lspconfig = require("lspconfig")
-
     ---------------------------------- Signs -----------------------------------
     local i = require("icons")
     local severity = vim.diagnostic.severity
@@ -107,8 +88,9 @@ return {
       -- "powershell_es",
       "regal",
       "rust_analyzer",
-      -- "sqls",
+      -- "snyk-ls",
       -- "solargraph", -- ruby
+      -- "sqls",
       -- "taplo",
       -- "terraformls",
       "tflint", -- TODO: Add `tflint --init`?
@@ -120,23 +102,25 @@ return {
     end
 
     -------------------------------- JavaScript --------------------------------
-    lspconfig.ts_ls.setup({
+    vim.lsp.config("ts_ls", {
       capabilities = capabilities,
       on_attach = function(client)
         client.server_capabilities.document_formatting = false
       end,
     })
+    vim.lsp.enable("ts_ls")
     --
     ----------------------------------- JSON -----------------------------------
-    lspconfig.jsonls.setup({
+    vim.lsp.config("jsonls", {
       capabilities = capabilities,
       on_attach = function(client)
         client.server_capabilities.document_formatting = false
       end,
     })
+    vim.lsp.enable("jsonls")
 
     ----------------------------------- Lua ------------------------------------
-    lspconfig.lua_ls.setup({
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       on_attach = function(client)
         client.server_capabilities.document_formatting = false
@@ -165,15 +149,17 @@ return {
         },
       },
     })
+    vim.lsp.enable("lua_ls")
 
     ----------------------------------- Nix ------------------------------------
-    lspconfig.nil_ls.setup({
+    vim.lsp.config("nil_ls", {
       capabilities = capabilities,
       settings = { ["nil"] = { formatting = { command = { "nixfmt" } } } },
     })
+    vim.lsp.enable("nil_ls")
 
     ---------------------------------- Python ----------------------------------
-    -- lspconfig.basedpyright.setup({
+    -- vim.lsp.config("basedpyright", {
     --   capabilities = capabilities,
     --   settings = {
     --     python = {
@@ -182,8 +168,9 @@ return {
     --     },
     --   },
     -- })
+    -- vim.lsp.enable("basedpyright")
 
-    lspconfig.pyright.setup({
+    vim.lsp.config("pyright", {
       capabilities = capabilities,
       settings = {
         python = {
@@ -205,8 +192,9 @@ return {
         },
       },
     })
+    vim.lsp.enable("pyright")
 
-    lspconfig.ruff.setup({
+    vim.lsp.config("ruff", {
       capabilities = capabilities,
       init_options = {
         settings = {
@@ -217,10 +205,11 @@ return {
         },
       },
     })
+    vim.lsp.enable("ruff")
 
     ----------------------------------- SQL ------------------------------------
     -- TODO: Figure out why this doesn't work.
-    -- lspconfig.sqls.setup({
+    -- vim.lsp.config("sqls", {
     --   capabilities = capabilities,
     --   settings = {
     --     sqls = {
@@ -234,9 +223,10 @@ return {
     --     },
     --   },
     -- })
+    -- vim.lsp.enable("sqls")
 
     ----------------------------------- TOML -----------------------------------
-    lspconfig.taplo.setup({
+    vim.lsp.config("taplo", {
       capabilities = capabilities,
       settings = {
         evenBetterToml = {
@@ -254,9 +244,10 @@ return {
         },
       },
     })
+    vim.lsp.enable("taplo")
 
     -------------------------------- Terraform ---------------------------------
-    lspconfig.terraformls.setup({
+    vim.lsp.config("terraformls", {
       capabilities = capabilities,
       on_init = function(client, _)
         -- Disable syntax highlighting (use Treesitter instead)
@@ -269,18 +260,20 @@ return {
         },
       },
     })
+    vim.lsp.enable("terraformls")
 
     -------------------------------- Vimscript ---------------------------------
-    lspconfig.vimls.setup({
+    vim.lsp.config("vimls", {
       capabilities = capabilities,
       init_options = {
         runtimepath = vim.o.runtimepath,
         indexes = { gap = 75, count = 5 },
       },
     })
+    vim.lsp.enable("vimls")
 
     ----------------------------------- YAML -----------------------------------
-    lspconfig.yamlls.setup({
+    vim.lsp.config("yamlls", {
       capabilities = capabilities,
       settings = {
         yaml = {
@@ -298,8 +291,9 @@ return {
         },
       },
     })
+    vim.lsp.enable("yamlls")
 
-    -- lspconfig.yamlls.setup({
+    -- vim.lsp.config("yamlls", {
     --   capabilities = capabilities,
     --   settings = {
     --     yaml = {
@@ -337,5 +331,6 @@ return {
     --     },
     --   },
     -- })
+    -- vim.lsp.enable("yamlls")
   end,
 }

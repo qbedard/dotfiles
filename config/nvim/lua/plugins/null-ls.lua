@@ -2,24 +2,7 @@ return {
   "nvimtools/none-ls.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "williamboman/mason.nvim",
-    {
-      "jay-babu/mason-null-ls.nvim",
-      opts = {
-        automatic_installation = {
-          exclude = {
-            -- "bandit", -- not available
-            -- "docformatter", -- not available
-            "fish", -- comes with shell
-            "fish_indent", -- comes with shell
-            -- "shellcheck", -- brew
-            "shfmt", -- brew
-            "stylua", -- brew
-            "terraform_fmt", -- comes with terraform
-          },
-        },
-      },
-    },
+    "mason-org/mason.nvim",
   },
   opts = function()
     local null_ls = require("null-ls")
