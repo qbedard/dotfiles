@@ -11,6 +11,7 @@
     ~/.config:
       recursive: true
 - create:
+    - ~/.claude
     - ~/.config/fish/functions
     - ~/.config/gh
     - ~/.config/hammerspoon
@@ -20,6 +21,8 @@
 - link:
     ~/.amethyst.yml: amethyst.yaml
     ~/.bashrc:
+    ~/.claude/CLAUDE.md: config/claude/CLAUDE.md
+    ~/.claude/settings.json: config/claude/settings.json
     ~/.common.sh:
     ~/.hushlogin:
     ~/.isort.cfg:
