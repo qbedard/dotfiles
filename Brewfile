@@ -2,7 +2,6 @@
 brew 'bat' # cat replacement
 brew 'coreutils' # GNU coreutils (macOS utils are a little different)
 brew 'diff-so-fancy'  # fancy git diff
-brew 'direnv'
 brew 'eza' # ls replacement
 brew 'fd' # find replacement
 brew 'fish' # shell

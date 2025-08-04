@@ -111,20 +111,6 @@ export KEYTIMEOUT=1
 # --- cheat ---
 export CHEATCOLORS=true
 
-# --- direnv ---
-# append a nice env identifier if we're in a direnv venv
-show_virtual_env() {
-	if [ -n "$VIRTUAL_ENV" ] &&
-		[ "$(basename "$(dirname "$VIRTUAL_ENV")")" = '.direnv' ]; then # regular direnv
-		direnv_parent="$(dirname "$(dirname "$VIRTUAL_ENV")")"
-		echo "(d:$(basename "$direnv_parent"))"
-	elif [ -n "$VIRTUAL_ENV" ] &&
-		[ "$(dirname "$VIRTUAL_ENV")" = "$XDG_DATA_HOME/virtualenvs" ]; then # Pipenv (expects global venv dir, not local .venv)
-		echo "(p:$(basename "$VIRTUAL_ENV"))"
-	fi
-}
-PS1='$(show_virtual_env)'$PS1
-
 # use rg with fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 

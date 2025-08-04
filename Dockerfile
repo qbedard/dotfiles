@@ -81,7 +81,6 @@ RUN apk add \
 	bat \
 	curl \
 	# diff-so-fancy \  # not yet
-	direnv \
 	# TODO: Fix timezone issues.
 	eza \
 	fd \

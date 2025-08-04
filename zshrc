@@ -32,16 +32,6 @@ source "$HOME/.common.sh"
 [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
 
-# --- direnv ---
-if hash direnv 2>/dev/null; then
-  eval "$(direnv hook zsh)"
-fi
-
-# --- hub ---
-if command -v hub > /dev/null; then
-  eval "$(hub alias -s zsh)"
-fi
-
 # starship prompt
 if command -v starship > /dev/null; then
   eval "$(starship init zsh)"

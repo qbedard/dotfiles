@@ -3,7 +3,7 @@
 set -gx PAGER less --tabs=4 -RFX
 set -gx PYTHONDONTWRITEBYTECODE 1 # prevent .pyc files
 set -gx SAM_CLI_TELEMETRY 0
-set -gx SHELL fish
+# set -gx SHELL fish
 
 set -g theme_nerd_fonts yes
 set -g theme_date_format "+%a %b %d %l:%M%p"
@@ -208,19 +208,13 @@ function rg-deps -d "Find missing Python dependencies"
 end
 
 # ---------------------------------- Hooks ----------------------------------- #
-# if command -q mise
-#     mise activate fish | source
-# end
 if command -q mise
     abbr -a mr "mise run"
+    # mise activate fish | source
 end
 
 if command -q pdm
     pdm --pep582 fish | source
-end
-
-if command -q direnv
-    direnv hook fish | source
 end
 
 if command -q starship
