@@ -14,6 +14,10 @@ When possible, try to format code to fit within 88 characters per line, but
 don't break it up if it makes it less readable.
 Don't leave unused imports in code.
 Always trim out extra whitespace at the end of lines.
+Try not to reimplement an upstream API if possible. Once an interface begins to
+mirror the interface of a tool or library it uses internally, it's worth
+stepping back and asking if the new interface is necessary or if there's a way
+to augment the existing interface instead.
 
 Though it's intended for Python code specifically, the Zen of Python is a good
 set of principles to follow in general:
@@ -37,3 +41,6 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
+
+Don't just assume that I am right. If you think what I'm asking for is a bad
+idea, or if you think there's a better way to do something, please speak up.
