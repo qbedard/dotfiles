@@ -25,6 +25,7 @@ vim.g.mapleader = " "
 
 vim.opt.clipboard = "unnamed" -- yank to system clipboard
 vim.opt.commentstring = "# %s"
+vim.opt.iskeyword:append({ "-" }) -- treat "-" as part of a word
 vim.opt.mouse = "a" -- let the mouse wheel scroll page, etc
 vim.opt.splitbelow = true
 vim.opt.splitright = true
