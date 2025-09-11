@@ -1,3 +1,4 @@
 [virtualenvs]
 in-project = true
 prefer-active-python = true
+use-poetry-python = false
