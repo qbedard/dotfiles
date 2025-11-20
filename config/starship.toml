@@ -3,8 +3,8 @@ add_newline = false
 command_timeout = 800
 
 [aws]
-symbol = " "
-disabled = true
+symbol = "  "
+format = '[$symbol($profile )]($style)'
 
 [cmd_duration]
 format = "[ $duration]($style) "
