@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.nvim",
+  "nvim-mini/mini.nvim",
   dependencies = "kyazdani42/nvim-web-devicons",
   config = function()
     -- TODO?
@@ -124,13 +124,11 @@ return {
 
     require("mini.misc").setup()
     require("mini.operators").setup()
-    require("mini.pairs").setup({
-      modes = { insert = true, terminal = true },
-    })
+    require("mini.pairs").setup({ modes = { insert = true, terminal = true } })
 
     local splitjoin = require("mini.splitjoin")
     splitjoin.setup({
-      -- https://github.com/echasnovski/mini.nvim/discussions/36#discussioncomment-8382869
+      -- https://github.com/nvim-mini/mini.nvim/discussions/36#discussioncomment-8382869
       mappings = {}, -- Configured in treesj config
       split = { hooks_post = { splitjoin.gen_hook.add_trailing_separator() } },
       join = { hooks_post = { splitjoin.gen_hook.del_trailing_separator() } },

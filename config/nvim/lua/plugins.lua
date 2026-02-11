@@ -72,7 +72,7 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     -- keys = { { "gS", "<Cmd>TSJSplit<CR>" }, { "gJ", "<Cmd>TSJJoin<CR>" } },
     -- opts = { use_default_keymaps = false },
-    -- https://github.com/echasnovski/mini.nvim/discussions/36#discussioncomment-8382869
+    -- https://github.com/nvim-mini/mini.nvim/discussions/36#discussioncomment-8382869
     keys = { { "<leader>m", mode = { "n", "v" }, desc = "Toggle split" } },
     config = function()
       require("treesj").setup({
