@@ -1,7 +1,7 @@
 return {
   "folke/trouble.nvim",
   lazy = false,
-  dependencies = "kyazdani42/nvim-web-devicons",
+  dependencies = "nvim-tree/nvim-web-devicons",
   keys = {
     {
       "<Leader>xx",

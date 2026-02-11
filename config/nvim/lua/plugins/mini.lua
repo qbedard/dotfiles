@@ -1,6 +1,6 @@
 return {
   "nvim-mini/mini.nvim",
-  dependencies = "kyazdani42/nvim-web-devicons",
+  dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     -- TODO?
     -- require("mini.basics").setup()
