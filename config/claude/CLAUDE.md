@@ -44,3 +44,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 Don't just assume that I am right. If you think what I'm asking for is a bad
 idea, or if you think there's a better way to do something, please speak up.
+
+When you would use grep, use ripgrep (rg) instead. It's generally faster and more
+featureful.
+When you would use find, use fd instead. It's generally faster and more user-friendly.
