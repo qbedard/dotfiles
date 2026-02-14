@@ -117,7 +117,26 @@ return {
 
   "github/copilot.vim",
 
-  { "mason-org/mason.nvim", lazy = false, opts = {} },
+  {
+    "mason-org/mason.nvim",
+    lazy = false,
+    opts = {
+      ensure_installed = {
+        "actionlint",
+        -- "bandit",
+        "fish-language-server",
+        -- "fish_indent",
+        "hclfmt",
+        -- "rubocop",
+        -- "selene",
+        -- "shellcheck",
+        -- "sqlfluff",
+        "sql_formatter",
+        "stylua",
+        -- "terraform_fmt",
+      },
+    },
+  },
   {
     "mason-org/mason-lspconfig.nvim",
     dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },

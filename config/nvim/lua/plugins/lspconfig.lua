@@ -26,7 +26,8 @@ return {
     {
       "gf",
       function()
-        vim.lsp.buf.format({ timeout_ms = 4000 })
+        -- vim.lsp.buf.format({ timeout_ms = 4000 })
+        require("conform").format({ timeout_ms = 4000 })
       end,
     },
     { "<Leader>c", vim.lsp.buf.code_action },
@@ -253,7 +254,11 @@ return {
         -- Disable syntax highlighting (use Treesitter instead)
         client.server_capabilities.semanticTokensProvider = nil
       end,
-      filetypes = { "hcl", "terraform", "terraform-vars" },
+      filetypes = {
+        -- "hcl",
+        "terraform",
+        "terraform-vars",
+      },
       settings = {
         terraformls = {
           experimentalFeatures = { prefillRequiredFields = true },
