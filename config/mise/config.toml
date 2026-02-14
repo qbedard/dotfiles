@@ -1,6 +1,5 @@
 [settings]
 experimental = true
-pipx.uvx = true
 idiomatic_version_file_enable_tools = [
   "go",
   "node",
@@ -10,23 +9,40 @@ idiomatic_version_file_enable_tools = [
 ]
 
 [tools]
+hk = "latest"
+pkl = "latest"
 go = "latest"
-node = "22"
+node = { version = "24", postinstall = "corepack enable" }
 python = "3.13"
 terraform = "latest"
 usage = "latest"
 
-"ubi:astral-sh/uv" = "latest"
+"github:astral-sh/uv" = "latest"
+
+"github:astral-sh/ruff" = "latest"
+"github:evilmartians/lefthook" = "latest"
+# "github:github/github-mcp-server" = "latest"
+"github:google/yamlfmt" = "latest"
+"github:koalaman/shellcheck" = "latest"
+"github:open-policy-agent/opa" = "latest"
+"github:tamasfe/taplo" = { version = "latest" }
 
 "npm:@biomejs/biome" = "latest"
 "npm:prettier" = "latest"
 "npm:release-please" = "latest"
 "npm:semantic-release" = "latest"
+"npm:snyk" = "latest"
+# "pipx:awslabs.aws-api-mcp-server" = "latest"
+"pipx:awslabs.aws-diagram-mcp-server" = "latest"
+"pipx:awslabs.git-repo-research-mcp-server" = "latest"
+"pipx:awslabs.terraform-mcp-server" = "latest"
+"pipx:checkov" = "latest"
+"pipx:mcp-atlassian" = "latest"
 "pipx:poetry" = "latest"
 "pipx:pre-commit" = "latest"
 "pipx:pyright" = "latest"
-"ubi:astral-sh/ruff" = "latest"
-"ubi:evilmartians/lefthook" = "latest"
-"ubi:koalaman/shellcheck" = "latest"
-"ubi:google/yamlfmt" = "latest"
-"ubi:tamasfe/taplo" = { version = "latest", matching = "full" }
+"pipx:ty" = "latest"
+
+[tools."ubi:usagi-flow/evil-helix"]
+version = "latest"
+extract_all = "true"
