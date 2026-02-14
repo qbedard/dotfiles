@@ -14,7 +14,6 @@
     - ~/.claude
     - ~/.config/fish/functions
     - ~/.config/gh
-    - ~/.config/hammerspoon
     - ~/.config/karabiner
     - ~/Library/Application Support/jesseduffield/lazydocker
     - ~/Library/Application Support/pypoetry
@@ -27,7 +26,6 @@
     ~/.hushlogin:
     ~/.isort.cfg:
     ~/.npmrc:
-    ~/.phoenix.js:
     ~/.ripgreprc:
     ~/.sql-formatter.json:
     ~/.tflint.hcl:

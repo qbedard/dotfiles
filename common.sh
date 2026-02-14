@@ -51,9 +51,9 @@ alias vr="vim ~/.dotfiles/vim/init.vim"
 alias vp="vim ~/.dotfiles/vim/plugins.vim"
 
 # --- Docker Compose --- #
-alias dc="docker-compose"
-alias dcu="docker-compose up"
-alias dcd="docker-compose down"
+alias dc="docker compose"
+alias dcu="docker compose up"
+alias dcd="docker compose down"
 alias ld="lazydocker"
 
 # --- Git ---
@@ -78,19 +78,9 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C
 
 # --- Python ---
 alias pup="pip install --upgrade pip"
-alias pup2="pip2 install --upgrade pip"
-alias pup3="pip3 install --upgrade pip"
-alias pe="pipenv"
-alias pei="pipenv install"
 
 # --- ripgrep ---
 alias rgp="rg -g '*.py'"
-
-# --- Vagrant ---
-alias vu="vagrant up"
-alias vd="vagrant destroy"
-alias vh="vagrant halt"
-alias vss="vagrant ssh"
 
 # ----- Tool Config ----- #
 export VISUAL=nvim
@@ -130,5 +120,3 @@ export PYTHONDONTWRITEBYTECODE=1 # prevent .pyc files
 # --- ripgrep ---
 alias rg='rg --smart-case'
 
-# --- rtv ---
-export RTV_EDITOR=vim

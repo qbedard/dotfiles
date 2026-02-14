@@ -70,8 +70,6 @@ alias glog "\
 # --- Python --- #
 abbr -a poi "poetry install"
 abbr -a pup "pip install --upgrade pip"
-abbr -a pup2 "pip2 install --upgrade pip"
-abbr -a pup3 "pip3 install --upgrade pip"
 
 # -------------------------------- App Config -------------------------------- #
 if command -q brew
