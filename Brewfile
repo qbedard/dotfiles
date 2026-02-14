@@ -38,10 +38,10 @@ cask 'amethyst' # tiling window manager
 # cask 'brave-browser'
 # cask 'docker'
 # cask 'karabiner-elements'
-cask 'kitty'
+# cask 'kitty'
 
 # tap 'homebrew/cask-versions'
-# cask 'kitty-nightly'
+cask 'kitty-nightly'
 
 # --- Fonts --- #
 cask 'font-iosevka'
