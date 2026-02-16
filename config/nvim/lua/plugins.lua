@@ -114,7 +114,17 @@ return {
   { "Glench/Vim-Jinja2-Syntax", ft = { "html", "jinja" } },
   "vim-test/vim-test",
 
-  "github/copilot.vim",
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opts = {
+      suggestion = {
+        auto_trigger = true,
+        keymap = { accept = false },
+      },
+    },
+  },
 
   {
     "mason-org/mason.nvim",

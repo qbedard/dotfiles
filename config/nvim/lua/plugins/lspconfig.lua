@@ -68,7 +68,7 @@ return {
     --   return orig_util_open_floating_preview(contents, syntax, opts, ...)
     -- end
 
-    local capabilities = require("cmp_nvim_lsp").default_capabilities(
+    local capabilities = require("blink.cmp").get_lsp_capabilities(
       vim.lsp.protocol.make_client_capabilities()
     )
     capabilities.textDocument.completion.snippetSupport = false
