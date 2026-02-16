@@ -23,7 +23,6 @@
 --------------------------------- The Basics ----------------------------------
 vim.g.mapleader = " "
 
-vim.opt.clipboard = "unnamed" -- yank to system clipboard
 vim.opt.commentstring = "# %s"
 vim.opt.confirm = true
 vim.opt.iskeyword:append({ "-" }) -- treat "-" as part of a word
@@ -33,6 +32,10 @@ vim.opt.splitright = true
 vim.opt.ttimeout = true -- prevent delay when changing modes
 vim.opt.updatetime = 100 -- speed up screen updating
 vim.opt.undofile = true -- persistent undo
+
+vim.schedule(function() -- deferred for faster startup
+  vim.opt.clipboard = "unnamedplus" -- yank to system clipboard
+end)
 
 if vim.fn.executable("fish") then
   vim.opt.shell = "fish"
