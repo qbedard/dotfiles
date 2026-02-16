@@ -1,43 +1,27 @@
 return {
   "folke/trouble.nvim",
-  lazy = false,
   dependencies = "nvim-mini/mini.nvim",
   keys = {
     {
       "<Leader>xx",
-      function()
-        require("trouble").toggle()
-      end,
-    },
-    {
-      "<Leader>xw",
-      function()
-        require("trouble").toggle("workspace_diagnostics")
-      end,
+      "<Cmd>Trouble diagnostics toggle<CR>",
+      desc = "Diagnostics (Trouble)",
     },
     {
       "<Leader>xd",
-      function()
-        require("trouble").toggle("document_diagnostics")
-      end,
+      "<Cmd>Trouble diagnostics toggle filter.buf=0<CR>",
+      desc = "Buffer diagnostics (Trouble)",
     },
     {
       "<Leader>xl",
-      function()
-        require("trouble").toggle("loclist")
-      end,
+      "<Cmd>Trouble loclist toggle<CR>",
+      desc = "Location list (Trouble)",
     },
-    {
-      "<Leader>xc",
-      function()
-        require("trouble").toggle("quickfix")
-      end,
-    },
+    { "<Leader>xc", "<Cmd>Trouble qflist toggle<CR>", desc = "Quickfix (Trouble)" },
     {
       "gR",
-      function()
-        require("trouble").toggle("lsp_references")
-      end,
+      "<Cmd>Trouble lsp_references toggle<CR>",
+      desc = "LSP references (Trouble)",
     },
   },
   opts = { use_diagnostic_signs = true },
