@@ -110,7 +110,6 @@ return {
   },
 
   -- Language Support
-  "Vimjas/vim-python-pep8-indent",
   "sophacles/vim-bundle-mako",
   { "Glench/Vim-Jinja2-Syntax", ft = { "html", "jinja" } },
   "vim-test/vim-test",

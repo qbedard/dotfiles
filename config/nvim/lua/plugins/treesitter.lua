@@ -16,7 +16,7 @@ return {
     --     node_decremental = "grm"
     --   }
     -- },
-    -- indent = {enable = true},
+    indent = { enable = true },
 
     --- nvim-treesitter-refactor ---
     -- refactor = {
