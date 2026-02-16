@@ -1,6 +1,6 @@
 return {
   -- Plugins eliminated by snacks --
-  { "j-hui/fidget.nvim", opts = {} }, -- TODO: Replace with notifier LSP progress?
+  { "j-hui/fidget.nvim", opts = { notification = { override_vim_notify = false } } },
   -- "justinmk/vim-dirvish",
   "tpope/vim-fugitive",
   "tpope/vim-rhubarb",
