@@ -2,7 +2,7 @@ local i = require("icons")
 
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = "nvim-tree/nvim-web-devicons",
+  dependencies = "nvim-mini/mini.nvim",
   opts = {
     sections = {
       lualine_a = { "mode" },

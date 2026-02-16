@@ -1,12 +1,12 @@
 return {
   "nvim-mini/mini.nvim",
-  dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     -- TODO?
     -- require("mini.basics").setup()
     -- require("mini.completion").setup()
     -- require("mini.diff").setup()
-    -- require("mini.icons").setup()
+    require("mini.icons").setup()
+    MiniIcons.mock_nvim_web_devicons()
     -- require("mini.jump").setup()
     -- require("mini.move").setup()
     -- require("mini.notify").setup()

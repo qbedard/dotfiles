@@ -2,7 +2,7 @@ local i = require("icons")
 
 return {
   "rebelot/heirline.nvim",
-  dependencies = "nvim-tree/nvim-web-devicons",
+  dependencies = "nvim-mini/mini.nvim",
   enabled = false,
   opts = function()
     local utils = require("heirline.utils")

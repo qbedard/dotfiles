@@ -1,7 +1,7 @@
 return {
   "akinsho/bufferline.nvim",
   event = "BufWinEnter",
-  dependencies = "nvim-tree/nvim-web-devicons",
+  dependencies = "nvim-mini/mini.nvim",
   opts = {
     highlights = {
       buffer_selected = { italic = false },
