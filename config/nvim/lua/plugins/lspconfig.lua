@@ -7,13 +7,13 @@ return {
     {
       "[d",
       function()
-        vim.diagnostic.jump({ count = 1 })
+        vim.diagnostic.jump({ count = -1 })
       end,
     },
     {
       "]d",
       function()
-        vim.diagnostic.jump({ count = -1 })
+        vim.diagnostic.jump({ count = 1 })
       end,
     },
     { "<Leader>q", vim.diagnostic.setloclist },
