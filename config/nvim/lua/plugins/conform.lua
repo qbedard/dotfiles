@@ -11,6 +11,7 @@ return {
       markdown = { "prettierd", "prettier", stop_after_first = true },
       mysql = { "sql_formatter" },
       python = { "ruff_organize_imports", "ruff_fix", "ruff" },
+      rego = { "opa_fmt" },
       sh = { "shfmt" },
       sql = { "sql_formatter" },
       terraform = { "terraform_fmt" },
