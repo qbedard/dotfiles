@@ -30,7 +30,7 @@ return {
   },
 
   {
-    "NvChad/nvim-colorizer.lua",
+    "catgoose/nvim-colorizer.lua",
     ft = { "css", "scss", "html" },
     opts = { user_default_options = { mode = "virtualtext" } },
   },
