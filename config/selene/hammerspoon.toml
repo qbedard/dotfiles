@@ -1,9 +1,0 @@
-[selene]
-base = "lua53"
-name = "hammerspoon"
-
-[hs]
-any = true
-
-[spoon]
-any = true
