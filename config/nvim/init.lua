@@ -106,7 +106,6 @@ vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.sidescrolloff = 5 -- start scrolling when near the last col
 vim.opt.termguicolors = true -- true color support
-vim.opt.winborder = "rounded"
 
 --------------------------------- Completion ----------------------------------
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }

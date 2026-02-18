@@ -16,7 +16,8 @@ return {
       GruvboxPurpleSign = { bg = "#282828" },
       GruvboxRedSign = { bg = "#282828" },
       GruvboxYellowSign = { bg = "#282828" },
-      NormalFloat = { link = "Float" },
+      NormalFloat = { bg = "#282828" },
+      Pmenu = { bg = "#282828" },
       -- gitsigns
       GitSignsChange = { link = "GruvboxBlueSign" },
       -- treesitter
