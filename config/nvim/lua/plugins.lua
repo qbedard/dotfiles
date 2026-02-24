@@ -24,12 +24,6 @@ return {
   -- },
 
   {
-    "lewis6991/gitsigns.nvim",
-    event = "BufRead",
-    opts = { sign_priority = 0 },
-  },
-
-  {
     "catgoose/nvim-colorizer.lua",
     ft = { "css", "scss", "html" },
     opts = { user_default_options = { mode = "virtualtext" } },
