@@ -1,7 +1,17 @@
 return {
   "neovim/nvim-lspconfig",
   lazy = false,
-  dependencies = { "folke/lazydev.nvim" },
+  dependencies = {
+    {
+      "folke/lazydev.nvim",
+      ft = "lua",
+      opts = {
+        library = {
+          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        },
+      },
+    },
+  },
   keys = {
     { "<Leader>d", vim.diagnostic.open_float },
     {
@@ -133,17 +143,9 @@ return {
             globals = { "renoise", "vim" },
           },
           format = { enable = false },
-          runtime = {
-            version = "LuaJIT",
-            path = { "?.lua", "?/init.lua" },
-          },
+          runtime = { version = "LuaJIT" },
           telemetry = { enable = false },
-          workspace = {
-            checkThirdParty = false,
-            library = vim.api.nvim_get_runtime_file("lua/", true),
-            maxPreload = 10000,
-            preloadFileSize = 10000,
-          },
+          workspace = { checkThirdParty = false },
         },
       },
     })
