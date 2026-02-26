@@ -1,6 +1,5 @@
 --ignore=.stowrc
 --ignore=Brewfile
---ignore=\.md
 --ignore=^\.git.*
 --ignore=scripts
 --target=$HOME
