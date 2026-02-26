@@ -115,6 +115,10 @@ if command -q nvim
     abbr -a vim nvim
 end
 
+if command -q opencode
+    abbr -a oc opencode
+end
+
 if command -q procs
     alias ps procs
 end
