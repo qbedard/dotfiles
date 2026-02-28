@@ -3,7 +3,7 @@ description = "Install dotfiles using Dotbot"
 run = "./install"
 
 [tasks.link]
-run = "./install --only clean link stow"
+run = "./install --only clean create link stow"
 
 [tasks."update:brew"]
 run = "brew upgrade"
