@@ -7,6 +7,7 @@ return {
       hcl = { "hcl" },
       -- javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
       json = { "biome", "prettierd", "prettier", stop_after_first = true },
+      jsonc = { "biome", "prettierd", "prettier", stop_after_first = true },
       lua = { "stylua" },
       markdown = { "prettierd", "prettier", stop_after_first = true },
       mysql = { "sql_formatter" },

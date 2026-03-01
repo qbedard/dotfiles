@@ -20,7 +20,8 @@
 - link:
     ~/.amethyst.yml: amethyst.yaml
     ~/.bashrc:
-    ~/.claude/CLAUDE.md: config/claude/CLAUDE.md
+    ~/.claude/CLAUDE.md: config/opencode/AGENTS.md
+    ~/.claude/skills: config/opencode/skills
     ~/.common.sh:
     ~/.hushlogin:
     ~/.isort.cfg:

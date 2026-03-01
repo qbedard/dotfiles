@@ -1,13 +1,22 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "build": { "steps": 30 },
+    "general": { "steps": 20 },
+  },
   "mcp": {
     "atlassian": {
       "type": "remote",
-      "url": "https://mcp.atlassian.com/v1/sse"
+      "url": "https://mcp.atlassian.com/v1/sse",
     },
     "aws-knowledge": {
       "type": "remote",
-      "url": "https://knowledge-mcp.global.api.aws"
+      "url": "https://knowledge-mcp.global.api.aws",
     },
-  }
+  },
+  "provider": {
+    "anthropic": {
+      "options": { "setCacheKey": true },
+    },
+  },
 }
