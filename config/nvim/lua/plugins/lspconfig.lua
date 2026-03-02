@@ -94,7 +94,7 @@ return {
       "dockerls",
       "gopls",
       "html",
-      "jsonls",
+      -- "jsonls",
       -- "nil_ls",
       -- "powershell_es",
       "regal",
@@ -138,7 +138,7 @@ return {
       end,
       settings = {
         Lua = {
-          completion = { kewordSnippet = "Disable" },
+          completion = { keywordSnippet = "Disable" },
           diagnostics = {
             globals = { "renoise", "vim" },
           },

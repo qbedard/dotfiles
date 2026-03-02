@@ -65,7 +65,6 @@ vim.opt.listchars = {
   tab = "▎ ",
   trail = "·",
 }
-vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 vim.opt.softtabstop = 2
@@ -141,9 +140,6 @@ vim.filetype.add({
     ["Dockerfile.*"] = "dockerfile",
   },
 })
-
------------------------------------ Python ------------------------------------
-vim.opt.pyxversion = 3
 
 -------------------------------------------------------------------------------
 --                                  Mappings                                 --
