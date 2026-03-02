@@ -24,7 +24,6 @@
     ~/.claude/skills: config/opencode/skills
     ~/.common.sh:
     ~/.hushlogin:
-    ~/.isort.cfg:
     ~/.npmrc:
     ~/.ripgreprc:
     ~/.sql-formatter.json:
