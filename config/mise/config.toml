@@ -19,8 +19,9 @@ usage = "latest"
 
 "github:astral-sh/uv" = "latest"
 
+"aqua:anthropics/claude-code" = "latest"
+
 "github:astral-sh/ruff" = "latest"
-"github:evilmartians/lefthook" = "latest"
 # "github:github/github-mcp-server" = "latest"
 "github:google/yamlfmt" = "latest"
 "github:koalaman/shellcheck" = "latest"
@@ -43,6 +44,6 @@ usage = "latest"
 "pipx:pyright" = "latest"
 "pipx:ty" = "latest"
 
-[tools."ubi:usagi-flow/evil-helix"]
-version = "latest"
-extract_all = "true"
+# [tools."ubi:usagi-flow/evil-helix"]
+# version = "latest"
+# extract_all = "true"
