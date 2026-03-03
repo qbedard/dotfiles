@@ -147,10 +147,13 @@ return {
       search_method = "cover_or_next",
     })
     vim.keymap.del({ "v" }, "ys")
-    -- TODO: Figure out why I can't call MiniSurround.add directly here.
-    vim.keymap.set({ "v", "x" }, "S", ":<C-u>lua MiniSurround.add('visual')<CR>")
-    -- TODO: Figure out why this doesn't work.
-    -- vim.keymap.set("n", "yss", "ys_")
+    vim.keymap.set(
+      { "v", "x" },
+      "S",
+      ":<C-u>lua MiniSurround.add('visual')<CR>",
+      { silent = true }
+    )
+    vim.keymap.set("n", "yss", "ys_", { remap = true })
 
     local trailspace = require("mini.trailspace")
     vim.api.nvim_create_user_command("Trim", function()
