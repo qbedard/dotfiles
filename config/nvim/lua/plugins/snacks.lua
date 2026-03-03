@@ -8,8 +8,7 @@ return {
     explorer = {},
     gitbrowse = {},
     indent = {
-      hl = { "GruvboxBg1", "GruvboxBg2" }, -- TODO: Find out why this isn't working.
-      -- scope = { hl = { "GruvboxAqua" } },
+      indent = { hl = { "GruvboxBg1", "GruvboxBg2" } },
       animate = { duration = { step = 5 } },
     },
     input = {},
