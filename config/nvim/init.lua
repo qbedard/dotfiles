@@ -94,8 +94,6 @@ end
 --------------------------------- Appearance ----------------------------------
 vim.api.nvim_set_hl(0, "@constant.builtin", { link = "Constant" })
 
-vim.env.NVIM_TERM = 1 -- TODO: Why?
-
 vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true -- highlight the line the cursor is on
 vim.opt.number = true
