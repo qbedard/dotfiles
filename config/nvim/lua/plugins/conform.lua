@@ -16,6 +16,7 @@ return {
       sh = { "shfmt" },
       sql = { "sql_formatter" },
       terraform = { "terraform_fmt" },
+      ["terraform-vars"] = { "terraform_fmt" },
       -- typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
     },
     default_format_opts = {
