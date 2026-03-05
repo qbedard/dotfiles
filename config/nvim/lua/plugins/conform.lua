@@ -17,6 +17,7 @@ return {
       sql = { "sql_formatter" },
       terraform = { "terraform_fmt" },
       ["terraform-vars"] = { "terraform_fmt" },
+      toml = { lsp_format = "last" },
       -- typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
     },
     default_format_opts = {
