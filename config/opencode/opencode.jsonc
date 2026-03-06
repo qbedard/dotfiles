@@ -4,7 +4,22 @@
     "build": { "steps": 30 },
     "general": { "steps": 20 }
   },
+  "lsp": {
+    "helm-ls": {
+      "command": ["helm_ls", "serve"],
+      "extensions": [".tpl"]
+    }
+  },
   "mcp": {
+    "argocd": {
+      "type": "local",
+      "command": ["npx", "-y", "argocd-mcp@latest", "stdio"],
+      "environment": {
+        "ARGOCD_BASE_URL": "$ARGOCD_BASE_URL",
+        "ARGOCD_API_TOKEN": "$ARGOCD_API_TOKEN",
+        "MCP_READ_ONLY": "true"
+      }
+    },
     "atlassian": {
       "type": "remote",
       "url": "https://mcp.atlassian.com/v1/sse"
@@ -16,6 +31,17 @@
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
+    },
+    "kubernetes": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "kubernetes-mcp-server@latest",
+        "--read-only",
+        "--toolsets",
+        "core,config,helm"
+      ]
     }
   },
   "permission": {
