@@ -6,6 +6,7 @@ description: Conventions for creating and managing Jira tickets
 ## Defaults
 
 - Default project: **DO**
+- Default assignee: **current user** (look up via `atlassianUserInfo` at creation time)
 - Default "Work Classification" (custom field, DO space only): **Internal Tools and Processes**
 
 ## Ticket titles
