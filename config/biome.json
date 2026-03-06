@@ -1,0 +1,14 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
+  "formatter": {
+    "indentStyle": "space"
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "all"
+    }
+  },
+  "vcs": {
+    "useIgnoreFile": true
+  }
+}

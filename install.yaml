@@ -15,6 +15,7 @@
     - ~/.config/fish/functions
     - ~/.config/gh
     - ~/.config/karabiner
+    - ~/Library/Application Support/biome
     - ~/Library/Application Support/jesseduffield/lazydocker
     - ~/Library/Application Support/pypoetry
 - link:
@@ -29,6 +30,7 @@
     ~/.sql-formatter.json:
     ~/.tflint.hcl:
     ~/.zshrc:
+    ~/Library/Application Support/biome/biome.json: config/biome.json
     ~/Library/Application Support/jesseduffield/lazydocker/config.yml: lazydocker-config.yaml
     ~/Library/Application Support/pypoetry/config.toml: config/pypoetry/config.toml
 - stow:
