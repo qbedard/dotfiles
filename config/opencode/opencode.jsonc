@@ -45,7 +45,7 @@
     },
     "nix": {
       "type": "local",
-      "command": ["uvx", "mcp-nix"],
+      "command": ["uvx", "--python", "3.13", "mcp-nix"],
     },
   },
   "permission": {
