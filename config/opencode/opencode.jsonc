@@ -42,7 +42,11 @@
         "--toolsets",
         "core,config,helm"
       ]
-    }
+    },
+    "nix": {
+      "type": "local",
+      "command": ["uvx", "mcp-nix"],
+    },
   },
   "permission": {
     "websearch": "allow"
