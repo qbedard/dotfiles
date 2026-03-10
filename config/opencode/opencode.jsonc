@@ -2,13 +2,13 @@
   "$schema": "https://opencode.ai/config.json",
   "agent": {
     "build": { "steps": 30 },
-    "general": { "steps": 20 }
+    "general": { "steps": 20 },
   },
   "lsp": {
     "helm-ls": {
       "command": ["helm_ls", "serve"],
-      "extensions": [".tpl"]
-    }
+      "extensions": [".tpl"],
+    },
   },
   "mcp": {
     "argocd": {
@@ -17,20 +17,24 @@
       "environment": {
         "ARGOCD_BASE_URL": "$ARGOCD_BASE_URL",
         "ARGOCD_API_TOKEN": "$ARGOCD_API_TOKEN",
-        "MCP_READ_ONLY": "true"
-      }
+        "MCP_READ_ONLY": "true",
+      },
     },
     "atlassian": {
       "type": "remote",
-      "url": "https://mcp.atlassian.com/v1/sse"
+      "url": "https://mcp.atlassian.com/v1/sse",
     },
     "aws-knowledge": {
       "type": "remote",
-      "url": "https://knowledge-mcp.global.api.aws"
+      "url": "https://knowledge-mcp.global.api.aws",
     },
     "context7": {
       "type": "remote",
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+    },
+    "icm": {
+      "type": "local",
+      "command": ["icm", "serve", "--compact"],
     },
     "kubernetes": {
       "type": "local",
@@ -40,8 +44,8 @@
         "kubernetes-mcp-server@latest",
         "--read-only",
         "--toolsets",
-        "core,config,helm"
-      ]
+        "core,config,helm",
+      ],
     },
     "nix": {
       "type": "local",
@@ -49,11 +53,12 @@
     },
   },
   "permission": {
-    "websearch": "allow"
+    "websearch": "allow",
   },
+  "plugin": ["@tarquinen/opencode-dcp@latest"],
   "provider": {
     "anthropic": {
-      "options": { "setCacheKey": true }
-    }
-  }
+      "options": { "setCacheKey": true },
+    },
+  },
 }
