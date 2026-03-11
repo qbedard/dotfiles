@@ -42,3 +42,5 @@ When you would use find, use fd instead. It's generally faster and more
 user-friendly.
 
 When you need to look up library or framework documentation, use context7 tools.
+
+Never search broadly from ~ or /; ask which specific paths to check.
