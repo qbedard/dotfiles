@@ -93,6 +93,7 @@ return {
       "docker_compose_language_service",
       "dockerls",
       "gopls",
+      "helm_ls",
       "html",
       -- "jsonls",
       -- "nil_ls",
