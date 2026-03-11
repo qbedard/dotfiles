@@ -109,6 +109,14 @@ vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.shortmess:append("c")
 
 ---------------------------------- Filetype -----------------------------------
+--- Detect Helm chart templates by walking up to find Chart.yaml.
+local helm_template_exts = { yaml = true, yml = true, tpl = true, txt = true }
+local function detect_helm_template(path)
+  if helm_template_exts[path:match("%.(%w+)$")] and vim.fs.root(path, "Chart.yaml") then
+    return "helm"
+  end
+end
+
 vim.filetype.add({
   extension = {
     backend = "terraform-vars",
@@ -136,6 +144,10 @@ vim.filetype.add({
     [".*git/config"] = "gitconfig",
     [".*gitconfig.*"] = "gitconfig",
     ["Dockerfile.*"] = "dockerfile",
+    -- Helm chart templates (requires Chart.yaml in ancestor)
+    [".*/templates/.*"] = detect_helm_template,
+    -- Helm values files
+    ["values.*%.ya?ml"] = "yaml.helm-values",
   },
 })
 
