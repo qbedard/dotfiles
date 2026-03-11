@@ -4,6 +4,7 @@
     "build": { "steps": 30 },
     "general": { "steps": 20 },
   },
+  "default_agent": "plan",
   "lsp": {
     "helm-ls": {
       "command": ["helm_ls", "serve"],
