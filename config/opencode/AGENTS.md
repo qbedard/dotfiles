@@ -44,3 +44,5 @@ user-friendly.
 When you need to look up library or framework documentation, use context7 tools.
 
 Never search broadly from ~ or /; ask which specific paths to check.
+
+@RTK.md

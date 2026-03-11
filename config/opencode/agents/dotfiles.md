@@ -48,6 +48,18 @@ Two mechanisms are used — use the right one:
 - Keep entries alphabetically sorted within each section.
 - Note any version pins or options inline as comments.
 
+## Global CLI tools (mise)
+
+- The global mise config at `~/.config/mise/config.toml` is the go-to place
+  for installing CLI tools that should be available everywhere (LSP servers,
+  formatters, linters, MCP servers, etc.).
+- This file lives at `config/mise/config.toml` in the dotfiles repo
+  (stow-linked to `~/.config/mise/`).
+- Tools are declared under a `[tools]` table. Available backends: `npm:`,
+  `pipx:`, `github:`, `aqua:`, and built-in tool names (e.g., `node`,
+  `python`).
+- Example: `"npm:@actions/languageserver" = "latest"`.
+
 ## Shell aliases and functions
 
 - Common aliases and functions shared across all shells live in `common.sh`.

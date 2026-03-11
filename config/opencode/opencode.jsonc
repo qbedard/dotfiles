@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "instructions": ["RTK.md"],
   "agent": {
     "build": { "steps": 30 },
     "general": { "steps": 20 },
@@ -75,6 +76,12 @@
     },
   },
   "permission": {
+    "read": {
+      "**/*.pem": "deny",
+      "**/*.key": "deny",
+      "**/credentials.json": "deny",
+      "**/secrets.*": "deny",
+    },
     "websearch": "allow",
   },
   "plugin": ["@tarquinen/opencode-dcp@latest"],
