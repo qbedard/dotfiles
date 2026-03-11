@@ -47,9 +47,18 @@
         "core,config,helm",
       ],
     },
+    "mise": {
+      "type": "local",
+      "command": ["mise", "mcp"],
+      "environment": { "MISE_EXPERIMENTAL": "1" },
+    },
     "nix": {
       "type": "local",
       "command": ["uvx", "--python", "3.13", "mcp-nix"],
+    },
+    "terraform": {
+      "type": "local",
+      "command": ["terraform-mcp-server"],
     },
   },
   "permission": {

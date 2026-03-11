@@ -1,3 +1,6 @@
+[env]
+MISE_EXPERIMENTAL = "1"
+
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = [
