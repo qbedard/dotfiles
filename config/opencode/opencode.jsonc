@@ -36,6 +36,14 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
     },
+    "github": {
+      "type": "local",
+      "command": [
+        "sh",
+        "-c",
+        "GITHUB_PERSONAL_ACCESS_TOKEN=$(gh auth token) github-mcp-server stdio",
+      ],
+    },
     "icm": {
       "type": "local",
       "command": ["icm", "serve", "--compact"],

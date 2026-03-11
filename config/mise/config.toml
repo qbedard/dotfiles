@@ -25,7 +25,7 @@ usage = "latest"
 "aqua:anthropics/claude-code" = "latest"
 
 "github:astral-sh/ruff" = "latest"
-# "github:github/github-mcp-server" = "latest"
+"github:github/github-mcp-server" = "latest"
 "github:google/yamlfmt" = "latest"
 "github:rtk-ai/icm" = "latest"
 "github:koalaman/shellcheck" = "latest"
