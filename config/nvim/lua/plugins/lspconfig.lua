@@ -112,6 +112,27 @@ return {
       vim.lsp.enable(lsp)
     end
 
+    ----------------------------- GitHub Actions --------------------------------
+    -- Override cmd: lspconfig defaults to the deprecated gh-actions-language-server
+    -- wrapper. Use the official @actions/languageserver binary instead.
+    -- TODO: Drop cmd override once lspconfig updates upstream.
+    vim.lsp.config("gh_actions_ls", {
+      cmd = { "actions-languageserver", "--stdio" },
+      capabilities = capabilities,
+      before_init = function(params, config)
+        if config.root_dir and vim.fn.executable("gh") == 1 then
+          local result = vim.system(
+            { "gh", "auth", "token", "-h", "github.com" }
+          ):wait()
+          if result.code == 0 then
+            params.initializationOptions.sessionToken =
+              vim.trim(result.stdout)
+          end
+        end
+      end,
+    })
+    vim.lsp.enable("gh_actions_ls")
+
     -------------------------------- JavaScript --------------------------------
     vim.lsp.config("ts_ls", {
       capabilities = capabilities,

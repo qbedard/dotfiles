@@ -33,6 +33,7 @@ usage = "latest"
 "github:tamasfe/taplo" = { version = "latest" }
 
 "npm:@biomejs/biome" = "latest"
+"npm:@actions/languageserver" = "latest"
 "npm:prettier" = "latest"
 "npm:release-please" = "latest"
 "npm:semantic-release" = "latest"

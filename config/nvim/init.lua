@@ -140,7 +140,6 @@ vim.filetype.add({
     ["uv.lock"] = "toml",
   },
   pattern = {
-    -- [".*.github/workflows/.*.ya?ml"] = "",
     [".*git/config"] = "gitconfig",
     [".*gitconfig.*"] = "gitconfig",
     ["Dockerfile.*"] = "dockerfile",
