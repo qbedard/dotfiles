@@ -1,5 +1,5 @@
 function vim_last_rg --description "Create command to open the last rg matches in vim"
-    commandline -r "vim " && commandline -a (
+    commandline -r "nvim " && commandline -a (
         history search --prefix --max 1 rg |
         sed "s/^rg \(.*\)/\(rg -l \1\)/"
     )
