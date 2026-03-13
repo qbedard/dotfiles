@@ -19,6 +19,9 @@
 ; 	reflog = delta
 ; 	show = delta
 
+[push]
+	autoSetupRemote = true
+
 ; [interactive]
 ; 	diffFilter = delta --color-only
 
