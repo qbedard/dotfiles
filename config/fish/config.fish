@@ -119,6 +119,10 @@ if command -q opencode
     abbr -a oc opencode
 end
 
+if command -q podman
+    abbr -a pm podman
+end
+
 if command -q procs
     alias ps procs
 end
