@@ -70,6 +70,10 @@
       "type": "local",
       "command": ["uvx", "--python", "3.13", "mcp-nix"],
     },
+    "spacelift": {
+      "type": "local",
+      "command": ["spacectl", "mcp", "server"],
+    },
     "terraform": {
       "type": "local",
       "command": ["terraform-mcp-server"],
