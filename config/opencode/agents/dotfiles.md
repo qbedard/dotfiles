@@ -45,7 +45,6 @@ Two mechanisms are used — use the right one:
 
 - Add packages to `Brewfile` in the appropriate section (`brew`, `cask`,
   `mas`, `vscode`).
-- Keep entries alphabetically sorted within each section.
 - Note any version pins or options inline as comments.
 
 ## Global CLI tools (mise)
@@ -91,6 +90,8 @@ This runs dotbot via mise, executing the clean/create/link/stow steps from
 ## General
 
 - Prefer editing existing files over adding new ones.
-- When adding a new tool, check if it's already in the Brewfile first.
+- Keep lists and maps alphabetically sorted where appropriate.
+- When adding a new tool, check if it's already in the Brewfile or
+  config/mise/config.toml first.
 - The repo should stay idempotent: running `mise run link` multiple times
   should be safe.
