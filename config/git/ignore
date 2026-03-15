@@ -3,6 +3,7 @@
 .cache
 .codemogger
 .direnv
+.fastembed_cache
 .idea
 .mise.local.toml
 .pyc
