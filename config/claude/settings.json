@@ -26,10 +26,10 @@
     ]
   },
   "enabledPlugins": {
+    "atlassian@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "github@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "atlassian@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
+    "lua-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true
   }
 }
