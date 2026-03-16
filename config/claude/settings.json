@@ -1,0 +1,35 @@
+{
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Edit(CLAUDE.md)",
+      "Read(~/git/**)",
+      "Webfetch(domain:github.com)",
+      "Webfetch(domain:githubusercontent.com)",
+      "Mcp-atlassian:confluence_search(*)",
+      "Mcp-atlassian:jira_create_issue(*)",
+      "Mcp-atlassian:jira_search(*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/credentials.json)",
+      "Read(**/secrets.*)",
+      "Read(~/.mise.local.toml)"
+    ]
+  },
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "atlassian@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true
+  }
+}
