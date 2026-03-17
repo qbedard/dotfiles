@@ -1,37 +1,61 @@
 {
+  "enabledPlugins": {
+    "atlassian@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "kubernetes-operations@claude-code-workflows": true,
+    "lua-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "terraform-code-generation@hashicorp": true,
+    "terraform-module-generation@hashicorp": true,
+    "terraform-skill@antonbabenko": true
+  },
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
     "DISABLE_AUTOUPDATER": "1"
   },
+  "extraKnownMarketplaces": {
+    "antonbabenko": {
+      "source": {
+        "repo": "antonbabenko/terraform-skill",
+        "source": "github"
+      }
+    },
+    "claude-code-workflows": {
+      "source": {
+        "repo": "wshobson/agents",
+        "source": "github"
+      }
+    },
+    "hashicorp": {
+      "source": {
+        "repo": "hashicorp/agent-skills",
+        "source": "github"
+      }
+    }
+  },
+  "model": "opus[1m]",
   "permissions": {
     "allow": [
       "Bash(find:*)",
       "Bash(grep:*)",
       "Bash(ls:*)",
       "Edit(CLAUDE.md)",
-      "Read(~/git/**)",
-      "Webfetch(domain:github.com)",
-      "Webfetch(domain:githubusercontent.com)",
       "Mcp-atlassian:confluence_search(*)",
       "Mcp-atlassian:jira_create_issue(*)",
-      "Mcp-atlassian:jira_search(*)"
+      "Mcp-atlassian:jira_search(*)",
+      "Read(~/git/**)",
+      "Webfetch(domain:github.com)",
+      "Webfetch(domain:githubusercontent.com)"
     ],
     "deny": [
       "Read(.env)",
       "Read(.env.*)",
-      "Read(**/*.pem)",
       "Read(**/*.key)",
+      "Read(**/*.pem)",
       "Read(**/credentials.json)",
       "Read(**/secrets.*)",
       "Read(~/.mise.local.toml)"
     ]
-  },
-  "enabledPlugins": {
-    "atlassian@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "github@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true
-  },
-  "model": "opus"
+  }
 }
