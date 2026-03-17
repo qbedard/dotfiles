@@ -47,10 +47,12 @@ Never search broadly from ~ or /; ask which specific paths to check.
 
 When exploring a codebase, prefer structured tools over raw file reads:
 
-- Use codemogger_search (semantic or keyword mode) to find relevant code
-  by meaning or name before resorting to grep/ripgrep.
+- Use the Explore subagent for broad semantic or keyword searches across the
+  codebase before resorting to grep/ripgrep.
 - Use LSP tools (goToDefinition, findReferences, hover) for precise
   symbol navigation when the file and position are known.
 - Use Read with targeted line ranges rather than reading entire files.
-- Reserve grep/Glob for regex matching or file pattern discovery that
+- Reserve Grep/Glob for regex matching or file pattern discovery that
   semantic search can't cover.
+
+@RTK.md
