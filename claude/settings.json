@@ -54,7 +54,6 @@
       "Read(**/*.key)",
       "Read(**/*.pem)",
       "Read(**/credentials.json)",
-      "Read(**/secrets.*)",
       "Read(~/.mise.local.toml)"
     ]
   }
