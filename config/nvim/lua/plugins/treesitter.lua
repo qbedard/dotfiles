@@ -7,15 +7,6 @@ return {
   opts = {
     ensure_installed = "all",
     highlight = { enable = true, disable = { "scss" } },
-    -- incremental_selection = {
-    --   enable = true,
-    --   keymaps = {
-    --     init_selection = "gnn",
-    --     node_incremental = "grn",
-    --     scope_incremental = "grc",
-    --     node_decremental = "grm"
-    --   }
-    -- },
     indent = { enable = true },
 
     --- nvim-treesitter-refactor ---
