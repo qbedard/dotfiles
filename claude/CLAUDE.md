@@ -40,6 +40,10 @@ When you would use grep, use ripgrep (rg) instead. It's generally faster and
 more featureful.
 When you would use find, use fd instead. It's generally faster and more
 user-friendly.
+When parsing JSON locally, use jq — not Python one-liners. jq is
+purpose-built for this and is available on this workstation. However, do
+not assume jq is available on remote servers; for commands intended to
+run remotely, use Python or other tools likely to be present.
 
 When you need to look up library or framework documentation, use context7 tools.
 
