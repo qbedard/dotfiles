@@ -1,82 +1,74 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "windwp/nvim-ts-autotag",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = { ensure_installed = "all" },
+    config = function(_, opts)
+      require("nvim-treesitter").setup(opts)
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          pcall(vim.treesitter.start)
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+      })
+      vim.opt.foldmethod = "expr"
+      vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      vim.treesitter.language.register("terraform", "terraform-vars")
+    end,
   },
-  opts = {
-    ensure_installed = "all",
-    highlight = { enable = true, disable = { "scss" } },
-    indent = { enable = true },
 
-    --- nvim-treesitter-refactor ---
-    -- refactor = {
-    --   highlight_current_scope = {enable = false},
-    --   highlight_definitions = {enable = true},
-    --   navigation = {
-    --     enable = true,
-    --     keymaps = {
-    --       goto_definition = "gnd",
-    --       list_definitions = "gnD",
-    --       list_definitions_toc = "gO",
-    --       goto_next_usage = "<a-*>",
-    --       goto_previous_usage = "<a-#>"
-    --     }
-    --   }
-    -- },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    config = function()
+      local ts = require("nvim-treesitter-textobjects")
+      local select = require("nvim-treesitter-textobjects.select")
+      local move = require("nvim-treesitter-textobjects.move")
+      local swap = require("nvim-treesitter-textobjects.swap")
 
-    --- nvim-treesitter-textobjects ---
-    -- TODO: Replace other textobject plugins with this?
-    textobjects = {
-      move = {
-        enable = true,
-        goto_next_start = {
-          ["]m"] = "@function.outer",
-          ["]]"] = "@class.outer",
-        },
-        goto_next_end = {
-          ["]M"] = "@function.outer",
-          ["]["] = "@class.outer",
-        },
-        goto_previous_start = {
-          ["[m"] = "@function.outer",
-          ["[["] = "@class.outer",
-        },
-        goto_previous_end = {
-          ["[M"] = "@function.outer",
-          ["[]"] = "@class.outer",
-        },
-      },
-      select = {
-        enable = true,
-        keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = "@class.inner",
-        },
-      },
-      swap = {
-        enable = true,
-        swap_next = {
-          ["<leader>l"] = "@parameter.inner",
-        },
-        swap_previous = {
-          ["<leader>h"] = "@parameter.inner",
-        },
-      },
-    },
-    --- nvim-ts-autotag ---
-    autotag = {
-      enable = true,
+      ts.setup({})
+
+      -- select
+      for _, map in ipairs({
+        { "af", "@function.outer" },
+        { "if", "@function.inner" },
+        { "ac", "@class.outer" },
+        { "ic", "@class.inner" },
+      }) do
+        vim.keymap.set({ "x", "o" }, map[1], function()
+          select.select_textobject(map[2], "textobjects")
+        end)
+      end
+
+      -- move
+      for _, map in ipairs({
+        { "]m", "@function.outer", "goto_next_start" },
+        { "]]", "@class.outer", "goto_next_start" },
+        { "]M", "@function.outer", "goto_next_end" },
+        { "][", "@class.outer", "goto_next_end" },
+        { "[m", "@function.outer", "goto_previous_start" },
+        { "[[", "@class.outer", "goto_previous_start" },
+        { "[M", "@function.outer", "goto_previous_end" },
+        { "[]", "@class.outer", "goto_previous_end" },
+      }) do
+        local fn = move[map[3]]
+        vim.keymap.set({ "n", "x", "o" }, map[1], function()
+          fn(map[2], "textobjects")
+        end)
+      end
+
+      -- swap
+      vim.keymap.set("n", "<leader>l", function()
+        swap.swap_next("@parameter.inner", "textobjects")
+      end)
+      vim.keymap.set("n", "<leader>h", function()
+        swap.swap_previous("@parameter.inner", "textobjects")
+      end)
+    end,
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    opts = {
       filetypes = { "html", "javascriptreact", "xml" },
     },
   },
-  config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
-    vim.opt.foldmethod = "expr"
-    vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-    vim.treesitter.language.register("terraform", "terraform-vars")
-  end,
 }
