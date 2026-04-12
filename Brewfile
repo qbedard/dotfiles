@@ -38,15 +38,12 @@ cask 'amethyst' # tiling window manager
 # cask 'brave-browser'
 # cask 'docker'
 # cask 'karabiner-elements'
-# cask 'kitty'
-
-# tap 'homebrew/cask-versions'
-cask 'kitty-nightly'
+cask 'kitty'
 
 # --- Fonts --- #
 cask 'font-iosevka'
 cask 'font-symbols-only-nerd-font'
 
 # --- Misc --- #
-tap 'zero-sh/tap'
-brew 'apply-user-defaults'
+tap 'dsully/tap'
+brew 'macos-defaults'

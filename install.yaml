@@ -3,8 +3,8 @@
       stdout: true
       stderr: true
 - shell:
-    - bash -c 'if [ "$(uname)" == "Darwin" ]; then brew bundle --no-lock; fi'
-    - bash -c 'apply-user-defaults macos-defaults.yaml'
+    - bash -c 'if [ "$(uname)" == "Darwin" ]; then brew bundle; fi'
+    - bash -c 'macos-defaults apply macos-defaults.yaml'
     - bat cache --build
 - clean:
     ~/:
