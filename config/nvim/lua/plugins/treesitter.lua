@@ -19,12 +19,10 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     config = function()
-      local ts = require("nvim-treesitter-textobjects")
-      local select = require("nvim-treesitter-textobjects.select")
-      local move = require("nvim-treesitter-textobjects.move")
-      local swap = require("nvim-treesitter-textobjects.swap")
-
-      ts.setup({})
+      require("nvim-treesitter-textobjects").init()
+      local select = require("nvim-treesitter.textobjects.select")
+      local move = require("nvim-treesitter.textobjects.move")
+      local swap = require("nvim-treesitter.textobjects.swap")
 
       -- select
       for _, map in ipairs({
