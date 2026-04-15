@@ -29,6 +29,7 @@ brew 'stylua'
 brew 'taplo'  # TOML LSP and toolset
 brew 'tealdeer'  # Rust tldr pages client
 # brew 'terraform-ls'
+brew 'tree-sitter-cli'  # for Neovim parsers
 brew 'tokei' # fancy line count
 brew 'uv'
 brew 'zoxide' # fast dir nav
