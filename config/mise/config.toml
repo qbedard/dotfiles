@@ -12,8 +12,6 @@ idiomatic_version_file_enable_tools = [
 ]
 
 [tools]
-hk = "latest"
-pkl = "latest"
 go = "latest"
 node = { version = "24", postinstall = "corepack enable" }
 python = "3.13"
@@ -32,6 +30,7 @@ usage = "latest"
 "github:open-policy-agent/opa" = "latest"
 "github:tamasfe/taplo" = { version = "latest" }
 
+"go:golang.org/x/tools/gopls" = "latest"
 "npm:@biomejs/biome" = "latest"
 "npm:@actions/languageserver" = "latest"
 "npm:prettier" = "latest"
@@ -48,6 +47,6 @@ usage = "latest"
 "pipx:pyright" = "latest"
 "pipx:ty" = "latest"
 
-# [tools."ubi:usagi-flow/evil-helix"]
+# [tools."github:usagi-flow/evil-helix"]
 # version = "latest"
 # extract_all = "true"
