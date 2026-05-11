@@ -81,7 +81,7 @@ return {
     local capabilities = require("blink.cmp").get_lsp_capabilities(
       vim.lsp.protocol.make_client_capabilities()
     )
-    capabilities.textDocument.completion.snippetSupport = false
+    capabilities.textDocument.completion.completionItem.snippetSupport = false
 
     ------------------------------ Simple Configs ------------------------------
     local servers = {
@@ -122,12 +122,10 @@ return {
       capabilities = capabilities,
       before_init = function(params, config)
         if config.root_dir and vim.fn.executable("gh") == 1 then
-          local result = vim.system(
-            { "gh", "auth", "token", "-h", "github.com" }
-          ):wait()
+          local result =
+            vim.system({ "gh", "auth", "token", "-h", "github.com" }):wait()
           if result.code == 0 then
-            params.initializationOptions.sessionToken =
-              vim.trim(result.stdout)
+            params.initializationOptions.sessionToken = vim.trim(result.stdout)
           end
         end
       end,
