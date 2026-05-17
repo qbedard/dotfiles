@@ -92,6 +92,7 @@ return {
       "cssls",
       "docker_compose_language_service",
       "dockerls",
+      "gdscript",
       "gopls",
       "helm_ls",
       "html",
