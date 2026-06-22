@@ -6,10 +6,10 @@ run = "./install"
 run = "./install --only clean create link stow"
 
 [tasks."update:brew"]
-run = "brew upgrade"
+run = "brew upgrade --quiet"
 
 [tasks."update:mise"]
-run = "mise upgrade"
+run = "mise upgrade --quiet"
 
 [tasks."update:tldr"]
 run = "tldr --update"
