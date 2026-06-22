@@ -25,18 +25,17 @@
       "Read(~/.mise.local.toml)"
     ]
   },
-  "model": "claude-opus-4-6[1m]",
   "enabledPlugins": {
     "atlassian@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "github@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
     "kubernetes-operations@claude-code-workflows": true,
     "lua-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
-    "terraform-code-generation@hashicorp": true,
+    "slack@claude-plugins-official": true,
     "terraform-module-generation@hashicorp": true,
-    "terraform-skill@antonbabenko": true,
-    "slack@claude-plugins-official": true
+    "terraform-skill@antonbabenko": true
   },
   "extraKnownMarketplaces": {
     "antonbabenko": {
