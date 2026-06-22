@@ -27,7 +27,8 @@ brew 'starship'  # shell prompt
 brew 'stow'
 brew 'stylua'
 brew 'taplo'  # TOML LSP and toolset
-brew 'tealdeer'  # Rust tldr pages client
+# brew 'tealdeer'  # Rust tldr pages client
+brew 'tldr'
 # brew 'terraform-ls'
 brew 'tree-sitter-cli'  # for Neovim parsers
 brew 'tokei' # fancy line count
