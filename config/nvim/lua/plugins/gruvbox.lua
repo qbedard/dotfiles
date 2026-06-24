@@ -22,6 +22,9 @@ return {
       GitSignsChange = { link = "GruvboxBlueSign" },
       -- treesitter
       ["@constant.builtin"] = { link = "Constant" },
+      -- Let Treesitter (and its Jinja injection) own Python strings instead of
+      -- the LSP semantic token, which spans the whole literal at higher priority.
+      ["@lsp.type.string.python"] = {},
     },
   },
   config = function(_, opts)
