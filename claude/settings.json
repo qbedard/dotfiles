@@ -33,9 +33,10 @@
     "kubernetes-operations@claude-code-workflows": true,
     "lua-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "terraform-module-generation@hashicorp": true,
-    "terraform-skill@antonbabenko": true
+    "terraform-skill@antonbabenko": true,
+    "clangd-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "antonbabenko": {
@@ -58,5 +59,6 @@
     }
   },
   "effortLevel": "medium",
+  "tui": "fullscreen",
   "skipAutoPermissionPrompt": true
 }

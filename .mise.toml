@@ -11,8 +11,8 @@ run = "brew upgrade --quiet"
 [tasks."update:mise"]
 run = "mise upgrade --quiet"
 
-[tasks."update:tldr"]
-run = "tldr --update"
+# [tasks."update:tldr"]
+# run = "tldr --update"
 
 [tasks."update:nvim"]
 run = "nvim --headless '+Lazy! sync' +MasonUpdate +TSUpdate +qa"
