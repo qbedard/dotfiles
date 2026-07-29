@@ -1,0 +1,5 @@
+[bootstrap.packages]
+"brew:obsidian" = "latest"
+
+"brew-cask:brave-browser" = "latest"
+"brew-cask:karabiner-elements" = "latest"

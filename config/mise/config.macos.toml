@@ -1,0 +1,66 @@
+[bootstrap.hooks.post-defaults]
+run = "killall Dock || true"
+
+# TODO: Flesh out more defaults
+[bootstrap.macos.dock]
+autohide = true
+autohide-delay = 1000
+mru-spaces = false
+no-bouncing = true
+orientation = "left"
+
+[bootstrap.macos.finder]
+show_pathbar = true
+
+[bootstrap.macos.keyboard]
+key_repeat = 1
+initial_key_repeat = 12
+
+[bootstrap.macos.trackpad]
+tap_to_click = false
+
+[bootstrap.macos.defaults]
+"com.apple.finder" = { AppleShowAllFiles = true }
+
+[bootstrap.packages]
+"brew:" = "latest"
+"brew:bat" = "latest" # cat replacement
+"brew:coreutils" = "latest" # GNU coreutils (macOS utils are a little different)
+"brew:diff-so-fancy" = "latest" # fancy git diff
+"brew:eza" = "latest" # ls replacement
+"brew:fd" = "latest" # find replacement
+"brew:fish" = "latest" # shell
+"brew:fzf" = "latest" # fuzzy
+"brew:gh" = "latest" # GitHub CLI
+"brew:git" = "latest"
+"brew:go" = "latest"
+"brew:ipython" = "latest" # better python shell
+"brew:jq" = "latest" # JSON parsing
+"brew:lua-language-server" = "latest"
+# brew 'luajit', args: ['HEAD'] # neovim HEAD dep
+# "brew:mise" = "latest" # tool version manager
+"brew:neovim" = "latest"
+# "brew:procs" = "latest" # ps replacement
+"brew:ripgrep" = "latest" # awesome grep
+"brew:shellcheck" = "latest" # used by bashls
+"brew:shfmt" = "latest"
+"brew:starship" = "latest" # shell prompt
+# "brew:stow" = "latest"
+"brew:stylua" = "latest"
+"brew:taplo" = "latest" # TOML LSP and toolset
+# "brew:tealdeer" = "latest"  # Rust tldr pages client
+"brew:tldr" = "latest"
+# "brew:tree-sitter-cli" = "latest"  # for Neovim parsers
+"brew:tokei" = "latest" # fancy line count
+"brew:uv" = "latest"
+"brew:zoxide" = "latest" # fast dir nav
+
+"brew-cask:amethyst" = "latest" # tiling window manager
+"brew-cask:kitty" = "latest"
+
+# --- Fonts --- #
+"brew-cask:font-iosevka" = "latest"
+"brew-cask:font-symbols-only-nerd-font" = "latest"
+
+[bootstrap.user]
+# login_shell = "/bin/zsh" # TODO: Use fish

@@ -1,7 +1,19 @@
+[bootstrap.mise_shell_activate]
+zprofile = "shims"
+zshrc = "activate"
+fish = "activate"
+
+[bootstrap.repos]
+"~/git/dotfiles" = { url = "git@github.com:qbedard/dotfiles.git", ref = "main" }
+
+[dotfiles]
+# TODO
+
 [env]
 MISE_EXPERIMENTAL = "1"
 
 [settings]
+auto_env = true
 experimental = true
 idiomatic_version_file_enable_tools = [
   "go",

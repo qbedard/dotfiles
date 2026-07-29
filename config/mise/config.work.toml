@@ -1,3 +1,9 @@
+[bootstrap.packages]
+"brew:gnupg" = "latest" # GPG tools
+"brew:terraform-ls" = "latest"
+
+"brew-cask:docker" = "latest"
+
 [tools]
 node = { version = "24", postinstall = "corepack enable" }
 
