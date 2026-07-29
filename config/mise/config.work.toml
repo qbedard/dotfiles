@@ -1,0 +1,10 @@
+[tools]
+node = { version = "24", postinstall = "corepack enable" }
+
+"github:open-policy-agent/opa" = "latest"
+"npm:@actions/languageserver" = "latest"
+# "npm:semantic-release" = "latest"
+# "npm:snyk" = "latest"
+"pipx:mcp-atlassian" = "latest"
+# "pipx:awslabs.aws-api-mcp-server" = "latest"
+# "pipx:checkov" = "latest"
