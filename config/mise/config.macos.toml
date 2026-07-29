@@ -34,7 +34,7 @@ tap_to_click = false
 "brew:gh" = "latest" # GitHub CLI
 "brew:git" = "latest"
 "brew:go" = "latest"
-"brew:ipython" = "latest" # better python shell
+# "brew:ipython" = "latest" # better python shell
 "brew:jq" = "latest" # JSON parsing
 "brew:lua-language-server" = "latest"
 # brew 'luajit', args: ['HEAD'] # neovim HEAD dep
@@ -55,8 +55,10 @@ tap_to_click = false
 "brew:uv" = "latest"
 "brew:zoxide" = "latest" # fast dir nav
 
+# --- Casks --- #
 "brew-cask:amethyst" = "latest" # tiling window manager
-"brew-cask:kitty" = "latest"
+"brew-cask:kitty" = "latest" # terminal
+"brew-cask:sol" = "latest" # Spotlight replacement
 
 # --- Fonts --- #
 "brew-cask:font-iosevka" = "latest"

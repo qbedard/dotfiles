@@ -2,6 +2,7 @@
 "brew:gnupg" = "latest" # GPG tools
 "brew:terraform-ls" = "latest"
 
+# --- Casks --- #
 "brew-cask:docker" = "latest"
 
 [tools]

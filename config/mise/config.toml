@@ -4,7 +4,7 @@ zshrc = "activate"
 fish = "activate"
 
 [bootstrap.repos]
-"~/git/dotfiles" = { url = "git@github.com:qbedard/dotfiles.git", ref = "main" }
+"~/git/qbedard/dotfiles" = { url = "git@github.com:qbedard/dotfiles.git" }
 
 [dotfiles]
 # TODO
