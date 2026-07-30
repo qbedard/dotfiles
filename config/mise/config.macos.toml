@@ -38,7 +38,7 @@ tap_to_click = false
 "brew:jq" = "latest" # JSON parsing
 "brew:lua-language-server" = "latest"
 # brew 'luajit', args: ['HEAD'] # neovim HEAD dep
-# "brew:mise" = "latest" # tool version manager
+# "brew:mise" = "latest" # tool version manager TODO: have this here?
 "brew:neovim" = "latest"
 # "brew:procs" = "latest" # ps replacement
 "brew:ripgrep" = "latest" # awesome grep
@@ -65,4 +65,4 @@ tap_to_click = false
 "brew-cask:font-symbols-only-nerd-font" = "latest"
 
 [bootstrap.user]
-# login_shell = "/bin/zsh" # TODO: Use fish
+login_shell = "/opt/homebrew/bin/fish"

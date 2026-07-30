@@ -1,19 +1,36 @@
-[bootstrap.mise_shell_activate]
-zprofile = "shims"
-zshrc = "activate"
-fish = "activate"
+[bootstrap.hooks]
+post-packages = "bat cache --build"
 
-[bootstrap.repos]
-"~/git/qbedard/dotfiles" = { url = "git@github.com:qbedard/dotfiles.git" }
+[bootstrap.mise_shell_activate]
+bash = true
+fish = true
+zsh = true
+
+# [bootstrap.repos] # TODO: Do we need this?
+# "~/git/qbedard/dotfiles" = { url = "git@github.com:qbedard/dotfiles.git" }
 
 [dotfiles]
-# TODO
+"~/.claude" = { mode = "symlink-each", source = "claude" }
+"~/.config" = { mode = "symlink-each", source = "config" }
+"~/.amethyst.yml" = { source = "amethyst.yaml" }
+"~/.bashrc" = { source = "bashrc" }
+"~/.common.sh" = { source = "~/.common.sh" }
+"~/.hushlogin" = { source = "hushlogin" }
+"~/.npmrc" = { source = "npmrc" }
+"~/.ripgreprc" = { source = "ripgreprc" }
+"~/.sql-formatter.json" = { source = "~/.sql-formatter.json" }
+"~/.tflint.hcl" = { source = "~/.tflint.hcl" }
+"~/.zshrc" = { source = "zshrc" }
+"~/Library/Application Support/biome/biome.json" = { source = "config/biome.json" }
+"~/Library/Application Support/jesseduffield/lazydocker/config.yml" = { source = "lazydocker-config.yaml" }
+"~/Library/Application Support/pypoetry/config.toml" = { source = "config/pypoetry/config.toml" }
 
 [env]
 MISE_EXPERIMENTAL = "1"
 
 [settings]
 auto_env = true
+dotfiles.root = "~/git/qbedard/dotfiles"
 experimental = true
 idiomatic_version_file_enable_tools = [
   "go",
