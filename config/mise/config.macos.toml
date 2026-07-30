@@ -32,7 +32,11 @@ DoNotOfferNewDisksForBackup = true
 tap_to_click = false
 
 [bootstrap.packages]
-"brew:" = "latest"
+# --- mas --- #
+"brew:mas" = "latest"
+"mas:497799835" = "latest" # Xcode
+
+# --- Homebrew --- #
 "brew:bat" = "latest" # cat replacement
 "brew:coreutils" = "latest" # GNU coreutils (macOS utils are a little different)
 "brew:diff-so-fancy" = "latest" # fancy git diff
@@ -64,14 +68,14 @@ tap_to_click = false
 "brew:uv" = "latest"
 "brew:zoxide" = "latest" # fast dir nav
 
-# --- Casks --- #
-"brew-cask:amethyst" = "latest" # tiling window manager
-"brew-cask:kitty" = "latest" # terminal
-"brew-cask:sol" = "latest" # Spotlight replacement
-
-# --- Fonts --- #
-"brew-cask:font-iosevka" = "latest"
-"brew-cask:font-symbols-only-nerd-font" = "latest"
+# # --- Casks --- #
+# "brew-cask:amethyst" = "latest" # tiling window manager
+# "brew-cask:kitty" = "latest" # terminal
+# "brew-cask:sol" = "latest" # Spotlight replacement
+#
+# # --- Fonts --- #
+# "brew-cask:font-iosevka" = "latest"
+# "brew-cask:font-symbols-only-nerd-font" = "latest"
 
 [bootstrap.user]
 login_shell = "/opt/homebrew/bin/fish"

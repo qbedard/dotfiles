@@ -3,7 +3,7 @@
 "brew:terraform-ls" = "latest"
 
 # --- Casks --- #
-"brew-cask:docker" = "latest"
+# "brew-cask:docker" = "latest"
 
 [tools]
 node = { version = "24", postinstall = "corepack enable" }
