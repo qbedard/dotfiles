@@ -43,6 +43,8 @@ zsh = true
 "~/Library/Application Support/jesseduffield/lazydocker/config.yml" = { source = "~/git/qbedard/dotfiles/lazydocker-config.yaml" }
 "~/Library/Application Support/pypoetry/config.toml" = { source = "~/git/qbedard/dotfiles/config/pypoetry/config.toml" }
 
+# TODO: [shell_alias]
+
 [tools]
 go = "latest"
 python = "3.13"
