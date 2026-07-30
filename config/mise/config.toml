@@ -24,7 +24,7 @@ post-packages = "bat cache --build"
 
 [bootstrap.mise_shell_activate]
 bash = true
-fish = true
+# fish = true
 zsh = true
 
 [dotfiles]
