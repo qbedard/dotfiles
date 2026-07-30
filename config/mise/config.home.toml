@@ -1,12 +1,11 @@
 [bootstrap.packages]
-"brew:obsidian" = "latest"
-
 # --- Casks --- #
 "brew-cask:brave-browser" = "latest"
 "brew-cask:calibre" = "latest" # ebook management
 "brew-cask:karabiner-elements" = "latest"
 "brew-cask:lulu" = "latest" # network monitor
+"brew-cask:obsidian" = "latest"
 "brew-cask:reaper" = "latest"
 "brew-cask:steam" = "latest"
 "brew-cask:tailscale-app" = "latest"
-"brew-cask:zoom" = "latest"
+# "brew-cask:zoom" = "latest" # TODO: not working

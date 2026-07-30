@@ -1,33 +1,3 @@
-[bootstrap.hooks]
-post-packages = "bat cache --build"
-
-[bootstrap.mise_shell_activate]
-bash = true
-fish = true
-zsh = true
-
-# [bootstrap.repos] # TODO: Do we need this?
-# "~/git/qbedard/dotfiles" = { url = "git@github.com:qbedard/dotfiles.git" }
-
-[dotfiles]
-"~/.claude" = { mode = "symlink-each", source = "claude" }
-"~/.config" = { mode = "symlink-each", source = "config" }
-"~/.amethyst.yml" = { source = "amethyst.yaml" }
-"~/.bashrc" = { source = "bashrc" }
-"~/.common.sh" = { source = "~/.common.sh" }
-"~/.hushlogin" = { source = "hushlogin" }
-"~/.npmrc" = { source = "npmrc" }
-"~/.ripgreprc" = { source = "ripgreprc" }
-"~/.sql-formatter.json" = { source = "~/.sql-formatter.json" }
-"~/.tflint.hcl" = { source = "~/.tflint.hcl" }
-"~/.zshrc" = { source = "zshrc" }
-"~/Library/Application Support/biome/biome.json" = { source = "config/biome.json" }
-"~/Library/Application Support/jesseduffield/lazydocker/config.yml" = { source = "lazydocker-config.yaml" }
-"~/Library/Application Support/pypoetry/config.toml" = { source = "config/pypoetry/config.toml" }
-
-[env]
-MISE_EXPERIMENTAL = "1"
-
 [settings]
 auto_env = true
 dotfiles.root = "~/git/qbedard/dotfiles"
@@ -39,6 +9,39 @@ idiomatic_version_file_enable_tools = [
   "terraform",
   "yarn",
 ]
+
+[bootstrap.hooks]
+pre-dotfiles = """
+mkdir -p ~/.claude
+mkdir -p ~/.config/fish/functions
+mkdir -p ~/.config/gh
+mkdir -p ~/.config/karabiner
+mkdir -p ~/Library/Application Support/biome
+mkdir -p ~/Library/Application Support/jesseduffield/lazydocker
+mkdir -p ~/Library/Application Support/pypoetry
+"""
+post-packages = "bat cache --build"
+
+[bootstrap.mise_shell_activate]
+bash = true
+fish = true
+zsh = true
+
+[dotfiles]
+"~/.claude" = { mode = "symlink-each", source = "~/git/qbedard/dotfiles/claude" }
+"~/.config" = { mode = "symlink-each", source = "~/git/qbedard/dotfiles/config" }
+"~/.amethyst.yml" = { source = "~/git/qbedard/dotfiles/amethyst.yaml" }
+"~/.bashrc" = { source = "~/git/qbedard/dotfiles/bashrc" }
+"~/.common.sh" = { source = "~/git/qbedard/dotfiles/common.sh" }
+"~/.hushlogin" = { source = "~/git/qbedard/dotfiles/hushlogin" }
+"~/.npmrc" = { source = "~/git/qbedard/dotfiles/npmrc" }
+"~/.ripgreprc" = { source = "~/git/qbedard/dotfiles/ripgreprc" }
+"~/.sql-formatter.json" = { source = "~/git/qbedard/dotfiles/sql-formatter.json" }
+"~/.tflint.hcl" = { source = "~/git/qbedard/dotfiles/tflint.hcl" }
+"~/.zshrc" = { source = "~/git/qbedard/dotfiles/zshrc" }
+"~/Library/Application Support/biome/biome.json" = { source = "~/git/qbedard/dotfiles/config/biome.json" }
+"~/Library/Application Support/jesseduffield/lazydocker/config.yml" = { source = "~/git/qbedard/dotfiles/lazydocker-config.yaml" }
+"~/Library/Application Support/pypoetry/config.toml" = { source = "~/git/qbedard/dotfiles/config/pypoetry/config.toml" }
 
 [tools]
 go = "latest"
