@@ -1,26 +1,35 @@
 [bootstrap.hooks.post-defaults]
-run = "killall Dock || true"
+run = ["killall Dock || true", "killall Finder || true"]
 
-# TODO: Flesh out more defaults
-[bootstrap.macos.dock]
+[bootstrap.macos.defaults.NSGlobalDomain]
+AppleKeyboardUIMode = 3
+AppleShowAllExtensions = true
+InitialKeyRepeat = 12
+KeyRepeat = 1
+"com.apple.mouse.tapBehavior" = 0
+
+[bootstrap.macos.defaults."com.apple.dock"]
 autohide = true
 autohide-delay = 1000
 mru-spaces = false
 no-bouncing = true
 orientation = "left"
 
-[bootstrap.macos.finder]
-show_pathbar = true
+[bootstrap.macos.defaults."com.apple.finder"]
+AppleShowAllFiles = true
+ShowPathbar = true
+_FXShowPosixPathInTitle = true
+_FXSortFoldersFirst = true
 
-[bootstrap.macos.keyboard]
-key_repeat = 1
-initial_key_repeat = 12
+[bootstrap.macos.defaults."com.apple.screensaver"]
+askForPassword = 1
+askForPasswordDelay = 0
+
+[bootstrap.macos.defaults."com.apple.TimeMachine"]
+DoNotOfferNewDisksForBackup = true
 
 [bootstrap.macos.trackpad]
 tap_to_click = false
-
-[bootstrap.macos.defaults]
-"com.apple.finder" = { AppleShowAllFiles = true }
 
 [bootstrap.packages]
 "brew:" = "latest"
