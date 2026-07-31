@@ -4,7 +4,7 @@ mkdir -p ~/Library/Application Support/biome
 mkdir -p ~/Library/Application Support/jesseduffield/lazydocker
 mkdir -p ~/Library/Application Support/pypoetry
 """
-post-defaults = ["killall Dock || true", "killall Finder || true"]
+post-defaults = "killall Dock Finder SystemUIServer || true"
 
 [bootstrap.macos.defaults.NSGlobalDomain]
 AppleKeyboardUIMode = 3
