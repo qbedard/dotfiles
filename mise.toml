@@ -1,3 +1,4 @@
+#:schema https://mise.jdx.dev/schema/mise.json
 [settings]
 auto_env = true
 

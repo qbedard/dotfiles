@@ -1,3 +1,4 @@
+#:schema https://mise.jdx.dev/schema/mise.json
 # [bootstrap.packages]
 # # --- Casks --- #
 # "brew-cask:brave-browser" = "latest"

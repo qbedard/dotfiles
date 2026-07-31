@@ -1,3 +1,4 @@
+#:schema https://starship.rs/config-schema.json
 format = "$all"
 add_newline = false
 command_timeout = 800
