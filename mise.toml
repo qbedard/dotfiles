@@ -22,6 +22,9 @@ run = "./install"
 [tasks.link]
 run = "./install --only clean create link stow"
 
+[tasks.update-mise-packages]
+run = "mise bootstrap packages upgrade"
+
 [tasks."update:brew"]
 run = "brew upgrade --quiet"
 

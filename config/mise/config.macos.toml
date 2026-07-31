@@ -1,5 +1,10 @@
-[bootstrap.hooks.post-defaults]
-run = ["killall Dock || true", "killall Finder || true"]
+[bootstrap.hooks]
+pre-dotfiles = """
+mkdir -p ~/Library/Application Support/biome
+mkdir -p ~/Library/Application Support/jesseduffield/lazydocker
+mkdir -p ~/Library/Application Support/pypoetry
+"""
+post-defaults = ["killall Dock || true", "killall Finder || true"]
 
 [bootstrap.macos.defaults.NSGlobalDomain]
 AppleKeyboardUIMode = 3
@@ -32,9 +37,9 @@ DoNotOfferNewDisksForBackup = true
 tap_to_click = false
 
 [bootstrap.packages]
-# --- mas --- #
-"brew:mas" = "latest"
-"mas:497799835" = "latest" # Xcode
+# --- mas --- # TODO
+# "brew:mas" = "latest"
+# "mas:497799835" = "latest" # Xcode
 
 # --- Homebrew --- #
 "brew:bat" = "latest" # cat replacement
@@ -79,3 +84,12 @@ tap_to_click = false
 
 [bootstrap.user]
 login_shell = "/opt/homebrew/bin/fish"
+
+[dotfiles."~/Library/Application Support/biome/biome.json"]
+source = "~/git/qbedard/dotfiles/config/biome.json"
+
+[dotfiles."~/Library/Application Support/jesseduffield/lazydocker/config.yml"]
+source = "~/git/qbedard/dotfiles/lazydocker-config.yaml"
+
+[dotfiles."~/Library/Application Support/pypoetry/config.toml"]
+source = "~/git/qbedard/dotfiles/config/pypoetry/config.toml"

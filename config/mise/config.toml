@@ -15,9 +15,6 @@ mkdir -p ~/.claude
 mkdir -p ~/.config/fish/functions
 mkdir -p ~/.config/gh
 mkdir -p ~/.config/karabiner
-mkdir -p ~/Library/Application Support/biome
-mkdir -p ~/Library/Application Support/jesseduffield/lazydocker
-mkdir -p ~/Library/Application Support/pypoetry
 """
 post-packages = "bat cache --build"
 
@@ -38,15 +35,6 @@ zsh = true
 "~/.sql-formatter.json" = { source = "~/git/qbedard/dotfiles/sql-formatter.json" }
 "~/.tflint.hcl" = { source = "~/git/qbedard/dotfiles/tflint.hcl" }
 "~/.zshrc" = { source = "~/git/qbedard/dotfiles/zshrc" }
-
-[dotfiles."~/Library/Application Support/biome/biome.json"]
-source = "~/git/qbedard/dotfiles/config/biome.json"
-
-[dotfiles."~/Library/Application Support/jesseduffield/lazydocker/config.yml"]
-source = "~/git/qbedard/dotfiles/lazydocker-config.yaml"
-
-[dotfiles."~/Library/Application Support/pypoetry/config.toml"]
-source = "~/git/qbedard/dotfiles/config/pypoetry/config.toml"
 
 # TODO: [shell_alias]
 
