@@ -4,6 +4,7 @@ pre-dotfiles = """
 mkdir -p ~/Library/Application Support/biome
 mkdir -p ~/Library/Application Support/jesseduffield/lazydocker
 mkdir -p ~/Library/Application Support/pypoetry
+mkdir -p ~/Library/KeyBindings
 """
 post-defaults = "killall Dock Finder SystemUIServer || true"
 
@@ -93,3 +94,6 @@ source = "~/git/qbedard/dotfiles/lazydocker-config.yaml"
 
 [dotfiles."~/Library/Application Support/pypoetry/config.toml"]
 source = "~/git/qbedard/dotfiles/config/pypoetry/config.toml"
+
+[dotfiles."~/Library/KeyBindings/DefaultKeyBindings.dict"]
+source = "~/git/qbedard/dotfiles/macos-keybindings.dict"
