@@ -1,8 +1,6 @@
 # ~/.config/fish/config.fish
 # --------------------------------- General ---------------------------------- #
 set -gx PAGER less --tabs=4 -RFX
-set -gx PYTHONDONTWRITEBYTECODE 1 # prevent .pyc files
-set -gx SAM_CLI_TELEMETRY 0
 # set -gx SHELL fish
 
 set -g theme_nerd_fonts yes
@@ -67,10 +65,6 @@ alias glog "\
     git log --color --graph --abbrev-commit --date=relative \
         --pretty=format:'%Cred%h%Creset %s%C(yellow)%d %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
-# --- Python --- #
-abbr -a poi "poetry install"
-abbr -a pup "pip install --upgrade pip"
-
 # -------------------------------- App Config -------------------------------- #
 if command -q brew
     brew shellenv | source
@@ -131,9 +125,6 @@ if command -q rg
     set -gx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
     abbr -a rge vim_last_rg
     abbr -a rgl "rg -l"
-    abbr -a rgm "rg -g '*.mako'"
-    abbr -a rgp "rg -g '*.py'"
-    abbr -a rgv "rg -g '*.vim'"
 end
 
 # use sccache for cargo

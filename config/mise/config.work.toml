@@ -6,6 +6,9 @@
 # --- Casks --- #
 # "brew-cask:docker" = "latest"
 
+[env]
+SAM_CLI_TELEMETRY = 0
+
 [tools]
 node = { version = "24", postinstall = "corepack enable" }
 

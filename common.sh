@@ -1,27 +1,20 @@
 # ----- PATH ----- #
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	# add brew's local bins
-	export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+  # add brew's local bins
+  export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
-	# add openssl to path for compilers
-	export LDFLAGS="-L/usr/local/opt/openssl/lib"
-	export CPPFLAGS="-I/usr/local/opt/openssl/include"
-
-	# add ruby bins to path
-	export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+  # add openssl to path for compilers
+  export LDFLAGS="-L/usr/local/opt/openssl/lib"
+  export CPPFLAGS="-I/usr/local/opt/openssl/include"
 fi
 
-export PATH="$HOME/bin:$PATH" # custom binaries
-
-# add cargo binaries to path
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# add yarn binaries and modules to path
-# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/bin:$PATH"        # custom binaries
+export PATH="$HOME/.cargo/bin:$PATH" # rust
+export PATH="$HOME/go/bin"           # go
 
 # XDG_DATA_HOME
 if [ -z "$XDG_DATA_HOME" ]; then
-	XDG_DATA_HOME="$HOME/.local/share"
+  XDG_DATA_HOME="$HOME/.local/share"
 fi
 
 # ----- Aliases ----- #
@@ -42,13 +35,6 @@ alias lt="ls -T"
 alias llt="ll -T"
 
 alias cat="bat"
-
-alias vzs="vim ~/.zshrc"
-alias rzs=". ~/.zshrc"
-alias vbs="vim ~/.bashrc"
-alias rbs=". ~/.bashrc"
-alias vr="vim ~/.dotfiles/vim/init.vim"
-alias vp="vim ~/.dotfiles/vim/plugins.vim"
 
 # --- Docker Compose --- #
 alias dc="docker compose"
@@ -76,12 +62,6 @@ alias gl="git pull"
 alias gt="git tag"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
-# --- Python ---
-alias pup="pip install --upgrade pip"
-
-# --- ripgrep ---
-alias rgp="rg -g '*.py'"
-
 # ----- Tool Config ----- #
 export VISUAL=nvim
 export EDITOR=nvim
@@ -104,19 +84,5 @@ export CHEATCOLORS=true
 # use rg with fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
-# --- nvm ---
-if command -v nvm >/dev/null; then
-	# export NVM_DIR="$HOME/.nvm"
-	# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-	# [ -s "$NVM_DIR/etc/bash_completion" ] && . "$NVM_DIR/etc/bash_completion"  # This loads nvm bash_completion
-
-	# add npm bins to PATH
-	for d in "$NVM_DIR/versions/node"/v*/bin; do PATH="$PATH:$d"; done
-fi
-
 # --- python ---
 export PYTHONDONTWRITEBYTECODE=1 # prevent .pyc files
-
-# --- ripgrep ---
-alias rg='rg --smart-case'
-

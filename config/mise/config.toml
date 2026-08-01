@@ -27,17 +27,20 @@ zsh = true
 [dotfiles]
 "~/.claude" = { mode = "symlink-each", source = "~/git/qbedard/dotfiles/claude" }
 "~/.config" = { mode = "symlink-each", source = "~/git/qbedard/dotfiles/config" }
-"~/.amethyst.yml" = { source = "~/git/qbedard/dotfiles/amethyst.yaml" }
-"~/.bashrc" = { source = "~/git/qbedard/dotfiles/bashrc" }
-"~/.common.sh" = { source = "~/git/qbedard/dotfiles/common.sh" }
-"~/.hushlogin" = { source = "~/git/qbedard/dotfiles/hushlogin" }
-"~/.npmrc" = { source = "~/git/qbedard/dotfiles/npmrc" }
-"~/.ripgreprc" = { source = "~/git/qbedard/dotfiles/ripgreprc" }
-"~/.sql-formatter.json" = { source = "~/git/qbedard/dotfiles/sql-formatter.json" }
-"~/.tflint.hcl" = { source = "~/git/qbedard/dotfiles/tflint.hcl" }
-"~/.zshrc" = { source = "~/git/qbedard/dotfiles/zshrc" }
+"~/.amethyst.yml" = "~/git/qbedard/dotfiles/amethyst.yaml"
+"~/.bashrc" = "~/git/qbedard/dotfiles/bashrc"
+"~/.common.sh" = "~/git/qbedard/dotfiles/common.sh"
+"~/.hushlogin" = "~/git/qbedard/dotfiles/hushlogin"
+"~/.npmrc" = "~/git/qbedard/dotfiles/npmrc"
+"~/.ripgreprc" = "~/git/qbedard/dotfiles/ripgreprc"
+"~/.sql-formatter.json" = "~/git/qbedard/dotfiles/sql-formatter.json"
+"~/.tflint.hcl" = "~/git/qbedard/dotfiles/tflint.hcl"
+"~/.zshrc" = "~/git/qbedard/dotfiles/zshrc"
 
 # TODO: [shell_alias]
+
+[env]
+PYTHONDONTWRITEBYTECODE = 1 # prevent .pyc files
 
 [tools]
 go = "latest"
