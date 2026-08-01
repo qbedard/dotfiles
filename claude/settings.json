@@ -60,5 +60,6 @@
   },
   "effortLevel": "medium",
   "tui": "fullscreen",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "model": "claude-opus-4-8"
 }
