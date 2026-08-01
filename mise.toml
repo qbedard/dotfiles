@@ -12,27 +12,20 @@ mkdir -p ~/.config/karabiner
 [dotfiles]
 "~/.config" = { mode = "symlink-each", source = "~/git/qbedard/dotfiles/config" }
 
-[tasks.install]
-description = "Install dotfiles using Dotbot"
-run = "./install"
+# [tasks."upgrade:brew"]
+# run = "brew upgrade --quiet"
 
-[tasks.link]
-run = "./install --only clean create link stow"
+[tasks."upgrade:brew-casks"]
+run = "brew upgrade --cask --quiet"
 
-[tasks.update-mise-packages]
-run = "mise bootstrap packages upgrade"
-
-[tasks."update:brew"]
-run = "brew upgrade --quiet"
-
-[tasks."update:mise"]
+[tasks."upgrade:mise"]
 run = "mise upgrade --quiet"
 
-# [tasks."update:tldr"]
-# run = "tldr --update"
+[tasks."upgrade:mise-packages"]
+run = "mise bootstrap packages upgrade"
 
-[tasks."update:nvim"]
+[tasks."upgrade:nvim"]
 run = "nvim --headless '+Lazy! sync' +MasonUpdate +TSUpdate +qa"
 
-[tasks.update]
-depends = ["update:*"]
+[tasks.upgrade]
+depends = ["upgrade:*"]
