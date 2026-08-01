@@ -30,7 +30,7 @@ zsh = true
 "~/.amethyst.yml" = "~/git/qbedard/dotfiles/amethyst.yaml"
 "~/.bashrc" = "~/git/qbedard/dotfiles/bashrc"
 "~/.common.sh" = "~/git/qbedard/dotfiles/common.sh"
-"~/.hushlogin" = "~/git/qbedard/dotfiles/hushlogin"
+"~/.hushlogin/empty" = { line = "" }
 "~/.npmrc" = "~/git/qbedard/dotfiles/npmrc"
 "~/.ripgreprc" = "~/git/qbedard/dotfiles/ripgreprc"
 "~/.sql-formatter.json" = "~/git/qbedard/dotfiles/sql-formatter.json"
