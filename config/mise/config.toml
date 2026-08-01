@@ -27,11 +27,13 @@ zsh = true
 [dotfiles]
 "~/.claude" = { mode = "symlink-each", source = "~/git/qbedard/dotfiles/claude" }
 "~/.config" = { mode = "symlink-each", source = "~/git/qbedard/dotfiles/config" }
+
+"~/.hushlogin/empty" = { line = "" }
+"~/.npmrc/nofund" = { line = "fund=false" }
+
 "~/.amethyst.yml" = "~/git/qbedard/dotfiles/amethyst.yaml"
 "~/.bashrc" = "~/git/qbedard/dotfiles/bashrc"
 "~/.common.sh" = "~/git/qbedard/dotfiles/common.sh"
-"~/.hushlogin/empty" = { line = "" }
-"~/.npmrc/nofund" = { line = "fund=false" }
 "~/.ripgreprc" = "~/git/qbedard/dotfiles/ripgreprc"
 "~/.sql-formatter.json" = "~/git/qbedard/dotfiles/sql-formatter.json"
 "~/.tflint.hcl" = "~/git/qbedard/dotfiles/tflint.hcl"
