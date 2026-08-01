@@ -54,10 +54,8 @@ tap_to_click = false
 "brew:gh" = "latest" # GitHub CLI
 "brew:git" = "latest"
 "brew:go" = "latest"
-# "brew:ipython" = "latest" # better python shell
 "brew:jq" = "latest" # JSON parsing
 "brew:lua-language-server" = "latest"
-# brew 'luajit', args: ['HEAD'] # neovim HEAD dep
 # "brew:mise" = "latest" # tool version manager TODO: have this here?
 "brew:neovim" = "latest"
 # "brew:procs" = "latest" # ps replacement
@@ -65,11 +63,10 @@ tap_to_click = false
 "brew:shellcheck" = "latest" # used by bashls
 "brew:shfmt" = "latest"
 "brew:starship" = "latest" # shell prompt
-# "brew:stow" = "latest"
 "brew:stylua" = "latest"
 "brew:taplo" = "latest" # TOML LSP and toolset
-# "brew:tree-sitter-cli" = "latest"  # for Neovim parsers
 "brew:tokei" = "latest" # fancy line count
+"brew:tree-sitter-cli" = "latest" # for Neovim parsers
 "brew:zoxide" = "latest" # fast dir nav
 
 # # --- Casks --- #

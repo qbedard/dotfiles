@@ -10,13 +10,9 @@ brew 'gh' # GitHub CLI
 brew 'git'
 brew 'gnupg' # GPG tools
 brew 'go'
-brew 'ipython' # better python shell
 brew 'jq' # JSON parsing
-brew 'lazydocker' # docker term UI
 brew 'lua-language-server'
-brew 'luajit', args: ['HEAD'] # neovim HEAD dep
 brew 'mise' # tool version manager
-# brew 'neovim', args: ['HEAD']
 brew 'neovim'
 # brew 'obsidian'
 brew 'procs' # ps replacement
@@ -27,11 +23,9 @@ brew 'starship'  # shell prompt
 brew 'stow'
 brew 'stylua'
 brew 'taplo'  # TOML LSP and toolset
-# brew 'tealdeer'  # Rust tldr pages client
-brew 'tldr'
 # brew 'terraform-ls'
-brew 'tree-sitter-cli'  # for Neovim parsers
 brew 'tokei' # fancy line count
+brew 'tree-sitter-cli'  # for Neovim parsers
 brew 'uv'
 brew 'zoxide' # fast dir nav
 
@@ -45,7 +39,3 @@ cask 'kitty'
 # --- Fonts --- #
 cask 'font-iosevka'
 cask 'font-symbols-only-nerd-font'
-
-# --- Misc --- #
-tap 'dsully/tap'
-brew 'macos-defaults'

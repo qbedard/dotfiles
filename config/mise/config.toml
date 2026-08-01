@@ -62,7 +62,6 @@ usage = "latest"
 
 "go:golang.org/x/tools/gopls" = "latest"
 "npm:@biomejs/biome" = "latest"
-# "npm:tree-sitter-cli" = "latest"
 "npm:prettier" = "latest"
 "pipx:poetry" = "latest"
 "pipx:pre-commit" = "latest"
