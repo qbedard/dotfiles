@@ -1,4 +1,4 @@
-#:schema https://www.schemastore.org/ruff.json
+#:schema https://schemastore.org/ruff.json
 [lint]
 select = [
   "A", # flake8-builtins
