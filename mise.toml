@@ -4,13 +4,9 @@ auto_env = true
 
 [bootstrap.hooks]
 pre-dotfiles = """
-mkdir -p ~/.claude
 mkdir -p ~/.config/fish/functions
 mkdir -p ~/.config/gh
 mkdir -p ~/.config/karabiner
-mkdir -p ~/Library/Application Support/biome
-mkdir -p ~/Library/Application Support/jesseduffield/lazydocker
-mkdir -p ~/Library/Application Support/pypoetry
 """
 
 [dotfiles]
