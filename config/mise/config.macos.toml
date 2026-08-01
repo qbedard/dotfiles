@@ -88,7 +88,7 @@ login_shell = "/opt/homebrew/bin/fish"
 source = "~/git/qbedard/dotfiles/config/biome.json"
 
 [dotfiles."~/Library/Application Support/jesseduffield/lazydocker/config.yml"]
-source = "~/git/qbedard/dotfiles/lazydocker-config.yaml"
+source = "~/git/qbedard/dotfiles/config/lazydocker/config.yml"
 
 [dotfiles."~/Library/Application Support/pypoetry/config.toml"]
 source = "~/git/qbedard/dotfiles/config/pypoetry/config.toml"
