@@ -1,9 +1,10 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = "all" },
-    config = function(_, opts)
-      require("nvim-treesitter").setup(opts)
+    lazy = false, -- unsupported
+    build = ":TSUpdate", -- rebuild parsers when the plugin updates
+    config = function()
+      require("nvim-treesitter").install({ "stable", "unstable" })
       vim.api.nvim_create_autocmd("FileType", {
         callback = function()
           pcall(vim.treesitter.start)

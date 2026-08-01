@@ -1,17 +1,21 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = ":TSUpdate",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "windwp/nvim-ts-autotag",
     },
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = "all",
-        highlight = { enable = true, disable = { "scss" } },
+      require("nvim-treesitter").install({ "stable", "unstable" })
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          pcall(vim.treesitter.start)
+        end,
       })
       vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+      vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
     end,
   },
   {
