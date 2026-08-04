@@ -1,5 +1,6 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 [bootstrap.packages]
+"brew:awscli" = "latest"
 "brew:gnupg" = "latest" # GPG tools
 "brew:terraform-ls" = "latest"
 
