@@ -106,7 +106,6 @@ return {
       -- "sqls",
       -- "taplo",
       -- "terraformls",
-      "tflint", -- TODO: Add `tflint --init`?
       "ty",
     }
     for _, lsp in ipairs(servers) do
