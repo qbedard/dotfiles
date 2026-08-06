@@ -287,6 +287,15 @@ return {
     })
     vim.lsp.enable("terraformls")
 
+    ---------------------------------- TFLint ----------------------------------
+    vim.lsp.config("tflint", {
+      capabilities = capabilities,
+      before_init = function()
+        vim.system({ "tflint", "--init" }):wait()
+      end,
+    })
+    vim.lsp.enable("tflint")
+
     -------------------------------- Vimscript ---------------------------------
     vim.lsp.config("vimls", {
       capabilities = capabilities,
