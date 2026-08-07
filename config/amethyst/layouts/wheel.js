@@ -1,9 +1,9 @@
-function layout() {
+function _layout() {
   return {
     name: "Wheel",
     initialState: {},
     commands: {},
-    getFrameAssignments: (windows, screenFrame, state) => {},
-    updateWithChange: (change, state) => {},
+    getFrameAssignments: (_windows, _screenFrame, _state) => {},
+    updateWithChange: (_change, _state) => {},
   };
 }
