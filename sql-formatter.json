@@ -1,5 +1,6 @@
 {
+  "expressionWidth": 88,
+  "keywordCase": "upper",
   "language": "mysql",
-  "useTabs": true,
-  "keywordCase": "upper"
+  "useTabs": true
 }
