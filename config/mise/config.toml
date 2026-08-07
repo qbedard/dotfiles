@@ -16,6 +16,7 @@ mkdir -p ~/.claude
 mkdir -p ~/.config/fish/functions
 mkdir -p ~/.config/gh
 mkdir -p ~/.config/karabiner
+mkdir -p ~/.config/nvim
 """
 post-packages = "bat cache --build"
 
