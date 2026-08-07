@@ -11,12 +11,14 @@ idiomatic_version_file_enable_tools = [
 ]
 
 [bootstrap.hooks]
+# Prevents dynamic linking from pulling files into the dotfiles source dir.
 pre-dotfiles = """
 mkdir -p ~/.claude
 mkdir -p ~/.config/fish/functions
 mkdir -p ~/.config/gh
 mkdir -p ~/.config/karabiner
 mkdir -p ~/.config/nvim
+mkdir -p ~/.config/opencode
 """
 post-packages = "bat cache --build"
 
