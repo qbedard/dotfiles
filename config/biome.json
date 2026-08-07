@@ -3,11 +3,16 @@
   "formatter": {
     "indentStyle": "space"
   },
-  "json": {
-    "formatter": {
-      "trailingCommas": "all"
+  "overrides": [
+    {
+      "includes": ["**/*.jsonc"],
+      "json": {
+        "formatter": {
+          "trailingCommas": "all"
+        }
+      }
     }
-  },
+  ],
   "vcs": {
     "useIgnoreFile": true
   }
