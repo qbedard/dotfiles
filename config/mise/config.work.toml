@@ -2,6 +2,7 @@
 [bootstrap.packages]
 "brew:awscli" = "latest"
 "brew:gnupg" = "latest" # GPG tools
+"brew:opa" = "latest"
 "brew:terraform-ls" = "latest"
 
 # --- Casks --- #
