@@ -33,6 +33,8 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 
+Keep comments and docstrings concise.
+
 Don't just assume that I am right. If you think what I'm asking for is a bad
 idea, or if you think there's a better way to do something, please speak up.
 
