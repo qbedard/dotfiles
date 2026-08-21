@@ -106,7 +106,6 @@ return {
       -- "sqls",
       -- "taplo",
       -- "terraformls",
-      "ty",
     }
     for _, lsp in ipairs(servers) do
       vim.lsp.config(lsp, { capabilities = capabilities })
@@ -213,6 +212,19 @@ return {
       },
     })
     vim.lsp.enable("pyright")
+
+    -- Disable some ty functionality in favor of pyright while in parllel
+    vim.lsp.config("ty", {
+      capabilities = capabilities,
+      on_attach = function(client)
+        client.server_capabilities.declarationProvider = false
+        client.server_capabilities.definitionProvider = false
+        client.server_capabilities.hoverProvider = false
+        client.server_capabilities.referencesProvider = false
+        client.server_capabilities.typeDefinitionProvider = false
+      end,
+    })
+    vim.lsp.enable("ty")
 
     vim.lsp.config("ruff", {
       capabilities = capabilities,
