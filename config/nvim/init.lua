@@ -125,6 +125,7 @@ vim.filetype.add({
     keymap = "c",
     jsonl = "json",
     overlay = "c",
+    spc = "hcl",
     sql = "mysql",
     tfbackend = "terraform-vars",
     tfstate = "json",
