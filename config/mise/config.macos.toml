@@ -60,6 +60,7 @@ tap_to_click = false
 "brew:neovim" = "latest"
 # "brew:procs" = "latest" # ps replacement
 "brew:ripgrep" = "latest" # awesome grep
+"brew:rtk" = "latest" # AI token reducer
 "brew:shellcheck" = "latest" # used by bashls
 "brew:shfmt" = "latest"
 "brew:starship" = "latest" # shell prompt

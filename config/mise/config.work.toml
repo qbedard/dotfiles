@@ -4,6 +4,7 @@
 "brew:gnupg" = "latest" # GPG tools
 "brew:opa" = "latest"
 "brew:terraform-ls" = "latest"
+"brew:terraform-mcp-server" = "latest"
 
 # --- Casks --- #
 # "brew-cask:docker" = "latest"
