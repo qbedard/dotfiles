@@ -5,7 +5,7 @@
 .direnv
 .fastembed_cache
 .idea
-.mise.local.toml
+*mise.local.toml
 .pyc
 .pytest_cache
 .ropeproject
