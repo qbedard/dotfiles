@@ -22,7 +22,7 @@ run = "brew upgrade --cask --quiet"
 run = "mise upgrade --quiet"
 
 [tasks."upgrade:mise-packages"]
-run = "mise bootstrap packages upgrade -y"
+run = "mise bootstrap packages upgrade --jobs 1 --yes"
 
 [tasks."upgrade:nvim"]
 run = "nvim --headless '+Lazy! sync' +MasonUpdate +TSUpdate +qa"
