@@ -10,7 +10,7 @@ fi
 
 export PATH="$HOME/bin:$PATH"        # custom binaries
 export PATH="$HOME/.cargo/bin:$PATH" # rust
-export PATH="$HOME/go/bin"           # go
+export PATH="$HOME/go/bin:$PATH"     # go
 
 # XDG_DATA_HOME
 if [ -z "$XDG_DATA_HOME" ]; then
