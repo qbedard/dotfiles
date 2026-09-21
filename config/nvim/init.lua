@@ -239,22 +239,5 @@ vim.api.nvim_create_user_command("Wq", "wq", { bang = true })
 vim.g.loaded_netrwPlugin = 1 -- no netrw
 vim.g.netrw_dirhistmax = 0 -- no netrwhist
 
--- Bootstrap lazy.nvim
-local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.uv.fs_stat(lazy_path) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "--single-branch",
-    "https://github.com/folke/lazy.nvim.git",
-    lazy_path,
-  })
-end
-vim.opt.runtimepath:prepend(lazy_path)
-
-require("lazy").setup("plugins", {
-  headless = { log = false },
-  ui = { border = "rounded" },
-})
+require("pack")
 -- require("minimal")
