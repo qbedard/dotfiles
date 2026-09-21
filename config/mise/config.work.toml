@@ -13,9 +13,11 @@
 SAM_CLI_TELEMETRY = 0
 
 [tools]
+go = "1.27"
 node = { version = "24", postinstall = "corepack enable" }
 
 # "github:open-policy-agent/opa" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
 "npm:@actions/languageserver" = "latest"
 # "npm:semantic-release" = "latest"
 # "npm:snyk" = "latest"
