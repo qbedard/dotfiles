@@ -29,11 +29,21 @@ return {
     opts = { user_default_options = { mode = "virtualtext" } },
   },
 
-  {
-    "iamcco/markdown-preview.nvim",
-    build = ":call mkdp#util#install()",
-    ft = "markdown",
-  },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   build = ":call mkdp#util#install()",
+  --   ft = "markdown",
+  -- },
+  -- {
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" },
+  -- },
+  -- {
+  --   "OXY2DEV/markview.nvim",
+  --   lazy = false,
+  --   dependencies = { "saghen/blink.cmp" },
+  --   opts = { preview = { icon_provider = "mini" } },
+  -- },
 
   {
     "unblevable/quick-scope",
@@ -167,6 +177,7 @@ return {
         "tflint",
         "ty",
         "vimls",
+        "yamlls",
       },
     },
   },
