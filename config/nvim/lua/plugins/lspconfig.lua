@@ -81,7 +81,7 @@ return {
     local capabilities = require("blink.cmp").get_lsp_capabilities(
       vim.lsp.protocol.make_client_capabilities()
     )
-    capabilities.textDocument.completion.completionItem.snippetSupport = false
+    -- capabilities.textDocument.completion.completionItem.snippetSupport = false
 
     ------------------------------ Simple Configs ------------------------------
     local servers = {
