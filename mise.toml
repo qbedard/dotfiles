@@ -25,7 +25,7 @@ run = "mise upgrade --quiet"
 run = "mise bootstrap packages upgrade --jobs 1 --yes"
 
 [tasks."upgrade:nvim"]
-run = "nvim --headless '+Lazy! sync' +MasonUpdate +TSUpdate +qa"
+run = "nvim --headless '+lua vim.pack.update(nil, { force = true })' +MasonUpdate +TSUpdate +qa"
 
 [tasks.upgrade]
 depends = ["upgrade:*"]
