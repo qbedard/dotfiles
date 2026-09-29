@@ -1,6 +1,21 @@
 -- Open the Terraform Registry docs for the resource or data source under the
 -- cursor. terraform-ls has already resolved the provider namespace in its
 -- hover response, so we reuse that rather than parsing required_providers.
+
+-- Walk up from the cursor to the enclosing block and return its leading
+-- keyword ("resource", "data", ...). The AST is the source of truth for
+-- resource vs data source; the hover text isn't reliably distinguishable.
+local function block_keyword()
+  local node = vim.treesitter.get_node()
+  while node and node:type() ~= "block" do
+    node = node:parent()
+  end
+  if not node then
+    return nil
+  end
+  return vim.treesitter.get_node_text(node:named_child(0), 0)
+end
+
 local function open_registry_docs()
   local client = vim.lsp.get_clients({ bufnr = 0, name = "terraformls" })[1]
   if not client then
@@ -18,7 +33,7 @@ local function open_registry_docs()
       return
     end
 
-    local category = value:match("Data Source") and "data-sources" or "resources"
+    local category = block_keyword() == "data" and "data-sources" or "resources"
     local provider = source:match("/(.+)$")
     -- Resource names are prefixed with the provider type, e.g. aws_instance.
     local page = rtype:gsub("^" .. vim.pesc(provider) .. "_", "")

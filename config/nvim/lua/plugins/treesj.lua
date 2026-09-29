@@ -1,9 +1,25 @@
 require("treesj").setup({
   max_join_length = 512,
   use_default_keymaps = false,
+  langs = {
+    -- Upstream's terraform preset doesn't support blocks, so add it in.
+    terraform = {
+      block = { target_nodes = { "body" } },
+      body = {
+        both = { non_bracket_node = true },
+        join = {
+          space_in_brackets = true,
+          -- HCL only allows a single argument on a one-line block.
+          enable = function(node)
+            return node:named_child_count() <= 1
+          end,
+        },
+      },
+    },
+  },
 })
 
-local function get_pos_lang(node)
+local function get_pos_lang()
   local c = vim.api.nvim_win_get_cursor(0)
   local range = { c[1] - 1, c[2], c[1] - 1, c[2] }
   local buf = vim.api.nvim_get_current_buf()
