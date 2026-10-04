@@ -35,6 +35,8 @@ Namespaces are one honking great idea -- let's do more of those!
 
 Keep comments and docstrings concise.
 
+Avoid using semicolons in non-code text.
+
 Don't just assume that I am right. If you think what I'm asking for is a bad
 idea, or if you think there's a better way to do something, please speak up.
 
@@ -44,12 +46,12 @@ When you would use find, use fd instead. It's generally faster and more
 user-friendly.
 When parsing JSON locally, use jq — not Python one-liners. jq is
 purpose-built for this and is available on this workstation. However, do
-not assume jq is available on remote servers; for commands intended to
+not assume jq is available on remote servers. For commands intended to
 run remotely, use Python or other tools likely to be present.
 
 When you need to look up library or framework documentation, use context7 tools.
 
-Never search broadly from ~ or /; ask which specific paths to check.
+Never search broadly from ~ or /. Ask which specific paths to check.
 
 When exploring a codebase, prefer structured tools over raw file reads:
 
