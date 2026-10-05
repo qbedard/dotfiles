@@ -33,7 +33,20 @@ local function open_registry_docs()
       return
     end
 
-    local category = block_keyword() == "data" and "data-sources" or "resources"
+    local keyword = block_keyword()
+    if keyword == "provider" then
+      -- Provider blocks have no category/page; link to the docs index.
+      vim.ui.open(
+        string.format(
+          "https://registry.terraform.io/providers/%s/%s/docs",
+          source,
+          version
+        )
+      )
+      return
+    end
+
+    local category = keyword == "data" and "data-sources" or "resources"
     local provider = source:match("/(.+)$")
     -- Resource names are prefixed with the provider type, e.g. aws_instance.
     local page = rtype:gsub("^" .. vim.pesc(provider) .. "_", "")
