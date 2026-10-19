@@ -66,11 +66,13 @@ alias glog "\
         --pretty=format:'%Cred%h%Creset %s%C(yellow)%d %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
 # -------------------------------- App Config -------------------------------- #
+set -g cask_appdir "$HOME/Applications"
+
 if command -q brew
     brew shellenv | source
 
     # Install casks to ~/Applications
-    set -gx HOMEBREW_CASK_OPTS "--appdir=$HOME/Applications"
+    set -gx HOMEBREW_CASK_OPTS "--appdir=$cask_appdir"
 
     # Add openssl for compilers
     set -gx CPPFLAGS -I$HOMEBREW_PREFIX/opt/openssl/include
@@ -207,6 +209,7 @@ end
 # ---------------------------------- Hooks ----------------------------------- #
 if command -q mise
     abbr -a mr "mise run"
+    set -gx MISE_BREW_CASK_OPT_APPDIR "$cask_appdir"
     # mise activate fish | source
 end
 

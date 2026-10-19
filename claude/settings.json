@@ -25,6 +25,7 @@
       "Read(~/.mise.local.toml)"
     ]
   },
+  "model": "claude-opus-4-8",
   "enabledPlugins": {
     "atlassian@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
@@ -59,7 +60,5 @@
     }
   },
   "effortLevel": "medium",
-  "tui": "fullscreen",
-  "skipAutoPermissionPrompt": true,
-  "model": "claude-opus-4-8"
+  "tui": "fullscreen"
 }

@@ -1,11 +1,23 @@
 # ----- PATH ----- #
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  # add brew's local bins
-  export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+  # initialize Homebrew (sets PATH, HOMEBREW_PREFIX, MANPATH, etc.)
+  if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
 
   # add openssl to path for compilers
-  export LDFLAGS="-L/usr/local/opt/openssl/lib"
-  export CPPFLAGS="-I/usr/local/opt/openssl/include"
+  export LDFLAGS="-L$HOMEBREW_PREFIX/opt/openssl/lib"
+  export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openssl/include"
+
+  # add openssl certs for Node
+  export NODE_EXTRA_CA_CERTS="$HOMEBREW_PREFIX/etc/ca-certificates/cert.pem"
+
+  # Homebrew cask destination
+  cask_appdir="$HOME/Applications"
+  export HOMEBREW_CASK_OPTS="--appdir=$cask_appdir"
+  export MISE_BREW_CASK_OPT_APPDIR="$cask_appdir"
 fi
 
 export PATH="$HOME/bin:$PATH"        # custom binaries

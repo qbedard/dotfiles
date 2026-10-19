@@ -38,6 +38,9 @@ DoNotOfferNewDisksForBackup = true
 [bootstrap.macos.trackpad]
 tap_to_click = false
 
+[bootstrap.brew]
+adopt = true
+
 [bootstrap.packages]
 # --- mas --- # TODO
 # "brew:mas" = "latest"
@@ -58,6 +61,7 @@ tap_to_click = false
 "brew:lua-language-server" = "latest"
 # "brew:mise" = "latest" # tool version manager TODO: have this here?
 "brew:neovim" = "latest"
+"brew:podman" = "latest"
 # "brew:procs" = "latest" # ps replacement
 "brew:ripgrep" = "latest" # awesome grep
 "brew:rtk" = "latest" # AI token reducer
@@ -71,13 +75,13 @@ tap_to_click = false
 "brew:zoxide" = "latest" # fast dir nav
 
 # # --- Casks --- #
-# "brew-cask:amethyst" = "latest" # tiling window manager
-# "brew-cask:kitty" = "latest" # terminal
-# "brew-cask:sol" = "latest" # Spotlight replacement
+"brew-cask:amethyst" = "latest" # tiling window manager
+"brew-cask:kitty" = "latest" # terminal
+"brew-cask:sol" = "latest" # Spotlight replacement
 #
 # # --- Fonts --- #
-# "brew-cask:font-iosevka" = "latest"
-# "brew-cask:font-symbols-only-nerd-font" = "latest"
+"brew-cask:font-iosevka" = "latest"
+"brew-cask:font-symbols-only-nerd-font" = "latest"
 
 [bootstrap.user]
 login_shell = "/opt/homebrew/bin/fish"

@@ -15,8 +15,8 @@ mkdir -p ~/.config/karabiner
 # [tasks."upgrade:brew"]
 # run = "brew upgrade --quiet"
 
-[tasks."upgrade:brew-casks"]
-run = "brew upgrade --cask --quiet"
+# [tasks."upgrade:brew-casks"]
+# run = "brew upgrade --cask --quiet"
 
 [tasks."upgrade:mise"]
 run = "mise upgrade --quiet"
