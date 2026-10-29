@@ -44,10 +44,13 @@ When you would use grep, use ripgrep (rg) instead. It's generally faster and
 more featureful.
 When you would use find, use fd instead. It's generally faster and more
 user-friendly.
-When parsing JSON locally, use jq — not Python one-liners. jq is
-purpose-built for this and is available on this workstation. However, do
-not assume jq is available on remote servers. For commands intended to
-run remotely, use Python or other tools likely to be present.
+When parsing JSON in ad hoc commands you run yourself while working (not in
+committed code), use jq — not Python one-liners. jq is purpose-built for this
+and is available on this workstation. However, do not assume jq is available on
+remote servers. For such commands intended to run remotely, use Python or other
+tools likely to be present. This guidance is about commands you run during a
+session. Code committed to a repo should choose its JSON tooling on its own
+merits.
 
 When you need to look up library or framework documentation, use context7 tools.
 
